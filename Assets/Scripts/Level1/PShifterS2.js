@@ -24,7 +24,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 
 		if (!boxesUnfrozen) {
-			for (var box in []) {
+			for (var box in ["R2B1"]) {
 				var object = GameObject.Find(box);
 				object.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
 			}

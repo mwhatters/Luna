@@ -333,6 +333,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
 	if (tag == "Door" && hasKey) {
 		Remove("Door");
 		playSound("DoorOpenSound");
+		hasKey = false;
 	}
 
 	if (tag == "RotaterR" && canRotateGravity()) {
