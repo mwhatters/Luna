@@ -6,7 +6,8 @@ public var objectsList : String;
 
 public var y : float;
 public var x : float;
-
+public var zIn : float;
+public var zOut : float;
 
 function Start () {
 	cameraIsStatic = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).staticCamera();
@@ -22,11 +23,12 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 	if (!cameraIsStatic) {
 		var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
-		GameObject.FindGameObjectWithTag("TheGuy").transform.DetachChildren();
+		var lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
+	
+		lunaObj.transform.DetachChildren();
+	
 
-		camera.panCameraTo(Vector3(x, y, -8), 1.0, 23);
-
-
+		camera.panCameraTo(Vector3(x, y, -8), 1.0, zIn);
 
 		if (!boxesUnfrozen) {
 			var objects = objectsList.Split(" "[0]);
@@ -47,7 +49,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 		cameraStatic.transform.parent = luna.transform;
 
 		var rigidbody = luna.GetComponent(Rigidbody2D);
-		cameraStatic.GetComponent(CameraBehavior).panCameraTo(Vector3(luna.transform.position.x, luna.transform.position.y, -8), 0, 16);
+		cameraStatic.GetComponent(CameraBehavior).panCameraTo(Vector3(luna.transform.position.x, luna.transform.position.y, -8), 0, zOut);
 
 	}
 

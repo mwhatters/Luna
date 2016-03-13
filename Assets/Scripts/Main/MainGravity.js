@@ -27,10 +27,15 @@ public var rotateRate : float;
 private var nextRotate = 0.0;
 public var canRotate = true;
 
+public var frozen = false;
+
 
 // Game States
 
-private var hasKey = false;
+public var keysFound : GameObject[];
+
+
+
 private var isDead = false;
 private var hasWon = false;
 
@@ -61,7 +66,7 @@ function setWorldGravityShift() {
 
 function FixedUpdate () {
 
-	if (isDead || hasWon) {
+	if (isDead || hasWon || frozen) {
 		setNoMovements();
 		return false;
 	}
@@ -331,21 +336,9 @@ function OnCollisionEnter2D (coll : Collision2D) {
 		Die(); 
 	}
 
-	if (tag == "Key") {
-		hasKey = true;
-		Remove("Key");
-		playSound("GrabKeySound");
-	}
-
 	if (coll.gameObject.CompareTag("VictoryPortal")) {
 		removeLuna();
 		Win();
-	}
-
-	if (tag == "Door" && hasKey) {
-		Remove("Door");
-		playSound("DoorOpenSound");
-		hasKey = false;
 	}
 
 	if (tag == "RotaterR" && canRotateGravity()) {
