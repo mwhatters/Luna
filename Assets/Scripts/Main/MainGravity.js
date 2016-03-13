@@ -5,9 +5,7 @@ import System.Linq;
 
 private var gravity = 9.81;
 private var lunaGravity = 9.81;
-
 public var gravitySettings : String;
-
 private var gravityOrientations = ["down", "right", "up", "left"];
 private var gravityIndex = 0;
 
@@ -27,6 +25,8 @@ private var touchingGround = false;
 private var facingRight = true;
 public var rotateRate : float;
 private var nextRotate = 0.0;
+public var canRotate = true;
+
 
 // Game States
 
@@ -101,6 +101,7 @@ function FixedUpdate () {
 	// Gravity Rotation
 
 	if (Input.GetKeyDown(KeyCode.RightArrow) && canRotateGravity()) {
+		
 		adjustGravityRight();
 
 		Rotate(transform, Vector3.forward * 90, 0.0);
@@ -125,6 +126,12 @@ function FixedUpdate () {
 
 		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateLeft(rotateRate);
 		playSound("RotateGravitySound");
+
+	}
+
+	if (Input.GetKeyDown(KeyCode.UpArrow) && canRotateGravity()) {
+		var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
+		camera.reorient(Vector3(transform.position.x, transform.position.y, -8), camera.camScope, transform.eulerAngles.z);
 	}
 }
 
@@ -138,7 +145,6 @@ function adjustShifters(shifters, degrees) {
 		}
 	}
 }
-
 
 
 function adjustGravityLeft() {
@@ -164,7 +170,7 @@ function Rotate(object, degrees, time : float) {
 
 
 function canRotateGravity() {
-	return Time.time > nextRotate + 0.01;
+	return (Time.time > nextRotate + 0.01 && canRotate);
 }
 
 
@@ -183,6 +189,9 @@ function objGravity(taggedItems : Array, g : float, axis : String) {
 
 	}
 }
+
+
+
 
 
 // Movement and Orientation
@@ -302,6 +311,9 @@ function CanJump() {
 
 
 
+
+
+
 // Collision
 
 function OnCollisionEnter2D (coll : Collision2D) {
@@ -384,6 +396,9 @@ function OnCollisionEnter2D (coll : Collision2D) {
 		playSound("ShiftSound");
 	}
 }
+
+
+
 
 
 
