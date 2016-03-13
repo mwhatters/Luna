@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: dd3f080927b6c4546801c422172b4b5a
+timeCreated: 1457818637
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Dream Door_0
+    21300002: Dream Door_1
+    21300004: Dream Door_2
+    21300006: Dream Door_3
+    21300008: Dream Door_4
+    21300010: Dream Door_5
+    21300012: Dream Door_6
+    21300014: Dream Door_7
+    21300016: Dream Door_8
+    21300018: Dream Door_9
+    21300020: Dream Door_10
+    21300022: Dream Door_11
+    21300024: Dream Door_12
+    21300026: Dream Door_13
+    21300028: Dream Door_14
+    21300030: Dream Door_15
+    21300032: Dream Door_16
+    21300034: Dream Door_17
+    21300036: Dream Door_18
+    21300038: Dream Door_19
+    21300040: Dream Door_20
+    21300042: Dream Door_21
+    21300044: Dream Door_22
+    21300046: Dream Door_23
+    21300048: Dream Door_24
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Dream Door_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 82}
+        - {x: -41, y: -82}
+        - {x: 41, y: -82}
+        - {x: 41, y: 82}
+    - name: Dream Door_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.58, y: 82}
+        - {x: -40.58, y: -82}
+        - {x: 42.42, y: -82}
+        - {x: 42.42, y: 82}
+    - name: Dream Door_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.660004, y: 82}
+        - {x: -40.660004, y: -82}
+        - {x: 42.339996, y: -82}
+        - {x: 42.339996, y: 82}
+    - name: Dream Door_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.740005, y: 82}
+        - {x: -40.740005, y: -82}
+        - {x: 42.259995, y: -82}
+        - {x: 42.259995, y: 82}
+    - name: Dream Door_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.820007, y: 82}
+        - {x: -40.820007, y: -82}
+        - {x: 42.179993, y: -82}
+        - {x: 42.179993, y: 82}
+    - name: Dream Door_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.900024, y: 82}
+        - {x: -40.900024, y: -82}
+        - {x: 42.099976, y: -82}
+        - {x: 42.099976, y: 82}
+    - name: Dream Door_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.98001, y: 82}
+        - {x: -40.98001, y: -82}
+        - {x: 42.01999, y: -82}
+        - {x: 42.01999, y: 82}
+    - name: Dream Door_7
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.059998, y: 82}
+        - {x: -41.059998, y: -82}
+        - {x: 41.940002, y: -82}
+        - {x: 41.940002, y: 82}
+    - name: Dream Door_8
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.140015, y: 82}
+        - {x: -41.140015, y: -82}
+        - {x: 41.859985, y: -82}
+        - {x: 41.859985, y: 82}
+    - name: Dream Door_9
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.22003, y: 82}
+        - {x: -41.22003, y: -82}
+        - {x: 41.77997, y: -82}
+        - {x: 41.77997, y: 82}
+    - name: Dream Door_10
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.30005, y: 82}
+        - {x: -41.30005, y: -82}
+        - {x: 41.69995, y: -82}
+        - {x: 41.69995, y: 82}
+    - name: Dream Door_11
+      rect:
+        serializedVersion: 2
+        x: 5632
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.380005, y: 82}
+        - {x: -41.380005, y: -82}
+        - {x: 41.619995, y: -82}
+        - {x: 41.619995, y: 82}
+    - name: Dream Door_12
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.960022, y: 82}
+        - {x: -40.960022, y: -82}
+        - {x: 41.039978, y: -82}
+        - {x: 41.039978, y: 82}
+    - name: Dream Door_13
+      rect:
+        serializedVersion: 2
+        x: 6656
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.54004, y: 82}
+        - {x: -40.54004, y: -82}
+        - {x: 42.45996, y: -82}
+        - {x: 42.45996, y: 82}
+    - name: Dream Door_14
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.619995, y: 82}
+        - {x: -40.619995, y: -82}
+        - {x: 42.380005, y: -82}
+        - {x: 42.380005, y: 82}
+    - name: Dream Door_15
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.700073, y: 82}
+        - {x: -40.700073, y: -82}
+        - {x: 42.299927, y: -82}
+        - {x: 42.299927, y: 82}
+    - name: Dream Door_16
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.78003, y: 82}
+        - {x: -40.78003, y: -82}
+        - {x: 42.21997, y: -82}
+        - {x: 42.21997, y: 82}
+    - name: Dream Door_17
+      rect:
+        serializedVersion: 2
+        x: 8704
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.859985, y: 82}
+        - {x: -40.859985, y: -82}
+        - {x: 42.140015, y: -82}
+        - {x: 42.140015, y: 82}
+    - name: Dream Door_18
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.940063, y: 82}
+        - {x: -40.940063, y: -82}
+        - {x: 42.059937, y: -82}
+        - {x: 42.059937, y: 82}
+    - name: Dream Door_19
+      rect:
+        serializedVersion: 2
+        x: 9728
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.02002, y: 82}
+        - {x: -41.02002, y: -82}
+        - {x: 41.97998, y: -82}
+        - {x: 41.97998, y: 82}
+    - name: Dream Door_20
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.100098, y: 82}
+        - {x: -41.100098, y: -82}
+        - {x: 41.899902, y: -82}
+        - {x: 41.899902, y: 82}
+    - name: Dream Door_21
+      rect:
+        serializedVersion: 2
+        x: 10752
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.180054, y: 82}
+        - {x: -41.180054, y: -82}
+        - {x: 41.819946, y: -82}
+        - {x: 41.819946, y: 82}
+    - name: Dream Door_22
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.26001, y: 82}
+        - {x: -41.26001, y: -82}
+        - {x: 41.73999, y: -82}
+        - {x: 41.73999, y: 82}
+    - name: Dream Door_23
+      rect:
+        serializedVersion: 2
+        x: 11776
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.340088, y: 82}
+        - {x: -41.340088, y: -82}
+        - {x: 41.659912, y: -82}
+        - {x: 41.659912, y: 82}
+    - name: Dream Door_24
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 0
+        width: 512
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.920044, y: 82}
+        - {x: -40.920044, y: -82}
+        - {x: 41.079956, y: -82}
+        - {x: 41.079956, y: 82}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
