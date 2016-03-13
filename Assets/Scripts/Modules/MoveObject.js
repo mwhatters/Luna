@@ -23,24 +23,9 @@ function Translation (thisTransform : Transform, startPos : Vector3, endPos : Ve
 	var rate = (moveType == MoveType.Time)? 1.0/value : 1.0/Vector3.Distance(startPos, endPos) * value;
 	var t = 0.0;
 
-//	var lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
-//	var curVelocity = lunaObj.GetComponent(Rigidbody2D).velocity;
-//	lunaObj.GetComponent(MainGravity).frozen = true;
-
-//	var objects = GameObject.FindObjectsOfType(Rigidbody2D);
-//
-//	for (var object in objects) {
-//		Debug.Log(object);
-//		var curVelocity = object.velocity;
-//
-//		Debug.Log(curVelocity);
-//
-//		if (object.name == "Luna") {
-//			object.GetComponent(MainGravity).frozen = true;
-//		} else {
-//			object.GetComponent(FreezeScript).frozen = true;
-//		}
-//	}
+	var lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
+	var curVelocity = lunaObj.GetComponent(Rigidbody2D).velocity;
+	lunaObj.GetComponent(MainGravity).frozen = true;
 
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
@@ -49,8 +34,8 @@ function Translation (thisTransform : Transform, startPos : Vector3, endPos : Ve
 		yield; 
 	}
 
-//	lunaObj.GetComponent(MainGravity).frozen = false;
-//	lunaObj.GetComponent(Rigidbody2D).velocity = curVelocity;
+	lunaObj.GetComponent(MainGravity).frozen = false;
+	lunaObj.GetComponent(Rigidbody2D).velocity = curVelocity;
 
 }
  
