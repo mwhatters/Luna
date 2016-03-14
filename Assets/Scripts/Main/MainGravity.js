@@ -133,10 +133,10 @@ function FixedUpdate () {
 
 	}
 
-	if (Input.GetKeyDown(KeyCode.UpArrow) && canRotateGravity()) {
-		var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
-		camera.reorient(Vector3(transform.position.x, transform.position.y, -8), camera.camScope, transform.eulerAngles.z);
-	}
+//	if (Input.GetKeyDown(KeyCode.UpArrow) && canRotateGravity()) {
+//		var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
+//		camera.reorient(Vector3(transform.position.x, transform.position.y, -8), camera.camScope, transform.eulerAngles.z);
+//	}
 }
 
 
