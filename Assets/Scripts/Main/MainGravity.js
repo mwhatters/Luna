@@ -204,8 +204,8 @@ function setDownMovements() {
 	var x; var y;
 
 	xJump(x, jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { yMove(y, -moveSpeed, facingRight); } // Left
-	if (Input.GetKey(KeyCode.D)) { yMove(y, moveSpeed, !facingRight); }	// Right
+	if (Input.GetKey(KeyCode.A)) { xMove(y, -moveSpeed, facingRight); } // Left
+	if (Input.GetKey(KeyCode.D)) { xMove(y, moveSpeed, !facingRight); }	// Right
 
 	// Velocity stopper
 	if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && GetComponent(Rigidbody2D).velocity.y == -0.1962) {
@@ -218,8 +218,8 @@ function setUpMovements() {
 	var x; var y;
 
 	xJump(x, -jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { yMove(y, moveSpeed, facingRight);   } // Left
-	if (Input.GetKey(KeyCode.D)) { yMove(y, -moveSpeed, !facingRight); } // Right
+	if (Input.GetKey(KeyCode.A)) { xMove(y, moveSpeed, facingRight);   } // Left
+	if (Input.GetKey(KeyCode.D)) { xMove(y, -moveSpeed, !facingRight); } // Right
 
 	if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && GetComponent(Rigidbody2D).velocity.y == 0.1962) {
 		GetComponent(Rigidbody2D).velocity.x = 0;
@@ -231,8 +231,8 @@ function setLeftMovements() {
 	var x; var y;
 
 	yJump(y, jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { xMove(x, moveSpeed, facingRight);   } // Left
-	if (Input.GetKey(KeyCode.D)) { xMove(x, -moveSpeed, !facingRight);   } // Right
+	if (Input.GetKey(KeyCode.A)) { yMove(x, moveSpeed, facingRight);   } // Left
+	if (Input.GetKey(KeyCode.D)) { yMove(x, -moveSpeed, !facingRight);   } // Right
 
 	if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && GetComponent(Rigidbody2D).velocity.x == -0.1962) {
 		GetComponent(Rigidbody2D).velocity.y = 0;
@@ -244,8 +244,8 @@ function setRightMovements() {
 	var x; var y;
 
 	yJump(y, -jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { xMove(x, -moveSpeed, facingRight);   } // Left
-	if (Input.GetKey(KeyCode.D)) { xMove(x, moveSpeed, !facingRight);   } // Right
+	if (Input.GetKey(KeyCode.A)) { yMove(x, -moveSpeed, facingRight);   } // Left
+	if (Input.GetKey(KeyCode.D)) { yMove(x, moveSpeed, !facingRight);   } // Right
 
 	if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && GetComponent(Rigidbody2D).velocity.x == 0.1962) {
 		GetComponent(Rigidbody2D).velocity.y = 0;
@@ -258,13 +258,13 @@ function setNoMovements() {
 
 
 
-function yMove(y, moveSpeed, orientation) {
+function xMove(y, moveSpeed, orientation) {
 	y = GetComponent(Rigidbody2D).velocity.y;
 	GetComponent(Rigidbody2D).velocity = new Vector2(moveSpeed, y);
 	flipIf(orientation);
 }
 
-function xMove(x, moveSpeed, orientation) {
+function yMove(x, moveSpeed, orientation) {
 	x = GetComponent(Rigidbody2D).velocity.x;
 	GetComponent(Rigidbody2D).velocity = new Vector2(x, moveSpeed);
 	flipIf(orientation);
