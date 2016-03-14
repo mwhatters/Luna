@@ -88,6 +88,7 @@
 'Assets/Scripts/3rd Party Objects/OpeningDoor.js'
 'Assets/Scripts/BoxKiller.js'
 'Assets/Scripts/CannotRotateZone.js'
+'Assets/Scripts/FreezeScript.js'
 'Assets/Scripts/KeyDoor.js'
 'Assets/Scripts/KeyScript.js'
 'Assets/Scripts/Level1/Area1Objects.js'

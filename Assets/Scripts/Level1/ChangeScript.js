@@ -21,14 +21,16 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 	if (coll.name != "Luna") { return false; }
 
-	if (!cameraIsStatic) {
-		var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
+	var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
+
+//	if (!cameraIsStatic) {
 		var lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
 	
-		lunaObj.transform.DetachChildren();
+//		lunaObj.transform.DetachChildren();
+		camera.isStatic = true;
 	
 
-		camera.panCameraTo(Vector3(x, y, -8), 1.0, zIn);
+		camera.panCameraTo(Vector3(x, y, -8), 1, zIn);
 
 		if (!boxesUnfrozen) {
 			var objects = objectsList.Split(" "[0]);
@@ -41,17 +43,25 @@ function OnTriggerEnter2D(coll : Collider2D) {
 		boxesUnfrozen = true;
 		GameObject.FindGameObjectWithTag("ExpandSound").GetComponent(AudioSource).Play();
 
-	}
+//	}
+}
 
-	if (cameraIsStatic) {
+function OnTriggerExit2D(coll : Collider2D) {
+
+	if (coll.name != "Luna") { return false; }
+
+	var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
+
+
+//	if (cameraIsStatic) {
 		var luna = GameObject.FindGameObjectWithTag("TheGuy");
-		var cameraStatic = GameObject.FindGameObjectWithTag("MainCamera");
-		cameraStatic.transform.parent = luna.transform;
+
+		camera.isStatic = false;
 
 		var rigidbody = luna.GetComponent(Rigidbody2D);
-		cameraStatic.GetComponent(CameraBehavior).panCameraTo(Vector3(luna.transform.position.x, luna.transform.position.y, -8), 0, zOut);
+		camera.panCameraTo(Vector3(luna.transform.position.x, luna.transform.position.y, -8), 0, zOut);
 
-	}
+//	}
 
 	cameraIsStatic = !cameraIsStatic;
 	GameObject.FindGameObjectWithTag("RestrainSound").GetComponent(AudioSource).Play();

@@ -2,27 +2,35 @@
 
 public var camScope = 16;
 public var staticPoint : Vector3;
- 
+
+//private var followingLuna = true;
+
+public var isStatic = false;
+private var lunaObj : GameObject;
+
 function Start () {
+	lunaObj = GameObject.Find("Luna");
 }
 
 function Update() {
+
+	if (!staticCamera()) {
+		transform.position.x = lunaObj.transform.position.x;
+		transform.position.y = lunaObj.transform.position.y;
+	} 
+
 }
 
 function rotateRight(rate) {
-	if (staticCamera()) {
 		MoveObject.use.Rotation(transform, Vector3.forward * 90.0, rate);
-	}
 }
 
 function rotateLeft(rate) {
-	if (staticCamera()) {
 		MoveObject.use.Rotation(transform, Vector3.forward * -90.0, rate);
-	}
 }
 
 function staticCamera() {
-	if (transform.parent === null) { return true; } else { return false; }
+	return isStatic == true;
 }
 
 function panCameraTo(point : Vector3, speed : float, size : float) {

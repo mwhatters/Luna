@@ -23,19 +23,12 @@ function Translation (thisTransform : Transform, startPos : Vector3, endPos : Ve
 	var rate = (moveType == MoveType.Time)? 1.0/value : 1.0/Vector3.Distance(startPos, endPos) * value;
 	var t = 0.0;
 
-	var lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
-	var curVelocity = lunaObj.GetComponent(Rigidbody2D).velocity;
-	lunaObj.GetComponent(MainGravity).frozen = true;
-
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
 		thisTransform.position = Vector3.Lerp(startPos, endPos, t);
 		camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, size, t);
 		yield; 
 	}
-
-	lunaObj.GetComponent(MainGravity).frozen = false;
-	lunaObj.GetComponent(Rigidbody2D).velocity = curVelocity;
 
 }
  

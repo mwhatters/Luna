@@ -17,7 +17,6 @@ private var maxJumps = 1;
 private var numJumps = 0; // number of current jumps
 private var jumpContactPoint = [0.0, 1.0];
 
-
 private var touchingGround = false;
 
 // Orientation & Rotation
