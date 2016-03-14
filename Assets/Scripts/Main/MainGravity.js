@@ -2,18 +2,12 @@
 import System.Linq;
 
 // Gravity Vars
-var GravityDirections = Object.freeze({
-    "DOWN": 0,
-    "RIGHT": 1,
-    "UP": 2,
-    "LEFT" 3
-});
 
 private var gravity = 9.81;
 private var lunaGravity = 9.81;
 public var gravitySettings : String;
-
-private var gravityDirection = GravityDirections.DOWN;
+private var gravityOrientations = ["down", "right", "up", "left"];
+private var gravityIndex = 0;
 
 // Move & Jump
 
@@ -78,14 +72,14 @@ function FixedUpdate () {
 
 	// Gravity Settings
 
-	if (gravityDirection == GravityDirections.DOWN) {
+	if (gravityOrientations[gravityIndex] === "down") {
 		currentAxis = upDownAxis[1];
 		GetComponent(Rigidbody2D).velocity.y += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
 		setDownMovements();
 	}
 
-	if (gravityDirection == GravityDirections.UP) {
+	if (gravityOrientations[gravityIndex] === "up") {
 		currentAxis = upDownAxis[1];
 		GetComponent(Rigidbody2D).velocity.y += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
@@ -93,14 +87,14 @@ function FixedUpdate () {
 
 	}
 
-	if (gravityDirection == GravityDirections.LEFT) {
+	if (gravityOrientations[gravityIndex] === "left") {
 		currentAxis = upDownAxis[0];
 		GetComponent(Rigidbody2D).velocity.x += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
 		setLeftMovements();
 	}
 
-	if (gravityDirection == GravityDirections.RIGHT) {
+	if (gravityOrientations[gravityIndex] === "right") {
 		currentAxis = upDownAxis[0];
 		GetComponent(Rigidbody2D).velocity.x += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
@@ -158,25 +152,19 @@ function adjustShifters(shifters, degrees) {
 
 
 function adjustGravityLeft() {
-    var relation = {
-        GravityDirections.DOWN:  GravityDirections.LEFT, 
-        GravityDirections.LEFT:  GravityDirections.UP,
-        GravityDirections.UP:    GravityDirections.RIGHT,
-        GravityDirections.RIGHT: GravityDirections.DOWN
-    }
-
-    gravityDirection = relation.gravityDirection;
+	if (gravityIndex == 0) {
+		gravityIndex = 3;
+	} else {
+		gravityIndex -= 1;
+	}
 }
 
 function adjustGravityRight() {
-	var relation = {
-        GravityDirections.DOWN:  GravityDirections.RIGHT, 
-        GravityDirections.RIGHT: GravityDirections.UP,
-        GravityDirections.UP:    GravityDirections.LEFT,
-        GravityDirections.LEFT:  GravityDirections.DOWN
-    }
-
-    gravityDirection = relation.gravityDirection;
+	if (gravityIndex == 3) {
+		gravityIndex = 0;
+	} else {
+		gravityIndex += 1;
+	}
 }
 
 
