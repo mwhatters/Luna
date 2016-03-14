@@ -32,7 +32,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 			var objects = objectsList.Split(" "[0]);
 			for (var box in objects) {
 				var object = GameObject.Find(box);
-//				object.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
+				object.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
 			}
 		}
 
