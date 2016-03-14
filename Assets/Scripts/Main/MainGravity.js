@@ -3,11 +3,12 @@ import System.Linq;
 
 // Gravity Vars
 
+enum Direction { Down, Right, Up, Left };
+
 private var gravity = 9.81;
 private var lunaGravity = 9.81;
 public var gravitySettings : String;
-private var gravityOrientations = ["down", "right", "up", "left"];
-private var gravityIndex = 0;
+private var gravityDirection = Direction.Down;
 
 // Move & Jump
 
@@ -72,14 +73,14 @@ function FixedUpdate () {
 
 	// Gravity Settings
 
-	if (gravityOrientations[gravityIndex] === "down") {
+	if (gravityDirection == Direction.Down) {
 		currentAxis = upDownAxis[1];
 		GetComponent(Rigidbody2D).velocity.y += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
 		setDownMovements();
 	}
 
-	if (gravityOrientations[gravityIndex] === "up") {
+	if (gravityDirection == Direction.Up) {
 		currentAxis = upDownAxis[1];
 		GetComponent(Rigidbody2D).velocity.y += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
@@ -87,14 +88,14 @@ function FixedUpdate () {
 
 	}
 
-	if (gravityOrientations[gravityIndex] === "left") {
+	if (gravityDirection == Direction.Left) {
 		currentAxis = upDownAxis[0];
 		GetComponent(Rigidbody2D).velocity.x += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
 		setLeftMovements();
 	}
 
-	if (gravityOrientations[gravityIndex] === "right") {
+	if (gravityDirection == Direction.Right) {
 		currentAxis = upDownAxis[0];
 		GetComponent(Rigidbody2D).velocity.x += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
@@ -151,20 +152,41 @@ function adjustShifters(shifters, degrees) {
 }
 
 
-function adjustGravityLeft() {
-	if (gravityIndex == 0) {
-		gravityIndex = 3;
-	} else {
-		gravityIndex -= 1;
-	}
+function adjustGravityLeft() 
+{
+    switch (gravityDirection)
+    {
+        case Direction.Down:
+            gravityDirection = Direction.Left;
+            break;
+        case Direction.Left:
+            gravityDirection = Direction.Up;
+            break;
+        case Direction.Up:
+            gravityDirection = Direction.Right;
+            break;
+        case Direction.Right:
+            gravityDirection = Direction.Down;
+            break;
+    }
 }
 
 function adjustGravityRight() {
-	if (gravityIndex == 3) {
-		gravityIndex = 0;
-	} else {
-		gravityIndex += 1;
-	}
+	switch (gravityDirection)
+    {
+        case Direction.Down:
+            gravityDirection = Direction.Right;
+            break;
+        case Direction.Right:
+            gravityDirection = Direction.Up;
+            break;
+        case Direction.Up:
+            gravityDirection = Direction.Left;
+            break;
+        case Direction.Left:
+            gravityDirection = Direction.Down;
+            break;
+    }
 }
 
 
