@@ -48,8 +48,6 @@ function Zoom (thisTransform : Transform, zoomRate : float, size : float) {
 	var rate = 1.0/zoomRate;
 	var t = 0.0;
 
-	Debug.Log(size);
-
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
 		camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, size, t);

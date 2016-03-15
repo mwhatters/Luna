@@ -1,5 +1,10 @@
 ﻿#pragma strict
 
+
+private var cameraObj : CameraBehavior;
+private var lunaObj : GameObject;
+
+
 private var cameraIsStatic : boolean;
 private var boxesUnfrozen = false;
 public var objectsList : String;
@@ -14,7 +19,11 @@ public var transitionEnterTime : float;
 
 public var zoomOnly : boolean = false;
 
-function Start () {}
+
+function Start () {
+	cameraObj = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
+	lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
+}
 
 function Update () {
 
@@ -24,17 +33,11 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 	if (coll.name != "Luna") { return false; }
 
-	var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
-
-		var lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
-
-
 		if (zoomOnly) {
-			Debug.Log('check');
-			camera.zoomCamera(transitionEnterTime, zIn);
+			cameraObj.zoomCamera(transitionEnterTime, zIn);
 		} else {
-			camera.isStatic = true;
-			camera.panCameraTo(Vector3(x, y, cameraZ), transitionEnterTime, zIn);
+			cameraObj.isStatic = true;
+			cameraObj.panCameraTo(Vector3(x, y, cameraZ), transitionEnterTime, zIn);
 		}
 
 		if (!boxesUnfrozen && objectsList != "") {
@@ -50,24 +53,20 @@ function OnTriggerEnter2D(coll : Collider2D) {
 }
 
 function OnTriggerExit2D(coll : Collider2D) {
-		if (coll.name == "Luna") {
-			var camera = GameObject.FindGameObjectWithTag("MainCamera");
+	if (coll.name == "Luna") {
 
+		if (zoomOnly) {
+			cameraObj.zoomCamera(transitionEnterTime, zOut);
+		} else {
 			yield StartCoroutine("panCameraToLuna");
-
-			camera.GetComponent(CameraBehavior).isStatic = false;
+			cameraObj.isStatic = false;
 		}
-
-
+	}
 }
 
 
 function panCameraToLuna() {
-	var camera2 = GameObject.FindGameObjectWithTag("MainCamera");
-	var luna = GameObject.FindGameObjectWithTag("TheGuy");
-	var rigidbody = luna.GetComponent(Rigidbody2D);
-
-	camera2.GetComponent(CameraBehavior).panCameraTo(Vector3(luna.transform.position.x, luna.transform.position.y, cameraZ), 0.2, zOut);
+	cameraObj.GetComponent(CameraBehavior).panCameraTo(Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, cameraZ), 0.2, zOut);
 	GameObject.FindGameObjectWithTag("RestrainSound").GetComponent(AudioSource).Play();
 }
 
