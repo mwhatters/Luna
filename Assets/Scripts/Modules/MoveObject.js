@@ -11,13 +11,11 @@ function Awake () {
 	use = this;
 }
  
-function Translation (thisTransform : Transform, endPos : Vector3, value : float, moveType : MoveType, size : float) {
-	yield Translation (thisTransform, thisTransform.position, thisTransform.position + endPos, value, moveType, size);
-}
+//function Translation (thisTransform : Transform, endPos : Vector3, value : float, moveType : MoveType, size : float) {
+//	yield Translation (thisTransform, thisTransform.position, thisTransform.position + endPos, value, moveType, size);
+//}
  
 function Translation (thisTransform : Transform, startPos : Vector3, endPos : Vector3, value : float, moveType : MoveType, size : float) {
-
-	var luna = GameObject.FindGameObjectWithTag("TheGuy").GetComponent(Rigidbody2D);
 
 	var camera = thisTransform.GetComponent(Camera);
 	var rate = (moveType == MoveType.Time)? 1.0/value : 1.0/Vector3.Distance(startPos, endPos) * value;
@@ -27,12 +25,13 @@ function Translation (thisTransform : Transform, startPos : Vector3, endPos : Ve
 		t += Time.deltaTime * rate;
 		thisTransform.position = Vector3.Lerp(startPos, endPos, t);
 		camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, size, t);
-		yield; 
+		yield;
 	}
 
 }
  
 function Rotation (thisTransform : Transform, degrees : Vector3, time : float) {
+
 	var startRotation = thisTransform.rotation;
 	var endRotation = thisTransform.rotation * Quaternion.Euler(degrees);
 	var rate = 1.0/time;
@@ -43,3 +42,17 @@ function Rotation (thisTransform : Transform, degrees : Vector3, time : float) {
 		yield;
 	}
 }
+
+function Zoom (thisTransform : Transform, zoomRate : float, size : float) {
+	var camera = thisTransform.GetComponent(Camera);
+	var rate = 1.0/zoomRate;
+	var t = 0.0;
+
+	Debug.Log(size);
+
+	while (t < 1.0) {
+		t += Time.deltaTime * rate;
+		camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, size, t);
+		yield;
+	}
+} 

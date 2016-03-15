@@ -18,7 +18,6 @@ function Update() {
 		transform.position.x = lunaObj.transform.position.x;
 		transform.position.y = lunaObj.transform.position.y;
 	} 
-
 }
 
 function rotateRight(rate) {
@@ -35,19 +34,9 @@ function staticCamera() {
 
 function panCameraTo(point : Vector3, speed : float, size : float) {
 	MoveObject.use.Translation(transform, transform.position, point, speed, MoveType.Time, size);
-//	camScope = size;
-//	staticPoint = point;
 }
 
 
-//function reorient(lunaPoint : Vector3, camScope, lunaRotation) {
-//	if (!staticCamera()) {
-//		panCameraTo(lunaPoint, 0, camScope);
-//		transform.eulerAngles.z = lunaRotation;
-//	} else {
-//		panCameraTo(staticPoint, 0, camScope);
-//		transform.eulerAngles.z = lunaRotation;
-//	}
-//}
-
-
+function zoomCamera(speed : float, scope : float) {
+	MoveObject.use.Zoom(transform, speed, scope);
+}

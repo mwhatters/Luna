@@ -10,6 +10,10 @@ public var x : float;
 public var zIn : float;
 public var zOut : float;
 
+public var transitionEnterTime : float;
+
+public var zoomOnly : boolean = false;
+
 function Start () {}
 
 function Update () {
@@ -23,10 +27,15 @@ function OnTriggerEnter2D(coll : Collider2D) {
 	var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
 
 		var lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
-	
-		camera.isStatic = true;
-	
-		camera.panCameraTo(Vector3(x, y, cameraZ), 1, zIn);
+
+
+		if (zoomOnly) {
+			Debug.Log('check');
+			camera.zoomCamera(transitionEnterTime, zIn);
+		} else {
+			camera.isStatic = true;
+			camera.panCameraTo(Vector3(x, y, cameraZ), transitionEnterTime, zIn);
+		}
 
 		if (!boxesUnfrozen && objectsList != "") {
 			var objects = objectsList.Split(" "[0]);
