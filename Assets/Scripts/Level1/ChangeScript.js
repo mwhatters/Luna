@@ -66,7 +66,7 @@ function OnTriggerExit2D(coll : Collider2D) {
 
 
 function panCameraToLuna() {
-	cameraObj.GetComponent(CameraBehavior).panCameraTo(Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, cameraZ), 0.2, zOut);
+	cameraObj.panCameraTo(Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, cameraZ), 0.2, zOut);
 	GameObject.FindGameObjectWithTag("RestrainSound").GetComponent(AudioSource).Play();
 }
 
