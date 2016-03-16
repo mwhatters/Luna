@@ -31,7 +31,7 @@ function Update () {
 
 function OnTriggerEnter2D(coll : Collider2D) {
 
-	if (coll.name != "Luna") { return false; }
+	if (coll.name == "Luna") { 
 
 		if (zoomOnly) {
 			cameraObj.zoomCamera(transitionEnterTime, zIn);
@@ -50,6 +50,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 		boxesUnfrozen = true;
 		GameObject.FindGameObjectWithTag("ExpandSound").GetComponent(AudioSource).Play();
+	}
 }
 
 function OnTriggerExit2D(coll : Collider2D) {

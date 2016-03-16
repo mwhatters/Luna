@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Act 1 -- The Dream/Level 2.unity
+- path: Assets/Scenes/Act 1 -- The Dream/Intro Level (Attempt 2).unity
   isLoaded: 1
   isActive: 1

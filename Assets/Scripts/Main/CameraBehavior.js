@@ -5,7 +5,7 @@ public var staticPoint : Vector3;
 
 //private var followingLuna = true;
 
-public var isStatic = false;
+public var isStatic : boolean;
 private var lunaObj : GameObject;
 
 function Start () {
