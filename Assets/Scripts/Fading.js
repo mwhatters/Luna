@@ -17,7 +17,7 @@ function OnGUI() {
 	GUI.DrawTexture(Rect(0,0, Screen.width, Screen.height), texture);
 }
 
-function beginFade(speed) {
+function beginFade(speed : float) {
 	fadeSpeed = speed;
 }
 

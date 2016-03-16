@@ -16,6 +16,7 @@ public var zIn : float;
 public var zOut : float;
 
 public var transitionEnterTime : float;
+public var transitionExitTime : float;
 
 public var zoomOnly : boolean = false;
 
@@ -59,15 +60,41 @@ function OnTriggerExit2D(coll : Collider2D) {
 		if (zoomOnly) {
 			cameraObj.zoomCamera(transitionEnterTime, zOut);
 		} else {
-			yield StartCoroutine("panCameraToLuna");
+			yield StartCoroutine("panCameraAndFollowLuna");
 			cameraObj.isStatic = false;
 		}
 	}
 }
 
+function panCameraAndFollowLuna() {
 
-function panCameraToLuna() {
-	cameraObj.panCameraTo(Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, cameraZ), 0.2, zOut);
+	var camera = GameObject.FindGameObjectWithTag("MainCamera");
+	var cameraScope = camera.GetComponent(Camera);
+	var startPos = camera.transform.position;
+	var endPos : Vector3;
+	var x;
+	var y;
+
+	var rate = 1.0/transitionExitTime;
+	var t = 0.0;
+
+	while (t < 1.0) {
+
+		endPos = Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, cameraZ);
+
+
+		x = lunaObj.transform.position.x;
+		y = lunaObj.transform.position.y;
+
+		Debug.Log(x);
+
+		t += Time.deltaTime * rate;
+		camera.transform.position = Vector3.Lerp(startPos, endPos, t);
+		cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
+		yield;
+	}
+
 	GameObject.FindGameObjectWithTag("RestrainSound").GetComponent(AudioSource).Play();
-}
 
+
+}

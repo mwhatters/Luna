@@ -12,7 +12,7 @@ function Start () {
 	lunaObj = GameObject.Find("Luna");
 }
 
-function Update() {
+function FixedUpdate() {
 
 	if (!staticCamera()) {
 		transform.position.x = lunaObj.transform.position.x;
@@ -20,11 +20,11 @@ function Update() {
 	} 
 }
 
-function rotateRight(rate) {
+function rotateRight(rate :float) {
 		MoveObject.use.Rotation(transform, Vector3.forward * 90.0, rate);
 }
 
-function rotateLeft(rate) {
+function rotateLeft(rate :float) {
 		MoveObject.use.Rotation(transform, Vector3.forward * -90.0, rate);
 }
 
