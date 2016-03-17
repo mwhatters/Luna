@@ -33,14 +33,17 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 	if (coll.name == "Luna") { 
 
+		Play("ExpandSound");
+
 		if (!boxesUnfrozen && objectsList != "") {
 			var objects = objectsList.Split(" "[0]);
 			for (var box in objects) {
 				var object = GameObject.Find(box);
 				object.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
 			}
+			boxesUnfrozen = true;
 		}
-		boxesUnfrozen = true;
+
 
 		if (currentlyTransitioning) {
 			StopCoroutine("panCameraToFollowLuna");
@@ -58,6 +61,8 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 function OnTriggerExit2D(coll : Collider2D) {
 	if (coll.name == "Luna") {
+
+		Play("RestrainSound");
 
 		if (currentlyTransitioning) {
 			StopCoroutine("panCameraToPoint");
@@ -77,11 +82,9 @@ function OnTriggerExit2D(coll : Collider2D) {
 
 function panCameraToPoint() {
 
-	var camera = GameObject.FindGameObjectWithTag("MainCamera");
-	var cameraScope = camera.GetComponent(Camera);
-	var startPos = camera.transform.position;
+	var cameraScope = cameraObj.GetComponent(Camera);
+	var startPos = cameraObj.transform.position;
 	var endPos = Vector3(x, y, cameraZ);
-
 	var rate = 1.0/transitionEnterTime;
 	var t = 0.0;
 
@@ -89,7 +92,7 @@ function panCameraToPoint() {
 
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
-		camera.transform.position = Vector3.Lerp(startPos, endPos, t);
+		cameraObj.transform.position = Vector3.Lerp(startPos, endPos, t);
 		cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zIn, t);
 		yield;
 	}
@@ -102,13 +105,11 @@ function panCameraToPoint() {
 
 function panCameraToFollowLuna() {
 
-	var camera = GameObject.FindGameObjectWithTag("MainCamera");
-	var cameraScope = camera.GetComponent(Camera);
-	var startPos = camera.transform.position;
+	var cameraScope = cameraObj.GetComponent(Camera);
+	var startPos = cameraObj.transform.position;
 	var endPos : Vector3;
 	var x;
 	var y;
-
 	var rate = 1.0/transitionExitTime;
 	var t = 0.0;
 
@@ -123,20 +124,16 @@ function panCameraToFollowLuna() {
 		y = lunaObj.transform.position.y;
 
 		t += Time.deltaTime * rate;
-		camera.transform.position = Vector3.Lerp(startPos, endPos, t);
+		cameraObj.transform.position = Vector3.Lerp(startPos, endPos, t);
 		cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
 		yield;
 	}
 
-	GameObject.FindGameObjectWithTag("RestrainSound").GetComponent(AudioSource).Play();
 	currentlyTransitioning = false;
-
-
 }
 
 function zoomCameraEnter() {
-	var camera = GameObject.FindGameObjectWithTag("MainCamera");
-	var cameraScope = camera.GetComponent(Camera);
+	var cameraScope = cameraObj.GetComponent(Camera);
 
 	var rate = 1.0/transitionEnterTime;
 	var t = 0.0;
@@ -150,14 +147,11 @@ function zoomCameraEnter() {
 	}
 
 	currentlyTransitioning = false;
-
-	GameObject.FindGameObjectWithTag("ExpandSound").GetComponent(AudioSource).Play();
 }
 
 
 function zoomCameraExit() {
-	var camera = GameObject.FindGameObjectWithTag("MainCamera");
-	var cameraScope = camera.GetComponent(Camera);
+	var cameraScope = cameraObj.GetComponent(Camera);
 
 	var rate = 1.0/transitionEnterTime;
 	var t = 0.0;
@@ -171,6 +165,8 @@ function zoomCameraExit() {
 	}
 
 	currentlyTransitioning = false;
+}
 
-	GameObject.FindGameObjectWithTag("RestrainSound").GetComponent(AudioSource).Play();
+function Play(sound : String) {
+	GameObject.FindGameObjectWithTag(sound).GetComponent(AudioSource).Play();
 }
