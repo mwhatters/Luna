@@ -40,6 +40,7 @@ private var isDead = false;
 private var hasWon = false;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
+private var reverseGravObjects = ["ReverseObject"];
 
 private var upDownAxis = ["x", "y"];
 var currentAxis : String;
@@ -77,6 +78,7 @@ function FixedUpdate () {
 		currentAxis = upDownAxis[1];
 		GetComponent(Rigidbody2D).velocity.y += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
+		objGravity(reverseGravObjects, gravity, currentAxis);
 		setDownMovements();
 	}
 
@@ -84,6 +86,7 @@ function FixedUpdate () {
 		currentAxis = upDownAxis[1];
 		GetComponent(Rigidbody2D).velocity.y += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
+		objGravity(reverseGravObjects, -gravity, currentAxis);
 		setUpMovements();
 
 	}
@@ -92,6 +95,7 @@ function FixedUpdate () {
 		currentAxis = upDownAxis[0];
 		GetComponent(Rigidbody2D).velocity.x += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
+		objGravity(reverseGravObjects, gravity, currentAxis);
 		setLeftMovements();
 	}
 
@@ -99,6 +103,7 @@ function FixedUpdate () {
 		currentAxis = upDownAxis[0];
 		GetComponent(Rigidbody2D).velocity.x += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
+		objGravity(reverseGravObjects, -gravity, currentAxis);
 		setRightMovements();
 	}
 
