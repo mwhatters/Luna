@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: 737f2a0b738dd491589cd4b2f2f13c87
+timeCreated: 1458185191
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: FireJoint_0
+    21300002: FireJoint_1
+    21300004: FireJoint_2
+    21300006: FireJoint_3
+    21300008: FireJoint_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: FireJoint_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1088
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 86, y: -52}
+        - {x: 183, y: -60}
+        - {x: 204, y: -60}
+        - {x: 204, y: 60}
+        - {x: 165, y: 60}
+        - {x: 144, y: 52}
+        - {x: 52, y: 60}
+        - {x: -62, y: 60}
+        - {x: -62, y: 50}
+        - {x: -181, y: 52}
+        - {x: -204, y: 40}
+        - {x: -204, y: -50}
+        - {x: -172, y: -60}
+        - {x: 65, y: -60}
+    - name: FireJoint_1
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 1088
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: -45}
+        - {x: -2, y: -60}
+        - {x: 204, y: -60}
+        - {x: 204, y: 59}
+        - {x: 200, y: 60}
+        - {x: -204, y: 60}
+        - {x: -204, y: -60}
+        - {x: -80, y: -60}
+    - name: FireJoint_2
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 0
+        width: 1088
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -115, y: -52}
+        - {x: -56, y: -60}
+        - {x: 59, y: -60}
+        - {x: 114, y: -52}
+        - {x: 138, y: -60}
+        - {x: 204, y: -60}
+        - {x: 204, y: 60}
+        - {x: 12, y: 60}
+        - {x: 10, y: 54}
+        - {x: -80, y: 60}
+        - {x: -166, y: 60}
+        - {x: -204, y: 51}
+        - {x: -204, y: -60}
+        - {x: -158, y: -60}
+    - name: FireJoint_3
+      rect:
+        serializedVersion: 2
+        x: 3264
+        y: 0
+        width: 1088
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 204, y: 45}
+        - {x: 97, y: 59}
+        - {x: 94, y: 45}
+        - {x: -59, y: 60}
+        - {x: -121, y: 60}
+        - {x: -121, y: 41}
+        - {x: -191, y: 56}
+        - {x: -204, y: 39}
+        - {x: -204, y: -38}
+        - {x: -166, y: -60}
+        - {x: 14, y: -60}
+        - {x: 91, y: -52}
+        - {x: 164, y: -53}
+        - {x: 204, y: -50}
+    - name: FireJoint_4
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 0
+        width: 1088
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 201, y: -52}
+        - {x: 204, y: -45}
+        - {x: 204, y: 50}
+        - {x: 175, y: 52}
+        - {x: 152, y: 60}
+        - {x: 71, y: 60}
+        - {x: 32, y: 55}
+        - {x: -28, y: 60}
+        - {x: -167, y: 60}
+        - {x: -199, y: 52}
+        - {x: -204, y: 43}
+        - {x: -204, y: -57}
+        - {x: -196, y: -60}
+        - {x: 180, y: -60}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
