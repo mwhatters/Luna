@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: e1abaa30b32c74f3c99cab32bb6dbc38
+timeCreated: 1458419830
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: LunaIdle_0
+    21300002: LunaIdle_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: LunaIdle_0
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 35
+        width: 448
+        height: 957
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: -225.5}
+        - {x: 2, y: -195.5}
+        - {x: 30, y: -195.5}
+        - {x: 30, y: -225.5}
+        - {x: 32, y: -227.5}
+        - {x: 62, y: -227.5}
+        - {x: 62, y: -478.5}
+        - {x: 162, y: -478.5}
+        - {x: 162, y: -99.5}
+        - {x: 192, y: -99.5}
+        - {x: 194, y: -97.5}
+        - {x: 194, y: -35.5}
+        - {x: 224, y: -35.5}
+        - {x: 224, y: 192.5}
+        - {x: 194, y: 192.5}
+        - {x: 194, y: 222.5}
+        - {x: 192, y: 224.5}
+        - {x: 98, y: 224.5}
+        - {x: 98, y: 252.5}
+        - {x: 160, y: 252.5}
+        - {x: 162, y: 254.5}
+        - {x: 162, y: 446.5}
+        - {x: 160, y: 448.5}
+        - {x: 2, y: 448.5}
+        - {x: 2, y: 478.5}
+        - {x: -130, y: 478.5}
+        - {x: -130, y: 254.5}
+        - {x: -128, y: 252.5}
+        - {x: -66, y: 252.5}
+        - {x: -66, y: 224.5}
+        - {x: -192, y: 224.5}
+        - {x: -194, y: 222.5}
+        - {x: -194, y: 192.5}
+        - {x: -224, y: 192.5}
+        - {x: -224, y: -35.5}
+        - {x: -194, y: -35.5}
+        - {x: -194, y: -65.5}
+        - {x: -192, y: -67.5}
+        - {x: -162, y: -67.5}
+        - {x: -162, y: -129.5}
+        - {x: -160, y: -131.5}
+        - {x: -130, y: -131.5}
+        - {x: -130, y: -478.5}
+        - {x: -30, y: -478.5}
+        - {x: -30, y: -227.5}
+        - {x: 0, y: -227.5}
+    - name: LunaIdle_1
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 37
+        width: 448
+        height: 959
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: -228.5}
+        - {x: 2, y: -198.5}
+        - {x: 30, y: -198.5}
+        - {x: 30, y: -228.5}
+        - {x: 32, y: -230.5}
+        - {x: 62, y: -230.5}
+        - {x: 62, y: -479.5}
+        - {x: 162, y: -479.5}
+        - {x: 162, y: -102.5}
+        - {x: 192, y: -102.5}
+        - {x: 194, y: -100.5}
+        - {x: 194, y: -70.5}
+        - {x: 224, y: -70.5}
+        - {x: 224, y: 157.5}
+        - {x: 194, y: 157.5}
+        - {x: 194, y: 187.5}
+        - {x: 192, y: 189.5}
+        - {x: 98, y: 189.5}
+        - {x: 98, y: 217.5}
+        - {x: 160, y: 217.5}
+        - {x: 162, y: 219.5}
+        - {x: 162, y: 411.5}
+        - {x: 160, y: 413.5}
+        - {x: 2, y: 413.5}
+        - {x: 2, y: 443.5}
+        - {x: 0, y: 445.5}
+        - {x: -128, y: 445.5}
+        - {x: -130, y: 443.5}
+        - {x: -130, y: 219.5}
+        - {x: -128, y: 217.5}
+        - {x: -66, y: 217.5}
+        - {x: -66, y: 189.5}
+        - {x: -192, y: 189.5}
+        - {x: -194, y: 187.5}
+        - {x: -194, y: 157.5}
+        - {x: -224, y: 157.5}
+        - {x: -224, y: -70.5}
+        - {x: -162, y: -70.5}
+        - {x: -162, y: -132.5}
+        - {x: -160, y: -134.5}
+        - {x: -130, y: -134.5}
+        - {x: -130, y: -479.5}
+        - {x: -30, y: -479.5}
+        - {x: -30, y: -230.5}
+        - {x: 0, y: -230.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -18,7 +18,8 @@ private var maxJumps = 1;
 private var numJumps = 0; // number of current jumps
 private var jumpContactPoint = [0.0, 1.0];
 
-private var touchingGround = false;
+public var touchingGround = true;
+public var isMoving = false;
 
 // Orientation & Rotation
 
@@ -28,7 +29,6 @@ private var nextRotate = 0.0;
 public var canRotate = true;
 
 public var frozen = false;
-
 
 // Game States
 
@@ -49,6 +49,12 @@ function Start () {
 	setWorldGravityShift();
 }
 
+//	function Awake () {
+//		// Make the game run as fast as possible in the web player
+//		Application.targetFrameRate = 5;
+//	}
+
+
 function setWorldGravityShift() {
 	if (gravitySettings == "normal") {
 		upDownAxis = ["x", "y"];
@@ -67,6 +73,10 @@ function setWorldGravityShift() {
 
 function FixedUpdate () {
 
+	var rigidbody = GetComponent(Rigidbody2D);
+
+	setMovingState();
+
 	if (isDead || hasWon || frozen) {
 		setNoMovements();
 		return false;
@@ -76,7 +86,7 @@ function FixedUpdate () {
 
 	if (gravityDirection == Direction.Down) {
 		currentAxis = upDownAxis[1];
-		GetComponent(Rigidbody2D).velocity.y += -lunaGravity * Time.deltaTime;
+		rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
 		objGravity(reverseGravObjects, gravity, currentAxis);
 		setDownMovements();
@@ -84,16 +94,15 @@ function FixedUpdate () {
 
 	if (gravityDirection == Direction.Up) {
 		currentAxis = upDownAxis[1];
-		GetComponent(Rigidbody2D).velocity.y += lunaGravity * Time.deltaTime;
+		rigidbody.velocity.y += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
 		objGravity(reverseGravObjects, -gravity, currentAxis);
 		setUpMovements();
-
 	}
 
 	if (gravityDirection == Direction.Left) {
 		currentAxis = upDownAxis[0];
-		GetComponent(Rigidbody2D).velocity.x += -lunaGravity * Time.deltaTime;
+		rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
 		objGravity(reverseGravObjects, gravity, currentAxis);
 		setLeftMovements();
@@ -101,7 +110,7 @@ function FixedUpdate () {
 
 	if (gravityDirection == Direction.Right) {
 		currentAxis = upDownAxis[0];
-		GetComponent(Rigidbody2D).velocity.x += lunaGravity * Time.deltaTime;
+		rigidbody.velocity.x += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
 		objGravity(reverseGravObjects, -gravity, currentAxis);
 		setRightMovements();
@@ -138,12 +147,9 @@ function FixedUpdate () {
 		playSound("RotateGravitySound");
 
 	}
-
-//	if (Input.GetKeyDown(KeyCode.UpArrow) && canRotateGravity()) {
-//		var camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
-//		camera.reorient(Vector3(transform.position.x, transform.position.y, -8), camera.camScope, transform.eulerAngles.z);
-//	}
 }
+
+
 
 
 function adjustShifters(shifters, degrees) {
@@ -221,7 +227,37 @@ function objGravity(taggedItems : Array, g : float, axis : String) {
 	}
 }
 
+function setGroundStateAgainst(number) {
+	if (gravityDirection == Direction.Down || gravityDirection == Direction.Up) {
+		if (GetComponent(Rigidbody2D).velocity.y == number) {
+			touchingGround = true;
+		} else {
+			touchingGround = false;
+		}
+	} else {
+		if (GetComponent(Rigidbody2D).velocity.x == number) {
+			touchingGround = true;
+		} else {
+			touchingGround = false;
+		}
+	}
+}
 
+function setMovingState() {
+	if (gravityDirection == Direction.Down || gravityDirection == Direction.Up) {
+		if (GetComponent(Rigidbody2D).velocity.x != 0) {
+			isMoving = true;
+		} else {
+			isMoving = false;
+		}
+	} else {
+		if (GetComponent(Rigidbody2D).velocity.y != 0) {
+			isMoving = true;
+		} else {
+			isMoving = false;
+		}
+	}
+}
 
 
 
@@ -239,6 +275,9 @@ function setDownMovements() {
 		GetComponent(Rigidbody2D).velocity.x = 0;
 	}
 
+
+	setGroundStateAgainst(-0.1962);
+
 }
 
 function setUpMovements() {
@@ -252,6 +291,7 @@ function setUpMovements() {
 		GetComponent(Rigidbody2D).velocity.x = 0;
 	}
 
+	setGroundStateAgainst(0.1962);
 }
 
 function setLeftMovements() {
@@ -265,6 +305,8 @@ function setLeftMovements() {
 		GetComponent(Rigidbody2D).velocity.y = 0;
 	}
 
+	setGroundStateAgainst(-0.1962);
+
 }
 
 function setRightMovements() {
@@ -277,6 +319,8 @@ function setRightMovements() {
 	if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && GetComponent(Rigidbody2D).velocity.x == 0.1962) {
 		GetComponent(Rigidbody2D).velocity.y = 0;
 	}
+
+	setGroundStateAgainst(0.1962);
 }
 
 function setNoMovements() {
@@ -316,6 +360,7 @@ function xJump(x, jump) {
 function registerJump() {
 	numJumps++;
 	playSound("JumpSound");
+	GetComponent(Animator).SetTrigger("InAir");
 }
 
 function flipIf(orientation) {
