@@ -353,6 +353,7 @@ function CanJump() {
 
 function yIsGrounded(direction, distance : float) {
  	var hit : RaycastHit2D = Physics2D.Raycast(Vector2(transform.position.x, transform.position.y - distance), direction);
+ 	Debug.Log(hit.collider.tag);
 	if (hit.distance == 0 && hit.collider.tag == "Ground") {
 		if ( !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) ) {
 			GetComponent(Rigidbody2D).velocity.x = 0;
@@ -366,6 +367,7 @@ function yIsGrounded(direction, distance : float) {
 
 function xIsGrounded(direction, distance : float) {
  	var hit : RaycastHit2D = Physics2D.Raycast(Vector2(transform.position.x - distance, transform.position.y), direction);
+ 	Debug.Log(hit.collider.tag);
 	if (hit.distance == 0 && hit.collider.tag == "Ground") {
 		if ( !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) ) {
 			GetComponent(Rigidbody2D).velocity.y = 0;
