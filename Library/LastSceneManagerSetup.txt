@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/Act 1 -- The Dream/Test Levels/Test Level 2.unity
-  isLoaded: 1
-  isActive: 1
