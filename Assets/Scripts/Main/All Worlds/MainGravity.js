@@ -16,10 +16,10 @@ public var moveSpeed : float;
 public var jumpHeight : float;
 private var maxJumps = 1;
 private var numJumps = 0; // number of current jumps
-private var jumpContactPoint = [0.0, 1.0];
 
 public var touchingGround = true;
 public var isMoving = false;
+public var feetDistanceFromCenter : float;
 
 // Orientation & Rotation
 
@@ -40,7 +40,7 @@ private var isDead = false;
 private var hasWon = false;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
-private var reverseGravObjects = ["ReverseObject"];
+private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
 
 private var upDownAxis = ["x", "y"];
 var currentAxis : String;
@@ -227,22 +227,6 @@ function objGravity(taggedItems : Array, g : float, axis : String) {
 	}
 }
 
-function setGroundStateAgainst(number) {
-	if (gravityDirection == Direction.Down || gravityDirection == Direction.Up) {
-		if (GetComponent(Rigidbody2D).velocity.y == number) {
-			touchingGround = true;
-		} else {
-			touchingGround = false;
-		}
-	} else {
-		if (GetComponent(Rigidbody2D).velocity.x == number) {
-			touchingGround = true;
-		} else {
-			touchingGround = false;
-		}
-	}
-}
-
 function setMovingState() {
 	if (gravityDirection == Direction.Down || gravityDirection == Direction.Up) {
 		if (GetComponent(Rigidbody2D).velocity.x != 0) {
@@ -270,14 +254,8 @@ function setDownMovements() {
 	if (Input.GetKey(KeyCode.A)) { xMove(y, -moveSpeed, facingRight); } // Left
 	if (Input.GetKey(KeyCode.D)) { xMove(y, moveSpeed, !facingRight); }	// Right
 
-	// Velocity stopper
-	if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && GetComponent(Rigidbody2D).velocity.y == -0.1962) {
-		GetComponent(Rigidbody2D).velocity.x = 0;
-	}
 
-
-	setGroundStateAgainst(-0.1962);
-
+	yIsGrounded(-Vector2.up, feetDistanceFromCenter);
 }
 
 function setUpMovements() {
@@ -287,11 +265,7 @@ function setUpMovements() {
 	if (Input.GetKey(KeyCode.A)) { xMove(y, moveSpeed, facingRight);   } // Left
 	if (Input.GetKey(KeyCode.D)) { xMove(y, -moveSpeed, !facingRight); } // Right
 
-	if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && GetComponent(Rigidbody2D).velocity.y == 0.1962) {
-		GetComponent(Rigidbody2D).velocity.x = 0;
-	}
-
-	setGroundStateAgainst(0.1962);
+	yIsGrounded(-Vector2.down, -feetDistanceFromCenter);
 }
 
 function setLeftMovements() {
@@ -301,12 +275,7 @@ function setLeftMovements() {
 	if (Input.GetKey(KeyCode.A)) { yMove(x, moveSpeed, facingRight);   } // Left
 	if (Input.GetKey(KeyCode.D)) { yMove(x, -moveSpeed, !facingRight);   } // Right
 
-	if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && GetComponent(Rigidbody2D).velocity.x == -0.1962) {
-		GetComponent(Rigidbody2D).velocity.y = 0;
-	}
-
-	setGroundStateAgainst(-0.1962);
-
+	xIsGrounded(Vector2.left, feetDistanceFromCenter);
 }
 
 function setRightMovements() {
@@ -316,11 +285,7 @@ function setRightMovements() {
 	if (Input.GetKey(KeyCode.A)) { yMove(x, -moveSpeed, facingRight);   } // Left
 	if (Input.GetKey(KeyCode.D)) { yMove(x, moveSpeed, !facingRight);   } // Right
 
-	if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && GetComponent(Rigidbody2D).velocity.x == 0.1962) {
-		GetComponent(Rigidbody2D).velocity.y = 0;
-	}
-
-	setGroundStateAgainst(0.1962);
+	xIsGrounded(Vector2.right, -feetDistanceFromCenter);
 }
 
 function setNoMovements() {
@@ -386,6 +351,31 @@ function CanJump() {
 }
 
 
+function yIsGrounded(direction, distance : float) {
+ 	var hit : RaycastHit2D = Physics2D.Raycast(Vector2(transform.position.x, transform.position.y - distance), direction);
+	if (hit.distance == 0 && hit.collider.tag == "Ground") {
+		if ( !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) ) {
+			GetComponent(Rigidbody2D).velocity.x = 0;
+		}
+		touchingGround = true;
+	} else {
+		touchingGround = false;
+	}
+}
+
+
+function xIsGrounded(direction, distance : float) {
+ 	var hit : RaycastHit2D = Physics2D.Raycast(Vector2(transform.position.x - distance, transform.position.y), direction);
+	if (hit.distance == 0 && hit.collider.tag == "Ground") {
+		if ( !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) ) {
+			GetComponent(Rigidbody2D).velocity.y = 0;
+		}
+		touchingGround = true;
+	} else {
+		touchingGround = false;
+	}
+}
+
 
 
 
@@ -403,7 +393,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
 
 	//Death
-	if (ArrayUtility.Contains(["Death", "DeathRock", "DeathBall"], tag)) { 
+	if (ArrayUtility.Contains(["Death", "DeathRock", "DeathBall", "ReverseDeathObject"], tag)) { 
 		Die(); 
 	}
 
