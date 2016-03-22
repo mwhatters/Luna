@@ -17,7 +17,7 @@ function FixedUpdate() {
 	if (!staticCamera()) {
 		transform.position.x = lunaObj.transform.position.x;
 		transform.position.y = lunaObj.transform.position.y;
-	} 
+	}
 }
 
 function rotateRight(rate :float) {
@@ -31,16 +31,3 @@ function rotateLeft(rate :float) {
 function staticCamera() {
 	return isStatic == true;
 }
-
-
-// panCamera temporarily not used in changeScript js -- writing out the proper functions to get the
-// desired behavior, will think about refactoring when done.
-
-//function panCameraTo(point : Vector3, speed : float, size : float) {
-//	MoveObject.use.Translation(transform, transform.position, point, speed, MoveType.Time, size);
-//}
-//
-//
-//function zoomCamera(speed : float, scope : float) {
-//	MoveObject.use.Zoom(transform, speed, scope);
-//}

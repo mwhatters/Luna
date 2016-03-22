@@ -10,13 +10,6 @@ function Awake () {
 		DestroyImmediate(gameObject);
 	} else {
 		DontDestroyOnLoad (transform.gameObject);
-		Instance = this; 
+		Instance = this;
 	}
-}
-
-function Start () {
-}
-
-function Update () {
-
 }
