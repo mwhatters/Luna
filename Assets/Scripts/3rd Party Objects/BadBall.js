@@ -6,16 +6,10 @@ public var yspeed = -9;
 private var nextBounce = 0.0;
 private var bounceRate = 0.1;
 
-
-function Start () {
-
-}
-
 function FixedUpdate () {
 	GetComponent(Rigidbody2D).velocity.y = yspeed;
 	GetComponent(Rigidbody2D).velocity.x = xspeed;
 }
-
 
 function OnCollisionEnter2D (coll : Collision2D) {
 
@@ -29,7 +23,6 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
 function setSpeeds(hitPoint : Vector2) {
 
-	
 	if (!canBounce()) { return; }
 
 	if (hitPoint.x != 0) {
@@ -47,9 +40,6 @@ function setSpeeds(hitPoint : Vector2) {
 function canBounce() {
 	return Time.time > nextBounce;
 }
-
-
-
 
 // neg x = (-1, 0)
 // pos x = (1, 0)

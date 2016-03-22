@@ -116,19 +116,20 @@ function FixedUpdate () {
 }
 
 function rotatePlayerAndObjects(degrees : float) {
-	Rotate(transform, Vector3.forward * degrees, 0.0);
+	MoveObject.use.Rotation(transform, Vector3.forward * degrees, 0.0);
 	nextRotate = Time.time + rotateRate + 0.2;
 	adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * degrees);
 	adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * -degrees);
 }
 
 
-function adjustShifters(shifters, degrees) {
-	for (var shifter in shifters) {
+function adjustShifters(shifters : String[], degrees : Vector3) {
+	for (var shifter : String in shifters) {
 		var shift = GameObject.FindGameObjectWithTag(shifter);
 
+
 		if (shift != null) {
-			Rotate(shift.transform, degrees, 1);
+			MoveObject.use.Rotation(shift.transform, degrees, 1);
 		}
 	}
 }
@@ -172,18 +173,13 @@ function adjustGravityRight() {
 }
 
 
-function Rotate(object, degrees, time : float) {
-	MoveObject.use.Rotation(object, degrees, rotateRate);
-}
-
-
 function canRotateGravity() {
 	return (Time.time > nextRotate + 0.01 && canRotate);
 }
 
 
-function objGravity(taggedItems : Array, g : float, axis : String) {
-	for (var taggedItem in taggedItems) {
+function objGravity(taggedItems : String[], g : float, axis : String) {
+	for (var taggedItem : String in taggedItems) {
 
 		if (taggedItem == "BlackHoleBox") { g *= 10; }
 
@@ -354,6 +350,6 @@ function gravityIsUpOrDown() {
 
 
 
-function playSound(tag) {
+function playSound(tag : String) {
 	GameObject.FindGameObjectWithTag(tag).GetComponent(AudioSource).Play();
 }

@@ -1,18 +1,16 @@
 ﻿#pragma strict
+import UnityEngine.SceneManagement;
 
 public var isDead = false;
 public var hasWon = false;
 public var keysFound : GameObject[];
 
-
-function Start () {
-
-}
-
 function Update() {
   	if (isDead || hasWon) {
       GetComponent(MainGravity).setNoMovements();
       return false;
+    } else {
+      return true;
     }
 }
 
@@ -20,8 +18,10 @@ function Update() {
 
 function OnCollisionEnter2D (coll : Collision2D) {
 
-	var tag = coll.gameObject.tag;
+	var tag : String = coll.gameObject.tag;
   var gravityState = GetComponent(MainGravity);
+
+
 
 	//Jump
 	if (ArrayUtility.Contains(["Ground", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL","ShifterL", "ShifterR", "ShifterD", "ShifterU"], tag)) {
@@ -88,7 +88,7 @@ function Die() {
 	removeLuna();
 	playSound("DieSound");
 	yield WaitForSeconds(3.0);
-	Application.LoadLevel(Application.loadedLevel);
+	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 }
 
 function removeLuna() {
@@ -102,11 +102,11 @@ function Win() {
 	yield WaitForSeconds(3.0);
 }
 
-function playSound(tag) {
+function playSound(tag : String) {
 	GameObject.FindGameObjectWithTag(tag).GetComponent(AudioSource).Play();
 }
 
-function Remove(tag) {
+function Remove(tag : String) {
 	Destroy(GameObject.FindGameObjectWithTag(tag).GetComponent(SpriteRenderer));
 	Destroy(GameObject.FindGameObjectWithTag(tag).GetComponent(BoxCollider2D));
 }

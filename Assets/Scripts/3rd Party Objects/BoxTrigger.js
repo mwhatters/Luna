@@ -3,11 +3,6 @@
 public var triggerBall : GameObject;
 public var doorToUnlock : GameObject;
 
-
-function Start () {
-
-}
-
 function OnTriggerEnter2D(coll : Collider2D) {
 
 	var triggerBallCollider = triggerBall.GetComponent(CircleCollider2D);
