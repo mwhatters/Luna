@@ -15,7 +15,7 @@ private var gravityDirection = Direction.Down;
 public var moveSpeed : float;
 public var jumpHeight : float;
 private var maxJumps = 1;
-private var numJumps = 0; // number of current jumps
+public var numJumps = 0; // number of current jumps
 
 public var touchingGround = true;
 public var isMoving = false;
@@ -28,17 +28,6 @@ public var rotateRate : float;
 private var nextRotate = 0.0;
 public var canRotate = true;
 
-public var frozen = false;
-
-// Game States
-
-public var keysFound : GameObject[];
-
-
-
-private var isDead = false;
-private var hasWon = false;
-
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
 private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
 private var groundObjects = ["Ground", "ShifterL", "ShifterR", "ShifterD", "ShifterU", "RotaterL", "RotaterR", "NiceBox", "BlackHoleBox"];
@@ -49,12 +38,6 @@ var currentAxis : String;
 function Start () {
 	setWorldGravityShift();
 }
-
-//	function Awake () {
-//		// Make the game run as fast as possible in the web player
-//		Application.targetFrameRate = 5;
-//	}
-
 
 function setWorldGravityShift() {
 	if (gravitySettings == "normal") {
@@ -75,13 +58,7 @@ function setWorldGravityShift() {
 function FixedUpdate () {
 
 	var rigidbody = GetComponent(Rigidbody2D);
-
 	checkIfMoving();
-
-	if (isDead || hasWon || frozen) {
-		setNoMovements();
-		return false;
-	}
 
 	// Gravity Settings
 
@@ -117,18 +94,11 @@ function FixedUpdate () {
 		setRightMovements();
 	}
 
-
 	// Gravity Rotation
 
 	if (Input.GetKeyDown(KeyCode.RightArrow) && canRotateGravity()) {
-		
 		adjustGravityRight();
-
-		Rotate(transform, Vector3.forward * 90, 0.0);
-		nextRotate = Time.time + rotateRate + 0.2;
-
-		adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * 90);
-		adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * -90);
+		rotatePlayerAndObjects(90);
 
 		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateRight(rotateRate);
 		playSound("RotateGravitySound");
@@ -137,12 +107,7 @@ function FixedUpdate () {
 
 	if (Input.GetKeyDown(KeyCode.LeftArrow) && canRotateGravity()) {
 		adjustGravityLeft();
-
-		Rotate(transform, Vector3.forward * -90, 0.0);
-		nextRotate = Time.time + rotateRate + 0.2;
-
-		adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * -90);
-		adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * 90);
+		rotatePlayerAndObjects(-90);
 
 		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateLeft(rotateRate);
 		playSound("RotateGravitySound");
@@ -150,21 +115,27 @@ function FixedUpdate () {
 	}
 }
 
+function rotatePlayerAndObjects(degrees : float) {
+	MoveObject.use.Rotation(transform, Vector3.forward * degrees, rotateRate);
+	nextRotate = Time.time + rotateRate + 0.2;
+	adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * degrees);
+	adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * -degrees);
+}
 
 
-
-function adjustShifters(shifters, degrees) {
-	for (var shifter in shifters) {
+function adjustShifters(shifters : String[], degrees : Vector3) {
+	for (var shifter : String in shifters) {
 		var shift = GameObject.FindGameObjectWithTag(shifter);
 
+
 		if (shift != null) {
-			Rotate(shift.transform, degrees, 1);
+			MoveObject.use.Rotation(shift.transform, degrees, 1);
 		}
 	}
 }
 
 
-function adjustGravityLeft() 
+function adjustGravityLeft()
 {
     switch (gravityDirection)
     {
@@ -202,18 +173,13 @@ function adjustGravityRight() {
 }
 
 
-function Rotate(object, degrees, time : float) {
-	MoveObject.use.Rotation(object, degrees, rotateRate);
-}
-
-
 function canRotateGravity() {
 	return (Time.time > nextRotate + 0.01 && canRotate);
 }
 
 
-function objGravity(taggedItems : Array, g : float, axis : String) {
-	for (var taggedItem in taggedItems) {
+function objGravity(taggedItems : String[], g : float, axis : String) {
+	for (var taggedItem : String in taggedItems) {
 
 		if (taggedItem == "BlackHoleBox") { g *= 10; }
 
@@ -383,111 +349,7 @@ function gravityIsUpOrDown() {
 
 
 
-// Collision
 
-function OnCollisionEnter2D (coll : Collision2D) {
-
-	var tag = coll.gameObject.tag;
-
-	//Jump
-	if (ArrayUtility.Contains(["Ground", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL","ShifterL", "ShifterR", "ShifterD", "ShifterU"], tag)) {
-			numJumps = 0;
-	}
-
-	//Death
-	if (ArrayUtility.Contains(["Death", "DeathRock", "DeathBall", "ReverseDeathObject"], tag)) {
-		Die();
-	}
-
-	if (coll.gameObject.CompareTag("VictoryPortal")) {
-		removeLuna();
-		Win();
-	}
-
-	if (tag == "RotaterR" && canRotateGravity()) {
-		adjustGravityRight();
-
-		Rotate(transform, Vector3.forward * 90, 1);
-		adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * 90);
-		adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * -90);
-
-
-		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateRight(rotateRate);
-		playSound("RotateGravitySound");
-	}
-
-	if (tag == "RotaterL" && canRotateGravity()) {
-		adjustGravityLeft();
-
-		Rotate(transform, Vector3.forward * -90, 1);
-		adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * -90);
-		adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * 90);
-
-
-		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateLeft(rotateRate);
-		playSound("RotateGravitySound");
-	}
-
-	if (tag == "ShifterU") {
-		gravitySettings = "reverse";
-		setWorldGravityShift();
-		playSound("ShiftSound");
-	}
-
-	if (tag == "ShifterD") {
-		gravitySettings = "normal";
-		setWorldGravityShift();
-		playSound("ShiftSound");
-	}
-
-	if (tag == "ShifterL") {
-		gravitySettings = "left shift";
-		setWorldGravityShift();
-		playSound("ShiftSound");
-	}
-
-	if (tag == "ShifterR") {
-		gravitySettings = "right shift";
-		setWorldGravityShift();
-		playSound("ShiftSound");
-	}
-}
-
-
-
-
-
-
-
-
-// EndGame & Meta
-
-function Die() {
-	if (hasWon == true) { return; } 
-
-	isDead = true;
-	removeLuna();
-	playSound("DieSound");
-	yield WaitForSeconds(3.0);
-	Application.LoadLevel(Application.loadedLevel);
-}
-
-function removeLuna() {
-	Destroy(GetComponent(SpriteRenderer));
-	Destroy(GetComponent(PolygonCollider2D));
-}
-
-function Win() {
-	hasWon = true;
-	playSound("WinSound");
-	yield WaitForSeconds(3.0);
-}
-
-function playSound(tag) {
+function playSound(tag : String) {
 	GameObject.FindGameObjectWithTag(tag).GetComponent(AudioSource).Play();
-}
-
-function Remove(tag) {
-	Destroy(GameObject.FindGameObjectWithTag(tag).GetComponent(SpriteRenderer));
-	Destroy(GameObject.FindGameObjectWithTag(tag).GetComponent(BoxCollider2D));
 }

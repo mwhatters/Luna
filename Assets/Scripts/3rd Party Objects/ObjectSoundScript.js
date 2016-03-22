@@ -3,15 +3,6 @@
 static var nextSound = 0.0;
 static var soundRate = 0.25;
 
-
-function Start () {
-
-}
-
-function Update () {
-
-}
-
 function OnCollisionEnter2D (coll : Collision2D) {
 	if (coll.gameObject.CompareTag("Ground") || coll.gameObject.CompareTag("NiceBox") || coll.gameObject.CompareTag("DeathRock")) {
 
