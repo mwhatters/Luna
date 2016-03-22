@@ -116,7 +116,7 @@ function FixedUpdate () {
 }
 
 function rotatePlayerAndObjects(degrees : float) {
-	MoveObject.use.Rotation(transform, Vector3.forward * degrees, 0.0);
+	MoveObject.use.Rotation(transform, Vector3.forward * degrees, rotateRate);
 	nextRotate = Time.time + rotateRate + 0.2;
 	adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * degrees);
 	adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * -degrees);
