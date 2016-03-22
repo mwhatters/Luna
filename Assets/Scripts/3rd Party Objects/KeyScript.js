@@ -21,5 +21,5 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
 
  function addToArray (coll: Collision2D, obj : GameObject) {
-    coll.gameObject.GetComponent(MainGravity).keysFound += [obj];
+    coll.gameObject.GetComponent(PlayerGameStates).keysFound += [obj];
  }
