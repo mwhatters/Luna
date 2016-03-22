@@ -41,6 +41,7 @@ private var hasWon = false;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
 private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
+private var groundObjects = ["Ground", "ShifterL", "ShifterR", "ShifterD", "ShifterU", "RotaterL", "RotaterR", "NiceBox", "BlackHoleBox"];
 
 private var upDownAxis = ["x", "y"];
 var currentAxis : String;
@@ -75,7 +76,7 @@ function FixedUpdate () {
 
 	var rigidbody = GetComponent(Rigidbody2D);
 
-	setMovingState();
+	checkIfMoving();
 
 	if (isDead || hasWon || frozen) {
 		setNoMovements();
@@ -227,23 +228,13 @@ function objGravity(taggedItems : Array, g : float, axis : String) {
 	}
 }
 
-function setMovingState() {
-	if (gravityDirection == Direction.Down || gravityDirection == Direction.Up) {
-		if (GetComponent(Rigidbody2D).velocity.x != 0) {
-			isMoving = true;
-		} else {
-			isMoving = false;
-		}
+function checkIfMoving() {
+	if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+		isMoving = true;
 	} else {
-		if (GetComponent(Rigidbody2D).velocity.y != 0) {
-			isMoving = true;
-		} else {
-			isMoving = false;
-		}
+		isMoving = false;
 	}
 }
-
-
 
 // Movement and Orientation
 
@@ -255,7 +246,7 @@ function setDownMovements() {
 	if (Input.GetKey(KeyCode.D)) { xMove(y, moveSpeed, !facingRight); }	// Right
 
 
-	yIsGrounded(-Vector2.up, feetDistanceFromCenter);
+	checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
 }
 
 function setUpMovements() {
@@ -265,7 +256,7 @@ function setUpMovements() {
 	if (Input.GetKey(KeyCode.A)) { xMove(y, moveSpeed, facingRight);   } // Left
 	if (Input.GetKey(KeyCode.D)) { xMove(y, -moveSpeed, !facingRight); } // Right
 
-	yIsGrounded(-Vector2.down, -feetDistanceFromCenter);
+	checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
 }
 
 function setLeftMovements() {
@@ -275,7 +266,7 @@ function setLeftMovements() {
 	if (Input.GetKey(KeyCode.A)) { yMove(x, moveSpeed, facingRight);   } // Left
 	if (Input.GetKey(KeyCode.D)) { yMove(x, -moveSpeed, !facingRight);   } // Right
 
-	xIsGrounded(Vector2.left, feetDistanceFromCenter);
+	checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
 }
 
 function setRightMovements() {
@@ -285,12 +276,13 @@ function setRightMovements() {
 	if (Input.GetKey(KeyCode.A)) { yMove(x, -moveSpeed, facingRight);   } // Left
 	if (Input.GetKey(KeyCode.D)) { yMove(x, moveSpeed, !facingRight);   } // Right
 
-	xIsGrounded(Vector2.right, -feetDistanceFromCenter);
+	checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
 }
 
 function setNoMovements() {
 	GetComponent(Rigidbody2D).velocity = new Vector2(0,0);
 }
+
 
 
 
@@ -307,7 +299,7 @@ function yMove(x, moveSpeed, orientation) {
 }
 
 function yJump(y, jump) {
-	if (Input.GetKeyDown(KeyCode.Space) && CanJump()) {
+	if (Input.GetKeyDown(KeyCode.Space) && canJump()) {
 		y = GetComponent(Rigidbody2D).velocity.y;
 		GetComponent(Rigidbody2D).velocity = new Vector2(jump, y);
 		registerJump();
@@ -315,7 +307,7 @@ function yJump(y, jump) {
 }
 
 function xJump(x, jump) {
-	if (Input.GetKeyDown(KeyCode.Space) && CanJump()) {
+	if (Input.GetKeyDown(KeyCode.Space) && canJump()) {
 		x = GetComponent(Rigidbody2D).velocity.x;
 		GetComponent(Rigidbody2D).velocity = new Vector2(x, jump);
 		registerJump();
@@ -346,39 +338,48 @@ function Flip() {
 	facingRight = !facingRight;
 }
 
-function CanJump() {
+function canJump() {
 	return numJumps < maxJumps;
 }
 
 
-function yIsGrounded(direction, distance : float) {
- 	var hit : RaycastHit2D = Physics2D.Raycast(Vector2(transform.position.x, transform.position.y - distance), direction);
- 	Debug.Log(hit.collider.tag);
-	if (hit.distance == 0 && hit.collider.tag == "Ground") {
-		if ( !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) ) {
-			GetComponent(Rigidbody2D).velocity.x = 0;
-		}
+// Ground Raycast Functions
+
+function checkIfGrounded(direction : Vector2, distance : float) {
+	var vector : Vector2 = determinedRaycastVector(distance);
+	var contactPoint : RaycastHit2D = Physics2D.Raycast(vector, direction);
+
+	if (playerIsTouchingGround(contactPoint)) {
+		if (!isMoving) { killDownwardsVelocity(); }
 		touchingGround = true;
 	} else {
 		touchingGround = false;
 	}
 }
 
+function playerIsTouchingGround(contactPoint : RaycastHit2D) {
+	return contactPoint.distance == 0 && ArrayUtility.Contains(groundObjects, contactPoint.collider.tag);
+}
 
-function xIsGrounded(direction, distance : float) {
- 	var hit : RaycastHit2D = Physics2D.Raycast(Vector2(transform.position.x - distance, transform.position.y), direction);
- 	Debug.Log(hit.collider.tag);
-	if (hit.distance == 0 && hit.collider.tag == "Ground") {
-		if ( !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) ) {
-			GetComponent(Rigidbody2D).velocity.y = 0;
-		}
-		touchingGround = true;
+function determinedRaycastVector(distance : float) {
+	if (gravityIsUpOrDown()) {
+		return Vector2(transform.position.x, transform.position.y - distance);
 	} else {
-		touchingGround = false;
+		return Vector2(transform.position.x - distance, transform.position.y);
 	}
 }
 
+function killDownwardsVelocity() {
+	if (gravityIsUpOrDown()) {
+		GetComponent(Rigidbody2D).velocity.x = 0;
+	} else {
+		GetComponent(Rigidbody2D).velocity.y = 0;
+	}
+}
 
+function gravityIsUpOrDown() {
+ return	gravityDirection == Direction.Down || gravityDirection == Direction.Up;
+}
 
 
 
@@ -389,14 +390,13 @@ function OnCollisionEnter2D (coll : Collision2D) {
 	var tag = coll.gameObject.tag;
 
 	//Jump
-	if (ArrayUtility.Contains(["Ground", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL","ShifterL", "ShifterR", "ShifterD", "ShifterU"], tag)) { 
-			numJumps = 0; 
+	if (ArrayUtility.Contains(["Ground", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL","ShifterL", "ShifterR", "ShifterD", "ShifterU"], tag)) {
+			numJumps = 0;
 	}
 
-
 	//Death
-	if (ArrayUtility.Contains(["Death", "DeathRock", "DeathBall", "ReverseDeathObject"], tag)) { 
-		Die(); 
+	if (ArrayUtility.Contains(["Death", "DeathRock", "DeathBall", "ReverseDeathObject"], tag)) {
+		Die();
 	}
 
 	if (coll.gameObject.CompareTag("VictoryPortal")) {
