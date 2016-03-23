@@ -129,7 +129,7 @@ function adjustShifters(shifters : Object, degrees : Vector3) {
 
 
 		if (shift != null) {
-			MoveObject.use.Rotation(shift.transform, degrees, 1);
+			MoveObject.use.Rotation(shift.transform, degrees, rotateRate);
 		}
 	}
 }
