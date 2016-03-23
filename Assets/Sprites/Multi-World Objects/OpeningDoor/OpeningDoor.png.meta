@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 7ce7d4c852ab448a7a9197cce60d87c7
+timeCreated: 1458707424
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: OpeningDoor_0
+    21300002: OpeningDoor_1
+    21300004: OpeningDoor_2
+    21300006: OpeningDoor_3
+    21300008: OpeningDoor_4
+    21300010: OpeningDoor_5
+    21300012: OpeningDoor_6
+    21300014: OpeningDoor_7
+    21300016: OpeningDoor_8
+    21300018: OpeningDoor_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: OpeningDoor_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 30
+        width: 517
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91.83594, y: 172.66406}
+        - {x: -91.83594, y: -171.33594}
+        - {x: 93.16406, y: -171.33594}
+        - {x: 93.16406, y: 172.66406}
+    - name: OpeningDoor_1
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 30
+        width: 515
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91.58594, y: 172.66406}
+        - {x: -91.58594, y: -171.33594}
+        - {x: 92.41406, y: -171.33594}
+        - {x: 92.41406, y: 172.66406}
+    - name: OpeningDoor_2
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 30
+        width: 514
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91.48047, y: 172.66406}
+        - {x: -91.48047, y: -171.33594}
+        - {x: 92.51953, y: -171.33594}
+        - {x: 92.51953, y: 172.66406}
+    - name: OpeningDoor_3
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 30
+        width: 515
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91.73047, y: 172.66406}
+        - {x: -91.73047, y: -171.33594}
+        - {x: 92.26953, y: -171.33594}
+        - {x: 92.26953, y: 172.66406}
+    - name: OpeningDoor_4
+      rect:
+        serializedVersion: 2
+        x: 2333
+        y: 30
+        width: 517
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -92.19141, y: 172.66406}
+        - {x: -92.19141, y: -171.33594}
+        - {x: 92.80859, y: -171.33594}
+        - {x: 92.80859, y: 172.66406}
+    - name: OpeningDoor_5
+      rect:
+        serializedVersion: 2
+        x: 2910
+        y: 30
+        width: 517
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -92.08594, y: 172.66406}
+        - {x: -92.08594, y: -171.33594}
+        - {x: 92.91406, y: -171.33594}
+        - {x: 92.91406, y: 172.66406}
+    - name: OpeningDoor_6
+      rect:
+        serializedVersion: 2
+        x: 3486
+        y: 30
+        width: 515
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91.83594, y: 172.66406}
+        - {x: -91.83594, y: -171.33594}
+        - {x: 92.16406, y: -171.33594}
+        - {x: 92.16406, y: 172.66406}
+    - name: OpeningDoor_7
+      rect:
+        serializedVersion: 2
+        x: 4063
+        y: 30
+        width: 514
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91.23047, y: 172.66406}
+        - {x: -91.23047, y: -171.33594}
+        - {x: 91.76953, y: -171.33594}
+        - {x: 91.76953, y: 172.66406}
+    - name: OpeningDoor_8
+      rect:
+        serializedVersion: 2
+        x: 4639
+        y: 30
+        width: 515
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91.98047, y: 172.66406}
+        - {x: -91.98047, y: -171.33594}
+        - {x: 92.01953, y: -171.33594}
+        - {x: 92.01953, y: 172.66406}
+    - name: OpeningDoor_9
+      rect:
+        serializedVersion: 2
+        x: 5213
+        y: 30
+        width: 517
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91.94141, y: 172.66406}
+        - {x: -91.94141, y: -171.33594}
+        - {x: 92.05859, y: -171.33594}
+        - {x: 92.05859, y: 172.66406}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
