@@ -27,6 +27,7 @@ private var facingRight = true;
 public var rotateRate : float;
 private var nextRotate = 0.0;
 public var canRotate = true;
+public var canRotate180 = false;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
 private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
@@ -55,6 +56,62 @@ function setWorldGravityShift() {
 	}
 }
 
+function Update() {
+	// Gravity Rotation
+
+	if (Input.GetKeyDown(KeyCode.RightArrow) && canRotateGravity()) {
+		adjustGravityRight();
+		rotatePlayerAndObjects(90);
+
+		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateRight(rotateRate);
+		playSound("RotateGravitySound");
+	}
+
+	if (Input.GetKeyDown(KeyCode.LeftArrow) && canRotateGravity()) {
+		adjustGravityLeft();
+		rotatePlayerAndObjects(-90);
+
+		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateLeft(rotateRate);
+		playSound("RotateGravitySound");
+	}
+
+	if (canRotate180)
+	{
+		if (Input.GetKeyDown(KeyCode.UpArrow) && canRotateGravity()) {
+			adjustGravity180();
+			rotatePlayerAndObjects(-180);
+
+			GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateLeft180(rotateRate);
+			playSound("RotateGravitySound");
+		}
+
+		if (Input.GetKeyDown(KeyCode.DownArrow) && canRotateGravity()) {
+			adjustGravity180();
+			rotatePlayerAndObjects(180);
+
+			GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateRight180(rotateRate);
+			playSound("RotateGravitySound");
+		}
+	}
+
+	if (gravityDirection == Direction.Down) {
+		setDownMovements();
+	}
+
+	if (gravityDirection == Direction.Up) {
+		setUpMovements();
+	}
+
+	if (gravityDirection == Direction.Left) {
+		setLeftMovements();
+	}
+
+	if (gravityDirection == Direction.Right) {
+		setRightMovements();
+	}
+
+}
+
 function FixedUpdate () {
 
 	var rigidbody = GetComponent(Rigidbody2D);
@@ -67,7 +124,6 @@ function FixedUpdate () {
 		rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
 		objGravity(reverseGravObjects, gravity, currentAxis);
-		setDownMovements();
 	}
 
 	if (gravityDirection == Direction.Up) {
@@ -75,7 +131,6 @@ function FixedUpdate () {
 		rigidbody.velocity.y += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
 		objGravity(reverseGravObjects, -gravity, currentAxis);
-		setUpMovements();
 	}
 
 	if (gravityDirection == Direction.Left) {
@@ -83,7 +138,6 @@ function FixedUpdate () {
 		rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
 		objGravity(reverseGravObjects, gravity, currentAxis);
-		setLeftMovements();
 	}
 
 	if (gravityDirection == Direction.Right) {
@@ -91,27 +145,6 @@ function FixedUpdate () {
 		rigidbody.velocity.x += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
 		objGravity(reverseGravObjects, -gravity, currentAxis);
-		setRightMovements();
-	}
-
-	// Gravity Rotation
-
-	if (Input.GetKeyDown(KeyCode.RightArrow) && canRotateGravity()) {
-		adjustGravityRight();
-		rotatePlayerAndObjects(90);
-
-		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateRight(rotateRate);
-		playSound("RotateGravitySound");
-
-	}
-
-	if (Input.GetKeyDown(KeyCode.LeftArrow) && canRotateGravity()) {
-		adjustGravityLeft();
-		rotatePlayerAndObjects(-90);
-
-		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateLeft(rotateRate);
-		playSound("RotateGravitySound");
-
 	}
 }
 
@@ -154,7 +187,8 @@ function adjustGravityLeft()
     }
 }
 
-function adjustGravityRight() {
+function adjustGravityRight()
+{
 	switch (gravityDirection)
     {
         case Direction.Down:
@@ -172,9 +206,28 @@ function adjustGravityRight() {
     }
 }
 
+function adjustGravity180()
+{
+	switch (gravityDirection)
+    {
+        case Direction.Down:
+            gravityDirection = Direction.Up;
+            break;
+        case Direction.Right:
+            gravityDirection = Direction.Left;
+            break;
+        case Direction.Up:
+            gravityDirection = Direction.Down;
+            break;
+        case Direction.Left:
+            gravityDirection = Direction.Right;
+            break;
+    }
+}
+
 
 function canRotateGravity() {
-	return (Time.time > nextRotate + 0.01 && canRotate);
+	return (Time.time > nextRotate + 0.001 && canRotate);
 }
 
 

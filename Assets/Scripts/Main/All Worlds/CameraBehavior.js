@@ -24,8 +24,16 @@ function rotateRight(rate :float) {
 		MoveObject.use.Rotation(transform, Vector3.forward * 90.0, rate);
 }
 
+function rotateRight180(rate :float) {
+		MoveObject.use.Rotation(transform, Vector3.forward * 180.0, rate);
+}
+
 function rotateLeft(rate :float) {
 		MoveObject.use.Rotation(transform, Vector3.forward * -90.0, rate);
+}
+
+function rotateLeft180(rate :float) {
+		MoveObject.use.Rotation(transform, Vector3.forward * -180.0, rate);
 }
 
 function staticCamera() {
