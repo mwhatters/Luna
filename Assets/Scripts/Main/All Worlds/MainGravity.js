@@ -131,7 +131,6 @@ function FixedUpdate () {
 		rigidbody.velocity.y += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
 		objGravity(reverseGravObjects, -gravity, currentAxis);
-		setUpMovements();
 	}
 
 	if (gravityDirection == Direction.Left) {
@@ -139,7 +138,6 @@ function FixedUpdate () {
 		rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, -gravity, currentAxis);
 		objGravity(reverseGravObjects, gravity, currentAxis);
-		setLeftMovements();
 	}
 
 	if (gravityDirection == Direction.Right) {
@@ -147,7 +145,6 @@ function FixedUpdate () {
 		rigidbody.velocity.x += lunaGravity * Time.deltaTime;
 		objGravity(normalGravObjects, gravity, currentAxis);
 		objGravity(reverseGravObjects, -gravity, currentAxis);
-		setRightMovements();
 	}
 }
 
