@@ -95,24 +95,24 @@ function Update() {
 		}
 	}
 
-	if (gravityDirection == Direction.Down) {
-		setMovements(jumpHeight, moveSpeed);
-		checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
-	}
-
-	if (gravityDirection == Direction.Up) {
-		setMovements(-jumpHeight, -moveSpeed);
-		checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
-	}
-
-	if (gravityDirection == Direction.Left) {
-		setMovements(jumpHeight, -moveSpeed);
-		checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
-	}
-
-	if (gravityDirection == Direction.Right) {
-		setMovements(-jumpHeight, moveSpeed);
-		checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
+	switch (gravityDirection)
+	{
+		case Direction.Down:
+			setMovements(jumpHeight, moveSpeed);
+			checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
+			break;
+		case Direction.Up:
+			setMovements(-jumpHeight, -moveSpeed);
+			checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
+			break;
+		case Direction.Left:
+			setMovements(jumpHeight, -moveSpeed);
+			checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
+			break;
+		case Direction.Right:
+			setMovements(-jumpHeight, moveSpeed);
+			checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
+			break;
 	}
 
 }
@@ -122,36 +122,32 @@ function FixedUpdate () {
 	var rigidbody = GetComponent(Rigidbody2D);
 	checkIfMoving();
 
-	// Gravity Settings
-
-	if (gravityDirection == Direction.Down) {
-		currentAxis = upDownAxis[1];
-		rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
-		objGravity(normalGravObjects, -gravity, currentAxis);
-		objGravity(reverseGravObjects, gravity, currentAxis);
+	switch (gravityDirection)
+	{
+		case Direction.Down:
+			currentAxis = upDownAxis[1];
+			rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
+			setObjectGravitySettings(-gravity, currentAxis);
+			break;
+		case Direction.Up:
+			currentAxis = upDownAxis[1];
+			rigidbody.velocity.y += lunaGravity * Time.deltaTime;
+			setObjectGravitySettings(gravity, currentAxis);
+			break;
+		case Direction.Left:
+			currentAxis = upDownAxis[0];
+			rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
+			setObjectGravitySettings(-gravity, currentAxis);
+			break;
+		case Direction.Right:
+			currentAxis = upDownAxis[0];
+			rigidbody.velocity.x += lunaGravity * Time.deltaTime;
+			setObjectGravitySettings(gravity, currentAxis);
+			break;
 	}
 
-	if (gravityDirection == Direction.Up) {
-		currentAxis = upDownAxis[1];
-		rigidbody.velocity.y += lunaGravity * Time.deltaTime;
-		objGravity(normalGravObjects, gravity, currentAxis);
-		objGravity(reverseGravObjects, -gravity, currentAxis);
-	}
-
-	if (gravityDirection == Direction.Left) {
-		currentAxis = upDownAxis[0];
-		rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
-		objGravity(normalGravObjects, -gravity, currentAxis);
-		objGravity(reverseGravObjects, gravity, currentAxis);
-	}
-
-	if (gravityDirection == Direction.Right) {
-		currentAxis = upDownAxis[0];
-		rigidbody.velocity.x += lunaGravity * Time.deltaTime;
-		objGravity(normalGravObjects, gravity, currentAxis);
-		objGravity(reverseGravObjects, -gravity, currentAxis);
-	}
 }
+
 
 function rotatePlayerAndObjects(degrees : float) {
 	MoveObject.use.Rotation(transform, Vector3.forward * degrees, rotateRate);
@@ -160,12 +156,9 @@ function rotatePlayerAndObjects(degrees : float) {
 	adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * -degrees);
 }
 
-
 function adjustShifters(shifters : Object, degrees : Vector3) {
 	for (var shifter : String in shifters) {
 		var shift = GameObject.FindGameObjectWithTag(shifter);
-
-
 		if (shift != null) {
 			MoveObject.use.Rotation(shift.transform, degrees, rotateRate);
 		}
@@ -230,23 +223,24 @@ function adjustGravity180()
     }
 }
 
-
 function canRotateGravity() {
 	return (Time.time > nextRotate + 0.001 && canRotate);
 }
 
+function setObjectGravitySettings(gravitySetting : float, axis) {
+	objGravity(normalGravObjects, gravitySetting, axis);
+	objGravity(reverseGravObjects, -gravitySetting, axis);
+}
 
-function objGravity(taggedItems : Array, g : float, axis : String) {
+
+function objGravity(taggedItems : Array, gravity : float, axis : String) {
 	for (var taggedItem : String in taggedItems) {
-
-		if (taggedItem == "BlackHoleBox") { g *= 10; }
+		if (taggedItem == "BlackHoleBox") { gravity *= 10; }
 
 		var objects = GameObject.FindGameObjectsWithTag(taggedItem);
-
 		for (var object : GameObject in objects) {
-
-			if (axis == "y") { object.GetComponent(Rigidbody2D).velocity.y += g * Time.deltaTime; }
-			if (axis == "x") { object.GetComponent(Rigidbody2D).velocity.x += g * Time.deltaTime; }
+			if (axis == "y") { object.GetComponent(Rigidbody2D).velocity.y += gravity * Time.deltaTime; }
+			if (axis == "x") { object.GetComponent(Rigidbody2D).velocity.x += gravity * Time.deltaTime; }
 		}
 
 	}
