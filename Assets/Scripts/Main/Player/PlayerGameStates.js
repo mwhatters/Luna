@@ -110,7 +110,6 @@ function playSound(tag : String) {
   } else {
     audio.Play();
   }
-
 }
 
 function Remove(tag : String) {
