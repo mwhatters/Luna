@@ -96,19 +96,23 @@ function Update() {
 	}
 
 	if (gravityDirection == Direction.Down) {
-		setDownMovements();
+		setDownandRightMovements(jumpHeight);
+		checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
 	}
 
 	if (gravityDirection == Direction.Up) {
-		setUpMovements();
+		setUpAndLeftMovements(-jumpHeight);
+		checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
 	}
 
 	if (gravityDirection == Direction.Left) {
-		setLeftMovements();
+		setUpAndLeftMovements(jumpHeight);
+		checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
 	}
 
 	if (gravityDirection == Direction.Right) {
-		setRightMovements();
+		setDownandRightMovements(-jumpHeight);
+		checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
 	}
 
 }
@@ -258,46 +262,24 @@ function checkIfMoving() {
 
 // Movement and Orientation
 
-function setDownMovements() {
+function setUpAndLeftMovements(jumpDirection) {
 	var x; var y;
-
-	xJump(x, jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { Move(x, y, -moveSpeed, facingRight); } // Left
-	if (Input.GetKey(KeyCode.D)) { Move(x, y, moveSpeed, !facingRight); }	// Right
-
-
-	checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
-}
-
-function setUpMovements() {
-	var x; var y;
-
-	xJump(x, -jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { Move(x, y, moveSpeed, facingRight);   } // Left
-	if (Input.GetKey(KeyCode.D)) { Move(x, y, -moveSpeed, !facingRight); } // Right
-
-	checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
-}
-
-function setLeftMovements() {
-	var x; var y;
-
-	yJump(y, jumpHeight);
+	Jump(x, y, jumpDirection);
 	if (Input.GetKey(KeyCode.A)) { Move(x, y, moveSpeed, facingRight);   } // Left
 	if (Input.GetKey(KeyCode.D)) { Move(x, y, -moveSpeed, !facingRight);   } // Right
-
-	checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
 }
 
-function setRightMovements() {
-	var x; var y;
 
-	yJump(y, -jumpHeight);
+function setDownandRightMovements(jumpDirection) {
+	var x; var y;
+	Jump(x, y, jumpDirection);
 	if (Input.GetKey(KeyCode.A)) { Move(x, y, -moveSpeed, facingRight);   } // Left
 	if (Input.GetKey(KeyCode.D)) { Move(x, y, moveSpeed, !facingRight);   } // Right
-
-	checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
 }
+
+
+
+
 
 function setNoMovements() {
 	GetComponent(Rigidbody2D).velocity = new Vector2(0,0);
@@ -335,21 +317,22 @@ function calculateAcceleration(speed : float, vectorDirection : float) {
 }
 
 
-function yJump(y, jump) {
+function Jump(x, y, jump) {
+	var rigidbody = GetComponent(Rigidbody2D);
 	if (Input.GetKeyDown(KeyCode.Space) && canJump()) {
-		y = GetComponent(Rigidbody2D).velocity.y;
-		GetComponent(Rigidbody2D).velocity = new Vector2(jump, y);
+		if (gravityIsUpOrDown()) {
+			x = rigidbody.velocity.x;
+			y = jump;
+		} else {
+			y = rigidbody.velocity.y;
+			x = jump;
+		}
+		rigidbody.velocity = new Vector2(x, y);
 		registerJump();
 	}
 }
 
-function xJump(x, jump) {
-	if (Input.GetKeyDown(KeyCode.Space) && canJump()) {
-		x = GetComponent(Rigidbody2D).velocity.x;
-		GetComponent(Rigidbody2D).velocity = new Vector2(x, jump);
-		registerJump();
-	}
-}
+
 
 function registerJump() {
 	numJumps++;
