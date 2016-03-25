@@ -96,22 +96,22 @@ function Update() {
 	}
 
 	if (gravityDirection == Direction.Down) {
-		setDownandRightMovements(jumpHeight);
+		setMovements(jumpHeight, -moveSpeed);
 		checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
 	}
 
 	if (gravityDirection == Direction.Up) {
-		setUpAndLeftMovements(-jumpHeight);
+		setMovements(-jumpHeight, moveSpeed);
 		checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
 	}
 
 	if (gravityDirection == Direction.Left) {
-		setUpAndLeftMovements(jumpHeight);
+		setMovements(jumpHeight, moveSpeed);
 		checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
 	}
 
 	if (gravityDirection == Direction.Right) {
-		setDownandRightMovements(-jumpHeight);
+		setMovements(-jumpHeight, -moveSpeed);
 		checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
 	}
 
@@ -262,24 +262,12 @@ function checkIfMoving() {
 
 // Movement and Orientation
 
-function setUpAndLeftMovements(jumpDirection) {
+function setMovements(jumpHeight : float, moveSpeed : float) {
 	var x; var y;
-	Jump(x, y, jumpDirection);
+	Jump(x, y, jumpHeight);
 	if (Input.GetKey(KeyCode.A)) { Move(x, y, moveSpeed, facingRight);   } // Left
 	if (Input.GetKey(KeyCode.D)) { Move(x, y, -moveSpeed, !facingRight);   } // Right
 }
-
-
-function setDownandRightMovements(jumpDirection) {
-	var x; var y;
-	Jump(x, y, jumpDirection);
-	if (Input.GetKey(KeyCode.A)) { Move(x, y, -moveSpeed, facingRight);   } // Left
-	if (Input.GetKey(KeyCode.D)) { Move(x, y, moveSpeed, !facingRight);   } // Right
-}
-
-
-
-
 
 function setNoMovements() {
 	GetComponent(Rigidbody2D).velocity = new Vector2(0,0);
