@@ -262,8 +262,8 @@ function setDownMovements() {
 	var x; var y;
 
 	xJump(x, jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { xMove(y, -moveSpeed, facingRight); } // Left
-	if (Input.GetKey(KeyCode.D)) { xMove(y, moveSpeed, !facingRight); }	// Right
+	if (Input.GetKey(KeyCode.A)) { Move(x, y, -moveSpeed, facingRight); } // Left
+	if (Input.GetKey(KeyCode.D)) { Move(x, y, moveSpeed, !facingRight); }	// Right
 
 
 	checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
@@ -273,8 +273,8 @@ function setUpMovements() {
 	var x; var y;
 
 	xJump(x, -jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { xMove(y, moveSpeed, facingRight);   } // Left
-	if (Input.GetKey(KeyCode.D)) { xMove(y, -moveSpeed, !facingRight); } // Right
+	if (Input.GetKey(KeyCode.A)) { Move(x, y, moveSpeed, facingRight);   } // Left
+	if (Input.GetKey(KeyCode.D)) { Move(x, y, -moveSpeed, !facingRight); } // Right
 
 	checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
 }
@@ -283,8 +283,8 @@ function setLeftMovements() {
 	var x; var y;
 
 	yJump(y, jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { yMove(x, moveSpeed, facingRight);   } // Left
-	if (Input.GetKey(KeyCode.D)) { yMove(x, -moveSpeed, !facingRight);   } // Right
+	if (Input.GetKey(KeyCode.A)) { Move(x, y, moveSpeed, facingRight);   } // Left
+	if (Input.GetKey(KeyCode.D)) { Move(x, y, -moveSpeed, !facingRight);   } // Right
 
 	checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
 }
@@ -293,8 +293,8 @@ function setRightMovements() {
 	var x; var y;
 
 	yJump(y, -jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { yMove(x, -moveSpeed, facingRight);   } // Left
-	if (Input.GetKey(KeyCode.D)) { yMove(x, moveSpeed, !facingRight);   } // Right
+	if (Input.GetKey(KeyCode.A)) { Move(x, y, -moveSpeed, facingRight);   } // Left
+	if (Input.GetKey(KeyCode.D)) { Move(x, y, moveSpeed, !facingRight);   } // Right
 
 	checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
 }
@@ -304,19 +304,20 @@ function setNoMovements() {
 }
 
 
+function Move(x, y, moveSpeed : float, orientation) {
+	var rigidbody = GetComponent(Rigidbody2D);
 
+	if (gravityIsUpOrDown()) {
+		x = calculateAcceleration(moveSpeed, rigidbody.velocity.x);
+		y = rigidbody.velocity.y;
+	} else {
+		x = rigidbody.velocity.x;
+		y = calculateAcceleration(moveSpeed, rigidbody.velocity.y);
+	}
 
-function xMove(y, moveSpeed : float, orientation) {
-	y = GetComponent(Rigidbody2D).velocity.y;
-	var x = calculateAcceleration(moveSpeed, GetComponent(Rigidbody2D).velocity.x);
 	calculateMovement(x,y, orientation);
 }
 
-function yMove(x, moveSpeed : float, orientation) {
-	x = GetComponent(Rigidbody2D).velocity.x;
-	var y = calculateAcceleration(moveSpeed, GetComponent(Rigidbody2D).velocity.y);
-	calculateMovement(x,y, orientation);
-}
 
 function calculateMovement(x,y, orientation) {
 	GetComponent(Rigidbody2D).velocity = new Vector2(x, y);
