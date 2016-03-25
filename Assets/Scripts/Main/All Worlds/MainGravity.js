@@ -401,5 +401,21 @@ function gravityIsUpOrDown() {
 }
 
 function playSound(tag : String) {
-	GameObject.FindGameObjectWithTag(tag).GetComponent(AudioSource).Play();
+  var audio = GameObject.FindGameObjectWithTag(tag).GetComponent(AudioSource);
+  if (audio.isPlaying) {
+    yield StartCoroutine(FadeAudio(audio, 0, 1));
+    audio.Play();
+  } else {
+    audio.Play();
+  }
+}
+
+function FadeAudio(audio : AudioSource, endVolume : float, fadeLength : float) {
+  var startVolume = audio.volume;
+  var startTime = Time.time;
+  while (Time.time < startTime + fadeLength) {
+    audio.volume = startVolume + ((endVolume - startVolume) * (Time.time - startTime / fadeLength));
+    yield;
+  }
+  if (endVolume == 0) {audio.Stop();}
 }
