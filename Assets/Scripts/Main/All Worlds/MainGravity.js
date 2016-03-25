@@ -13,6 +13,7 @@ private var gravityDirection = Direction.Down;
 // Move & Jump
 
 public var moveSpeed : float;
+public var accelerationRate : float = 13;
 public var jumpHeight : float;
 private var maxJumps = 1;
 public var numJumps = 0; // number of current jumps
@@ -305,17 +306,33 @@ function setNoMovements() {
 
 
 
-function xMove(y, moveSpeed, orientation) {
+function xMove(y, moveSpeed : float, orientation) {
 	y = GetComponent(Rigidbody2D).velocity.y;
-	GetComponent(Rigidbody2D).velocity = new Vector2(moveSpeed, y);
+	var x = calculateAcceleration(moveSpeed, GetComponent(Rigidbody2D).velocity.x);
+	calculateMovement(x,y, orientation);
+}
+
+function yMove(x, moveSpeed : float, orientation) {
+	x = GetComponent(Rigidbody2D).velocity.x;
+	var y = calculateAcceleration(moveSpeed, GetComponent(Rigidbody2D).velocity.y);
+	calculateMovement(x,y, orientation);
+}
+
+function calculateMovement(x,y, orientation) {
+	GetComponent(Rigidbody2D).velocity = new Vector2(x, y);
 	flipIf(orientation);
 }
 
-function yMove(x, moveSpeed, orientation) {
-	x = GetComponent(Rigidbody2D).velocity.x;
-	GetComponent(Rigidbody2D).velocity = new Vector2(x, moveSpeed);
-	flipIf(orientation);
+function calculateAcceleration(speed : float, vectorDirection : float) {
+	var newAccel = speed * accelerationRate;
+	var newVelocity = (newAccel * Time.deltaTime) + vectorDirection;
+
+	if (Mathf.Abs(newVelocity) > Mathf.Abs(speed)) {
+		newVelocity = speed;
+	}
+	return newVelocity;
 }
+
 
 function yJump(y, jump) {
 	if (Input.GetKeyDown(KeyCode.Space) && canJump()) {
@@ -402,20 +419,20 @@ function gravityIsUpOrDown() {
 
 function playSound(tag : String) {
   var audio = GameObject.FindGameObjectWithTag(tag).GetComponent(AudioSource);
-  if (audio.isPlaying) {
-    yield StartCoroutine(FadeAudio(audio, 0, 1));
+  // if (audio.isPlaying) {
+  //   yield StartCoroutine(FadeAudio(audio, 0, 1));
     audio.Play();
-  } else {
-    audio.Play();
-  }
+  // } else {
+  //   audio.Play();
+  // }
 }
 
-function FadeAudio(audio : AudioSource, endVolume : float, fadeLength : float) {
-  var startVolume = audio.volume;
-  var startTime = Time.time;
-  while (Time.time < startTime + fadeLength) {
-    audio.volume = startVolume + ((endVolume - startVolume) * (Time.time - startTime / fadeLength));
-    yield;
-  }
-  if (endVolume == 0) {audio.Stop();}
-}
+// function FadeAudio(audio : AudioSource, endVolume : float, fadeLength : float) {
+//   var startVolume = audio.volume;
+//   var startTime = Time.time;
+//   while (Time.time < startTime + fadeLength) {
+//     audio.volume = startVolume + ((endVolume - startVolume) * (Time.time - startTime / fadeLength));
+//     yield;
+//   }
+//   if (endVolume == 0) {audio.Stop();}
+// }
