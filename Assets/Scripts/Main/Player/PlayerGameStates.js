@@ -41,41 +41,40 @@ function OnCollisionEnter2D (coll : Collision2D) {
   if (tag == "RotaterR" && gravityState.canRotateGravity()) {
     gravityState.adjustGravityRight();
     gravityState.rotatePlayerAndObjects(90);
-    GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateRight(gravityState.rotateRate);
-    playSound("RotateGravitySound");
+    gravityState.rotateCameraInDegrees(90);
   }
 
   if (tag == "RotaterL" && gravityState.canRotateGravity()) {
     gravityState.adjustGravityLeft();
     gravityState.rotatePlayerAndObjects(-90);
-
-    GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateLeft(gravityState.rotateRate);
-    playSound("RotateGravitySound");
+    gravityState.rotateCameraInDegrees(-90);
   }
 
   if (tag == "ShifterU") {
-    gravityState.gravitySettings = "reverse";
+    gravityState.gravityObjectDirection = ObjectDirection.Up;
     gravityState.setWorldGravityShift();
     playSound("ShiftSound");
   }
 
   if (tag == "ShifterD") {
-    gravityState.gravitySettings = "normal";
+    gravityState.gravityObjectDirection = ObjectDirection.Down;
     gravityState.setWorldGravityShift();
     playSound("ShiftSound");
   }
 
   if (tag == "ShifterL") {
-    gravityState.gravitySettings = "left shift";
+    gravityState.gravityObjectDirection = ObjectDirection.Left;
     gravityState.setWorldGravityShift();
     playSound("ShiftSound");
   }
 
   if (tag == "ShifterR") {
-    gravityState.gravitySettings = "right shift";
+    gravityState.gravityObjectDirection = ObjectDirection.Right;
     gravityState.setWorldGravityShift();
     playSound("ShiftSound");
   }
+
+
 }
 
 

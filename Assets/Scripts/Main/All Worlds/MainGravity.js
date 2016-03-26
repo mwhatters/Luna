@@ -4,11 +4,13 @@ import System.Linq;
 // Gravity Vars
 
 enum Direction { Down, Right, Up, Left };
+enum ObjectDirection { Down, Right, Up, Left }
 
 private var gravity = 9.81;
 private var lunaGravity = 9.81;
-public var gravitySettings : String;
-private var gravityDirection = Direction.Down;
+
+public var gravityDirection = Direction.Down;
+public var gravityObjectDirection = ObjectDirection.Down;
 
 // Move & Jump
 
@@ -34,27 +36,34 @@ private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
 private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
 private var groundObjects = ["Ground", "ShifterL", "ShifterR", "ShifterD", "ShifterU", "RotaterL", "RotaterR", "NiceBox", "BlackHoleBox", "Door"];
 
-private var upDownAxis = ["x", "y"];
-var currentAxis : String;
+var vertical = ["x", "y"];
+var horizontal = ["y", "x"];
+var upDownAxis = vertical;
 
 function Start () {
 	setWorldGravityShift();
 }
 
 function setWorldGravityShift() {
-	if (gravitySettings == "normal") {
-		upDownAxis = ["x", "y"];
-		gravity = 9.81;
-	} else if (gravitySettings == "reverse") {
-		upDownAxis = ["x", "y"];
-		gravity = -9.81;
-	} else if (gravitySettings == "left shift") {
-		upDownAxis = ["y", "x"];
-		gravity = 9.81;
-	} else if (gravitySettings == "right shift") {
-		upDownAxis = ["y", "x"];
-		gravity = -9.81;
+	switch (gravityObjectDirection)
+	{
+		case ObjectDirection.Down:
+			setAxisForcesTo(vertical, 9.81);
+			break;
+		case ObjectDirection.Up:
+			setAxisForcesTo(vertical, -9.81);
+			break;
+		case ObjectDirection.Left:
+			setAxisForcesTo(horizontal, 9.81);
+			break;
+		case ObjectDirection.Right:
+			setAxisForcesTo(horizontal, -9.81);
+			break;
 	}
+}
+
+function setAxisForcesTo(dir, grav) {
+	upDownAxis = dir; gravity = grav;
 }
 
 function Update() {
@@ -63,17 +72,13 @@ function Update() {
 	if (Input.GetKeyDown(KeyCode.RightArrow) && canRotateGravity()) {
 		adjustGravityRight();
 		rotatePlayerAndObjects(90);
-
-		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateRight(rotateRate);
-		playSound("RotateGravitySound");
+		rotateCameraInDegrees(90);
 	}
 
 	if (Input.GetKeyDown(KeyCode.LeftArrow) && canRotateGravity()) {
 		adjustGravityLeft();
 		rotatePlayerAndObjects(-90);
-
-		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateLeft(rotateRate);
-		playSound("RotateGravitySound");
+		rotateCameraInDegrees(-90);
 	}
 
 	if (canRotate180)
@@ -81,17 +86,13 @@ function Update() {
 		if (Input.GetKeyDown(KeyCode.UpArrow) && canRotateGravity()) {
 			adjustGravity180();
 			rotatePlayerAndObjects(-180);
-
-			GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateLeft180(rotateRate);
-			playSound("RotateGravitySound");
+			rotateCameraInDegrees(-180);
 		}
 
 		if (Input.GetKeyDown(KeyCode.DownArrow) && canRotateGravity()) {
 			adjustGravity180();
 			rotatePlayerAndObjects(180);
-
-			GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotateRight180(rotateRate);
-			playSound("RotateGravitySound");
+			rotateCameraInDegrees(180);
 		}
 	}
 
@@ -114,7 +115,11 @@ function Update() {
 			checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
 			break;
 	}
+}
 
+function rotateCameraInDegrees(degrees) {
+	GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotate(degrees, rotateRate);
+	playSound("RotateGravitySound");
 }
 
 function FixedUpdate () {
@@ -125,27 +130,22 @@ function FixedUpdate () {
 	switch (gravityDirection)
 	{
 		case Direction.Down:
-			currentAxis = upDownAxis[1];
 			rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(-gravity, currentAxis);
+			setObjectGravitySettings(-gravity, upDownAxis[1]);
 			break;
 		case Direction.Up:
-			currentAxis = upDownAxis[1];
 			rigidbody.velocity.y += lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(gravity, currentAxis);
+			setObjectGravitySettings(gravity, upDownAxis[1]);
 			break;
 		case Direction.Left:
-			currentAxis = upDownAxis[0];
 			rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(-gravity, currentAxis);
+			setObjectGravitySettings(-gravity, upDownAxis[0]);
 			break;
 		case Direction.Right:
-			currentAxis = upDownAxis[0];
 			rigidbody.velocity.x += lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(gravity, currentAxis);
+			setObjectGravitySettings(gravity, upDownAxis[0]);
 			break;
 	}
-
 }
 
 
