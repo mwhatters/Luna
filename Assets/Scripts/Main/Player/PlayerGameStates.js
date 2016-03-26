@@ -54,28 +54,30 @@ function OnCollisionEnter2D (coll : Collision2D) {
   }
 
   if (tag == "ShifterU") {
-    gravityState.gravitySettings = "reverse";
+    gravityState.gravityObjectDirection = ObjectDirection.Up;
     gravityState.setWorldGravityShift();
     playSound("ShiftSound");
   }
 
   if (tag == "ShifterD") {
-    gravityState.gravitySettings = "normal";
+    gravityState.gravityObjectDirection = ObjectDirection.Down;
     gravityState.setWorldGravityShift();
     playSound("ShiftSound");
   }
 
   if (tag == "ShifterL") {
-    gravityState.gravitySettings = "left shift";
+    gravityState.gravityObjectDirection = ObjectDirection.Left;
     gravityState.setWorldGravityShift();
     playSound("ShiftSound");
   }
 
   if (tag == "ShifterR") {
-    gravityState.gravitySettings = "right shift";
+    gravityState.gravityObjectDirection = ObjectDirection.Right;
     gravityState.setWorldGravityShift();
     playSound("ShiftSound");
   }
+
+
 }
 
 

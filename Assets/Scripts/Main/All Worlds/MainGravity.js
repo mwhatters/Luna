@@ -4,11 +4,13 @@ import System.Linq;
 // Gravity Vars
 
 enum Direction { Down, Right, Up, Left };
+enum ObjectDirection { Down, Right, Up, Left }
 
 private var gravity = 9.81;
 private var lunaGravity = 9.81;
-public var gravitySettings : String;
+
 private var gravityDirection = Direction.Down;
+public var gravityObjectDirection = ObjectDirection.Down;
 
 // Move & Jump
 
@@ -42,18 +44,24 @@ function Start () {
 }
 
 function setWorldGravityShift() {
-	if (gravitySettings == "normal") {
-		upDownAxis = ["x", "y"];
-		gravity = 9.81;
-	} else if (gravitySettings == "reverse") {
-		upDownAxis = ["x", "y"];
-		gravity = -9.81;
-	} else if (gravitySettings == "left shift") {
-		upDownAxis = ["y", "x"];
-		gravity = 9.81;
-	} else if (gravitySettings == "right shift") {
-		upDownAxis = ["y", "x"];
-		gravity = -9.81;
+	switch (gravityObjectDirection)
+	{
+		case ObjectDirection.Down:
+			upDownAxis = ["x", "y"];
+			gravity = 9.81;
+			break;
+		case ObjectDirection.Up:
+			upDownAxis = ["x", "y"];
+			gravity = -9.81;
+			break;
+		case ObjectDirection.Left:
+			upDownAxis = ["y", "x"];
+			gravity = 9.81;
+			break;
+		case ObjectDirection.Right:
+			upDownAxis = ["y", "x"];
+			gravity = -9.81;
+			break;
 	}
 }
 
