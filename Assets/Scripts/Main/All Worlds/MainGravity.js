@@ -32,7 +32,7 @@ public var canRotate180 = false;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
 private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
-private var groundObjects = ["Ground", "ShifterL", "ShifterR", "ShifterD", "ShifterU", "RotaterL", "RotaterR", "NiceBox", "BlackHoleBox"];
+private var groundObjects = ["Ground", "ShifterL", "ShifterR", "ShifterD", "ShifterU", "RotaterL", "RotaterR", "NiceBox", "BlackHoleBox", "Door"];
 
 private var upDownAxis = ["x", "y"];
 var currentAxis : String;
