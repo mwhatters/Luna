@@ -10,7 +10,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
 			GameObject.FindGameObjectWithTag("ThumpSound").GetComponent(AudioSource).Play();
 			nextSound = Time.time + soundRate;
 		} else {
-//			Debug.Log("did not play");
+			// Debug.Log("did not play");
 		}
 
 	}
