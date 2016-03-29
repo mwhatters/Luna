@@ -6,7 +6,6 @@ private var lunaObj : GameObject;
 private var boxesUnfrozen = false;
 public var objectsList : String;
 
-public var cameraZ : int = -8;
 public var y : float;
 public var x : float;
 public var zIn : float;
@@ -15,11 +14,17 @@ public var transitionEnterTime : float = 1;
 public var transitionExitTime : float = 0.5;
 public var zoomOnly : boolean = false;
 
+private var isOrthographic : boolean = true;
 private var currentlyTransitioning = false;
 
 function Start () {
 	cameraObj = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
 	lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
+
+	if (cameraObj.GetComponent(Camera).orthographic == false) {
+		isOrthographic = false;
+	}
+
 }
 
 function OnTriggerEnter2D(coll : Collider2D) {
@@ -72,7 +77,7 @@ function panCameraToPoint() {
 
 	var cameraScope = cameraObj.GetComponent(Camera);
 	var startPos = cameraObj.transform.position;
-	var endPos = Vector3(x, y, cameraZ);
+	var endPos = Vector3(x, y, startPos.z);
 	var rate = 1.0/transitionEnterTime;
 	var t = 0.0;
 	currentlyTransitioning = true;
@@ -80,7 +85,12 @@ function panCameraToPoint() {
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
 		cameraObj.transform.position = Vector3.Lerp(startPos, endPos, t);
-		cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zIn, t);
+
+		if (isOrthographic) {
+			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zIn, t);
+		} else {
+			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zIn, t);
+		}
 		yield;
 	}
 
@@ -100,15 +110,23 @@ function panCameraToFollowLuna() {
 	currentlyTransitioning = true;
 
 	while (t < 1.0) {
-		endPos = Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, cameraZ);
+		endPos = Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, startPos.z);
 		x = lunaObj.transform.position.x;
 		y = lunaObj.transform.position.y;
 		t += Time.deltaTime * rate;
 
 		cameraObj.transform.position = Vector3.Lerp(startPos, endPos, t);
-		cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
+
+		if (isOrthographic) {
+			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
+		} else {
+			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zOut, t);
+		}
+
 		yield;
 	}
+
+	Debug.Log(cameraScope.fieldOfView);
 
 	currentlyTransitioning = false;
 }
@@ -121,7 +139,11 @@ function zoomCameraEnter() {
 
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
-		cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zIn, t);
+		if (isOrthographic) {
+			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zIn, t);
+		} else {
+			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zIn, t);
+		}
 		yield;
 	}
 
@@ -137,7 +159,11 @@ function zoomCameraExit() {
 
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
-		cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
+		if (isOrthographic) {
+			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
+		} else {
+			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zOut, t);
+		}
 		yield;
 	}
 
