@@ -17,7 +17,7 @@ public var gravityObjectDirection = ObjectDirection.Down;
 public var moveSpeed : float;
 public var accelerationRate : float = 13;
 public var jumpHeight : float;
-private var maxJumps = 1;
+public var maxJumps = 1;
 public var numJumps = 0; // number of current jumps
 
 public var touchingGround = true;

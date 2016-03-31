@@ -7,7 +7,10 @@ public var keysFound : GameObject[];
 
 function Update() {
     if (isDead || hasWon) {
-      GetComponent(MainGravity).setNoMovements();
+      var gravScript = GetComponent(MainGravity);
+      gravScript.canRotate = false;
+      gravScript.maxJumps = 0;
+      GetComponent(Rigidbody2D).velocity = new Vector2(0,0);
       return false;
     } else {
       return true;
@@ -84,6 +87,7 @@ function Die() {
   if (hasWon == true) { return; }
 
   isDead = true;
+  GameObject.Find("User Interface").GetComponent(Timer).running = false;
   removeLuna();
   playSound("DieSound");
   yield WaitForSeconds(3.0);
