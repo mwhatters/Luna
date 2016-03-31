@@ -25,7 +25,6 @@ function OnCollisionEnter2D (coll : Collision2D) {
   var gravityState = GetComponent(MainGravity);
 
 
-
   //Jump
   if (ArrayUtility.Contains(["Ground", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL","ShifterL", "ShifterR", "ShifterD", "ShifterU"], tag)) {
       GetComponent(MainGravity).numJumps = 0;
@@ -79,6 +78,8 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
 
 }
+
+
 
 
 // EndGame & Meta

@@ -126,8 +126,6 @@ function panCameraToFollowLuna() {
 		yield;
 	}
 
-	Debug.Log(cameraScope.fieldOfView);
-
 	currentlyTransitioning = false;
 }
 
