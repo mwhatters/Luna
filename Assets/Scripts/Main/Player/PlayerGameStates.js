@@ -87,7 +87,6 @@ function Die() {
   if (hasWon == true) { return; }
 
   isDead = true;
-  GameObject.Find("User Interface").GetComponent(Timer).running = false;
   removeLuna();
   playSound("DieSound");
   yield WaitForSeconds(3.0);
