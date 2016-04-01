@@ -8,9 +8,7 @@ public var keysFound : GameObject[];
 function Update() {
     if (isDead || hasWon) {
       var gravScript = GetComponent(MainGravity);
-      gravScript.canRotate = false;
-      gravScript.maxJumps = 0;
-      GetComponent(Rigidbody2D).velocity = new Vector2(0,0);
+      gravScript.setNoMovements();
       return false;
     } else {
       return true;

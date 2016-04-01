@@ -17,12 +17,18 @@ public var zoomOnly : boolean = false;
 private var isOrthographic : boolean = true;
 private var currentlyTransitioning = false;
 
+public var explanatoryText : GameObject;
+
 function Start () {
 	cameraObj = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
 	lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
 
 	if (cameraObj.GetComponent(Camera).orthographic == false) {
 		isOrthographic = false;
+	}
+
+	if (explanatoryText == null) {
+		explanatoryText = null;
 	}
 
 }
@@ -41,6 +47,11 @@ function OnTriggerEnter2D(coll : Collider2D) {
 			boxesUnfrozen = true;
 		}
 
+		if (explanatoryText != null){
+			explanatoryText.GetComponent(ExplanatoryText).turnedOff = false;
+			explanatoryText.GetComponent(ExplanatoryText).revealUIText();
+		}
+
 		if (currentlyTransitioning) {
 			StopCoroutine("panCameraToFollowLuna");
 			StopCoroutine("zoomCameraExit");
@@ -53,11 +64,17 @@ function OnTriggerEnter2D(coll : Collider2D) {
 			yield StartCoroutine("panCameraToPoint");
 		}
 	}
+
 }
 
 function OnTriggerExit2D(coll : Collider2D) {
 	if (coll.name == "Luna") {
 		Play("RestrainSound");
+
+		if (explanatoryText != null){
+			explanatoryText.GetComponent(ExplanatoryText).turnedOff = true;
+			explanatoryText.GetComponent(ExplanatoryText).removeUIText();
+		}
 
 		if (currentlyTransitioning) {
 			StopCoroutine("panCameraToPoint");

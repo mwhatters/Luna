@@ -265,6 +265,8 @@ function setMovements(jumpHeight : float, moveSpeed : float) {
 
 function setNoMovements() {
 	GetComponent(Rigidbody2D).velocity = new Vector2(0,0);
+	maxJumps = 0;
+	canRotate = false;
 }
 
 
