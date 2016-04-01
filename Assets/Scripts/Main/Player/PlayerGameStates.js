@@ -99,6 +99,7 @@ function removeLuna() {
 
 function Win() {
   hasWon = true;
+  removeLuna();
   GameObject.Find("User Interface").GetComponent(Timer).running = false;
   playSound("WinSound");
   yield WaitForSeconds(3.0);

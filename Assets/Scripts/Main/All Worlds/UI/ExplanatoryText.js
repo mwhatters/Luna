@@ -4,8 +4,6 @@ public var displayText : String;
 public var turnedOff : boolean = false;
 private var stringLength : int;
 
-public var typeSound : GameObject;
-
 function Start() {
   stringLength = displayText.Length;
 }
@@ -20,7 +18,7 @@ function revealUIText() {
     }
 
     this.GetComponent(Text).text += displayText[i];
-    typeSound.GetComponent(AudioSource).Play();
+    GameObject.FindGameObjectWithTag("TypeSound").GetComponent(AudioSource).Play();
     yield WaitForSeconds(0.1);
   }
 }

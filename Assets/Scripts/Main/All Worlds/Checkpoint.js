@@ -3,9 +3,9 @@
 private var triggered : boolean = false;
 public var invalidatedObjects : GameObject[];
 
-function Awake () {
-	 DontDestroyOnLoad(this);
-}
+// function Awake () {
+// 	 DontDestroyOnLoad(this);
+// }
 
 function Start () {
 	if (GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).checkPointPos == transform.position) {
