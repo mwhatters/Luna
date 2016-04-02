@@ -13,6 +13,7 @@ public var zOut : float;
 public var transitionEnterTime : float = 1;
 public var transitionExitTime : float = 0.5;
 public var zoomOnly : boolean = false;
+public var playSoundOnTransition : boolean = true;
 
 private var isOrthographic : boolean = true;
 private var currentlyTransitioning = false;
@@ -186,5 +187,7 @@ function zoomCameraExit() {
 }
 
 function Play(sound : String) {
-	GameObject.FindGameObjectWithTag(sound).GetComponent(AudioSource).Play();
+	if (playSoundOnTransition) {
+		GameObject.FindGameObjectWithTag(sound).GetComponent(AudioSource).Play();
+	}
 }

@@ -22,6 +22,7 @@ public var numJumps = 0; // number of current jumps
 
 public var touchingGround = true;
 public var isMoving = false;
+public var isFrozen = false;
 public var feetDistanceFromCenter : float;
 
 // Orientation & Rotation
@@ -68,6 +69,8 @@ function setAxisForcesTo(dir, grav) {
 
 function Update() {
 	// Gravity Rotation
+
+	if (isFrozen) { return false; }
 
 	if (Input.GetKeyDown(KeyCode.RightArrow) && canRotateGravity()) {
 		adjustGravityRight();
@@ -265,8 +268,7 @@ function setMovements(jumpHeight : float, moveSpeed : float) {
 
 function setNoMovements() {
 	GetComponent(Rigidbody2D).velocity = new Vector2(0,0);
-	maxJumps = 0;
-	canRotate = false;
+	isFrozen = true;
 }
 
 
