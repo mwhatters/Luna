@@ -18,6 +18,7 @@ function OnCollisionEnter2D(coll : Collision2D) {
 			}
 		}
 	}
+	return true;
 }
 
 function DestroyDoor() {

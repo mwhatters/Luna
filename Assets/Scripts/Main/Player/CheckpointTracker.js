@@ -9,6 +9,6 @@ function Start() {
   }
 }
 
-function MovePlayerToCheckpoint(pos) {
+function MovePlayerToCheckpoint(pos : Vector3) {
   GameObject.Find("Luna").transform.position = pos;
 }

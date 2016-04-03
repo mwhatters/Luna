@@ -13,11 +13,13 @@ function Start () {
 }
 
 function OnCollisionEnter2D(coll : Collision2D) {
+  Debug.Log('hey! collided!');
   var tag : String = coll.gameObject.tag;
-  if (tag == "The Guy") {
+  if (tag == "TheGuy") {
     if (normalSceneTransition) {
       resetCheckPointLoader();
       playNormalSceneExit();
+1
       SceneManager.LoadScene(sceneToLoad);
     }
   }

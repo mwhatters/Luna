@@ -4,7 +4,7 @@ import UnityEngine.UI;
 public var timerLabel : Text;
 private var time : float;
 private var resetTime : float = 0.0;
-public var running = true;
+public var running : boolean = true;
 
 
 function Update () {
@@ -17,8 +17,8 @@ function Update () {
   var fraction : int = (time * 100);
   fraction = fraction % 100;
 
-  // timerLabel.text = String.Format ("{0:00} : {1:00} : {2:000}", minutes, seconds, fraction);
   timerLabel.text = String.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
+  return true;
 }
 
 

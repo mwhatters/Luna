@@ -63,7 +63,7 @@ function setWorldGravityShift() {
 	}
 }
 
-function setAxisForcesTo(dir, grav) {
+function setAxisForcesTo(dir : String[], grav : float) {
 	upDownAxis = dir; gravity = grav;
 }
 
@@ -118,9 +118,11 @@ function Update() {
 			checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
 			break;
 	}
+
+	return true;
 }
 
-function rotateCameraInDegrees(degrees) {
+function rotateCameraInDegrees(degrees : float) {
 	GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotate(degrees, rotateRate);
 	playSound("RotateGravitySound");
 }
@@ -159,7 +161,7 @@ function rotatePlayerAndObjects(degrees : float) {
 	adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * -degrees);
 }
 
-function adjustShifters(shifters : Object, degrees : Vector3) {
+function adjustShifters(shifters : String[], degrees : Vector3) {
 	for (var shifter : String in shifters) {
 		var shift = GameObject.FindGameObjectWithTag(shifter);
 		if (shift != null) {
@@ -230,13 +232,13 @@ function canRotateGravity() {
 	return (Time.time > nextRotate + 0.001 && canRotate);
 }
 
-function setObjectGravitySettings(gravitySetting : float, axis) {
+function setObjectGravitySettings(gravitySetting : float, axis : String) {
 	objGravity(normalGravObjects, gravitySetting, axis);
 	objGravity(reverseGravObjects, -gravitySetting, axis);
 }
 
 
-function objGravity(taggedItems : Array, gravity : float, axis : String) {
+function objGravity(taggedItems : String[], gravity : float, axis : String) {
 	for (var taggedItem : String in taggedItems) {
 		if (taggedItem == "BlackHoleBox") { gravity *= 10; }
 
