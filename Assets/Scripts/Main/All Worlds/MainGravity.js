@@ -364,7 +364,13 @@ function checkIfGrounded(direction : Vector2, distance : float) {
 }
 
 function playerIsTouchingGround(contactPoint : RaycastHit2D) {
-	return contactPoint.distance == 0 && ArrayUtility.Contains(groundObjects, contactPoint.collider.tag);
+	var itemIsGround : boolean = false;
+	for (var item : String in groundObjects) {
+		if (contactPoint.collider.tag == item) {
+			itemIsGround = true;
+		}
+	}
+	return contactPoint.distance == 0 && itemIsGround;
 }
 
 function determinedRaycastVector(distance : float) {
