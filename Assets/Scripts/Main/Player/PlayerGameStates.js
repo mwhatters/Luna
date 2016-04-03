@@ -24,13 +24,18 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
 
   //Jump
-  if (ArrayUtility.Contains(["Ground", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL","ShifterL", "ShifterR", "ShifterD", "ShifterU"], tag)) {
+
+  for (var item : String in ["Ground", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL","ShifterL", "ShifterR", "ShifterD", "ShifterU"]) {
+    if (tag == item) {
       GetComponent(MainGravity).numJumps = 0;
+    }
   }
 
   //Death
-  if (ArrayUtility.Contains(["Death", "DeathRock", "DeathBall", "ReverseDeathObject"], tag)) {
-    Die();
+  for (var item : String in ["Death", "DeathRock", "DeathBall", "ReverseDeathObject"]) {
+    if (tag == item) {
+      Die();
+    }
   }
 
   if (coll.gameObject.CompareTag("VictoryPortal")) {

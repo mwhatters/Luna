@@ -2,6 +2,7 @@
 
 private var triggered : boolean = false;
 public var invalidatedObjects : GameObject[];
+public var killMusic : boolean = false;
 
 function Start () {
 	var camera = GameObject.FindGameObjectWithTag("MainCamera");
