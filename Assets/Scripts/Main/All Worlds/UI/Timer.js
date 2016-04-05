@@ -6,6 +6,10 @@ private var time : float;
 private var resetTime : float = 0.0;
 public var running : boolean = true;
 
+function OnLevelWasLoaded() {
+  startTimerFromZero();
+}
+
 
 function Update () {
   if (!running) { return false; }

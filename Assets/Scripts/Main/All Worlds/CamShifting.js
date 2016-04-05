@@ -159,6 +159,7 @@ function zoomCameraEnter() {
 			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zIn, t);
 		} else {
 			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zIn, t);
+			if (cameraScope.fieldOfView == zIn) { break; }
 		}
 		yield;
 	}
@@ -179,6 +180,7 @@ function zoomCameraExit() {
 			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
 		} else {
 			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zOut, t);
+			if (cameraScope.fieldOfView == zOut) { break; }
 		}
 		yield;
 	}

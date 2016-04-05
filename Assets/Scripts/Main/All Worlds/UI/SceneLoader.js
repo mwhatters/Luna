@@ -6,31 +6,28 @@ public var sceneToLoad : int;
 public var killMusic : boolean = false;
 
 public var persistentObjectsToKill : GameObject[];
-
-
-function Start () {
-
-}
+public var endLevelZoom : float = 125;
 
 function OnCollisionEnter2D(coll : Collision2D) {
-  Debug.Log('hey! collided!');
   var tag : String = coll.gameObject.tag;
   if (tag == "TheGuy") {
     if (normalSceneTransition) {
       resetCheckPointLoader();
       yield playNormalSceneExit();
 
-      // SceneManager.LoadScene(sceneToLoad);
+      SceneManager.LoadScene(sceneToLoad);
     }
   }
 }
 
 function playNormalSceneExit() {
   GameObject.Find("User Interface").GetComponent(Timer).running = false;
-  GameObject.Find("ETInstantiator").GetComponent(ExitTransition).PortalExitTransition();
+  GameObject.Find("ETInstantiator").GetComponent(UISceneTransition).PortalExitTransition();
   playSound("WinSound");
-  yield ZoomCameraToEndLevelState();
-  yield WaitForSeconds(3.0);
+
+  ZoomCameraToPortal();
+
+  yield WaitForSeconds(1.5);
 }
 
 function resetCheckPointLoader() {
@@ -44,14 +41,14 @@ function playSound(tag : String) {
 }
 
 
-function ZoomCameraToEndLevelState() {
-	var cameraScope = GameObject.Find("Camera").GetComponent(Camera);
-	var rate = 1.0/2.0;
-	var t = 0.0;
+function ZoomCameraToPortal() {
+  var cameraScope = GameObject.Find("Camera").GetComponent(Camera);
+  var rate = 1.0/3.0;
+  var t = 0.0;
 
-	while (t < 1.0) {
-		t += Time.deltaTime * rate;
-		cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, 125, t);
-		yield;
-	}
+  while (t < 1.0) {
+    t += Time.deltaTime * rate;
+    cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, endLevelZoom, t);
+    yield;
+  }
 }
