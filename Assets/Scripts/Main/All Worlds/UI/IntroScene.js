@@ -17,6 +17,7 @@ function Start () {
 
   var timer = GameObject.Find("User Interface").GetComponent(Timer);
   var luna = GameObject.Find("Luna");
+  var cam = GameObject.Find("Camera");
 
   timer.running = false;
 
