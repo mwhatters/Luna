@@ -28,6 +28,7 @@ function playNormalSceneExit() {
   ZoomCameraToPortal();
 
   yield WaitForSeconds(1.5);
+  if (killMusic) { Destroy(GameObject.Find("BackgroundMusic")); }
 }
 
 function resetCheckPointLoader() {
