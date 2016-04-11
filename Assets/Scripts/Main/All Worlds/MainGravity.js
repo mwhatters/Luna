@@ -360,8 +360,10 @@ function checkIfGrounded(direction : Vector2, distance : float) {
 	if (playerIsTouchingGround(contactPoint)) {
 		if (!isMoving) { killDownwardsVelocity(); }
 		touchingGround = true;
+		GetComponent(MovementSounds).onGround = true;
 	} else {
 		touchingGround = false;
+		GetComponent(MovementSounds).onGround = false;
 	}
 }
 

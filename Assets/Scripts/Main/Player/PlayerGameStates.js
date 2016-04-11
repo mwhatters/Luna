@@ -27,7 +27,12 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
   for (var item : String in ["Ground", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL","ShifterL", "ShifterR", "ShifterD", "ShifterU"]) {
     if (tag == item) {
-      GetComponent(MainGravity).numJumps = 0;
+      yield WaitForSeconds(0.001); // hacky
+      if (gravityState.touchingGround == true) {
+        Debug.Log('groundhit!');
+        GetComponent(MainGravity).numJumps = 0;
+        playSound("HitGround");
+      }
     }
   }
 
