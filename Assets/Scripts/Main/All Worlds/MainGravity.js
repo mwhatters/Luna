@@ -41,7 +41,7 @@ var vertical = ["x", "y"];
 var horizontal = ["y", "x"];
 var upDownAxis = vertical;
 
-var wind : AudioSource;
+private var wind : AudioSource;
 
 function Start () {
 	setWorldGravityShift();
