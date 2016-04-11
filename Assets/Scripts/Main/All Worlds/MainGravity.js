@@ -41,8 +41,11 @@ var vertical = ["x", "y"];
 var horizontal = ["y", "x"];
 var upDownAxis = vertical;
 
+var wind : AudioSource;
+
 function Start () {
 	setWorldGravityShift();
+	wind = GameObject.Find("Wind").GetComponent(AudioSource);
 }
 
 function setWorldGravityShift() {
@@ -130,7 +133,9 @@ function rotateCameraInDegrees(degrees : float) {
 function FixedUpdate () {
 
 	var rigidbody = GetComponent(Rigidbody2D);
+	adjustFallingSounds(rigidbody);
 	checkIfMoving();
+
 
 	switch (gravityDirection)
 	{
@@ -395,6 +400,15 @@ function killDownwardsVelocity() {
 
 function gravityIsUpOrDown() {
  return	gravityDirection == Direction.Down || gravityDirection == Direction.Up;
+}
+
+
+function adjustFallingSounds(rigidbody : Rigidbody2D) {
+	if (gravityIsUpOrDown()) {
+		wind.volume = Mathf.Abs(rigidbody.velocity.y / 80);
+	} else {
+		wind.volume = Mathf.Abs(rigidbody.velocity.x / 80);
+	}
 }
 
 function playSound(tag : String) {

@@ -13,13 +13,12 @@ function Start() {
   nextWalk = Time.time;
 }
 
-
 function Update() {
-    if (CanTriggerWalk()) {
-      footstepSound.Play();
-    } else {
-      footstepSound.Stop();
-    }
+    // if (CanTriggerWalk()) {
+    //   footstepSound.Play();
+    // } else {
+    //   footstepSound.Stop();
+    // }
 }
 
 

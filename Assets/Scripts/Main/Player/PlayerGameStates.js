@@ -29,7 +29,6 @@ function OnCollisionEnter2D (coll : Collision2D) {
     if (tag == item) {
       yield WaitForSeconds(0.001); // hacky
       if (gravityState.touchingGround == true) {
-        Debug.Log('groundhit!');
         GetComponent(MainGravity).numJumps = 0;
         playSound("HitGround");
       }
