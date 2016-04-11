@@ -13,15 +13,13 @@ function Start() {
   nextWalk = Time.time;
 }
 
-
 function Update() {
-    if (CanTriggerWalk()) {
+    if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
       footstepSound.Play();
     } else {
       footstepSound.Stop();
     }
 }
-
 
 function CanTriggerWalk() {
   if (
