@@ -14,12 +14,13 @@ function Start() {
 }
 
 function Update() {
-    if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
-      footstepSound.Play();
-    } else {
-      footstepSound.Stop();
-    }
+    // if (CanTriggerWalk()) {
+    //   footstepSound.Play();
+    // } else {
+    //   footstepSound.Stop();
+    // }
 }
+
 
 function CanTriggerWalk() {
   if (
