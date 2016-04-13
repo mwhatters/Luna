@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 7275f07667ef64a1b8822b51eec21a57
+timeCreated: 1460435183
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MeanBoxreverse_0
+    21300002: MeanBoxreverse_1
+    21300004: MeanBoxreverse_2
+    21300006: MeanBoxreverse_3
+    21300008: MeanBoxreverse_4
+    21300010: MeanBoxreverse_5
+    21300012: MeanBoxreverse_6
+    21300014: MeanBoxreverse_7
+    21300016: MeanBoxreverse_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: MeanBoxreverse_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -114, y: 114}
+        - {x: -114, y: -114}
+        - {x: 114, y: -114}
+        - {x: 114, y: 114}
+    - name: MeanBoxreverse_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -113.94444, y: 114}
+        - {x: -113.94444, y: -114}
+        - {x: 115.05556, y: -114}
+        - {x: 115.05556, y: 114}
+    - name: MeanBoxreverse_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -113.888885, y: 114}
+        - {x: -113.888885, y: -114}
+        - {x: 114.111115, y: -114}
+        - {x: 114.111115, y: 114}
+    - name: MeanBoxreverse_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -113.83331, y: 114}
+        - {x: -113.83331, y: -114}
+        - {x: 115.16669, y: -114}
+        - {x: 115.16669, y: 114}
+    - name: MeanBoxreverse_4
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -113.77777, y: 114}
+        - {x: -113.77777, y: -114}
+        - {x: 114.22223, y: -114}
+        - {x: 114.22223, y: 114}
+    - name: MeanBoxreverse_5
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -113.72217, y: 114}
+        - {x: -113.72217, y: -114}
+        - {x: 115.27783, y: -114}
+        - {x: 115.27783, y: 114}
+    - name: MeanBoxreverse_6
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -113.666626, y: 114}
+        - {x: -113.666626, y: -114}
+        - {x: 114.333374, y: -114}
+        - {x: 114.333374, y: 114}
+    - name: MeanBoxreverse_7
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -113.611084, y: 114}
+        - {x: -113.611084, y: -114}
+        - {x: 115.388916, y: -114}
+        - {x: 115.388916, y: 114}
+    - name: MeanBoxreverse_8
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -113.55554, y: 114}
+        - {x: -113.55554, y: -114}
+        - {x: 114.44446, y: -114}
+        - {x: 114.44446, y: 114}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
