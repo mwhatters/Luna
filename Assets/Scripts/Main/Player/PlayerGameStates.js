@@ -43,7 +43,6 @@ function OnCollisionEnter2D (coll : Collision2D) {
   }
 
   if (coll.gameObject.CompareTag("VictoryPortal")) {
-    // removeLuna();
     Win();
   }
 
@@ -106,8 +105,6 @@ function removeLuna() {
 
 function Win() {
   hasWon = true;
-  GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = true;
-  // removeLuna();
 }
 
 function playSound(tag : String) {
