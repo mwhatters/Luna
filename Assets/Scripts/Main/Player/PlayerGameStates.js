@@ -95,6 +95,7 @@ function Die() {
   removeLuna();
   playSound("DieSound");
   yield WaitForSeconds(3.0);
+  GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = false;
   SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 }
 
@@ -105,6 +106,7 @@ function removeLuna() {
 
 function Win() {
   hasWon = true;
+  GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = true;
   // removeLuna();
 }
 

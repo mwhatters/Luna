@@ -6,8 +6,12 @@ private var time : float;
 private var resetTime : float = 0.0;
 public var running : boolean = true;
 
+static var isLevelTransition : boolean = true;
+
 function OnLevelWasLoaded() {
-  startTimerFromZero();
+  if (isLevelTransition) {
+    startTimerFromZero();
+  } 
 }
 
 
