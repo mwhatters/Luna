@@ -1,27 +1,27 @@
 ﻿#pragma strict
+import System.Linq;
 
-public var keyNeeded : String;
+public var keysNeeded : GameObject[];
+private var noKeys : GameObject[];
 
 function OnCollisionEnter2D(coll : Collision2D) {
 	if (coll.gameObject.tag == "TheGuy") {
-
-		if (keyNeeded == "None") {
+		if (keysNeeded.Length == 0) {
 			DestroyDoor();
-			return true;
 		}
 
-		// todo : make work for multiple keys
+		var keys = coll.gameObject.GetComponent(PlayerGameStates).keysFound;
 
-		for (var key in coll.gameObject.GetComponent(PlayerGameStates).keysFound) {
-			if (key.name == keyNeeded) {
-				DestroyDoor();
-			}
+		if (keys.Length == keysNeeded.Length) {
+			DestroyDoor();
+			coll.gameObject.GetComponent(PlayerGameStates).keysFound = noKeys;
 		}
 	}
-	return true;
 }
 
 function DestroyDoor() {
 	Sounds.use.PlaySoundByTag("DoorOpenSound");
-	Destroy(this);
+	Destroy(GetComponent(SpriteRenderer));
+	Destroy(GetComponent(BoxCollider2D));
+	return true;
 }

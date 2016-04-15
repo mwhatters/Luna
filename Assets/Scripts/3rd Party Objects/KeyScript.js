@@ -4,7 +4,8 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
 	if (coll.gameObject.tag == "TheGuy") {
 		addToArray(coll, this.gameObject);
-		Destroy(this);
+		Destroy(GetComponent(SpriteRenderer));
+		Destroy(GetComponent(BoxCollider2D));
 		Sounds.use.PlaySoundByTag("GrabKeySound");
 	}
 }

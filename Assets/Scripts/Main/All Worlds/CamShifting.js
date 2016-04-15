@@ -4,7 +4,7 @@ private var cameraObj : CameraBehavior;
 private var lunaObj : GameObject;
 
 private var boxesUnfrozen = false;
-public var objectsList : String;
+public var objectsList : GameObject[];
 
 public var y : float;
 public var x : float;
@@ -23,32 +23,23 @@ public var explanatoryText : GameObject;
 function Start () {
 	cameraObj = GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior);
 	lunaObj = GameObject.FindGameObjectWithTag("TheGuy");
-
-	if (cameraObj.GetComponent(Camera).orthographic == false) {
-		isOrthographic = false;
-	}
-
-	if (explanatoryText == null) {
-		explanatoryText = null;
-	}
-
+	isOrthographic = cameraObj.GetComponent(Camera).orthographic;
+	explanatoryText = explanatoryText;
 }
 
 function OnTriggerEnter2D(coll : Collider2D) {
 
 	if (coll.name == "Luna") {
-		Sounds.use.PlaySoundByTag("ExpandSound");
+		if (playSoundOnTransition) { Sounds.use.PlaySoundByTag("ExpandSound"); }
 
-		if (!boxesUnfrozen && objectsList != "") {
-			var objects = objectsList.Split(" "[0]);
-			for (var box in objects) {
-				var object = GameObject.Find(box);
-				object.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
+		if (!boxesUnfrozen && objectsList != null) {
+			for (var item in objectsList) {
+				item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
 			}
 			boxesUnfrozen = true;
 		}
 
-		if (explanatoryText != null){
+		if (explanatoryText){
 			explanatoryText.GetComponent(ExplanatoryText).turnedOff = false;
 			explanatoryText.GetComponent(ExplanatoryText).revealUIText();
 		}
@@ -70,7 +61,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 function OnTriggerExit2D(coll : Collider2D) {
 	if (coll.name == "Luna") {
-		Sounds.use.PlaySoundByTag("RestrainSound");
+		if (playSoundOnTransition) { Sounds.use.PlaySoundByTag("RestrainSound"); }
 
 		if (explanatoryText != null){
 			explanatoryText.GetComponent(ExplanatoryText).turnedOff = true;
@@ -115,38 +106,6 @@ function panCameraToPoint() {
 	currentlyTransitioning = false;
 }
 
-
-
-function panCameraToFollowLuna() {
-	var cameraScope = cameraObj.GetComponent(Camera);
-	var startPos = cameraObj.transform.position;
-	var endPos : Vector3;
-	var x;
-	var y;
-	var rate = 1.0/transitionExitTime;
-	var t = 0.0;
-	currentlyTransitioning = true;
-
-	while (t < 1.0) {
-		endPos = Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, startPos.z);
-		x = lunaObj.transform.position.x;
-		y = lunaObj.transform.position.y;
-		t += Time.deltaTime * rate;
-
-		cameraObj.transform.position = Vector3.Lerp(startPos, endPos, t);
-
-		if (isOrthographic) {
-			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
-		} else {
-			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zOut, t);
-		}
-
-		yield;
-	}
-
-	currentlyTransitioning = false;
-}
-
 function zoomCameraEnter() {
 	var cameraScope = cameraObj.GetComponent(Camera);
 	var rate = 1.0/transitionEnterTime;
@@ -182,6 +141,65 @@ function zoomCameraExit() {
 			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zOut, t);
 			if (cameraScope.fieldOfView == zOut) { break; }
 		}
+		yield;
+	}
+
+	currentlyTransitioning = false;
+}
+
+function zoomCamera(zPos : float) {
+	var cameraScope = cameraObj.GetComponent(Camera);
+	var rate = 1.0/transitionEnterTime;
+	var t = 0.0;
+	currentlyTransitioning = true;
+
+	while (t < 1.0) {
+		t += Time.deltaTime * rate;
+		if (isOrthographic) {
+			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zPos, t);
+		} else {
+			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zPos, t);
+			if (cameraScope.fieldOfView == zPos) { break; }
+		}
+		yield;
+	}
+
+	currentlyTransitioning = false;
+}
+
+
+
+
+
+
+
+
+
+
+function panCameraToFollowLuna() {
+	var cameraScope = cameraObj.GetComponent(Camera);
+	var startPos = cameraObj.transform.position;
+	var endPos : Vector3;
+	var x;
+	var y;
+	var rate = 1.0/transitionExitTime;
+	var t = 0.0;
+	currentlyTransitioning = true;
+
+	while (t < 1.0) {
+		endPos = Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, startPos.z);
+		x = lunaObj.transform.position.x;
+		y = lunaObj.transform.position.y;
+		t += Time.deltaTime * rate;
+
+		cameraObj.transform.position = Vector3.Lerp(startPos, endPos, t);
+
+		if (isOrthographic) {
+			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
+		} else {
+			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zOut, t);
+		}
+
 		yield;
 	}
 
