@@ -10,8 +10,10 @@ function OnCollisionEnter2D(coll : Collision2D) {
 			DestroyDoor();
 		}
 
+		// we only care about the length of the gameobjects as there is no chance of the player getting two
+		// of the same key. will it work for puzzles with multiple doors in non-linear spots tho? No. Must
+		// consider this.
 		var keys = coll.gameObject.GetComponent(PlayerGameStates).keysFound;
-
 		if (keys.Length == keysNeeded.Length) {
 			DestroyDoor();
 			coll.gameObject.GetComponent(PlayerGameStates).keysFound = noKeys;
