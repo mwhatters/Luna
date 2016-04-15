@@ -1,4 +1,5 @@
 ﻿#pragma strict
+//not used
 
 public var texture : Texture2D;
 public var fadeSpeed : float;
@@ -25,5 +26,5 @@ function beginFade(speed : float) {
 // On Level Load
 
 function OnLevelWasLoaded() {
-//	beginFade(-1);	
+//	beginFade(-1);
 }

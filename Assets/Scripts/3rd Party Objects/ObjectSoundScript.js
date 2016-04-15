@@ -1,5 +1,7 @@
 ﻿#pragma strict
 
+//not used
+
 static var nextSound = 0.0;
 static var soundRate = 0.25;
 

@@ -1,3 +1,5 @@
+//not used
+
 public var onGround : boolean = false;
 var footstepSound : AudioSource;
 var luna : MainGravity;

@@ -1,4 +1,6 @@
 ﻿#pragma strict
+//first scene of game
+
 
 public static var IntroInstance;
 

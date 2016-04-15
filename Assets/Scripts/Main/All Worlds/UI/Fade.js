@@ -1,5 +1,7 @@
 ﻿#pragma strict
 
+// do not use
+
 function Start() {
   this.GetComponent(CanvasRenderer).SetAlpha(1.0);
 }
