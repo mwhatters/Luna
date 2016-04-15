@@ -9,6 +9,6 @@ function OnCollisionEnter2D(coll : Collision2D) {
     coll.gameObject.GetComponent(Animator).Stop();
     Destroy(trigDoor);
     GetComponent(Animator).Stop();
-    GameObject.FindGameObjectWithTag("GrabKeySound").GetComponent(AudioSource).Play();
+    Sounds.use.PlaySoundByTag("GrabKeySound");
   }
 }

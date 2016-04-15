@@ -127,7 +127,7 @@ function Update() {
 
 function rotateCameraInDegrees(degrees : float) {
 	GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotate(degrees, rotateRate);
-	playSound("RotateGravitySound");
+	Sounds.use.PlaySoundByTag("RotateGravitySound");
 }
 
 function FixedUpdate () {
@@ -329,7 +329,7 @@ function Jump(x, y, jump) {
 
 function registerJump() {
 	numJumps++;
-	playSound("JumpSound");
+	Sounds.use.PlaySoundByTag("JumpSound");
 	GetComponent(Animator).SetTrigger("InAir");
 }
 
@@ -365,10 +365,8 @@ function checkIfGrounded(direction : Vector2, distance : float) {
 	if (playerIsTouchingGround(contactPoint)) {
 		if (!isMoving) { killDownwardsVelocity(); }
 		touchingGround = true;
-		GetComponent(MovementSounds).onGround = true;
 	} else {
 		touchingGround = false;
-		GetComponent(MovementSounds).onGround = false;
 	}
 }
 
@@ -409,9 +407,4 @@ function adjustFallingSounds(rigidbody : Rigidbody2D) {
 	} else {
 		wind.volume = Mathf.Abs(rigidbody.velocity.x / 80);
 	}
-}
-
-function playSound(tag : String) {
-  var audio = GameObject.FindGameObjectWithTag(tag).GetComponent(AudioSource);
-  audio.Play();
 }

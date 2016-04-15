@@ -2,9 +2,6 @@
 
 public var camScope = 16;
 public var staticPoint : Vector3;
-
-//private var followingLuna = true;
-
 public var isStatic : boolean;
 private var lunaObj : GameObject;
 

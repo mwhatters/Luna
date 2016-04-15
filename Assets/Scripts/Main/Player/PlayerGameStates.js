@@ -30,7 +30,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
       yield WaitForSeconds(0.001); // hacky
       if (gravityState.touchingGround == true) {
         GetComponent(MainGravity).numJumps = 0;
-        playSound("HitGround");
+        Sounds.use.PlaySoundByTag("HitGround");
       }
     }
   }
@@ -43,7 +43,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
   }
 
   if (coll.gameObject.CompareTag("VictoryPortal")) {
-    Win();
+    hasWon = true;
   }
 
   if (tag == "RotaterR" && gravityState.canRotateGravity()) {
@@ -61,25 +61,25 @@ function OnCollisionEnter2D (coll : Collision2D) {
   if (tag == "ShifterU") {
     gravityState.gravityObjectDirection = ObjectDirection.Up;
     gravityState.setWorldGravityShift();
-    playSound("ShiftSound");
+    Sounds.use.PlaySoundByTag("ShiftSound");
   }
 
   if (tag == "ShifterD") {
     gravityState.gravityObjectDirection = ObjectDirection.Down;
     gravityState.setWorldGravityShift();
-    playSound("ShiftSound");
+    Sounds.use.PlaySoundByTag("ShiftSound");
   }
 
   if (tag == "ShifterL") {
     gravityState.gravityObjectDirection = ObjectDirection.Left;
     gravityState.setWorldGravityShift();
-    playSound("ShiftSound");
+    Sounds.use.PlaySoundByTag("ShiftSound");
   }
 
   if (tag == "ShifterR") {
     gravityState.gravityObjectDirection = ObjectDirection.Right;
     gravityState.setWorldGravityShift();
-    playSound("ShiftSound");
+    Sounds.use.PlaySoundByTag("ShiftSound");
   }
 
 
@@ -92,7 +92,7 @@ function Die() {
 
   isDead = true;
   removeLuna();
-  playSound("DieSound");
+  Sounds.use.PlaySoundByTag("DieSound");
   yield WaitForSeconds(3.0);
   GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = false;
   SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -101,15 +101,6 @@ function Die() {
 function removeLuna() {
   Destroy(GetComponent(SpriteRenderer));
   Destroy(GetComponent(PolygonCollider2D));
-}
-
-function Win() {
-  hasWon = true;
-}
-
-function playSound(tag : String) {
-  var audio = GameObject.FindGameObjectWithTag(tag).GetComponent(AudioSource);
-  audio.Play();
 }
 
 function Remove(tag : String) {

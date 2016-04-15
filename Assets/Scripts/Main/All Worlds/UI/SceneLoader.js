@@ -23,7 +23,7 @@ function OnCollisionEnter2D(coll : Collision2D) {
 function playNormalSceneExit() {
   GameObject.Find("User Interface").GetComponent(Timer).running = false;
   GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = true;
-  
+
   GameObject.Find("ETInstantiator").GetComponent(UISceneTransition).PortalExitTransition();
   playSound("WinSound");
 

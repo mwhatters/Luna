@@ -37,7 +37,7 @@ function Start () {
 function OnTriggerEnter2D(coll : Collider2D) {
 
 	if (coll.name == "Luna") {
-		Play("ExpandSound");
+		Sounds.use.PlaySoundByTag("ExpandSound");
 
 		if (!boxesUnfrozen && objectsList != "") {
 			var objects = objectsList.Split(" "[0]);
@@ -70,7 +70,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 function OnTriggerExit2D(coll : Collider2D) {
 	if (coll.name == "Luna") {
-		Play("RestrainSound");
+		Sounds.use.PlaySoundByTag("RestrainSound");
 
 		if (explanatoryText != null){
 			explanatoryText.GetComponent(ExplanatoryText).turnedOff = true;
@@ -186,10 +186,4 @@ function zoomCameraExit() {
 	}
 
 	currentlyTransitioning = false;
-}
-
-function Play(sound : String) {
-	if (playSoundOnTransition) {
-		GameObject.FindGameObjectWithTag(sound).GetComponent(AudioSource).Play();
-	}
 }

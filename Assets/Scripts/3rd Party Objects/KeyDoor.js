@@ -22,6 +22,6 @@ function OnCollisionEnter2D(coll : Collision2D) {
 }
 
 function DestroyDoor() {
-	GameObject.FindGameObjectWithTag("DoorOpenSound").GetComponent(AudioSource).Play();
-	Destroy(this.gameObject);
+	Sounds.use.PlaySoundByTag("DoorOpenSound");
+	Destroy(this);
 }
