@@ -1,14 +1,18 @@
 ﻿#pragma strict
 
 public static var checkPointPos : Vector3;
+public static var gravityDirection : String;
 
 function Start() {
   if (checkPointPos == Vector3(0,0,0)){
   } else {
     MovePlayerToCheckpoint(checkPointPos);
+    Debug.Log(gravityDirection);
   }
 }
 
 function MovePlayerToCheckpoint(pos : Vector3) {
-  GameObject.Find("Luna").transform.position = pos;
+  var luna = GameObject.Find("Luna");
+  luna.transform.position = pos;
+  luna.GetComponent(MainGravity).adjustGravityTo(gravityDirection);
 }
