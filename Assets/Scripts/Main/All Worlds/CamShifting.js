@@ -4,10 +4,11 @@ private var cameraObj : CameraBehavior;
 private var lunaObj : GameObject;
 
 private var boxesUnfrozen = false;
+public var freezeObjectsOnExit : boolean = false;
 public var objectsList : GameObject[];
 
-public var y : float;
 public var x : float;
+public var y : float;
 public var zIn : float;
 public var zOut : float;
 public var transitionEnterTime : float = 1;
@@ -16,6 +17,7 @@ public var zoomOnly : boolean = false;
 public var playSoundOnTransition : boolean = true;
 
 private var isOrthographic : boolean = true;
+
 private var currentlyTransitioning = false;
 
 public var explanatoryText : GameObject;
@@ -73,6 +75,10 @@ function OnTriggerExit2D(coll : Collider2D) {
 			StopCoroutine("zoomCameraEnter");
 		}
 
+		if (freezeObjectsOnExit) {
+			freezeObjects();
+		}
+
 		if (zoomOnly) {
 			yield StartCoroutine("zoomCameraExit");
 		} else {
@@ -82,6 +88,7 @@ function OnTriggerExit2D(coll : Collider2D) {
 	}
 }
 
+// enter static
 function panCameraToPoint() {
 
 	var cameraScope = cameraObj.GetComponent(Camera);
@@ -89,6 +96,7 @@ function panCameraToPoint() {
 	var endPos = Vector3(x, y, startPos.z);
 	var rate = 1.0/transitionEnterTime;
 	var t = 0.0;
+
 	currentlyTransitioning = true;
 
 	while (t < 1.0) {
@@ -101,10 +109,38 @@ function panCameraToPoint() {
 	currentlyTransitioning = false;
 }
 
+// exit static
+function panCameraToFollowLuna() {
+	var cameraScope = cameraObj.GetComponent(Camera);
+	var startPos = cameraObj.transform.position;
+	var endPos : Vector3;
+	var x;
+	var y;
+	var rate = 1.0/transitionExitTime;
+	var t = 0.0;
+
+	currentlyTransitioning = true;
+
+	while (t < 1.0) {
+		endPos = Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, startPos.z);
+		x = lunaObj.transform.position.x;
+		y = lunaObj.transform.position.y;
+		t += Time.deltaTime * rate;
+
+		cameraObj.transform.position = Vector3.Lerp(startPos, endPos, t);
+		performCameraZoom(cameraScope, zOut, t);
+		yield;
+	}
+
+	currentlyTransitioning = false;
+}
+
+
 function zoomCameraEnter() {
 	var cameraScope = cameraObj.GetComponent(Camera);
 	var rate = 1.0/transitionEnterTime;
 	var t = 0.0;
+
 	currentlyTransitioning = true;
 
 	while (t < 1.0) {
@@ -115,7 +151,6 @@ function zoomCameraEnter() {
 
 	currentlyTransitioning = false;
 	// if (cameraScope.fieldOfView == zIn) { break; } -- this line was existing for some reason just in case this breaks
-
 }
 
 
@@ -123,37 +158,11 @@ function zoomCameraExit() {
 	var cameraScope = cameraObj.GetComponent(Camera);
 	var rate = 1.0/transitionEnterTime;
 	var t = 0.0;
+
 	currentlyTransitioning = true;
 
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
-		performCameraZoom(cameraScope, zOut, t);
-		yield;
-	}
-
-	currentlyTransitioning = false;
-}
-
-
-
-function panCameraToFollowLuna() {
-	var cameraScope = cameraObj.GetComponent(Camera);
-	var startPos = cameraObj.transform.position;
-	var endPos : Vector3;
-	var x;
-	var y;
-	var rate = 1.0/transitionExitTime;
-	var t = 0.0;
-	currentlyTransitioning = true;
-
-	while (t < 1.0) {
-		endPos = Vector3(lunaObj.transform.position.x, lunaObj.transform.position.y, startPos.z);
-		x = lunaObj.transform.position.x;
-		y = lunaObj.transform.position.y;
-		t += Time.deltaTime * rate;
-
-		cameraObj.transform.position = Vector3.Lerp(startPos, endPos, t);
-
 		performCameraZoom(cameraScope, zOut, t);
 		yield;
 	}
@@ -167,5 +176,12 @@ function performCameraZoom(cameraScope : Camera, endpoint : float, t : float) {
 		cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, endpoint, t);
 	} else {
 		cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, endpoint, t);
+	}
+}
+
+function freezeObjects() {
+	boxesUnfrozen = false;
+	for (var obj in objectsList) {
+		obj.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
 	}
 }
