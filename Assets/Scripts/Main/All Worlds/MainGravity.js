@@ -233,31 +233,32 @@ function adjustGravity180()
     }
 }
 
-// for checkpoints only to be called on level load after death if checkpoint has been triggered -- needs small refactor
+// for checkpoints only to be called on level load after death if checkpoint has been triggered
 function adjustGravityTo(direction) {
 	switch (direction)
 	{
 		case "Down":
 			gravityDirection = Direction.Down;
-			GameObject.Find("Camera").transform.rotation = Quaternion.Euler(Vector3(0,0,0.0));
-			transform.rotation = Quaternion.Euler(Vector3(0,0,0.0));
+			setCameraAndPlayerImmediatelyTo(0);
 			break;
 		case "Up":
 			gravityDirection = Direction.Up;
-			GameObject.Find("Camera").transform.rotation = Quaternion.Euler(Vector3(0,0,180.0));
-			transform.rotation = Quaternion.Euler(Vector3(0,0,180.0));
+			setCameraAndPlayerImmediatelyTo(180);
 			break;
 		case "Left":
 			gravityDirection = Direction.Left;
-			GameObject.Find("Camera").transform.rotation = Quaternion.Euler(Vector3(0,0,-90.0));
-			transform.rotation = Quaternion.Euler(Vector3(0,0,-90.0));
+			setCameraAndPlayerImmediatelyTo(-90);
 			break;
 		case "Right":
 			gravityDirection = Direction.Right;
-			GameObject.Find("Camera").transform.rotation = Quaternion.Euler(Vector3(0,0,90.0));
-			transform.rotation = Quaternion.Euler(Vector3(0,0,90.0));
+			setCameraAndPlayerImmediatelyTo(90);
 			break;
 	}
+}
+
+function setCameraAndPlayerImmediatelyTo(degree) {
+	GameObject.Find("Camera").transform.rotation = Quaternion.Euler(Vector3(0,0,degree));
+	transform.rotation = Quaternion.Euler(Vector3(0,0,degree));
 }
 
 function canRotateGravity() {
