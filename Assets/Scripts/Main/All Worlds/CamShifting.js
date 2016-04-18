@@ -94,12 +94,7 @@ function panCameraToPoint() {
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
 		cameraObj.transform.position = Vector3.Lerp(startPos, endPos, t);
-
-		if (isOrthographic) {
-			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zIn, t);
-		} else {
-			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zIn, t);
-		}
+		performCameraZoom(cameraScope, zIn, t);
 		yield;
 	}
 
@@ -114,16 +109,13 @@ function zoomCameraEnter() {
 
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
-		if (isOrthographic) {
-			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zIn, t);
-		} else {
-			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zIn, t);
-			if (cameraScope.fieldOfView == zIn) { break; }
-		}
+		performCameraZoom(cameraScope, zIn, t);
 		yield;
 	}
 
 	currentlyTransitioning = false;
+	// if (cameraScope.fieldOfView == zIn) { break; } -- this line was existing for some reason just in case this breaks
+
 }
 
 
@@ -135,44 +127,12 @@ function zoomCameraExit() {
 
 	while (t < 1.0) {
 		t += Time.deltaTime * rate;
-		if (isOrthographic) {
-			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
-		} else {
-			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zOut, t);
-			if (cameraScope.fieldOfView == zOut) { break; }
-		}
+		performCameraZoom(cameraScope, zOut, t);
 		yield;
 	}
 
 	currentlyTransitioning = false;
 }
-
-function zoomCamera(zPos : float) {
-	var cameraScope = cameraObj.GetComponent(Camera);
-	var rate = 1.0/transitionEnterTime;
-	var t = 0.0;
-	currentlyTransitioning = true;
-
-	while (t < 1.0) {
-		t += Time.deltaTime * rate;
-		if (isOrthographic) {
-			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zPos, t);
-		} else {
-			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zPos, t);
-			if (cameraScope.fieldOfView == zPos) { break; }
-		}
-		yield;
-	}
-
-	currentlyTransitioning = false;
-}
-
-
-
-
-
-
-
 
 
 
@@ -194,14 +154,18 @@ function panCameraToFollowLuna() {
 
 		cameraObj.transform.position = Vector3.Lerp(startPos, endPos, t);
 
-		if (isOrthographic) {
-			cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, zOut, t);
-		} else {
-			cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, zOut, t);
-		}
-
+		performCameraZoom(cameraScope, zOut, t);
 		yield;
 	}
 
 	currentlyTransitioning = false;
+}
+
+
+function performCameraZoom(cameraScope : Camera, endpoint : float, t : float) {
+	if (isOrthographic) {
+		cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, endpoint, t);
+	} else {
+		cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, endpoint, t);
+	}
 }
