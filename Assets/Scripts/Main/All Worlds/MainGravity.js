@@ -6,8 +6,8 @@ import System.Linq;
 enum Direction { Down, Right, Up, Left };
 enum ObjectDirection { Down, Right, Up, Left }
 
-private var gravity = 9.81;
-private var lunaGravity = 9.81;
+public var gravity : float = 9.81;
+public var lunaGravity : float = 9.81;
 
 public var gravityDirection = Direction.Down;
 public var gravityObjectDirection = ObjectDirection.Down;
