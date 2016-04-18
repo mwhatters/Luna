@@ -14,21 +14,19 @@ function OnCollisionEnter2D(coll : Collision2D) {
     if (normalSceneTransition) {
       resetCheckPointLoader();
       yield playNormalSceneExit();
-
       SceneManager.LoadScene(sceneToLoad);
     }
   }
 }
 
 function playNormalSceneExit() {
+  // save timer results
+
   GameObject.Find("User Interface").GetComponent(Timer).running = false;
   GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = true;
-
   GameObject.Find("ETInstantiator").GetComponent(UISceneTransition).PortalExitTransition();
-  playSound("WinSound");
-
+  Sounds.use.PlaySoundByTag("WinSound");
   ZoomCameraToPortal();
-
 
   yield WaitForSeconds(1.5);
   if (killMusic) { Destroy(GameObject.Find("BackgroundMusic")); }
@@ -37,13 +35,6 @@ function playNormalSceneExit() {
 function resetCheckPointLoader() {
   GameObject.Find("Camera").GetComponent(CheckpointTracker).checkPointPos = Vector3(0,0,0);
 }
-
-
-function playSound(tag : String) {
-  var audio = GameObject.FindGameObjectWithTag(tag).GetComponent(AudioSource);
-  audio.Play();
-}
-
 
 function ZoomCameraToPortal() {
   var cameraScope = GameObject.Find("Camera").GetComponent(Camera);

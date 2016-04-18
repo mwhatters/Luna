@@ -5,17 +5,18 @@ public var entryTransition : GameObject;
 
 
 function Start() {
-
   if (entryTransition == null) {
     entryTransition = null;
   } else {
+    PortalEnterTransition();
+  }
+}
 
+function PortalEnterTransition() {
   var transitionEnter = Instantiate(entryTransition, Vector3(0,0,0), Quaternion.identity);
   transitionEnter.transform.SetParent(gameObject.transform.parent, false);
   yield WaitForSeconds(0.3);
   FadeToClear(transitionEnter);
-
-  }
 }
 
 function PortalExitTransition() {
