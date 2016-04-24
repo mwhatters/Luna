@@ -7,6 +7,7 @@ public var killMusic : boolean = false;
 
 public var persistentObjectsToKill : GameObject[];
 public var endLevelZoom : float = 125;
+public var finalRoom : GameObject;
 
 function OnCollisionEnter2D(coll : Collision2D) {
   var tag : String = coll.gameObject.tag;
@@ -26,7 +27,12 @@ function playNormalSceneExit() {
   GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = true;
   GameObject.Find("ETInstantiator").GetComponent(UISceneTransition).PortalExitTransition();
   Sounds.use.PlaySoundByTag("WinSound");
-  ZoomCameraToPortal();
+
+  if (finalRoom == null) {
+    ZoomCameraToPortal();
+  } else {
+    finalRoom.GetComponent(CamShifting).panCameraToFollowLuna();
+  }
 
   yield WaitForSeconds(1.5);
   if (killMusic) { Destroy(GameObject.Find("BackgroundMusic")); }

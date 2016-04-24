@@ -17,10 +17,12 @@ function Awake() {
 
 function Start () {
 
+
   var timer = GameObject.Find("User Interface").GetComponent(Timer);
   var luna = GameObject.Find("Luna");
   var cam = GameObject.Find("Camera");
 
+  luna.GetComponent(SpriteRenderer).color.a = 0;
   timer.running = false;
 
   var Text1 = GameObject.Find("IntroText1");
@@ -34,7 +36,9 @@ function Start () {
 
   luna.GetComponent(MainGravity).isFrozen = true;
 
-  yield WaitForSeconds(3);
+  yield WaitForSeconds(1.5);
+  FadeInLuna();
+  yield WaitForSeconds(3.5);
 
   yield ShowAndHideText(Text1, 2.0);
   yield WaitForSeconds(0.5);
@@ -49,13 +53,15 @@ function Start () {
   yield FadeToClear();
 
   yield ShowAndHideText(Text5, 1.0);
-  yield ShowAndHideText(Text6, 1.0);
-  yield ShowAndHideText(Text7, 1.0);
-  yield ShowAndHideText(Text8, 1.0);
 
   luna.GetComponent(MainGravity).isFrozen = false;
   timer.startTimerFromZero();
   timer.running = true;
+
+  yield ShowAndHideText(Text6, 1.0);
+  yield ShowAndHideText(Text7, 1.0);
+  yield ShowAndHideText(Text8, 1.0);
+
 
 }
 
@@ -67,6 +73,15 @@ function FadeToClear() {
     yield WaitForSeconds(0.1);
   }
   FadeImg.color.a = 0.0;
+}
+
+function FadeInLuna() {
+  var FadeImg = GameObject.Find("Luna").GetComponent(SpriteRenderer);
+  while (FadeImg.color.a < 240) {
+    FadeImg.color.a += 0.01;
+    yield;
+  }
+  FadeImg.color.a = 255;
 }
 
 
