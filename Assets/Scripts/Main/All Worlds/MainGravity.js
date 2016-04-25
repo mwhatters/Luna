@@ -31,6 +31,7 @@ private var facingRight = true;
 public var rotateRate : float;
 private var nextRotate = 0.0;
 public var canRotate = true;
+public var canMove = true;
 public var canRotate180 = false;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
@@ -295,6 +296,7 @@ function checkIfMoving() {
 // Movement and Orientation
 
 function setMovements(jumpHeight : float, moveSpeed : float) {
+	if (!canMove) { return false; }
 	var x; var y;
 	Jump(x, y, jumpHeight);
 	if (Input.GetKey(KeyCode.A)) { Move(x, y, -moveSpeed, facingRight);   } // Left
