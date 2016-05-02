@@ -8,6 +8,7 @@ public var killMusic : boolean = false;
 public var persistentObjectsToKill : GameObject[];
 public var endLevelZoom : float = 125;
 public var finalRoom : GameObject;
+public var delay : float = 0.0;
 
 function OnCollisionEnter2D(coll : Collision2D) {
   var tag : String = coll.gameObject.tag;
@@ -15,6 +16,7 @@ function OnCollisionEnter2D(coll : Collision2D) {
     if (normalSceneTransition) {
       resetCheckPointLoader();
       yield playNormalSceneExit();
+      yield WaitForSeconds(delay);
       SceneManager.LoadScene(sceneToLoad);
     }
   }
