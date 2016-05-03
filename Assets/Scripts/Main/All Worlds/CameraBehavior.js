@@ -9,7 +9,7 @@ function Start () {
 	lunaObj = GameObject.Find("Luna");
 }
 
-function FixedUpdate() {
+function Update() {
 
 	if (!staticCamera()) {
 		transform.position.x = lunaObj.transform.position.x;
