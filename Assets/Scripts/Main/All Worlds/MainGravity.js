@@ -332,12 +332,22 @@ function calculateAcceleration(speed : float, vectorDirection : float) {
 	var newAccel = speed * accelerationRate;
 	var newVelocity = (newAccel * Time.deltaTime) + vectorDirection;
 
+	// Account for forward momentum, don't kill it on input in the same direction
+	if (newVelocity > speed && Mathf.Abs(speed) == speed) {
+		return vectorDirection;
+	} else if (newVelocity < speed && Mathf.Abs(speed) != speed) {
+		return vectorDirection;
+	}
+
+	// Account for the abs of reverse momentum being greater than the abs of speed, account for
+	// direction changes at high velocities
 	if (newVelocity > 0 && Mathf.Abs(speed) != speed) {
 		return newVelocity;
 	} else if (newVelocity < 0 && Mathf.Abs(speed) == speed) {
 		return newVelocity;
 	}
 
+	// account for acceleration from a standing position
 	if (Mathf.Abs(newVelocity) > Mathf.Abs(speed)) {
 		newVelocity = speed;
 	}
