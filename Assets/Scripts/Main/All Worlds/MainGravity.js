@@ -323,7 +323,6 @@ function Move(x, y, moveSpeed : float, orientation) {
 	calculateMovement(x,y, orientation);
 }
 
-
 function calculateMovement(x,y, orientation) {
 	GetComponent(Rigidbody2D).velocity = new Vector2(x, y);
 	flipIf(orientation);
@@ -332,10 +331,12 @@ function calculateMovement(x,y, orientation) {
 function calculateAcceleration(speed : float, vectorDirection : float) {
 	var newAccel = speed * accelerationRate;
 	var newVelocity = (newAccel * Time.deltaTime) + vectorDirection;
+	Debug.Log(newVelocity);
 
 	if (Mathf.Abs(newVelocity) > Mathf.Abs(speed)) {
 		newVelocity = speed;
 	}
+	// Debug.Log(newVelocity);
 	return newVelocity;
 }
 
