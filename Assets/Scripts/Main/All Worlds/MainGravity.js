@@ -331,12 +331,16 @@ function calculateMovement(x,y, orientation) {
 function calculateAcceleration(speed : float, vectorDirection : float) {
 	var newAccel = speed * accelerationRate;
 	var newVelocity = (newAccel * Time.deltaTime) + vectorDirection;
-	Debug.Log(newVelocity);
+
+	if (newVelocity > 0 && Mathf.Abs(speed) != speed) {
+		return newVelocity;
+	} else if (newVelocity < 0 && Mathf.Abs(speed) == speed) {
+		return newVelocity;
+	}
 
 	if (Mathf.Abs(newVelocity) > Mathf.Abs(speed)) {
 		newVelocity = speed;
 	}
-	// Debug.Log(newVelocity);
 	return newVelocity;
 }
 
@@ -431,6 +435,10 @@ function killDownwardsVelocity() {
 
 function gravityIsUpOrDown() {
  return	gravityDirection == Direction.Down || gravityDirection == Direction.Up;
+}
+
+function gravityIsDownOrRight() {
+ return	gravityDirection == Direction.Down || gravityDirection == Direction.Right;
 }
 
 
