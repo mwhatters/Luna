@@ -17,13 +17,14 @@ function Awake() {
 
 function Start () {
 
-
+  var pauseMenu = GameObject.Find("PauseUI");
   var timer = GameObject.Find("User Interface").GetComponent(Timer);
   var luna = GameObject.Find("Luna");
   var cam = GameObject.Find("Camera");
 
   luna.GetComponent(SpriteRenderer).color.a = 0;
   timer.running = false;
+  pauseMenu.GetComponent(Pause).canPause = false;
 
   var Text1 = GameObject.Find("IntroText1");
   var Text2 = GameObject.Find("IntroText2");
@@ -57,6 +58,7 @@ function Start () {
   luna.GetComponent(MainGravity).isFrozen = false;
   timer.startTimerFromZero();
   timer.running = true;
+  pauseMenu.GetComponent(Pause).canPause = true;
 }
 
 

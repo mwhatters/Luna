@@ -28,7 +28,7 @@ function StartScene() {
   yield ShowAndHideText(Text7, 1);
 
   luna.canMove = true;
-  // StartCoroutine(FadeOutImage("God"));
+  GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
 }
 
 function FadeInImages(tag) {
@@ -42,7 +42,6 @@ function FadeInImages(tag) {
     FadeImg.color.a = 200;
   }
 }
-
 
 function FadeInImage(name, rate) {
   var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
@@ -71,7 +70,6 @@ function ShowAndHideText(text : GameObject, time) {
 
   yield text.GetComponent(ExplanatoryText).slowlyRemoveUIText();
   text.GetComponent(ExplanatoryText).turnedOff = true;
-
 }
 
 

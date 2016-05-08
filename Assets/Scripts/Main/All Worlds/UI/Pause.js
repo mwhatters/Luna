@@ -1,19 +1,23 @@
 ﻿#pragma strict
 
+public var canPause : boolean = true;
 public var isPaused : boolean = false;
-var pausePanel : GameObject;
-var pausedText : GameObject;
-var escapeText : GameObject;
-var luna : GameObject;
+private var pausePanel : GameObject;
+private var pausedText : GameObject;
+private var escapeText : GameObject;
+private var luna : GameObject;
 
 function Start () {
-  pausePanel = GameObject.Find("PausePanel");
+  pausePanel = GameObject.Find("PauseUI");
   pausedText = GameObject.Find("PauseText");
   escapeText = GameObject.Find("Escape");
   luna = GameObject.Find("Luna");
 }
 
 function Update () {
+
+  if (!canPause) { return false; }
+
   if (Input.GetButtonDown("Cancel") && !isPaused) {
     setPaused();
     isPaused = true;
