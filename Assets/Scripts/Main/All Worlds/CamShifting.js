@@ -58,7 +58,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 			yield StartCoroutine("panCameraToPoint");
 		}
 	}
-
+	
 }
 
 function OnTriggerExit2D(coll : Collider2D) {

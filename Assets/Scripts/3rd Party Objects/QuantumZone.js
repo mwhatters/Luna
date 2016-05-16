@@ -18,6 +18,7 @@ function OnTriggerExit2D(coll : Collider2D) {
     coll.gameObject.layer = 13;
     Debug.Log(coll.gameObject.layer);
     changeColor(coll, Color.white);
+		
   }
 }
 
