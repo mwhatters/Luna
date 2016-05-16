@@ -9,11 +9,6 @@ function Start () {
 }
 
 
-function Awake() {
-  DontDestroyOnLoad(this);
-}
-
-
 public function startNewGame() {
   var audio = GameObject.Find("StartGame").GetComponent(AudioSource);
   audio.Play();
