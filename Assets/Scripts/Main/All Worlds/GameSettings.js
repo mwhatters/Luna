@@ -5,3 +5,7 @@
 function Start () {
   Cursor.visible = false;
 }
+
+function Awake() {
+  DontDestroyOnLoad(this);
+}
