@@ -1,6 +1,5 @@
 ﻿#pragma strict
 
-// These are settings that persist through all levels, all the time
 
 function Start () {
   yield WaitForSeconds(1);
@@ -34,7 +33,7 @@ function fadeOut() {
 }
 
 function StartGame() {
-  SceneManager.LoadScene(0);
+  SceneManager.LoadScene(1);
 }
 
 function FadeToClear(object) {
