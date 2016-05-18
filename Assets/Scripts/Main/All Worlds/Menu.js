@@ -3,48 +3,35 @@
 
 function Start () {
   yield WaitForSeconds(1);
-  FadeToClear("LunaBlack");
+  SceneFX.use.FadeToClear("LunaBlack", 0.13);
   yield WaitForSeconds(2.5);
-  FadeToClear("MenuBlack");
+  SceneFX.use.FadeToClear("MenuBlack", 0.13);
 }
 
 
 public function startNewGame() {
-  var audio = GameObject.Find("StartGame").GetComponent(AudioSource);
-  audio.Play();
-
-  FadeToBlack("Blackness");
+  Sounds.use.PlaySoundByName("StartGame");
+  SceneFX.use.FadeToBlack("Blackness", 0.3);
   Invoke("StartGame", 4);
 }
 
 public function quitGame() {
-  Debug.Log('game quit!');
-  Application.Quit();
+  Invoke("Quit", 0.5);
 }
 
+public function LoadGameMenu() {
+  SceneFX.use.FadeToBlack("Blackness", 0.3);
+  Invoke("GoToLoadGame", 3.5);
+}
 
-function fadeOut() {
-
+function Quit() {
+  Application.Quit();
 }
 
 function StartGame() {
   SceneManager.LoadScene(1);
 }
 
-function FadeToClear(object) {
-  var FadeImg = GameObject.Find(object).GetComponent(Image);
-  while (FadeImg.color.a > 0.02) {
-    FadeImg.color = Color.Lerp(FadeImg.color, Color.clear, 1 * 0.13);
-    yield WaitForSeconds(0.1);
-  }
-  FadeImg.color.a = 0.0;
-}
-
-function FadeToBlack(object) {
-  var FadeImg = GameObject.Find(object).GetComponent(Image);
-  while (FadeImg.color.a < 255) {
-    FadeImg.color = Color.Lerp(FadeImg.color, Color.black, 0.5 * 0.3);
-    yield WaitForSeconds(0.1);
-  }
-  FadeImg.color.a = 255;
+function GoToLoadGame() {
+  SceneManager.LoadScene("LoadGame");
 }
