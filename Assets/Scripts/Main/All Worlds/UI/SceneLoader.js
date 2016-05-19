@@ -2,7 +2,7 @@
 import UnityEngine.SceneManagement;
 
 public var normalSceneTransition : boolean = true;
-public var sceneToLoad : int;
+public var sceneToLoad : String;
 public var killMusic : boolean = false;
 
 public var persistentObjectsToKill : GameObject[];

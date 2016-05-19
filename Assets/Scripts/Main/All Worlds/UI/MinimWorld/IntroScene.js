@@ -51,7 +51,7 @@ function Start () {
   yield WaitForSeconds(2);
   HideText(Text3);
   HideText(Text4);
-  yield FadeToClear();
+  yield FadeImageToClear();
 
   yield ShowAndHideText(Text5, 1.0);
 
@@ -62,7 +62,7 @@ function Start () {
 }
 
 
-function FadeToClear() {
+function FadeImageToClear() {
   var FadeImg = GameObject.Find("Blackness").GetComponent(Image);
   while (FadeImg.color.a > 0.02) {
     FadeImg.color = Color.Lerp(FadeImg.color, Color.clear, 0.5 * 0.13);

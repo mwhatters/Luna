@@ -16,7 +16,7 @@ function PortalEnterTransition() {
   var transitionEnter = Instantiate(entryTransition, Vector3(0,0,0), Quaternion.identity);
   transitionEnter.transform.SetParent(gameObject.transform.parent, false);
   yield WaitForSeconds(0.3);
-  FadeToClear(transitionEnter);
+  FadeImageToClear(transitionEnter);
 }
 
 function PortalExitTransition() {
@@ -25,7 +25,7 @@ function PortalExitTransition() {
 }
 
 
-function FadeToClear(transitionEnter : GameObject) {
+function FadeImageToClear(transitionEnter : GameObject) {
   var img = transitionEnter.GetComponent(Image);
   while (img.color.a > 0.02) {
     img.color = Color.Lerp(img.color, Color.clear, 0.5 * 0.3);

@@ -2,12 +2,12 @@
 
 function Start () {
   yield WaitForSeconds(0.5);
-  SceneFX.use.FadeToClear("Blackness", 0.3);
+  SceneFX.use.FadeImageToClear("Blackness", 0.3);
 }
 
 public function ReturnToMainMenu() {
   Sounds.use.PlaySoundByName("StartGame");
-  SceneFX.use.FadeToBlack("Blackness", 0.5);
+  SceneFX.use.FadeImageToBlack("Blackness", 0.5);
   Invoke("GoToMainMenu", 3.5);
 }
 
