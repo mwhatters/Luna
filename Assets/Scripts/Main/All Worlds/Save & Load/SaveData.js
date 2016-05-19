@@ -13,15 +13,30 @@ function Awake () {
 	use = this;
 }
 
-public function SaveGame(user : String, level : String) {
-	var bf : BinaryFormatter = new BinaryFormatter();
+public function CreateNewGame(user : String, level : String) {
 	var filepath : String = "/" + user + "Game.dat";
+
+	if (File.Exists(Application.persistentDataPath + filepath)) {
+		Debug.Log('error -- game already exists, cannot overwrite');
+	} else {
+		var bf : BinaryFormatter = new BinaryFormatter();
+		var file = File.Create(Application.persistentDataPath + filepath);
+		var data : PlayerData = new PlayerData(user, level);
+
+		bf.Serialize(file, data);
+		file.Close();
+		currentData = data;
+	}
+}
+
+public function SaveGame(user : String, level : String) {
+	var filepath : String = "/" + user + "Game.dat";
+	var bf : BinaryFormatter = new BinaryFormatter();
 	var file = File.Create(Application.persistentDataPath + filepath);
 	var data : PlayerData = new PlayerData(user, level);
 
 	bf.Serialize(file, data);
 	file.Close();
-
 	currentData = data;
 }
 
@@ -36,6 +51,8 @@ public function LoadGame(user) {
 
 		currentData = data;
 	} else {
+		//todo handle errors
+		Debug.Log('error -- user save file not found');
 	}
 }
 

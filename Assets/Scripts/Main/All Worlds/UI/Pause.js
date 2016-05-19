@@ -67,3 +67,7 @@ public function saveGameFromPaused() {
   successText.GetComponent(Text).text = "Game Data Saved for: " + SaveData.currentData.username;
   successText.GetComponent(Text).enabled = true;
 }
+
+public function Quit() {
+  Application.Quit();
+}

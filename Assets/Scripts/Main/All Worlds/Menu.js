@@ -9,11 +9,17 @@ function Start () {
 
 public function startNewGame() {
   var nameField = GameObject.Find("NameEntry").GetComponent(InputField);
-  SaveData.use.SaveGame(nameField.text, "1 Intro Level");
+  SaveData.use.CreateNewGame(nameField.text, "1 Intro Level");
 
-  Sounds.use.PlaySoundByName("StartGame");
-  SceneFX.use.FadeImageToBlack("Blackness", 0.3);
-  Invoke("StartGame", 4);
+
+  if (SaveData.currentData) {
+    Sounds.use.PlaySoundByName("StartGame");
+    SceneFX.use.FadeImageToBlack("Blackness", 0.3);
+    Invoke("StartGame", 4);
+  } else {
+    //todo handle errors
+    Debug.Log('error user already exists, cannot overwrite');
+  }
 }
 
 public function quitGame() {
