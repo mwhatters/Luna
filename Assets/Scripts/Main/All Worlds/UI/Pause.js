@@ -58,7 +58,7 @@ function activatePauseUI(bool) {
   luna.GetComponent(MainGravity).isFrozen = bool;
 
   if (successText.GetComponent(Text).enabled == true) {
-    successText.GetComponent(Text).enabled == bool;
+    successText.GetComponent(Text).enabled = bool;
   }
 }
 
