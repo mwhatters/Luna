@@ -68,6 +68,20 @@ public function saveGameFromPaused() {
   successText.GetComponent(Text).enabled = true;
 }
 
+public function ReturnToMenu() {
+  if (SaveData.currentData) {
+    SaveData.use.SaveGame(SaveData.currentData.username, Application.loadedLevelName);
+  }
+
+  Time.timeScale = 1;
+  SceneFX.use.FadeImageToBlack("Blackness", 0.3);
+  Invoke("LoadMenu", 3.5);
+}
+
 public function Quit() {
   Application.Quit();
+}
+
+function LoadMenu() {
+  SceneManager.LoadScene("MainMenu");
 }
