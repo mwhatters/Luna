@@ -332,6 +332,11 @@ function calculateAcceleration(speed : float, vectorDirection : float) {
 	var newAccel = speed * accelerationRate;
 	var newVelocity = (newAccel * Time.deltaTime) + vectorDirection;
 
+	// account for acceleration from a standing position && reset velocity max if touching ground
+	if (touchingGround && Mathf.Abs(newVelocity) > Mathf.Abs(speed)) {
+		newVelocity = speed;
+	}
+
 	// Account for forward momentum, don't kill it on input in the same direction
 	if (newVelocity > speed && Mathf.Abs(speed) == speed) {
 		return vectorDirection;
@@ -347,10 +352,6 @@ function calculateAcceleration(speed : float, vectorDirection : float) {
 		return newVelocity;
 	}
 
-	// account for acceleration from a standing position
-	if (Mathf.Abs(newVelocity) > Mathf.Abs(speed)) {
-		newVelocity = speed;
-	}
 	return newVelocity;
 }
 
