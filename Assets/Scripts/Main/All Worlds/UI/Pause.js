@@ -37,8 +37,14 @@ function Update () {
   }
 }
 
+function OnMouseDown () {
+  Debug.Log("nope");
+  return false;
+}
+
 function setPaused() {
   activatePauseUI(true);
+  SaveButton.GetComponent(Button).Select();
   Time.timeScale = 0;
 }
 
@@ -57,9 +63,12 @@ function activatePauseUI(bool) {
   QuitButton.GetComponent(Button).enabled = bool;
   luna.GetComponent(MainGravity).isFrozen = bool;
 
+
   if (successText.GetComponent(Text).enabled == true) {
     successText.GetComponent(Text).enabled = bool;
   }
+
+  // highlight save button on pause display
 }
 
 public function saveGameFromPaused() {

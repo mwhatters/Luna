@@ -14,7 +14,7 @@ public function startNewGame() {
 
   if (SaveData.currentData) {
     Sounds.use.PlaySoundByName("StartGame");
-    SceneFX.use.FadeImageToBlack("Blackness", 0.3);
+    SceneFX.use.FadeImageToBlack("Blackness", 0.6);
     Invoke("StartGame", 4);
   } else {
     //todo handle errors
@@ -27,21 +27,26 @@ public function quitGame() {
 }
 
 public function LoadGameMenu() {
-  SceneFX.use.FadeImageToBlack("Blackness", 0.3);
-  Invoke("GoToLoadGame", 3.5);
+  SceneFX.use.FadeImageToBlack("Blackness", 0.6);
+  Invoke("GoToLoadGame", 2.0);
+}
+
+public function LoadSandbox() {
+  SceneFX.use.FadeImageToBlack("Blackness", 0.6);
+  Invoke("GoToSandBox", 2.0);
 }
 
 public function StartNameInput() {
   var nameField = GameObject.Find("NameEntry").GetComponent(InputField);
-  SceneFX.use.FadeTextToWhite("NameText", 0.3);
+  SceneFX.use.FadeTextToWhite("NameText", 0.6);
 
   nameField.ActivateInputField();
   nameField.Select();
-  SceneFX.use.FadeTextToWhite("NameEntry", 0.3);
+  SceneFX.use.FadeTextToWhite("NameEntry", 0.6);
 
-  SceneFX.use.FadeTextToGrey("New Game", 0.3);
-  SceneFX.use.FadeTextToGrey("Exit Game", 0.3);
-  SceneFX.use.FadeTextToGrey("Load Game", 0.3);
+  SceneFX.use.FadeTextToGrey("New Game", 0.6);
+  SceneFX.use.FadeTextToGrey("Exit Game", 0.6);
+  SceneFX.use.FadeTextToGrey("Load Game", 0.6);
 }
 
 function Quit() {
@@ -54,4 +59,8 @@ function StartGame() {
 
 function GoToLoadGame() {
   SceneManager.LoadScene("LoadGame");
+}
+
+function GoToSandBox() {
+  SceneManager.LoadScene("SandBox");
 }

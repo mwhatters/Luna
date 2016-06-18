@@ -29,7 +29,6 @@ function displayGameFinder() {
 }
 
 public function findAndLoadGame() {
-  Debug.Log('helllo!');
   var nameField = GameObject.Find("NameEntry").GetComponent(InputField);
   SaveData.use.LoadGame(nameField.text);
 
