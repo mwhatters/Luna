@@ -38,7 +38,6 @@ function Update () {
 }
 
 function OnMouseDown () {
-  Debug.Log("nope");
   return false;
 }
 

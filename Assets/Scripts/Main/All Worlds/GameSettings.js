@@ -9,7 +9,6 @@ function Start () {
 
 function Update() {
   if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2)) {
-    Debug.Log('hello');
     return false;
   }
 }

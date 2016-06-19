@@ -4,7 +4,6 @@ static var use : SceneFX;
 
 function Awake () {
 	if (use) {
-		// Debug.LogWarning("Only one instance of the Sound script in a scene is allowed");
 		return;
 	}
 	use = this;

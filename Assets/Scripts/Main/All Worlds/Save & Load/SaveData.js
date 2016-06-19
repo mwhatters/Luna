@@ -42,9 +42,7 @@ public function SaveGame(user : String, level : String) {
 
 public function LoadGame(user) {
 	var filepath : String = "/" + user + "Game.dat";
-	Debug.Log(filepath);
 	if (File.Exists(Application.persistentDataPath + filepath)) {
-		Debug.Log('file exists');
 		var bf : BinaryFormatter = new BinaryFormatter();
 		var file = File.Open(Application.persistentDataPath + filepath, FileMode.Open);
 		var data : PlayerData = bf.Deserialize(file);

@@ -7,7 +7,6 @@ function Start() {
   if (checkPointPos == Vector3(0,0,0)){
   } else {
     MovePlayerToCheckpoint(checkPointPos);
-    Debug.Log(gravityDirection);
   }
 }
 

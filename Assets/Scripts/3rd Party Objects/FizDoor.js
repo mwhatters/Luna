@@ -24,7 +24,6 @@ function disableAnimation() {
   var animatorObject = fizDoor.GetComponent(Animator);
   var colorObject = fizDoor.GetComponent(SpriteRenderer);
   var colorTone : float = 1;
-  Debug.Log(fizDoor.GetComponent(SpriteRenderer).color);
 
   while (animatorObject.speed > 0) {
     colorTone -= 0.01;

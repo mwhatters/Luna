@@ -28,7 +28,6 @@ function OnCollisionEnter2D(coll : Collision2D) {
 			}
 		}
 	}
-
 	return true;
 }
 
@@ -41,6 +40,5 @@ function DestroyDoor() {
 function DestroyRelevantKeysFound(keysToBeDestroyed) {
 	for (var key in keysToBeDestroyed) {
 		// Destroy keys needed to be destroyed, reset that variable to nothing
-		Debug.Log(key);
 	}
 }
