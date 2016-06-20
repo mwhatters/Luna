@@ -13,7 +13,7 @@ function FixedUpdate () {
 
 function OnCollisionEnter2D (coll : Collision2D) {
 
-	if (!(coll.gameObject.CompareTag("Ground") || coll.gameObject.CompareTag("DeathBall"))) { return; }
+	if (!(coll.gameObject.CompareTag("Ground") || coll.gameObject.CompareTag("FizDoor") || coll.gameObject.CompareTag("DeathBall"))) { return; }
 
 	for (var hits: ContactPoint2D in coll.contacts) {
 		var hitPoint: Vector2 = hits.normal;
