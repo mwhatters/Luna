@@ -1,4 +1,4 @@
-﻿#pragma strict
+#pragma strict
 
 public var displayText : String;
 public var useSounds : boolean = true;

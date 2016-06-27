@@ -1,4 +1,4 @@
-﻿#pragma strict
+#pragma strict
 
 public var canPause : boolean = true;
 public var isPaused : boolean = false;
