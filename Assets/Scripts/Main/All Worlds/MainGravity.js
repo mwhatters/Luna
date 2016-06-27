@@ -83,6 +83,8 @@ function Update() {
 			} else {
 				shiftLeft();
 			}
+		} else {
+			shiftRight();
 		}
 	}
 
@@ -93,6 +95,8 @@ function Update() {
 			} else {
 				shiftRight();
 			}
+		} else {
+			shiftLeft();
 		}
 	}
 
