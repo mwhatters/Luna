@@ -1,4 +1,4 @@
-﻿#pragma strict
+#pragma strict
 import System.Linq;
 
 // Gravity Vars
@@ -53,17 +53,17 @@ function setWorldGravityShift() {
 	switch (gravityObjectDirection)
 	{
 		case ObjectDirection.Down:
-			setAxisForcesTo(vertical, 9.81);
-			break;
+		setAxisForcesTo(vertical, 9.81);
+		break;
 		case ObjectDirection.Up:
-			setAxisForcesTo(vertical, -9.81);
-			break;
+		setAxisForcesTo(vertical, -9.81);
+		break;
 		case ObjectDirection.Left:
-			setAxisForcesTo(horizontal, 9.81);
-			break;
+		setAxisForcesTo(horizontal, 9.81);
+		break;
 		case ObjectDirection.Right:
-			setAxisForcesTo(horizontal, -9.81);
-			break;
+		setAxisForcesTo(horizontal, -9.81);
+		break;
 	}
 }
 
@@ -118,21 +118,21 @@ function Update() {
 	switch (gravityDirection)
 	{
 		case Direction.Down:
-			setMovements(jumpHeight, moveSpeed);
-			checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
-			break;
+		setMovements(jumpHeight, moveSpeed);
+		checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
+		break;
 		case Direction.Up:
-			setMovements(-jumpHeight, -moveSpeed);
-			checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
-			break;
+		setMovements(-jumpHeight, -moveSpeed);
+		checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
+		break;
 		case Direction.Left:
-			setMovements(jumpHeight, -moveSpeed);
-			checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
-			break;
+		setMovements(jumpHeight, -moveSpeed);
+		checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
+		break;
 		case Direction.Right:
-			setMovements(-jumpHeight, moveSpeed);
-			checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
-			break;
+		setMovements(-jumpHeight, moveSpeed);
+		checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
+		break;
 	}
 
 	return true;
@@ -165,21 +165,21 @@ function FixedUpdate () {
 	switch (gravityDirection)
 	{
 		case Direction.Down:
-			rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(-gravity, upDownAxis[1]);
-			break;
+		rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
+		setObjectGravitySettings(-gravity, upDownAxis[1]);
+		break;
 		case Direction.Up:
-			rigidbody.velocity.y += lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(gravity, upDownAxis[1]);
-			break;
+		rigidbody.velocity.y += lunaGravity * Time.deltaTime;
+		setObjectGravitySettings(gravity, upDownAxis[1]);
+		break;
 		case Direction.Left:
-			rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(-gravity, upDownAxis[0]);
-			break;
+		rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
+		setObjectGravitySettings(-gravity, upDownAxis[0]);
+		break;
 		case Direction.Right:
-			rigidbody.velocity.x += lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(gravity, upDownAxis[0]);
-			break;
+		rigidbody.velocity.x += lunaGravity * Time.deltaTime;
+		setObjectGravitySettings(gravity, upDownAxis[0]);
+		break;
 	}
 }
 
@@ -203,59 +203,59 @@ function adjustShifters(shifters : String[], degrees : Vector3) {
 
 function adjustGravityLeft()
 {
-    switch (gravityDirection)
-    {
-        case Direction.Down:
-            gravityDirection = Direction.Left;
-            break;
-        case Direction.Left:
-            gravityDirection = Direction.Up;
-            break;
-        case Direction.Up:
-            gravityDirection = Direction.Right;
-            break;
-        case Direction.Right:
-            gravityDirection = Direction.Down;
-            break;
-    }
+	switch (gravityDirection)
+	{
+		case Direction.Down:
+		gravityDirection = Direction.Left;
+		break;
+		case Direction.Left:
+		gravityDirection = Direction.Up;
+		break;
+		case Direction.Up:
+		gravityDirection = Direction.Right;
+		break;
+		case Direction.Right:
+		gravityDirection = Direction.Down;
+		break;
+	}
 }
 
 function adjustGravityRight()
 {
 	switch (gravityDirection)
-    {
-        case Direction.Down:
-            gravityDirection = Direction.Right;
-            break;
-        case Direction.Right:
-            gravityDirection = Direction.Up;
-            break;
-        case Direction.Up:
-            gravityDirection = Direction.Left;
-            break;
-        case Direction.Left:
-            gravityDirection = Direction.Down;
-            break;
-    }
+	{
+		case Direction.Down:
+		gravityDirection = Direction.Right;
+		break;
+		case Direction.Right:
+		gravityDirection = Direction.Up;
+		break;
+		case Direction.Up:
+		gravityDirection = Direction.Left;
+		break;
+		case Direction.Left:
+		gravityDirection = Direction.Down;
+		break;
+	}
 }
 
 function adjustGravity180()
 {
 	switch (gravityDirection)
-    {
-        case Direction.Down:
-            gravityDirection = Direction.Up;
-            break;
-        case Direction.Right:
-            gravityDirection = Direction.Left;
-            break;
-        case Direction.Up:
-            gravityDirection = Direction.Down;
-            break;
-        case Direction.Left:
-            gravityDirection = Direction.Right;
-            break;
-    }
+	{
+		case Direction.Down:
+		gravityDirection = Direction.Up;
+		break;
+		case Direction.Right:
+		gravityDirection = Direction.Left;
+		break;
+		case Direction.Up:
+		gravityDirection = Direction.Down;
+		break;
+		case Direction.Left:
+		gravityDirection = Direction.Right;
+		break;
+	}
 }
 
 // for checkpoints only to be called on level load after death if checkpoint has been triggered
@@ -263,21 +263,21 @@ function adjustGravityTo(direction) {
 	switch (direction)
 	{
 		case "Down":
-			gravityDirection = Direction.Down;
-			setCameraAndPlayerImmediatelyTo(0);
-			break;
+		gravityDirection = Direction.Down;
+		setCameraAndPlayerImmediatelyTo(0);
+		break;
 		case "Up":
-			gravityDirection = Direction.Up;
-			setCameraAndPlayerImmediatelyTo(180);
-			break;
+		gravityDirection = Direction.Up;
+		setCameraAndPlayerImmediatelyTo(180);
+		break;
 		case "Left":
-			gravityDirection = Direction.Left;
-			setCameraAndPlayerImmediatelyTo(-90);
-			break;
+		gravityDirection = Direction.Left;
+		setCameraAndPlayerImmediatelyTo(-90);
+		break;
 		case "Right":
-			gravityDirection = Direction.Right;
-			setCameraAndPlayerImmediatelyTo(90);
-			break;
+		gravityDirection = Direction.Right;
+		setCameraAndPlayerImmediatelyTo(90);
+		break;
 	}
 }
 
@@ -469,11 +469,11 @@ function killDownwardsVelocity() {
 }
 
 function gravityIsUpOrDown() {
- return	gravityDirection == Direction.Down || gravityDirection == Direction.Up;
+	return	gravityDirection == Direction.Down || gravityDirection == Direction.Up;
 }
 
 function gravityIsDownOrRight() {
- return	gravityDirection == Direction.Down || gravityDirection == Direction.Right;
+	return	gravityDirection == Direction.Down || gravityDirection == Direction.Right;
 }
 
 
