@@ -77,15 +77,23 @@ function Update() {
 	if (isFrozen) { return false; }
 
 	if (Input.GetKeyDown(KeyCode.RightArrow) && canRotateGravity()) {
-		adjustGravityRight();
-		rotatePlayerAndObjects(90);
-		rotateCameraInDegrees(90);
+		if (SaveData.currentData) {
+			if (SaveData.currentData.rotation == 90) {
+				shiftRight();
+			} else {
+				shiftLeft();
+			}
+		}
 	}
 
 	if (Input.GetKeyDown(KeyCode.LeftArrow) && canRotateGravity()) {
-		adjustGravityLeft();
-		rotatePlayerAndObjects(-90);
-		rotateCameraInDegrees(-90);
+		if (SaveData.currentData) {
+			if (SaveData.currentData.rotation == 90) {
+				shiftLeft();
+			} else {
+				shiftRight();
+			}
+		}
 	}
 
 	if (canRotate180)
@@ -124,6 +132,18 @@ function Update() {
 	}
 
 	return true;
+}
+
+function shiftRight() {
+	adjustGravityRight();
+	rotatePlayerAndObjects(90);
+	rotateCameraInDegrees(90);
+}
+
+function shiftLeft() {
+	adjustGravityLeft();
+	rotatePlayerAndObjects(-90);
+	rotateCameraInDegrees(-90);
 }
 
 function rotateCameraInDegrees(degrees : float) {

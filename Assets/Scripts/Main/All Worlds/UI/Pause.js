@@ -7,6 +7,7 @@ private var pausedText : GameObject;
 private var escapeText : GameObject;
 private var SaveButton : GameObject;
 private var QuitButton : GameObject;
+private var IRButton : GameObject;
 private var successText : GameObject;
 private var luna : GameObject;
 
@@ -17,6 +18,7 @@ function Start () {
   successText = GameObject.Find("SuccessText");
   SaveButton = GameObject.Find("Save Game");
   QuitButton = GameObject.Find("Quit Game");
+  IRButton = GameObject.Find("Inverse Rotation");
   luna = GameObject.Find("Luna");
 }
 
@@ -62,6 +64,16 @@ function activatePauseUI(bool) {
   QuitButton.GetComponent(Button).enabled = bool;
   luna.GetComponent(MainGravity).isFrozen = bool;
 
+  if (SaveData.currentData) {
+    IRButton.GetComponent(Text).enabled = bool;
+    IRButton.GetComponent(Button).enabled = bool;
+    if (SaveData.currentData.rotation == 90) {
+      IRButton.GetComponent(Text).text = "Inverse Rotation: Off";
+    } else {
+      IRButton.GetComponent(Text).text = "Inverse Rotation: On";
+    }
+  } else {
+  }
 
   if (successText.GetComponent(Text).enabled == true) {
     successText.GetComponent(Text).enabled = bool;
@@ -71,19 +83,33 @@ function activatePauseUI(bool) {
 }
 
 public function saveGameFromPaused() {
-  SaveData.use.SaveGame(SaveData.currentData.username, Application.loadedLevelName);
+  PrivateSaveFromPause();
   successText.GetComponent(Text).text = "Game Data Saved for: " + SaveData.currentData.username;
   successText.GetComponent(Text).enabled = true;
 }
 
 public function ReturnToMenu() {
   if (SaveData.currentData) {
-    SaveData.use.SaveGame(SaveData.currentData.username, Application.loadedLevelName);
+    PrivateSaveFromPause();
   }
 
   Time.timeScale = 1;
   SceneFX.use.FadeImageToBlack("Blackness", 0.3);
   Invoke("LoadMenu", 3.5);
+}
+
+public function ChangeRotation() {
+  IRButton.GetComponent(Text);
+  if (SaveData.currentData.rotation == 90) {
+    IRButton.GetComponent(Text).text = "Inverse Rotation: On";
+    SaveData.currentData.rotation = -90;
+    PrivateSaveFromPause();
+  } else {
+    IRButton.GetComponent(Text).text = "Inverse Rotation: Off";
+    SaveData.currentData.rotation = 90;
+    PrivateSaveFromPause();
+  }
+  Debug.Log(SaveData.currentData.rotation);
 }
 
 public function Quit() {
@@ -92,4 +118,12 @@ public function Quit() {
 
 function LoadMenu() {
   SceneManager.LoadScene("MainMenu");
+}
+
+function PrivateSaveFromPause() {
+  SaveData.use.SaveGame(
+    SaveData.currentData.username,
+    Application.loadedLevelName,
+    SaveData.currentData.rotation
+  );
 }

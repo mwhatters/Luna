@@ -13,7 +13,7 @@ function Awake () {
 	use = this;
 }
 
-public function CreateNewGame(user : String, level : String) {
+public function CreateNewGame(user : String, level : String, rotation : int) {
 	var filepath : String = "/" + user + "Game.dat";
 
 	if (File.Exists(Application.persistentDataPath + filepath)) {
@@ -21,7 +21,7 @@ public function CreateNewGame(user : String, level : String) {
 	} else {
 		var bf : BinaryFormatter = new BinaryFormatter();
 		var file = File.Create(Application.persistentDataPath + filepath);
-		var data : PlayerData = new PlayerData(user, level);
+		var data : PlayerData = new PlayerData(user, level, rotation);
 
 		bf.Serialize(file, data);
 		file.Close();
@@ -29,11 +29,11 @@ public function CreateNewGame(user : String, level : String) {
 	}
 }
 
-public function SaveGame(user : String, level : String) {
+public function SaveGame(user : String, level : String, rotation : int) {
 	var filepath : String = "/" + user + "Game.dat";
 	var bf : BinaryFormatter = new BinaryFormatter();
 	var file = File.Create(Application.persistentDataPath + filepath);
-	var data : PlayerData = new PlayerData(user, level);
+	var data : PlayerData = new PlayerData(user, level, rotation);
 
 	bf.Serialize(file, data);
 	file.Close();
@@ -57,9 +57,11 @@ public function LoadGame(user) {
 public class PlayerData {
 	public var username : String;
 	public var level : String;
+	public var rotation : int;
 
-	public function PlayerData(username : String, level : String) {
+	public function PlayerData(username : String, level : String, rotation: int) {
 		this.username = username;
 		this.level = level;
+		this.rotation = rotation;
   }
 }

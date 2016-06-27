@@ -9,7 +9,7 @@ function Start () {
 
 public function startNewGame() {
   var nameField = GameObject.Find("NameEntry").GetComponent(InputField);
-  SaveData.use.CreateNewGame(nameField.text, "1 Intro Level");
+  SaveData.use.CreateNewGame(nameField.text, "1 Intro Level", 90);
 
 
   if (SaveData.currentData) {
