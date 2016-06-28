@@ -118,21 +118,21 @@ function Update() {
 	switch (gravityDirection)
 	{
 		case Direction.Down:
-		setMovements(jumpHeight, moveSpeed);
-		checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
-		break;
+			setMovements(jumpHeight, moveSpeed);
+			checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
+			break;
 		case Direction.Up:
-		setMovements(-jumpHeight, -moveSpeed);
-		checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
-		break;
+			setMovements(-jumpHeight, -moveSpeed);
+			checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
+			break;
 		case Direction.Left:
-		setMovements(jumpHeight, -moveSpeed);
-		checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
-		break;
+			setMovements(jumpHeight, -moveSpeed);
+			checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
+			break;
 		case Direction.Right:
-		setMovements(-jumpHeight, moveSpeed);
-		checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
-		break;
+			setMovements(-jumpHeight, moveSpeed);
+			checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
+			break;
 	}
 
 	return true;
