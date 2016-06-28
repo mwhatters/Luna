@@ -165,21 +165,21 @@ function FixedUpdate () {
 	switch (gravityDirection)
 	{
 		case Direction.Down:
-		rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
-		setObjectGravitySettings(-gravity, upDownAxis[1]);
-		break;
+			rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
+			setObjectGravitySettings(-gravity, upDownAxis[1]);
+			break;
 		case Direction.Up:
-		rigidbody.velocity.y += lunaGravity * Time.deltaTime;
-		setObjectGravitySettings(gravity, upDownAxis[1]);
-		break;
+			rigidbody.velocity.y += lunaGravity * Time.deltaTime;
+			setObjectGravitySettings(gravity, upDownAxis[1]);
+			break;
 		case Direction.Left:
-		rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
-		setObjectGravitySettings(-gravity, upDownAxis[0]);
-		break;
+			rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
+			setObjectGravitySettings(-gravity, upDownAxis[0]);
+			break;
 		case Direction.Right:
-		rigidbody.velocity.x += lunaGravity * Time.deltaTime;
-		setObjectGravitySettings(gravity, upDownAxis[0]);
-		break;
+			rigidbody.velocity.x += lunaGravity * Time.deltaTime;
+			setObjectGravitySettings(gravity, upDownAxis[0]);
+			break;
 	}
 }
 
@@ -206,17 +206,17 @@ function adjustGravityLeft()
 	switch (gravityDirection)
 	{
 		case Direction.Down:
-		gravityDirection = Direction.Left;
-		break;
+			gravityDirection = Direction.Left;
+			break;
 		case Direction.Left:
-		gravityDirection = Direction.Up;
-		break;
+			gravityDirection = Direction.Up;
+			break;
 		case Direction.Up:
-		gravityDirection = Direction.Right;
-		break;
+			gravityDirection = Direction.Right;
+			break;
 		case Direction.Right:
-		gravityDirection = Direction.Down;
-		break;
+			gravityDirection = Direction.Down;
+			break;
 	}
 }
 
@@ -225,17 +225,17 @@ function adjustGravityRight()
 	switch (gravityDirection)
 	{
 		case Direction.Down:
-		gravityDirection = Direction.Right;
-		break;
+			gravityDirection = Direction.Right;
+			break;
 		case Direction.Right:
-		gravityDirection = Direction.Up;
-		break;
+			gravityDirection = Direction.Up;
+			break;
 		case Direction.Up:
-		gravityDirection = Direction.Left;
-		break;
+			gravityDirection = Direction.Left;
+			break;
 		case Direction.Left:
-		gravityDirection = Direction.Down;
-		break;
+			gravityDirection = Direction.Down;
+			break;
 	}
 }
 
@@ -244,17 +244,17 @@ function adjustGravity180()
 	switch (gravityDirection)
 	{
 		case Direction.Down:
-		gravityDirection = Direction.Up;
-		break;
+			gravityDirection = Direction.Up;
+			break;
 		case Direction.Right:
-		gravityDirection = Direction.Left;
-		break;
+			gravityDirection = Direction.Left;
+			break;
 		case Direction.Up:
-		gravityDirection = Direction.Down;
-		break;
+			gravityDirection = Direction.Down;
+			break;
 		case Direction.Left:
-		gravityDirection = Direction.Right;
-		break;
+			gravityDirection = Direction.Right;
+			break;
 	}
 }
 
@@ -263,21 +263,21 @@ function adjustGravityTo(direction) {
 	switch (direction)
 	{
 		case "Down":
-		gravityDirection = Direction.Down;
-		setCameraAndPlayerImmediatelyTo(0);
-		break;
+			gravityDirection = Direction.Down;
+			setCameraAndPlayerImmediatelyTo(0);
+			break;
 		case "Up":
-		gravityDirection = Direction.Up;
-		setCameraAndPlayerImmediatelyTo(180);
-		break;
+			gravityDirection = Direction.Up;
+			setCameraAndPlayerImmediatelyTo(180);
+			break;
 		case "Left":
-		gravityDirection = Direction.Left;
-		setCameraAndPlayerImmediatelyTo(-90);
-		break;
+			gravityDirection = Direction.Left;
+			setCameraAndPlayerImmediatelyTo(-90);
+			break;
 		case "Right":
-		gravityDirection = Direction.Right;
-		setCameraAndPlayerImmediatelyTo(90);
-		break;
+			gravityDirection = Direction.Right;
+			setCameraAndPlayerImmediatelyTo(90);
+			break;
 	}
 }
 
