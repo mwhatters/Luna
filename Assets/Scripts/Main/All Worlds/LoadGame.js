@@ -38,6 +38,7 @@ function displayGameFinder() {
 }
 
 public function findAndLoadGame(nameField : String) {
+  Debug.Log(nameField);
   SaveData.use.LoadGameFromLoadMenu(nameField);
 
   // if (SaveData.currentData.username == nameField) {
@@ -75,11 +76,15 @@ function generateSavedGames() {
     y -= 35;
 
     var captured : String = Path.GetFileNameWithoutExtension(file.Name);
-
-    thisPrefab.GetComponent(Button).onClick.AddListener(
-      function() {
-        findAndLoadGame(captured);
-      }
-    );
+    AddListener(thisPrefab.GetComponent(Button), captured);
   }
+}
+
+
+function AddListener(b : Button, a : String) {
+  b.onClick.AddListener(
+    function() {
+      findAndLoadGame(a);
+    }
+  );
 }

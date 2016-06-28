@@ -55,7 +55,7 @@ public function LoadGame(user) {
 }
 
 public function LoadGameFromLoadMenu(savedGame) {
-	var filepath : String = "/" + savedGame + "dat";
+	var filepath : String = "/" + savedGame + ".dat";
 	if (File.Exists(Application.persistentDataPath + filepath)) {
 		var bf : BinaryFormatter = new BinaryFormatter();
 		var file = File.Open(Application.persistentDataPath + filepath, FileMode.Open);
