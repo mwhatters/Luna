@@ -66,6 +66,7 @@ function generateSavedGames() {
 
   var x = -300;
   var y = 500;
+  var index = 1;
 
   for (file in fileInfo) {
     var thisPrefab = Instantiate(prefab, new Vector3(x,y,0), Quaternion.identity).gameObject;
@@ -76,7 +77,12 @@ function generateSavedGames() {
     y -= 35;
 
     var captured : String = Path.GetFileNameWithoutExtension(file.Name);
+    SceneFX.use.FadeTextToWhite(nameField.text, 0.3);
     AddListener(thisPrefab.GetComponent(Button), captured);
+
+    if (index == 1) { thisPrefab.GetComponent(Button).Select(); }
+    index += 1;
+    yield WaitForSeconds(0.03);
   }
 }
 
