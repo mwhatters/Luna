@@ -6,15 +6,11 @@ public var canvas : GameObject;
 function Start () {
   yield WaitForSeconds(0.5);
   SceneFX.use.FadeImageToClear("Blackness", 0.3);
-
-  // generateSavedGames();
-
 }
 
 public function ReturnToMainMenu() {
-  Sounds.use.PlaySoundByName("StartGame");
   SceneFX.use.FadeImageToBlack("Blackness", 0.5);
-  Invoke("GoToMainMenu", 3.5);
+  Invoke("GoToMainMenu", 1.5);
 }
 
 function GoToMainMenu() {
@@ -22,37 +18,15 @@ function GoToMainMenu() {
 }
 
 function displayGameFinder() {
-  // var nameField = GameObject.Find("NameEntry").GetComponent(InputField);
-  //
-  // SceneFX.use.FadeTextToWhite("NameText", 0.3);
-  //
-  // nameField.ActivateInputField();
-  // nameField.Select();
-  // SceneFX.use.FadeTextToWhite("NameEntry", 0.3);
-  //
-  // SceneFX.use.FadeTextToGrey("Main Menu", 0.3);
-  // SceneFX.use.FadeTextToGrey("Load Game", 0.3);
-
-
   generateSavedGames();
 }
 
 public function findAndLoadGame(nameField : String) {
   Debug.Log(nameField);
   SaveData.use.LoadGameFromLoadMenu(nameField);
-
-  // if (SaveData.currentData.username == nameField) {
-    SceneFX.use.FadeImageToBlack("Blackness", 0.3);
-    StartCoroutine(LoadGame(SaveData.currentData.level));
-  // } else {
-  // }
+  SceneFX.use.FadeImageToBlack("Blackness", 0.3);
+  StartCoroutine(LoadGame(SaveData.currentData.level));
 }
-
-
-public function findSaveFile() {
-
-}
-
 
 function LoadGame(level : String) {
   Sounds.use.PlaySoundByName("StartGame");
@@ -63,6 +37,7 @@ function LoadGame(level : String) {
 function generateSavedGames() {
   var info = new DirectoryInfo(Application.persistentDataPath);
   var fileInfo = info.GetFiles();
+  Debug.Log(Application.persistentDataPath);
 
   var x = -300;
   var y = 500;
@@ -85,7 +60,6 @@ function generateSavedGames() {
     yield WaitForSeconds(0.03);
   }
 }
-
 
 function AddListener(b : Button, a : String) {
   b.onClick.AddListener(
