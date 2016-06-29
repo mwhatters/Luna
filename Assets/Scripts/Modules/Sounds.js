@@ -18,3 +18,7 @@ function PlaySoundByName(name : String) {
   var audio = GameObject.Find(name).GetComponent(AudioSource);
   audio.Play();
 }
+
+function Kill(sound) {
+	Destroy(GameObject.Find(sound));
+}

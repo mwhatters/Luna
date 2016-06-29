@@ -7,6 +7,7 @@ private var pausedText : GameObject;
 private var escapeText : GameObject;
 private var SaveButton : GameObject;
 private var QuitButton : GameObject;
+private var MenuButton : GameObject;
 private var IRButton : GameObject;
 private var successText : GameObject;
 private var luna : GameObject;
@@ -19,6 +20,7 @@ function Start () {
   SaveButton = GameObject.Find("Save Game");
   QuitButton = GameObject.Find("Quit Game");
   IRButton = GameObject.Find("Inverse Rotation");
+  MenuButton = GameObject.Find("Return To Menu");
   luna = GameObject.Find("Luna");
 }
 
@@ -44,6 +46,7 @@ function OnMouseDown () {
 }
 
 function setPaused() {
+  Debug.Log(MenuButton);
   activatePauseUI(true);
   SaveButton.GetComponent(Button).Select();
   Time.timeScale = 0;
@@ -62,6 +65,8 @@ function activatePauseUI(bool) {
   SaveButton.GetComponent(Button).enabled = bool;
   QuitButton.GetComponent(Text).enabled = bool;
   QuitButton.GetComponent(Button).enabled = bool;
+  MenuButton.GetComponent(Text).enabled = bool;
+  MenuButton.GetComponent(Button).enabled = bool;
   luna.GetComponent(MainGravity).isFrozen = bool;
 
   if (SaveData.currentData) {
@@ -78,8 +83,6 @@ function activatePauseUI(bool) {
   if (successText.GetComponent(Text).enabled == true) {
     successText.GetComponent(Text).enabled = bool;
   }
-
-  // highlight save button on pause display
 }
 
 public function saveGameFromPaused() {
@@ -94,8 +97,9 @@ public function ReturnToMenu() {
   }
 
   Time.timeScale = 1;
-  SceneFX.use.FadeImageToBlack("Blackness", 0.3);
-  Invoke("LoadMenu", 3.5);
+  Sounds.use.Kill("BackgroundMusic");
+  Sounds.use.Kill("IntroMusic");
+  Invoke("LoadMenu", 0);
 }
 
 public function ChangeRotation() {
