@@ -10,7 +10,7 @@ function Awake () {
 }
 
 
-function FadeImageToClear(object, rate : float) {
+function FadeImageToClear(object : String, rate : float) {
   var FadeImg = GameObject.Find(object).GetComponent(Image);
   while (FadeImg.color.a > 0.02) {
     FadeImg.color = Color.Lerp(FadeImg.color, Color.clear, 1 * rate);
@@ -19,7 +19,7 @@ function FadeImageToClear(object, rate : float) {
   FadeImg.color.a = 0.0;
 }
 
-function FadeImageToBlack(object, rate : float) {
+function FadeImageToBlack(object : String, rate : float) {
   var FadeImg = GameObject.Find(object).GetComponent(Image);
   while (FadeImg.color.a < 255) {
     FadeImg.color = Color.Lerp(FadeImg.color, Color.black, 0.5 * rate);
@@ -28,13 +28,22 @@ function FadeImageToBlack(object, rate : float) {
   FadeImg.color.a = 255;
 }
 
-function FadeTextToWhite(object, rate : float) {
+function FadeTextToWhite(object : String, rate : float) {
   var FadeImg = GameObject.Find(object).GetComponent(Text);
   while (FadeImg.color.a < 255) {
     FadeImg.color = Color.Lerp(FadeImg.color, Color.white, 1 * rate);
     yield WaitForSeconds(0.1);
   }
   FadeImg.color.a = 255;
+}
+
+function FadeTextToClear(object : String, rate : float) {
+  var FadeImg = GameObject.Find(object).GetComponent(Text);
+  while (FadeImg.color.a > 0.02) {
+		FadeImg.color = Color.Lerp(FadeImg.color, Color.clear, 1 * rate);
+    yield WaitForSeconds(0.1);
+  }
+  FadeImg.color.a = 0.0;
 }
 
 function FadeTextToGrey(object, rate : float) {

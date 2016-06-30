@@ -80,8 +80,6 @@ function FadeInLuna() {
   FadeImg.color.a = 255;
 }
 
-
-
 function ShowAndHideText(text : GameObject, time) {
   text.GetComponent(ExplanatoryText).turnedOff = false;
   yield text.GetComponent(ExplanatoryText).revealUIText();
@@ -90,7 +88,6 @@ function ShowAndHideText(text : GameObject, time) {
 
   yield text.GetComponent(ExplanatoryText).slowlyRemoveUIText();
   text.GetComponent(ExplanatoryText).turnedOff = true;
-
 }
 
 

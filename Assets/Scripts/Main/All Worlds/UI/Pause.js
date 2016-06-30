@@ -12,6 +12,12 @@ private var IRButton : GameObject;
 private var successText : GameObject;
 private var luna : GameObject;
 
+private var Bmusic : AudioSource;
+private var Imusic : AudioSource;
+
+private var windVolume : float;
+private var Lwind : AudioSource;
+
 function Start () {
   pausePanel = GameObject.Find("PauseUI");
   pausedText = GameObject.Find("PauseText");
@@ -22,6 +28,10 @@ function Start () {
   IRButton = GameObject.Find("Inverse Rotation");
   MenuButton = GameObject.Find("Return To Menu");
   luna = GameObject.Find("Luna");
+  Lwind = GameObject.Find("Wind").GetComponent(AudioSource);
+
+  Bmusic = GameObject.Find("BackgroundMusic").GetComponent(AudioSource);
+  Imusic = GameObject.Find("IntroMusic").GetComponent(AudioSource);
 }
 
 function Update () {
@@ -39,6 +49,11 @@ function Update () {
     isPaused = false;
     return isPaused;
   }
+  Debug.Log(EventSystems.EventSystem.current.currentSelectedGameObject);
+
+  if (isPaused && EventSystems.EventSystem.current.currentSelectedGameObject == null) {
+    EventSystems.EventSystem.current.SetSelectedGameObject(GameObject.Find("Return To Menu"));
+  }
 }
 
 function OnMouseDown () {
@@ -50,11 +65,27 @@ function setPaused() {
   activatePauseUI(true);
   SaveButton.GetComponent(Button).Select();
   Time.timeScale = 0;
+
+  if (Bmusic && Imusic) {
+    Bmusic.volume -= .40;
+    Imusic.volume -= .40;
+  }
+
+  windVolume = Lwind.volume;
+  Lwind.volume = 0;
+
 }
 
 function setUnPaused() {
   activatePauseUI(false);
   Time.timeScale = 1;
+
+  if (Bmusic && Imusic) {
+    Bmusic.volume += .40;
+    Imusic.volume += .40;
+  }
+
+  Lwind.volume = windVolume;
 }
 
 function activatePauseUI(bool) {

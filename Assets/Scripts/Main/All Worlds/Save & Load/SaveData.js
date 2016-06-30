@@ -50,6 +50,11 @@ public function LoadGameFromLoadMenu(savedGame) {
 	}
 }
 
+public function SaveFileAlreadyExists(name) {
+	var filepath : String = "/" + name + ".dat";
+	return File.Exists(Application.persistentDataPath + filepath);
+}
+
 public class PlayerData {
 	public var username : String;
 	public var level : String;
