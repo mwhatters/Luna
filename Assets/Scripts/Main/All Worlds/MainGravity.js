@@ -33,6 +33,7 @@ private var nextRotate = 0.0;
 public var canRotate = true;
 public var canMove = true;
 public var canRotate180 = false;
+public var canDoExperimentalRotation = false;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
 private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
@@ -112,6 +113,18 @@ function Update() {
 			adjustGravity180();
 			rotatePlayerAndObjects(180);
 			rotateCameraInDegrees(180);
+		}
+	}
+
+	if (canDoExperimentalRotation) {
+		if (Input.GetKeyDown(KeyCode.L) && canRotateGravity()) {
+			rotatePlayerAndObjects(45);
+			rotateCameraInDegrees(45);
+		}
+
+		if (Input.GetKeyDown(KeyCode.K) && canRotateGravity()) {
+			rotatePlayerAndObjects(-45);
+			rotateCameraInDegrees(-45);
 		}
 	}
 
