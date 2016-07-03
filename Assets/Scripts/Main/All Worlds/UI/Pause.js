@@ -32,6 +32,7 @@ function Start () {
 
   Bmusic = GameObject.Find("BackgroundMusic").GetComponent(AudioSource);
   Imusic = GameObject.Find("IntroMusic").GetComponent(AudioSource);
+
 }
 
 function Update () {
@@ -62,7 +63,11 @@ function OnMouseDown () {
 function setPaused() {
   Debug.Log(MenuButton);
   activatePauseUI(true);
-  SaveButton.GetComponent(Button).Select();
+  if (SaveData.currentData) {
+    SaveButton.GetComponent(Button).Select();
+  } else {
+    MenuButton.GetComponent(Button).Select();
+  }
   Time.timeScale = 0;
 
   if (Bmusic && Imusic) {
@@ -88,11 +93,14 @@ function setUnPaused() {
 }
 
 function activatePauseUI(bool) {
+  if (SaveData.currentData) {
+    SaveButton.GetComponent(Text).enabled = bool;
+    SaveButton.GetComponent(Button).enabled = bool;
+  }
+
   pausePanel.GetComponent(Image).enabled = bool;
   pausedText.GetComponent(Text).enabled = bool;
   escapeText.GetComponent(Text).enabled = bool;
-  SaveButton.GetComponent(Text).enabled = bool;
-  SaveButton.GetComponent(Button).enabled = bool;
   QuitButton.GetComponent(Text).enabled = bool;
   QuitButton.GetComponent(Button).enabled = bool;
   MenuButton.GetComponent(Text).enabled = bool;
