@@ -49,7 +49,6 @@ function Update () {
     isPaused = false;
     return isPaused;
   }
-  Debug.Log(EventSystems.EventSystem.current.currentSelectedGameObject);
 
   if (isPaused && EventSystems.EventSystem.current.currentSelectedGameObject == null) {
     EventSystems.EventSystem.current.SetSelectedGameObject(GameObject.Find("Return To Menu"));
