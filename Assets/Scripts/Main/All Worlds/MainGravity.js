@@ -37,7 +37,7 @@ public var canDoExperimentalRotation = false;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
 private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
-private var groundObjects = ["Ground", "ShifterL", "ShifterR", "ShifterD", "ShifterU", "RotaterL", "RotaterR", "NiceBox", "BlackHoleBox", "Door"];
+private var groundObjects = ["Ground", "StubbornGround", "StubbornGroundReverse", "ShifterL", "ShifterR", "ShifterD", "ShifterU", "RotaterL", "RotaterR", "NiceBox", "BlackHoleBox", "Door"];
 
 var vertical = ["x", "y"];
 var horizontal = ["y", "x"];
@@ -202,12 +202,14 @@ function rotatePlayerAndObjects(degrees : float) {
 	nextRotate = Time.time + rotateRate + 0.2;
 	adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * degrees);
 	adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * -degrees);
+	adjustShifters(["StubbornGround"], Vector3.forward * degrees);
+	adjustShifters(["StubbornGroundReverse"], Vector3.forward * -degrees);
 }
 
 function adjustShifters(shifters : String[], degrees : Vector3) {
 	for (var shifter : String in shifters) {
-		var shift = GameObject.FindGameObjectWithTag(shifter);
-		if (shift != null) {
+		var shifts = GameObject.FindGameObjectsWithTag(shifter);
+		for (var shift in shifts) {
 			MoveObject.use.Rotation(shift.transform, degrees, rotateRate);
 		}
 	}
