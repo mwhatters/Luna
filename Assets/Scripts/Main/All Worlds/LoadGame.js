@@ -55,7 +55,13 @@ function generateSavedGames() {
     thisPrefab.transform.SetParent(canvas.transform, false);
     var nameField = thisPrefab.GetComponent(Text);
     nameField.text = Path.GetFileNameWithoutExtension(file.Name);
-    y -= 35;
+
+    y -= 25;
+
+    //a hack
+    if (nameField.text == "") {
+      continue;
+    }
 
     var captured : String = Path.GetFileNameWithoutExtension(file.Name);
     SceneFX.use.FadeTextToWhite(nameField.text, 0.3);
@@ -63,8 +69,12 @@ function generateSavedGames() {
 
     if (index == 1) {
       thisPrefab.GetComponent(Button).Select();
+      Destroy(GameObject.Find("Load Game"));
       index += 1;
+
     }
+
+
     yield WaitForSeconds(0.03);
   }
 }

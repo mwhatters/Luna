@@ -1,15 +1,21 @@
 ﻿#pragma strict
 
-function OnCollisionEnter2D (coll : Collision2D) {
-
+function OnTriggerEnter2D (coll : Collider2D) {
 	if (coll.gameObject.tag == "TheGuy") {
 		addToArray(coll, this.gameObject);
-		Destroy(GetComponent(SpriteRenderer));
-		Destroy(GetComponent(BoxCollider2D));
 		Sounds.use.PlaySoundByTag("GrabKeySound");
+		DestroyKey();
 	}
 }
 
- function addToArray (coll: Collision2D, obj : GameObject) {
-    coll.gameObject.GetComponent(PlayerGameStates).keysFound += [obj];
- }
+function addToArray (coll: Collider2D, obj : GameObject) {
+  coll.gameObject.GetComponent(PlayerGameStates).keysFound += [obj];
+}
+
+function DestroyKey() {
+ Destroy(GetComponent(SpriteRenderer));
+
+ for (var collider in GetComponents(BoxCollider2D)) {
+	 Destroy(collider);
+ };
+}

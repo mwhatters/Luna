@@ -4,7 +4,7 @@ import System.Linq;
 public var keysNeeded : GameObject[];
 private var keysToBeDestroyed : GameObject[] = [];
 
-function OnCollisionEnter2D(coll : Collision2D) {
+function OnTriggerEnter2D(coll : Collider2D) {
 	if (coll.gameObject.tag == "TheGuy") {
 		if (keysNeeded.Length == 0) {
 			DestroyDoor();
@@ -34,7 +34,10 @@ function OnCollisionEnter2D(coll : Collision2D) {
 function DestroyDoor() {
 	Sounds.use.PlaySoundByTag("DoorOpenSound");
 	Destroy(GetComponent(SpriteRenderer));
-	Destroy(GetComponent(BoxCollider2D));
+
+	for (var collider in GetComponents(BoxCollider2D)) {
+		Destroy(collider);
+	};
 }
 
 function DestroyRelevantKeysFound(keysToBeDestroyed) {
