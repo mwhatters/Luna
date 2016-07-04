@@ -1,8 +1,8 @@
 ﻿#pragma strict
 
 public var Luna : GameObject;
-public var previousX;
-public var previousY;
+public var previousX : float;
+public var previousY : float;
 public var previousRotation;
 
 function Start () {
@@ -11,27 +11,20 @@ function Start () {
     previousY = this.transform.position.y;
 }
 
-function Update () {
-    var lunaVector = this.transform.position - Luna.transform.position;
-    var rotation = Quaternion.LookRotation(lunaVector);
-    this.transform.rotation = rotation;
-}
-
 function FixedUpdate () {
     Move();
-    //AutoRotate();
-    //FaceLuna();
+    FaceLuna();
     PostUpdates();
 
 }
 
 function FaceLuna () {
-//    var deltaX = this.transform.position.x - previousX;
-//    var deltaY = this.transform.position.y - previousY;
-}
-
-function AutoRotate () {
-    this.transform.rotation.z = Luna.transform.rotation.z;
+    var deltaX = this.transform.position.x - previousX;
+    var deltaY = this.transform.position.y - previousY;
+    var lunaVector = this.transform.position - Luna.transform.position;
+    Debug.Log(this.transform.rotation.z);
+    Debug.Log(Mathf.Atan2(deltaY, deltaX) * 115);
+    this.transform.eulerAngles.z = (Mathf.Atan2(-deltaY, -deltaX) * 115);
 }
 
 function Move () {
