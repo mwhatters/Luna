@@ -54,17 +54,17 @@ function setWorldGravityShift() {
 	switch (gravityObjectDirection)
 	{
 		case ObjectDirection.Down:
-		setAxisForcesTo(vertical, 9.81);
-		break;
+			setAxisForcesTo(vertical, 9.81);
+			break;
 		case ObjectDirection.Up:
-		setAxisForcesTo(vertical, -9.81);
-		break;
+			setAxisForcesTo(vertical, -9.81);
+			break;
 		case ObjectDirection.Left:
-		setAxisForcesTo(horizontal, 9.81);
-		break;
+			setAxisForcesTo(horizontal, 9.81);
+			break;
 		case ObjectDirection.Right:
-		setAxisForcesTo(horizontal, -9.81);
-		break;
+			setAxisForcesTo(horizontal, -9.81);
+			break;
 	}
 }
 
