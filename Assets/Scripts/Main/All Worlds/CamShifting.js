@@ -7,6 +7,10 @@ private var boxesUnfrozen = false;
 public var freezeObjectsOnExit : boolean = false;
 public var objectsList : GameObject[];
 
+public var fader : GameObject;
+private var hasFaded : boolean = false;
+public var hasFader : boolean = false;
+
 public var x : float;
 public var y : float;
 public var zIn : float;
@@ -51,6 +55,11 @@ function OnTriggerEnter2D(coll : Collider2D) {
 			StopCoroutine("zoomCameraExit");
 		}
 
+		if (!hasFaded && hasFader) {
+			StartCoroutine(SceneHelper.use.FadeOutGameObj(fader, 0.01));
+			hasFaded = true;
+		}
+
 		if (zoomOnly) {
 			yield StartCoroutine("zoomCameraEnter");
 		} else {
@@ -58,7 +67,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 			yield StartCoroutine("panCameraToPoint");
 		}
 	}
-	
+
 }
 
 function OnTriggerExit2D(coll : Collider2D) {

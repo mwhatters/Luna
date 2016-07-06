@@ -1,6 +1,7 @@
 ﻿#pragma strict
 import UnityEngine.SceneManagement;
 
+public var killMusicOnDeath = false;
 public var isDead = false;
 public var hasWon = false;
 public var keysFound : GameObject[];
@@ -89,6 +90,10 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
 function Die() {
   if (hasWon == true) { return; }
+  if (killMusicOnDeath) {
+    Destroy(GameObject.Find("BackgroundMusic"));
+    Destroy(GameObject.Find("IntroMusic"));
+  }
 
   isDead = true;
   removeLuna();
