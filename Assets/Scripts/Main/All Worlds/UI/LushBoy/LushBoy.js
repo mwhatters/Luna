@@ -1,16 +1,42 @@
 ﻿#pragma strict
 
+private static var scenePlayed : boolean = false;
+var lushboyfade : Coroutine = null;
+
+var Text1 : GameObject;
+var Text2 : GameObject;
+var Text3 : GameObject;
+var Text4 : GameObject;
+var Text5 : GameObject;
+
 function Start () {
-  var lushboyfade : Coroutine = null;
-  var god = GameObject.Find("LushBoy").GetComponent(SpriteRenderer);
+
   var luna = GameObject.Find("Luna").GetComponent(MainGravity);
 
-  var Text1 = GameObject.Find("Text1");
-  var Text2 = GameObject.Find("Text2");
-  var Text3 = GameObject.Find("Text3");
-  var Text4 = GameObject.Find("Text4");
-  var Text5 = GameObject.Find("Text5");
+  Text1 = GameObject.Find("Text1");
+  Text2 = GameObject.Find("Text2");
+  Text3 = GameObject.Find("Text3");
+  Text4 = GameObject.Find("Text4");
+  Text5 = GameObject.Find("Text5");
 
+
+  if (!scenePlayed) {
+    scenePlayed = true;
+    yield playLushBoyScene();
+  } else {
+    startSceneFromPlay();
+  }
+
+  luna.canMove = true;
+  luna.canRotate = true;
+  GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
+  yield WaitForSeconds(1.0);
+  GameObject.Find("Lava").GetComponent(Lava).active = true;
+  GameObject.Find("LushBoyWrapper").GetComponent(Lava).active = true;
+}
+
+
+function playLushBoyScene() {
   yield WaitForSeconds(4.0);
   SceneHelper.use.ShowAndHideText(Text1, 2);
 
@@ -31,17 +57,20 @@ function Start () {
   SceneHelper.use.ShowAndHideText(Text5, 1);
 
   yield WaitForSeconds(2.0);
-  StartCoroutine(SceneHelper.use.FadeOutImage("LushBoy"));
+
+  if (scenePlayed) {
+    var FadeImgs = GameObject.FindGameObjectsWithTag("Ground");
+    for (var img in FadeImgs) {
+      StartCoroutine(SceneHelper.use.FadeInImage(img.name, 0.004));
+    }
+  }
+}
+
+
+function startSceneFromPlay() {
+  GameObject.Find("LushBoy").GetComponent(SpriteRenderer).color.a = 255;
   var FadeImgs = GameObject.FindGameObjectsWithTag("Ground");
   for (var img in FadeImgs) {
     StartCoroutine(SceneHelper.use.FadeInImage(img.name, 0.004));
   }
-
-
-  luna.canMove = true;
-  luna.canRotate = true;
-  GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
-  yield WaitForSeconds(1.0);
-  GameObject.Find("Lava").GetComponent(Lava).active = true;
-  GameObject.Find("LushBoyWrapper").GetComponent(Lava).active = true;
 }
