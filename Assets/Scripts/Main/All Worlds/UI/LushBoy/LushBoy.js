@@ -44,7 +44,7 @@ function playLushBoyScene() {
   SceneHelper.use.ShowAndHideText(Text2, 1);
 
   lushboyfade = StartCoroutine(SceneHelper.use.FadeInImage("LushBoy", 0.003));
-
+  Sounds.use.PlaySoundByName("LushFade");
 
   yield WaitForSeconds(7.0);
   SceneHelper.use.ShowAndHideText(Text3, 1);

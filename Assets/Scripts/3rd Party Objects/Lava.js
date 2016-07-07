@@ -4,7 +4,7 @@ public var lavaDir : String = "up";
 public var active : boolean = false;
 public var rate : float = 0.06;
 
-function Update () {
+function FixedUpdate () {
 
   if (!active) { return false; }
   if (lavaDir == "up") {
