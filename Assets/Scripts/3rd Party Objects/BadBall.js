@@ -1,8 +1,8 @@
 ﻿#pragma strict
 
-public var xspeed = 9;
-public var yspeed = -9;
-
+public var type : String = "Normal"; // Normal, X, or Y
+public var xspeed : int = 9;
+public var yspeed : int = -9;
 private var nextBounce = 0.0;
 private var bounceRate = 0.1;
 
@@ -12,29 +12,37 @@ function FixedUpdate () {
 }
 
 function OnCollisionEnter2D (coll : Collision2D) {
-
-	if (!(coll.gameObject.CompareTag("Ground") || coll.gameObject.CompareTag("FizDoor") || coll.gameObject.CompareTag("DeathBall"))) { return; }
+	if (!(coll.gameObject.CompareTag("Ground") || coll.gameObject.CompareTag("Death") || coll.gameObject.CompareTag("FizDoor") || coll.gameObject.CompareTag("DeathBall"))) { return; }
 
 	for (var hits: ContactPoint2D in coll.contacts) {
 		var hitPoint: Vector2 = hits.normal;
-		setSpeeds(hitPoint);
+		if (type == "Normal") {
+			setSpeedsNormal(hitPoint);
+		} else if (type == "X") {
+			setSpeedsX(hitPoint);
+		} else if (type == "Y") {
+			setSpeedsY(hitPoint);
+		}
 	}
 }
 
-function setSpeeds(hitPoint : Vector2) {
-
+function setSpeedsNormal(hitPoint : Vector2) {
 	if (!canBounce()) { return; }
-
-	if (hitPoint.x != 0) {
-		xspeed = -xspeed;
-	}
-
-	if (hitPoint.y != 0) {
-		yspeed = -yspeed;
-	}
-
+	if (hitPoint.x != 0) { xspeed = -xspeed; }
+	if (hitPoint.y != 0) { yspeed = -yspeed; }
 	nextBounce = Time.time + bounceRate;
+}
 
+function setSpeedsY(hitPoint : Vector2) {
+	if (!canBounce()) { return; }
+	if (hitPoint.y != 0) { yspeed = -yspeed; }
+	nextBounce = Time.time + bounceRate;
+}
+
+function setSpeedsX(hitPoint : Vector2) {
+	if (!canBounce()) { return; }
+	if (hitPoint.x != 0) { xspeed = -xspeed; }
+	nextBounce = Time.time + bounceRate;
 }
 
 function canBounce() {
