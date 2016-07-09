@@ -3,6 +3,7 @@
 public var lavaDir : String = "up";
 public var active : boolean = false;
 public var rate : float = 0.06;
+public var tracker : GameObject;
 
 function FixedUpdate () {
 
@@ -18,8 +19,8 @@ function FixedUpdate () {
   }
 }
 
-
 function adjustLava(vector : Vector3) {
+  if (tracker) { tracker.transform.position += vector * rate; }
   for (var child : Transform in transform) {
     child.transform.position += vector * rate;
   }

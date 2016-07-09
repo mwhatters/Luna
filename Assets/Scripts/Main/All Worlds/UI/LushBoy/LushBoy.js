@@ -2,6 +2,7 @@
 
 private static var scenePlayed : boolean = false;
 var lushboyfade : Coroutine = null;
+var skipScene : boolean = false;
 
 var Text1 : GameObject;
 var Text2 : GameObject;
@@ -20,10 +21,11 @@ function Start () {
   Text5 = GameObject.Find("Text5");
 
 
-  if (!scenePlayed) {
+  if (!scenePlayed && !skipScene) {
     scenePlayed = true;
     yield playLushBoyScene();
   } else {
+    scenePlayed = true;
     startSceneFromPlay();
   }
 
