@@ -10,16 +10,22 @@ public var endLevelZoom : float = 125;
 public var finalRoom : GameObject;
 public var delay : float = 0.0;
 
+public var playSoundOnEntry : boolean = true;
+
 function OnCollisionEnter2D(coll : Collision2D) {
   var tag : String = coll.gameObject.tag;
   if (tag == "TheGuy") {
     if (normalSceneTransition) {
-      resetCheckPointLoader();
-      yield playNormalSceneExit();
-      yield WaitForSeconds(delay);
-      SceneManager.LoadScene(sceneToLoad);
+      beginSceneTransition();
     }
   }
+}
+
+function beginSceneTransition() {
+  resetCheckPointLoader();
+  yield playNormalSceneExit();
+  yield WaitForSeconds(delay);
+  SceneManager.LoadScene(sceneToLoad);
 }
 
 function playNormalSceneExit() {
@@ -28,7 +34,7 @@ function playNormalSceneExit() {
   GameObject.Find("User Interface").GetComponent(Timer).running = false;
   GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = true;
   GameObject.Find("ETInstantiator").GetComponent(UISceneTransition).PortalExitTransition();
-  Sounds.use.PlaySoundByTag("WinSound");
+  if (playSoundOnEntry) { Sounds.use.PlaySoundByTag("WinSound"); }
 
   if (finalRoom == null) {
     ZoomCameraToPortal();
@@ -37,7 +43,10 @@ function playNormalSceneExit() {
   }
 
   yield WaitForSeconds(1.5);
-  if (killMusic) { Destroy(GameObject.Find("BackgroundMusic")); }
+  if (killMusic) {
+    Destroy(GameObject.Find("BackgroundMusic"));
+    Destroy(GameObject.Find("IntroMusic")); 
+  }
 }
 
 function resetCheckPointLoader() {

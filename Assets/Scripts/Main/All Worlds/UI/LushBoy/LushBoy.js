@@ -63,6 +63,7 @@ function playLushBoyScene() {
   if (scenePlayed) {
     var FadeImgs = GameObject.FindGameObjectsWithTag("Ground");
     for (var img in FadeImgs) {
+      if (img.name == "IntroMusic") { continue; }
       StartCoroutine(SceneHelper.use.FadeInImage(img.name, 0.004));
     }
   }
