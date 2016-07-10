@@ -28,6 +28,15 @@ function FadeImageToBlack(object : String, rate : float) {
   FadeImg.color.a = 255;
 }
 
+function FadeImageToWhite(object : String, rate : float) {
+  var FadeImg = GameObject.Find(object).GetComponent(Image);
+  while (FadeImg.color.a < 255) {
+    FadeImg.color = Color.Lerp(FadeImg.color, Color.white, 0.5 * rate);
+    yield WaitForSeconds(0.1);
+  }
+  FadeImg.color.a = 255;
+}
+
 function FadeTextToWhite(object : String, rate : float) {
   var FadeImg = GameObject.Find(object).GetComponent(Text);
   while (FadeImg.color.a < 255) {
