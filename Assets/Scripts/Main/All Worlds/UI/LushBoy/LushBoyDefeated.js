@@ -13,6 +13,7 @@ function Start() {
 function OnCollisionEnter2D(coll : Collision2D) {
   var tag : String = coll.gameObject.tag;
   if (tag == "TheGuy" && !wasHit) {
+    coll.gameObject.layer = 20;
     Destroy(GameObject.Find("BackgroundMusic"));
     Destroy(GameObject.Find("IntroMusic"));
     Destroy(GameObject.Find("Fire"));
@@ -23,6 +24,7 @@ function OnCollisionEnter2D(coll : Collision2D) {
 }
 
 function LushBoyDie() {
+
   Sounds.use.PlaySoundByName("Refuge");
   SceneHelper.use.FadeInImage("white", 0.008);
   yield WaitForSeconds(7);
