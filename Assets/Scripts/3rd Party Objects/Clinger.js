@@ -5,42 +5,22 @@ public var previousX;
 public var previousY;
 public var previousRotation;
 
-function Start () {
-    previousRotation = this.transform.rotation.z;
-    previousX = this.transform.position.x;
-    previousY = this.transform.position.y;
-}
+public var active = false;
+public var rate : float = 100;
 
-function Update () {
-    var lunaVector = this.transform.position - Luna.transform.position;
-    var rotation = Quaternion.LookRotation(lunaVector);
-    this.transform.rotation = rotation;
+private var clingerbody : Rigidbody2D;
+
+function Start() {
+ clingerbody = this.GetComponent(Rigidbody2D);
 }
 
 function FixedUpdate () {
-    Move();
-    //AutoRotate();
-    //FaceLuna();
-    PostUpdates();
-
-}
-
-function FaceLuna () {
-//    var deltaX = this.transform.position.x - previousX;
-//    var deltaY = this.transform.position.y - previousY;
-}
-
-function AutoRotate () {
-    this.transform.rotation.z = Luna.transform.rotation.z;
+    if (active) {
+      Move();
+  }
 }
 
 function Move () {
-    this.transform.position.x = this.transform.position.x + ((Luna.transform.position.x - this.transform.position.x) / 100);
-    this.transform.position.y = this.transform.position.y + ((Luna.transform.position.y - this.transform.position.y) / 100);
-}
-
-function PostUpdates () {
-    previousX = this.transform.position.x;
-    previousY = this.transform.position.y;
-    previousRotation = this.transform.rotation.z;
+    clingerbody.velocity.x += (Luna.transform.position.x - this.transform.position.x) / rate;
+    clingerbody.velocity.y += (Luna.transform.position.y - this.transform.position.y) / rate;
 }

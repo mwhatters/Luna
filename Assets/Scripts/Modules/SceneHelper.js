@@ -48,6 +48,15 @@ function FadeOutImage(name) {
   }
 }
 
+function FadeOutImageWithRate(name : String, rate : float) {
+  var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
+  while (FadeImg.color.a > 0.001) {
+    FadeImg.color.a -= rate;
+    yield;
+  }
+	FadeImg.color.a = 0;
+}
+
 function FadeOutGameObj(obj : GameObject, rate : float) {
   var FadeImg = obj.GetComponent(SpriteRenderer);
   while (FadeImg.color.a >= 0) {

@@ -3,6 +3,7 @@
 private var triggered : boolean = false;
 public var invalidatedObjects : GameObject[];
 public var gravityRespawnDirection : String = "Down";
+public var cameraSize : int = 0;
 
 function Start () {
 	var camera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -19,6 +20,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 	if (coll.name == "Luna") {
     GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).checkPointPos = transform.position;
     GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).gravityDirection = gravityRespawnDirection;
+		if (cameraSize > 0) { GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).cameraSize = cameraSize; }
 		triggered = true;
   }
 

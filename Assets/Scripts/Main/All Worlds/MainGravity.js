@@ -27,7 +27,7 @@ public var feetDistanceFromCenter : float;
 
 // Orientation & Rotation
 
-private var facingRight = true;
+public var facingRight = true;
 public var rotateRate : float;
 private var nextRotate = 0.0;
 public var canRotate = true;

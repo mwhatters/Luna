@@ -40,7 +40,11 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 		if (!boxesUnfrozen && objectsList != null) {
 			for (var item in objectsList) {
-				item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
+				if (item.tag == "BurdenBall") {
+					item.GetComponent(Clinger).active = true;
+				} else {
+					item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
+				}
 			}
 			boxesUnfrozen = true;
 		}
@@ -191,6 +195,10 @@ function performCameraZoom(cameraScope : Camera, endpoint : float, t : float) {
 function freezeObjects() {
 	boxesUnfrozen = false;
 	for (var obj in objectsList) {
-		obj.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
+		if (obj.tag == "BurdenBall") {
+			obj.GetComponent(Clinger).active = false;
+		} else {
+			obj.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
+		}
 	}
 }

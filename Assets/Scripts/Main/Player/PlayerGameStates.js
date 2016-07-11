@@ -37,7 +37,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
   }
 
   //Death
-  for (var item : String in ["Death", "DeathRock", "DeathBall", "ReverseDeathObject"]) {
+  for (var item : String in ["Death", "DeathRock", "DeathBall", "ReverseDeathObject", "BurdenBall"]) {
     if (tag == item) {
       Die();
     }

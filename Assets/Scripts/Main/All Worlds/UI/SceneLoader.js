@@ -45,7 +45,7 @@ function playNormalSceneExit() {
   yield WaitForSeconds(1.5);
   if (killMusic) {
     Destroy(GameObject.Find("BackgroundMusic"));
-    Destroy(GameObject.Find("IntroMusic")); 
+    Destroy(GameObject.Find("IntroMusic"));
   }
 }
 
