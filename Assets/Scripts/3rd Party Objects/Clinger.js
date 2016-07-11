@@ -9,6 +9,7 @@ public var active = false;
 public var rate : float = 100;
 
 private var clingerbody : Rigidbody2D;
+private var musicPlaying : boolean = false;
 
 function Start() {
  clingerbody = this.GetComponent(Rigidbody2D);
@@ -17,6 +18,15 @@ function Start() {
 function FixedUpdate () {
     if (active) {
       Move();
+      if (!musicPlaying) {
+        GetComponent(AudioSource).Play();
+        musicPlaying = true;
+      }
+  } else {
+    if (musicPlaying) {
+      GetComponent(AudioSource).Stop();
+      musicPlaying = false;
+    }
   }
 }
 
