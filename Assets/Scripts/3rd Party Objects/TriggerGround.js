@@ -7,9 +7,11 @@ function OnCollisionEnter2D(coll : Collision2D) {
   if (coll.gameObject == trigBall) {
     coll.gameObject.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
 
-    var animatorBallObj = coll.gameObject.GetComponent(Animator);
-    if (animatorBallObj != null) {
-      animatorBallObj.Stop();
+    var BallObj = coll.gameObject;
+    if (BallObj.GetComponent(Animator) != null) {
+      BallObj.GetComponent(Animator).Stop();
+      BallObj.tag = "NiceBox";
+      BallObj.GetComponent(SpriteRenderer).color = Color.grey;
     }
 
     Destroy(trigDoor);

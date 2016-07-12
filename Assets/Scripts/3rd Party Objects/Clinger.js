@@ -12,6 +12,7 @@ private var clingerbody : Rigidbody2D;
 private var musicPlaying : boolean = false;
 
 function Start() {
+  if (!Luna) { Luna = GameObject.Find("Luna"); }
  clingerbody = this.GetComponent(Rigidbody2D);
 }
 
