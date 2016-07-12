@@ -3,7 +3,6 @@
 function OnTriggerEnter2D(coll : Collider2D) {
     GameObject.Find("PauseUI").GetComponent(Pause).canPause = false;
     GameObject.Find("GodHatesYouScene").GetComponent(GodHatesYou).StartScene();
-
     yield WaitForSeconds(5.0);
     StartCoroutine("FadeInMusicSlowly");
 }

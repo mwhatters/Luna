@@ -10,13 +10,8 @@ function Awake () {
 	if (MusicInstance) {
 		DestroyImmediate(gameObject);
 	} else {
-		if (startOnQueue) {
-			this.GetComponent(AudioSource).PlayScheduled(AudioSettings.dspTime + timeToStart);
-		}
-
+		if (startOnQueue) { this.GetComponent(AudioSource).PlayScheduled(AudioSettings.dspTime + timeToStart); }
 		DontDestroyOnLoad (transform.gameObject);
 		MusicInstance = this;
 	}
-
-
 }

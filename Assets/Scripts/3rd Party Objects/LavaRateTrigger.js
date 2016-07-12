@@ -12,7 +12,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
   if (triggered) { return false; } else { triggered = true; }
 
   lava.GetComponent(Lava).rate = desiredRate;
-
   for (var obj in otherObjects) {
     obj.GetComponent(Lava).rate = desiredRate;
   }

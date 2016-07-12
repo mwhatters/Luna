@@ -40,6 +40,15 @@ function FadeInGameObj(obj : GameObject, rate : float) {
   FadeImg.color.a = 255;
 }
 
+function FadeOutUIImage(name) {
+	var FadeImg = GameObject.Find(name).GetComponent(Image);
+	while (FadeImg.color.a > 0.02) {
+		FadeImg.color = Color.Lerp(FadeImg.color, Color.clear, 0.5 * 0.13);
+		yield WaitForSeconds(0.1);
+	}
+	FadeImg.color.a = 0.0;
+}
+
 function FadeOutImage(name) {
   var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
   while (FadeImg.color.a > 0.1) {
@@ -65,7 +74,6 @@ function FadeOutGameObj(obj : GameObject, rate : float) {
   }
   FadeImg.color.a = 0;
 }
-
 
 function ShowAndHideText(text : GameObject, time) {
   text.GetComponent(ExplanatoryText).turnedOff = false;

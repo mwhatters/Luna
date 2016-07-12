@@ -3,7 +3,6 @@
 private static var scenePlayed : boolean = false;
 var lushboyfade : Coroutine = null;
 var skipScene : boolean = false;
-
 var Text1 : GameObject;
 var Text2 : GameObject;
 var Text3 : GameObject;
@@ -11,15 +10,12 @@ var Text4 : GameObject;
 var Text5 : GameObject;
 
 function Start () {
-
   var luna = GameObject.Find("Luna").GetComponent(MainGravity);
-
   Text1 = GameObject.Find("Text1");
   Text2 = GameObject.Find("Text2");
   Text3 = GameObject.Find("Text3");
   Text4 = GameObject.Find("Text4");
   Text5 = GameObject.Find("Text5");
-
 
   if (!scenePlayed && !skipScene) {
     scenePlayed = true;
@@ -36,7 +32,6 @@ function Start () {
   GameObject.Find("Lava").GetComponent(Lava).active = true;
   GameObject.Find("LushBoyWrapper").GetComponent(Lava).active = true;
 }
-
 
 function playLushBoyScene() {
   yield WaitForSeconds(4.0);
@@ -68,7 +63,6 @@ function playLushBoyScene() {
     }
   }
 }
-
 
 function startSceneFromPlay() {
   GameObject.Find("LushBoy").GetComponent(SpriteRenderer).color.a = 255;

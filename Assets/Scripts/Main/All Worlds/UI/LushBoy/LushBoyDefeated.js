@@ -21,10 +21,7 @@ function OnCollisionEnter2D(coll : Collision2D) {
     Destroy(GameObject.Find("Fire"));
     GameObject.Find("User Interface").GetComponent(Timer).running = false;
     GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = true;
-
-    if (grav.facingRight == false) {
-      grav.Flip();
-    }
+    if (grav.facingRight == false) { grav.Flip(); }
 
     wasHit = true;
     LushBoyDie();
@@ -32,7 +29,6 @@ function OnCollisionEnter2D(coll : Collision2D) {
 }
 
 function LushBoyDie() {
-
   Sounds.use.PlaySoundByName("Refuge");
   SceneHelper.use.FadeInImage("white", 0.008);
   yield WaitForSeconds(7);
@@ -45,6 +41,5 @@ function LushBoyDie() {
   SceneHelper.use.HideText(Text2);
   scene.resetCheckPointLoader();
   yield WaitForSeconds(4);
-
   SceneManager.LoadScene("1 Burdens");
 }
