@@ -2,9 +2,9 @@
 
 function Start () {
   yield WaitForSeconds(1);
-  SceneFX.use.FadeImageToClear("LunaBlack", 0.13);
+  SceneHelper.use.FadeImageToClear("LunaBlack", 0.13);
   yield WaitForSeconds(2.5);
-  SceneFX.use.FadeImageToClear("MenuBlack", 0.13);
+  SceneHelper.use.FadeImageToClear("MenuBlack", 0.13);
 }
 
 function Update() {
@@ -26,7 +26,7 @@ public function startNewGame() {
 
   if (SaveData.currentData) {
     Sounds.use.PlaySoundByName("StartGame");
-    SceneFX.use.FadeImageToBlack("Blackness", 0.6);
+    SceneHelper.use.FadeImageToBlack("Blackness", 0.6);
     Invoke("StartGame", 4);
   }
 }
@@ -36,21 +36,21 @@ public function quitGame() {
 }
 
 public function LoadGameMenu() {
-  SceneFX.use.FadeImageToBlack("Blackness", 0.6);
+  SceneHelper.use.FadeImageToBlack("Blackness", 0.6);
   Invoke("GoToLoadGame", 2.0);
 }
 
 public function LoadSandbox() {
-  SceneFX.use.FadeImageToBlack("Blackness", 0.6);
+  SceneHelper.use.FadeImageToBlack("Blackness", 0.6);
   Invoke("GoToSandBox", 2.0);
 }
 
 public function StartNameInput() {
   var nameField = GameObject.Find("NameEntry").GetComponent(InputField);
-  SceneFX.use.FadeTextToWhite("NameText", 0.6);
+  SceneHelper.use.FadeTextToWhite("NameText", 0.6);
   nameField.ActivateInputField();
   nameField.Select();
-  SceneFX.use.FadeTextToWhite("Text", 0.6);
+  SceneHelper.use.FadeTextToWhite("Text", 0.6);
 }
 
 function Quit() {

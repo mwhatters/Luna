@@ -5,7 +5,7 @@ public var canvas : GameObject;
 
 function Start () {
   yield WaitForSeconds(0.5);
-  SceneFX.use.FadeImageToClear("Blackness", 0.3);
+  SceneHelper.use.FadeImageToClear("Blackness", 0.3);
 }
 
 function Update() {
@@ -15,7 +15,7 @@ function Update() {
 }
 
 public function ReturnToMainMenu() {
-  SceneFX.use.FadeImageToBlack("Blackness", 0.5);
+  SceneHelper.use.FadeImageToBlack("Blackness", 0.5);
   Invoke("GoToMainMenu", 1.5);
 }
 
@@ -30,7 +30,7 @@ function displayGameFinder() {
 public function findAndLoadGame(nameField : String) {
   Debug.Log(nameField);
   SaveData.use.LoadGameFromLoadMenu(nameField);
-  SceneFX.use.FadeImageToBlack("Blackness", 0.3);
+  SceneHelper.use.FadeImageToBlack("Blackness", 0.3);
   StartCoroutine(LoadGame(SaveData.currentData.level));
 }
 
@@ -64,7 +64,7 @@ function generateSavedGames() {
     }
 
     var captured : String = Path.GetFileNameWithoutExtension(file.Name);
-    SceneFX.use.FadeTextToWhite(nameField.text, 0.3);
+    SceneHelper.use.FadeTextToWhite(nameField.text, 0.3);
     AddListener(thisPrefab.GetComponent(Button), captured);
 
     if (index == 1) {

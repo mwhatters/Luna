@@ -30,8 +30,10 @@ function Start () {
   luna = GameObject.Find("Luna");
   Lwind = GameObject.Find("Wind").GetComponent(AudioSource);
 
-  Bmusic = GameObject.Find("BackgroundMusic").GetComponent(AudioSource);
-  Imusic = GameObject.Find("IntroMusic").GetComponent(AudioSource);
+  if (GameObject.Find("BackgroundMusic") && GameObject.Find("IntroMusic")) {
+    Bmusic = GameObject.Find("BackgroundMusic").GetComponent(AudioSource);
+    Imusic = GameObject.Find("IntroMusic").GetComponent(AudioSource);
+  }
 
 }
 

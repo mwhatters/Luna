@@ -7,12 +7,6 @@ function Start () {
   Cursor.visible = false;
 }
 
-function Update() {
-  if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2)) {
-    return false;
-  }
-}
-
 function Awake() {
   if (SettingsInstance) {
     DestroyImmediate(gameObject);
