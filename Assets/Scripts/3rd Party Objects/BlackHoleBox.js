@@ -3,7 +3,6 @@
 function OnCollisionEnter2D(coll : Collision2D) {
   if (coll.gameObject.tag == "TheGuy") {
     var vel = calculateTrueVelocity();
-    Debug.Log(vel);
   }
 }
 

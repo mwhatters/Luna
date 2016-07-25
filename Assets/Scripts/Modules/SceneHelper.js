@@ -12,7 +12,6 @@ function Awake () {
 function FadeInImages(tag) {
   var FadeImgs = GameObject.FindGameObjectsWithTag(tag);
   for (var img in FadeImgs) {
-    Debug.Log(img);
     var FadeImg = img.GetComponent(SpriteRenderer);
     while (FadeImg.color.a < 200) {
       FadeImg.color.a += 0.001;

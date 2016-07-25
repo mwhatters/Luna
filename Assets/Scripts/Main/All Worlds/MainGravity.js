@@ -43,11 +43,37 @@ var vertical = ["x", "y"];
 var horizontal = ["y", "x"];
 var upDownAxis = vertical;
 
+private var AButton = "";
+private var MovementAxis = "";
+private var GravRotateRightButton = "";
+private var GravRotateLeftButton = "";
+
+
 private var wind : AudioSource;
 
 function Start () {
 	setWorldGravityShift();
 	wind = GameObject.Find("Wind").GetComponent(AudioSource);
+
+	var gameSettings;
+	if (!GameObject.Find("GameSettings")) {
+		gameSettings = false;
+	} else {
+	}
+
+	if (!gameSettings) { // dev
+		AButton = "A Button Macintosh";
+		MovementAxis = "Left Joystick Macintosh";
+		GravRotateRightButton = "Right Trigger Macintosh";
+		GravRotateLeftButton = "Left Trigger Macintosh";
+	} else {
+		var gameSettingsRef : GameObject = GameObject.Find("GameSettings");
+
+		AButton = gameSettingsRef.GetComponent(GameSettings).AButton;
+		MovementAxis = gameSettingsRef.GetComponent(GameSettings).MovementAxis;
+		GravRotateRightButton = gameSettingsRef.GetComponent(GameSettings).GravRotateRightButton;
+		GravRotateLeftButton = gameSettingsRef.GetComponent(GameSettings).GravRotateLeftButton;
+	}
 }
 
 function setWorldGravityShift() {
@@ -77,7 +103,7 @@ function Update() {
 
 	if (isFrozen) { return false; }
 
-	if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis("RightTrigger") > 0) && canRotateGravity()) {
+	if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis(GravRotateRightButton) > 0) && canRotateGravity()) {
 		if (SaveData.currentData) {
 			if (SaveData.currentData.rotation == 90) {
 				shiftRight();
@@ -89,7 +115,7 @@ function Update() {
 		}
 	}
 
-	if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis("LeftTrigger") > 0) && canRotateGravity()) {
+	if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis(GravRotateLeftButton) > 0) && canRotateGravity()) {
 		if (SaveData.currentData) {
 			if (SaveData.currentData.rotation == 90) {
 				shiftLeft();
@@ -325,7 +351,7 @@ function objGravity(taggedItems : String[], gravity : float, axis : String) {
 }
 
 function checkIfMoving() {
-	if ((Input.GetKey(KeyCode.A) || Input.GetAxis("LeftJoystick") < -0.40)  || (Input.GetKey(KeyCode.D) || Input.GetAxis("LeftJoystick") >  0.40)) {
+	if ((Input.GetKey(KeyCode.A) || Input.GetAxis(MovementAxis) < -0.40)  || (Input.GetKey(KeyCode.D) || Input.GetAxis(MovementAxis) >  0.40)) {
 		isMoving = true;
 	} else {
 		isMoving = false;
@@ -338,8 +364,8 @@ function setMovements(jumpHeight : float, moveSpeed : float) {
 	if (!canMove) { return false; }
 	var x; var y;
 	Jump(x, y, jumpHeight);
-	if (Input.GetKey(KeyCode.A) || Input.GetAxis("LeftJoystick") < -0.40) { Move(x, y, -moveSpeed, facingRight);   } // Left
-	if (Input.GetKey(KeyCode.D) || Input.GetAxis("LeftJoystick") >  0.40) { Move(x, y, moveSpeed, !facingRight);   } // Right
+	if (Input.GetKey(KeyCode.A) || Input.GetAxis(MovementAxis) < -0.40) { Move(x, y, -moveSpeed, facingRight);   } // Left
+	if (Input.GetKey(KeyCode.D) || Input.GetAxis(MovementAxis) >  0.40) { Move(x, y, moveSpeed, !facingRight);   } // Right
 }
 
 function setNoMovements() {
@@ -397,7 +423,7 @@ function calculateAcceleration(speed : float, vectorDirection : float) {
 
 function Jump(x, y, jump) {
 	var rigidbody = GetComponent(Rigidbody2D);
-	if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("A Button")) && canJump()) {
+	if (Input.GetButtonDown(AButton) && canJump()) {
 		if (gravityIsUpOrDown()) {
 			x = rigidbody.velocity.x;
 			y = jump;
@@ -409,8 +435,6 @@ function Jump(x, y, jump) {
 		registerJump();
 	}
 }
-
-
 
 function registerJump() {
 	numJumps++;
