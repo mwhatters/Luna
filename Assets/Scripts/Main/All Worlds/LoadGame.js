@@ -28,7 +28,6 @@ function displayGameFinder() {
 }
 
 public function findAndLoadGame(nameField : String) {
-  Debug.Log(nameField);
   SaveData.use.LoadGameFromLoadMenu(nameField);
   SceneHelper.use.FadeImageToBlack("Blackness", 0.3);
   StartCoroutine(LoadGame(SaveData.currentData.level));
@@ -43,7 +42,6 @@ function LoadGame(level : String) {
 function generateSavedGames() {
   var info = new DirectoryInfo(Application.persistentDataPath);
   var fileInfo = info.GetFiles();
-  Debug.Log(Application.persistentDataPath);
 
   var x = -300;
   var y = 580;

@@ -63,7 +63,6 @@ function OnMouseDown () {
 }
 
 function setPaused() {
-  Debug.Log(MenuButton);
   activatePauseUI(true);
   if (SaveData.currentData) {
     SaveButton.GetComponent(Button).Select();
@@ -153,7 +152,6 @@ public function ChangeRotation() {
     SaveData.currentData.rotation = 90;
     PrivateSaveFromPause();
   }
-  Debug.Log(SaveData.currentData.rotation);
 }
 
 public function Quit() {
