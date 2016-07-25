@@ -77,7 +77,7 @@ function Update() {
 
 	if (isFrozen) { return false; }
 
-	if (Input.GetKeyDown(KeyCode.RightArrow) && canRotateGravity()) {
+	if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis("RightTrigger") > 0) && canRotateGravity()) {
 		if (SaveData.currentData) {
 			if (SaveData.currentData.rotation == 90) {
 				shiftRight();
@@ -89,7 +89,7 @@ function Update() {
 		}
 	}
 
-	if (Input.GetKeyDown(KeyCode.LeftArrow) && canRotateGravity()) {
+	if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis("LeftTrigger") > 0) && canRotateGravity()) {
 		if (SaveData.currentData) {
 			if (SaveData.currentData.rotation == 90) {
 				shiftLeft();
@@ -325,7 +325,7 @@ function objGravity(taggedItems : String[], gravity : float, axis : String) {
 }
 
 function checkIfMoving() {
-	if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+	if ((Input.GetKey(KeyCode.A) || Input.GetAxis("LeftJoystick") < -0.40)  || (Input.GetKey(KeyCode.D) || Input.GetAxis("LeftJoystick") >  0.40)) {
 		isMoving = true;
 	} else {
 		isMoving = false;
@@ -338,8 +338,8 @@ function setMovements(jumpHeight : float, moveSpeed : float) {
 	if (!canMove) { return false; }
 	var x; var y;
 	Jump(x, y, jumpHeight);
-	if (Input.GetKey(KeyCode.A)) { Move(x, y, -moveSpeed, facingRight);   } // Left
-	if (Input.GetKey(KeyCode.D)) { Move(x, y, moveSpeed, !facingRight);   } // Right
+	if (Input.GetKey(KeyCode.A) || Input.GetAxis("LeftJoystick") < -0.40) { Move(x, y, -moveSpeed, facingRight);   } // Left
+	if (Input.GetKey(KeyCode.D) || Input.GetAxis("LeftJoystick") >  0.40) { Move(x, y, moveSpeed, !facingRight);   } // Right
 }
 
 function setNoMovements() {
@@ -397,7 +397,7 @@ function calculateAcceleration(speed : float, vectorDirection : float) {
 
 function Jump(x, y, jump) {
 	var rigidbody = GetComponent(Rigidbody2D);
-	if (Input.GetKeyDown(KeyCode.Space) && canJump()) {
+	if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("A Button")) && canJump()) {
 		if (gravityIsUpOrDown()) {
 			x = rigidbody.velocity.x;
 			y = jump;
