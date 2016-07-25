@@ -1,4 +1,5 @@
 ﻿#pragma strict
+import EventSystems;
 
 public static var SettingsInstance;
 // These are settings that persist through all levels, all the time
@@ -24,7 +25,6 @@ function Start () {
     GravRotateLeftButton = "Left Trigger Windows";
     SetUIInputsFor("Windows");
   }
-  Debug.Log(EventSystems.StandaloneInputModule);
 }
 
 function Awake() {
