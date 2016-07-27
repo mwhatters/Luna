@@ -37,6 +37,8 @@ public var canDoExperimentalRotation = false;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
 private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
+private var leftieGravObjects = ["LeftieDeathObject"];
+private var rightieGravObjects = ["RightieDeathObject"];
 private var groundObjects = ["Ground", "StubbornGround", "StubbornGroundReverse", "ShifterL", "ShifterR", "ShifterD", "ShifterU", "RotaterL", "RotaterR", "NiceBox", "BlackHoleBox", "Door"];
 
 var vertical = ["x", "y"];
@@ -334,6 +336,12 @@ function canRotateGravity() {
 function setObjectGravitySettings(gravitySetting : float, axis : String) {
 	objGravity(normalGravObjects, gravitySetting, axis);
 	objGravity(reverseGravObjects, -gravitySetting, axis);
+	objGravity(rightieGravObjects, gravitySetting, oppositeAxis(axis));
+	objGravity(leftieGravObjects, -gravitySetting, oppositeAxis(axis));
+}
+
+function oppositeAxis(axis) {
+	if (axis == "y") { return "x"; } else { return "y"; }
 }
 
 
