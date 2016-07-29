@@ -336,8 +336,14 @@ function canRotateGravity() {
 function setObjectGravitySettings(gravitySetting : float, axis : String) {
 	objGravity(normalGravObjects, gravitySetting, axis);
 	objGravity(reverseGravObjects, -gravitySetting, axis);
-	objGravity(rightieGravObjects, gravitySetting, oppositeAxis(axis));
-	objGravity(leftieGravObjects, -gravitySetting, oppositeAxis(axis));
+
+	if (axis == "y") {
+		objGravity(leftieGravObjects, gravitySetting, oppositeAxis(axis));
+		objGravity(rightieGravObjects, -gravitySetting, oppositeAxis(axis));
+	} else {
+		objGravity(leftieGravObjects, -gravitySetting, oppositeAxis(axis));
+		objGravity(rightieGravObjects, gravitySetting, oppositeAxis(axis));
+	}
 }
 
 function oppositeAxis(axis) {
