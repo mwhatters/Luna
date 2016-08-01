@@ -1,0 +1,353 @@
+fileFormatVersion: 2
+guid: bf6a221a9889a4302a10c0c526737490
+timeCreated: 1470033412
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SZEnter_0
+    21300002: SZEnter_1
+    21300004: SZEnter_2
+    21300006: SZEnter_3
+    21300008: SZEnter_4
+    21300010: SZEnter_5
+    21300012: SZEnter_6
+    21300014: SZEnter_7
+    21300016: SZEnter_8
+    21300018: SZEnter_9
+    21300020: SZEnter_10
+    21300022: SZEnter_11
+    21300024: SZEnter_12
+    21300026: SZEnter_13
+    21300028: SZEnter_14
+    21300030: SZEnter_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SZEnter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 18}
+        - {x: -18, y: 16}
+        - {x: -18, y: -16}
+        - {x: -16, y: -18}
+        - {x: 16, y: -18}
+        - {x: 18, y: -16}
+        - {x: 18, y: 16}
+        - {x: 16, y: 18}
+    - name: SZEnter_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 34}
+        - {x: -34, y: 32}
+        - {x: -34, y: -32}
+        - {x: -32, y: -34}
+        - {x: 32, y: -34}
+        - {x: 34, y: -32}
+        - {x: 34, y: 32}
+        - {x: 32, y: 34}
+    - name: SZEnter_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -66, y: 66}
+        - {x: -66, y: -66}
+        - {x: 64, y: -66}
+        - {x: 66, y: -64}
+        - {x: 66, y: 64}
+        - {x: 64, y: 66}
+    - name: SZEnter_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -82, y: 80}
+        - {x: -82, y: -82}
+        - {x: 82, y: -82}
+        - {x: 82, y: 80}
+        - {x: 80, y: 82}
+        - {x: -80, y: 82}
+    - name: SZEnter_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -98, y: 96}
+        - {x: -98, y: -98}
+        - {x: 98, y: -98}
+        - {x: 98, y: 96}
+        - {x: 96, y: 98}
+        - {x: -96, y: 98}
+    - name: SZEnter_5
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -114, y: 112}
+        - {x: -114, y: -114}
+        - {x: 114, y: -114}
+        - {x: 114, y: 112}
+        - {x: 112, y: 114}
+        - {x: -112, y: 114}
+    - name: SZEnter_6
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 130}
+        - {x: -130, y: 128}
+        - {x: -130, y: -128}
+        - {x: -128, y: -130}
+        - {x: 128, y: -130}
+        - {x: 130, y: -128}
+        - {x: 130, y: 128}
+        - {x: 128, y: 130}
+    - name: SZEnter_7
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -144, y: 146}
+        - {x: -146, y: 144}
+        - {x: -146, y: -144}
+        - {x: -144, y: -146}
+        - {x: 144, y: -146}
+        - {x: 146, y: -144}
+        - {x: 146, y: 144}
+        - {x: 144, y: 146}
+    - name: SZEnter_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -160, y: 162}
+        - {x: -162, y: 160}
+        - {x: -162, y: -160}
+        - {x: -160, y: -162}
+        - {x: 160, y: -162}
+        - {x: 162, y: -160}
+        - {x: 162, y: 160}
+        - {x: 160, y: 162}
+    - name: SZEnter_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -176, y: 178}
+        - {x: -178, y: 176}
+        - {x: -178, y: -176}
+        - {x: -176, y: -178}
+        - {x: 176, y: -178}
+        - {x: 178, y: -176}
+        - {x: 178, y: 176}
+        - {x: 176, y: 178}
+    - name: SZEnter_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -192, y: 194}
+        - {x: -194, y: 192}
+        - {x: -194, y: -192}
+        - {x: -192, y: -194}
+        - {x: 192, y: -194}
+        - {x: 194, y: -192}
+        - {x: 194, y: 192}
+        - {x: 192, y: 194}
+    - name: SZEnter_11
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -208, y: 210}
+        - {x: -210, y: 208}
+        - {x: -210, y: -208}
+        - {x: -208, y: -210}
+        - {x: 208, y: -210}
+        - {x: 210, y: -208}
+        - {x: 210, y: 208}
+        - {x: 208, y: 210}
+    - name: SZEnter_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -226, y: 226}
+        - {x: -226, y: -226}
+        - {x: 224, y: -226}
+        - {x: 226, y: -224}
+        - {x: 226, y: 224}
+        - {x: 224, y: 226}
+    - name: SZEnter_13
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -242, y: 242}
+        - {x: -242, y: -242}
+        - {x: 240, y: -242}
+        - {x: 242, y: -240}
+        - {x: 242, y: 240}
+        - {x: 240, y: 242}
+    - name: SZEnter_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -256, y: 256}
+        - {x: -256, y: -256}
+        - {x: 256, y: -256}
+        - {x: 256, y: 256}
+    - name: SZEnter_15
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

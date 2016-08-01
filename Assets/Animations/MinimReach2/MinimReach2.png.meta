@@ -1,0 +1,383 @@
+fileFormatVersion: 2
+guid: 368d9212521ac4bc28d9b893be002872
+timeCreated: 1470029381
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MinimReach2_0
+    21300002: MinimReach2_1
+    21300004: MinimReach2_2
+    21300006: MinimReach2_3
+    21300008: MinimReach2_4
+    21300010: MinimReach2_5
+    21300012: MinimReach2_6
+    21300014: MinimReach2_7
+    21300016: MinimReach2_8
+    21300018: MinimReach2_9
+    21300020: MinimReach2_10
+    21300022: MinimReach2_11
+    21300024: MinimReach2_12
+    21300026: MinimReach2_13
+    21300028: MinimReach2_14
+    21300030: MinimReach2_15
+    21300032: MinimReach2_16
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: MinimReach2_0
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.5, y: 15}
+        - {x: -14.5, y: 13}
+        - {x: -14.5, y: -13}
+        - {x: -12.5, y: -15}
+        - {x: 13.5, y: -15}
+        - {x: 15.5, y: -13}
+        - {x: 15.5, y: 13}
+        - {x: 13.5, y: 15}
+    - name: MinimReach2_1
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 28}
+        - {x: -28, y: 26}
+        - {x: -28, y: -26}
+        - {x: -26, y: -28}
+        - {x: 26, y: -28}
+        - {x: 28, y: -26}
+        - {x: 28, y: 26}
+        - {x: 26, y: 28}
+    - name: MinimReach2_2
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37.5, y: 41}
+        - {x: -39.5, y: 39}
+        - {x: -39.5, y: -38}
+        - {x: -37.5, y: -40}
+        - {x: 39.5, y: -40}
+        - {x: 41.5, y: -38}
+        - {x: 41.5, y: 39}
+        - {x: 39.5, y: 41}
+    - name: MinimReach2_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -52, y: 54.5}
+        - {x: -54, y: 52.5}
+        - {x: -54, y: -50.5}
+        - {x: -52, y: -52.5}
+        - {x: 51, y: -52.5}
+        - {x: 53, y: -50.5}
+        - {x: 53, y: 52.5}
+        - {x: 51, y: 54.5}
+    - name: MinimReach2_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -65.5, y: 65.5}
+        - {x: -65.5, y: -65.5}
+        - {x: 66.5, y: -65.5}
+        - {x: 66.5, y: 65.5}
+        - {x: 64.5, y: 67.5}
+        - {x: -63.5, y: 67.5}
+    - name: MinimReach2_5
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 80.5}
+        - {x: -79, y: 78.5}
+        - {x: -79, y: -75.5}
+        - {x: -77, y: -77.5}
+        - {x: 77, y: -77.5}
+        - {x: 79, y: -75.5}
+        - {x: 79, y: 78.5}
+        - {x: 77, y: 80.5}
+    - name: MinimReach2_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -89.5, y: 92.5}
+        - {x: -91.5, y: 90.5}
+        - {x: -91.5, y: -88.5}
+        - {x: -89.5, y: -90.5}
+        - {x: 90.5, y: -90.5}
+        - {x: 92.5, y: -88.5}
+        - {x: 92.5, y: 90.5}
+        - {x: 90.5, y: 92.5}
+    - name: MinimReach2_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -103, y: 105}
+        - {x: -105, y: 103}
+        - {x: -105, y: -103}
+        - {x: -103, y: -105}
+        - {x: 102, y: -105}
+        - {x: 104, y: -103}
+        - {x: 104, y: 103}
+        - {x: 102, y: 105}
+    - name: MinimReach2_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -114.5, y: 117}
+        - {x: -116.5, y: 115}
+        - {x: -116.5, y: -115}
+        - {x: -114.5, y: -117}
+        - {x: 116.5, y: -117}
+        - {x: 118.5, y: -115}
+        - {x: 118.5, y: 115}
+        - {x: 116.5, y: 117}
+    - name: MinimReach2_9
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 130}
+        - {x: -130, y: 128}
+        - {x: -130, y: -128}
+        - {x: -128, y: -130}
+        - {x: 128, y: -130}
+        - {x: 130, y: -128}
+        - {x: 130, y: 128}
+        - {x: 128, y: 130}
+    - name: MinimReach2_10
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -140.5, y: 143}
+        - {x: -142.5, y: 141}
+        - {x: -142.5, y: -143}
+        - {x: 143.5, y: -143}
+        - {x: 143.5, y: 141}
+        - {x: 141.5, y: 143}
+    - name: MinimReach2_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -205, y: -204.5}
+        - {x: 205, y: -204.5}
+        - {x: 205, y: -201.5}
+        - {x: -205, y: -201.5}
+      - - {x: -156, y: 156.5}
+        - {x: -156, y: -154.5}
+        - {x: 154, y: -154.5}
+        - {x: 156, y: -152.5}
+        - {x: 156, y: 154.5}
+        - {x: 154, y: 156.5}
+    - name: MinimReach2_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -165.5, y: 169.5}
+        - {x: -167.5, y: 167.5}
+        - {x: -167.5, y: -165.5}
+        - {x: -165.5, y: -167.5}
+        - {x: 167.5, y: -167.5}
+        - {x: 169.5, y: -165.5}
+        - {x: 169.5, y: 167.5}
+        - {x: 167.5, y: 169.5}
+    - name: MinimReach2_13
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -182, y: 182.5}
+        - {x: -182, y: -180.5}
+        - {x: 179, y: -180.5}
+        - {x: 181, y: -178.5}
+        - {x: 181, y: 180.5}
+        - {x: 179, y: 182.5}
+    - name: MinimReach2_14
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -191.5, y: 195.5}
+        - {x: -193.5, y: 193.5}
+        - {x: -193.5, y: -193.5}
+        - {x: 194.5, y: -193.5}
+        - {x: 194.5, y: 193.5}
+        - {x: 192.5, y: 195.5}
+    - name: MinimReach2_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -205, y: 205}
+        - {x: -205, y: -205}
+        - {x: 205, y: -205}
+        - {x: 205, y: 205}
+    - name: MinimReach2_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -201.5, y: -205}
+        - {x: -201.5, y: 205}
+        - {x: -204.5, y: 205}
+        - {x: -204.5, y: -205}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
