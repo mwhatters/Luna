@@ -39,10 +39,6 @@ function slowlyRemoveUIText() {
   for (var i : int = 0; i < stringLength; i++) {
     this.GetComponent(Text).text = this.GetComponent(Text).text.Substring(0, stringLength - i - 1);
 
-    // if (useSounds) {
-    //   GameObject.FindGameObjectWithTag("TypeSound").GetComponent(AudioSource).Play();
-    // }
-
     yield WaitForSeconds(timeToPrint);
   }
 }

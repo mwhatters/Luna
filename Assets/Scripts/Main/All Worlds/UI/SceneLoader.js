@@ -23,6 +23,7 @@ function OnCollisionEnter2D(coll : Collision2D) {
 
 function beginSceneTransition() {
   resetCheckPointLoader();
+  setSceneIntroText();
   yield playNormalSceneExit();
   yield WaitForSeconds(delay);
   SceneManager.LoadScene(sceneToLoad);
@@ -51,6 +52,12 @@ function playNormalSceneExit() {
 
 function resetCheckPointLoader() {
   GameObject.Find("Camera").GetComponent(CheckpointTracker).checkPointPos = Vector3(0,0,0);
+}
+
+function setSceneIntroText() {
+ if (GameObject.Find("IntroZoneTextDisplay") != null) {
+   GameObject.Find("IntroZoneTextDisplay").GetComponent(ShowIntroText).IntroTextInstance = false;
+ }
 }
 
 function ZoomCameraToPortal() {
