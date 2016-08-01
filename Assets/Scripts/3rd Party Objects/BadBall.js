@@ -4,7 +4,7 @@ public var type : String = "Normal"; // Normal, X, or Y
 public var xspeed : int = 9;
 public var yspeed : int = -9;
 private var nextBounce = 0.0;
-private var bounceRate = 0.1;
+private var bounceRate = 0.0;
 
 function FixedUpdate () {
 	GetComponent(Rigidbody2D).velocity.y = yspeed;
