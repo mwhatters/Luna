@@ -11,6 +11,7 @@ function StartScene() {
   var Text6 = GameObject.Find("Text6");
   var Text7 = GameObject.Find("Text7");
 
+
   WaitForSeconds(2);
   SceneHelper.use.ShowAndHideText(Text1, 2);
 
@@ -26,18 +27,11 @@ function StartScene() {
   yield SceneHelper.use.ShowAndHideText(Text7, 1);
 
   luna.canMove = true;
-  GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
+  // GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
   GameObject.Find("GodsGround").GetComponent(BoxCollider2D).enabled = false;
-}
 
-function FadeInImages(tag) {
-  var FadeImgs = GameObject.FindGameObjectsWithTag(tag);
-  for (var img in FadeImgs) {
-    var FadeImg = img.GetComponent(SpriteRenderer);
-    while (FadeImg.color.a < 200) {
-      FadeImg.color.a += 0.001;
-      yield;
-    }
-    FadeImg.color.a = 200;
-  }
+  yield WaitForSeconds(20);
+  SceneHelper.use.FadeTextToWhite("GameTitle", 0.003);
+  yield WaitForSeconds(10);
+  SceneHelper.use.FadeTextToWhite("ProducedBy", 0.003);
 }
