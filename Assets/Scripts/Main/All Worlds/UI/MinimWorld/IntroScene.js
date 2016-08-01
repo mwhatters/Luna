@@ -50,7 +50,7 @@ function Start () {
   yield WaitForSeconds(2);
   SceneHelper.use.HideText(Text3);
   SceneHelper.use.HideText(Text4);
-  yield SceneHelper.use.GeneralFadeOut(GameObject.Find("Blackness"), "Image", Color.clear, 0.5, 0.13);
+  yield SceneHelper.use.GeneralFadeOut(GameObject.Find("Blackness"), "Image", Color.clear, 0.5, 0.2);
 
   yield SceneHelper.use.ShowAndHideText(Text5, 1.0);
 

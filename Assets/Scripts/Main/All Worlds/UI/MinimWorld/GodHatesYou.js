@@ -27,6 +27,7 @@ function StartScene() {
 
   luna.canMove = true;
   GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
+  GameObject.Find("GodsGround").GetComponent(BoxCollider2D).enabled = false;
 }
 
 function FadeInImages(tag) {
