@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 0d3d241bacc5d414eb532e87e63a2b8b
+timeCreated: 1470113843
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RIghtieMean_0
+    21300002: RIghtieMean_1
+    21300004: RIghtieMean_2
+    21300006: RIghtieMean_3
+    21300008: RIghtieMean_4
+    21300010: RIghtieMean_5
+    21300012: RIghtieMean_6
+    21300014: RIghtieMean_7
+    21300016: RIghtieMean_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: RIghtieMean_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -341.5, y: 341.83337}
+        - {x: -341.5, y: -341.16663}
+        - {x: 341.5, y: -341.16663}
+        - {x: 341.5, y: 341.83337}
+    - name: RIghtieMean_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -341.3333, y: 341.83337}
+        - {x: -341.3333, y: -341.16663}
+        - {x: 342.6667, y: -341.16663}
+        - {x: 342.6667, y: 341.83337}
+    - name: RIghtieMean_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -341.16663, y: 341.83337}
+        - {x: -341.16663, y: -341.16663}
+        - {x: 341.83337, y: -341.16663}
+        - {x: 341.83337, y: 341.83337}
+    - name: RIghtieMean_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -341.5, y: 342.6667}
+        - {x: -341.5, y: -341.3333}
+        - {x: 341.5, y: -341.3333}
+        - {x: 341.5, y: 342.6667}
+    - name: RIghtieMean_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -341.3333, y: 342.6667}
+        - {x: -341.3333, y: -341.3333}
+        - {x: 342.6667, y: -341.3333}
+        - {x: 342.6667, y: 342.6667}
+    - name: RIghtieMean_5
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -341.16663, y: 342.6667}
+        - {x: -341.16663, y: -341.3333}
+        - {x: 341.83337, y: -341.3333}
+        - {x: 341.83337, y: 342.6667}
+    - name: RIghtieMean_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -341.5, y: 341.5}
+        - {x: -341.5, y: -341.5}
+        - {x: 341.5, y: -341.5}
+        - {x: 341.5, y: 341.5}
+    - name: RIghtieMean_7
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -341.3333, y: 341.5}
+        - {x: -341.3333, y: -341.5}
+        - {x: 342.6667, y: -341.5}
+        - {x: 342.6667, y: 341.5}
+    - name: RIghtieMean_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -341.16663, y: 341.5}
+        - {x: -341.16663, y: -341.5}
+        - {x: 341.83337, y: -341.5}
+        - {x: 341.83337, y: 341.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
