@@ -3,7 +3,7 @@
 public var exitTransition : GameObject;
 public var entryTransition : GameObject;
 
-
+// ENTER LEVEL == EXIT PORTAL
 function Start() {
   if (entryTransition == null) {
     entryTransition = null;
