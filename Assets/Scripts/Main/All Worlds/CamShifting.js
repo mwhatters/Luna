@@ -5,6 +5,7 @@ private var lunaObj : GameObject;
 
 private var boxesUnfrozen = false;
 public var freezeObjectsOnExit : boolean = false;
+public var freezeZRotations : boolean = false;
 public var objectsList : GameObject[];
 
 public var fader : GameObject;
@@ -44,6 +45,9 @@ function OnTriggerEnter2D(coll : Collider2D) {
 					item.GetComponent(Clinger).active = true;
 				} else {
 					item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
+					if (freezeZRotations) {
+						item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeRotation;
+					}
 				}
 			}
 			boxesUnfrozen = true;
