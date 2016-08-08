@@ -12,11 +12,16 @@ public var delay : float = 0.0;
 
 public var playSoundOnEntry : boolean = true;
 
+private var triggered : boolean = false;
+
 function OnCollisionEnter2D(coll : Collision2D) {
-  var tag : String = coll.gameObject.tag;
-  if (tag == "TheGuy") {
-    if (normalSceneTransition) {
-      beginSceneTransition();
+  if (!triggered) {
+    var tag : String = coll.gameObject.tag;
+    if (tag == "TheGuy") {
+      triggered = true;
+      if (normalSceneTransition) {
+        beginSceneTransition();
+      }
     }
   }
 }
