@@ -26,6 +26,8 @@ function Start () {
   timer.running = false;
   pauseMenu.GetComponent(Pause).canPause = false;
   luna.GetComponent(MainGravity).canMove = false;
+  luna.GetComponent(MainGravity).canRotate = false;
+
 
   yield WaitForSeconds(1);
 
@@ -49,6 +51,7 @@ function Start () {
   // END SCENE START PLAY
 
   luna.GetComponent(MainGravity).canMove = true;
+  luna.GetComponent(MainGravity).canRotate = true;
   timer.startTimerFromZero();
   timer.running = true;
   pauseMenu.GetComponent(Pause).canPause = true;
