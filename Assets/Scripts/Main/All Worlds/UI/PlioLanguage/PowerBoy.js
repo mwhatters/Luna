@@ -1,4 +1,4 @@
-﻿#pragma strict
+#pragma strict
 
 public static var IntroInstance;
 
