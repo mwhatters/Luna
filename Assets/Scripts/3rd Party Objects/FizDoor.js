@@ -17,6 +17,7 @@ function OnTriggerExit2D(coll : Collider2D) {
     fizDoor.GetComponent(BoxCollider2D).isTrigger = true;
     fizDoor.tag = "Ground";
     this.tag = "Ground";
+    this.gameObject.layer = 0;
   }
 }
 
