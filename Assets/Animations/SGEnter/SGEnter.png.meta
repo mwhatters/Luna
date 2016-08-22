@@ -1,0 +1,631 @@
+fileFormatVersion: 2
+guid: 3b44dbd2378924bf883252489471e652
+timeCreated: 1471903434
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SGEnter_0
+    21300002: SGEnter_1
+    21300004: SGEnter_2
+    21300006: SGEnter_3
+    21300008: SGEnter_4
+    21300010: SGEnter_5
+    21300012: SGEnter_6
+    21300014: SGEnter_7
+    21300016: SGEnter_8
+    21300018: SGEnter_9
+    21300020: SGEnter_10
+    21300022: SGEnter_11
+    21300024: SGEnter_12
+    21300026: SGEnter_13
+    21300028: SGEnter_14
+    21300030: SGEnter_15
+    21300032: SGEnter_16
+    21300034: SGEnter_17
+    21300036: SGEnter_18
+    21300038: SGEnter_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SGEnter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 15}
+        - {x: -15, y: 13}
+        - {x: -15, y: -13}
+        - {x: -13, y: -15}
+        - {x: 13, y: -15}
+        - {x: 15, y: -13}
+        - {x: 15, y: 13}
+        - {x: 13, y: 15}
+    - name: SGEnter_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13.5, y: 28}
+        - {x: -15.5, y: 28}
+        - {x: -27.5, y: 13}
+        - {x: -27.5, y: -16}
+        - {x: -12.5, y: -28}
+        - {x: 16.5, y: -28}
+        - {x: 28.5, y: -13}
+        - {x: 28.5, y: 16}
+    - name: SGEnter_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29, y: 41}
+        - {x: -41, y: 16}
+        - {x: -41, y: -40}
+        - {x: 28, y: -40}
+        - {x: 40, y: -33}
+        - {x: 40, y: 13}
+        - {x: 39, y: 16}
+        - {x: 15, y: 39}
+        - {x: 13, y: 41}
+    - name: SGEnter_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54.5, y: 13}
+        - {x: 52.5, y: 15}
+        - {x: 17.5, y: 53}
+        - {x: 13.5, y: 54}
+        - {x: -19.5, y: 54}
+        - {x: -52.5, y: 18}
+        - {x: -52.5, y: -13}
+        - {x: -12.5, y: -53}
+        - {x: 13.5, y: -53}
+        - {x: 15.5, y: -51}
+        - {x: 52.5, y: -15}
+        - {x: 54.5, y: -13}
+    - name: SGEnter_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 67.5}
+        - {x: -66, y: 18.5}
+        - {x: -66, y: -34.5}
+        - {x: -16, y: -65.5}
+        - {x: 51, y: -65.5}
+        - {x: 66, y: -53.5}
+        - {x: 66, y: 45.5}
+        - {x: 52, y: 67.5}
+    - name: SGEnter_5
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50.5, y: 80.5}
+        - {x: -78.5, y: 61.5}
+        - {x: -78.5, y: -46.5}
+        - {x: -59.5, y: -77.5}
+        - {x: 20.5, y: -77.5}
+        - {x: 79.5, y: -13.5}
+        - {x: 79.5, y: 42.5}
+        - {x: 13.5, y: 80.5}
+    - name: SGEnter_6
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -46, y: 92.5}
+        - {x: -92, y: 32.5}
+        - {x: -92, y: -16.5}
+        - {x: -14, y: -90.5}
+        - {x: 34, y: -90.5}
+        - {x: 92, y: -13.5}
+        - {x: 92, y: 46.5}
+        - {x: 20, y: 92.5}
+    - name: SGEnter_7
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -103.5, y: -48.5}
+        - {x: -59.5, y: -103.5}
+        - {x: 25.5, y: -103.5}
+        - {x: 105.5, y: -51.5}
+        - {x: 105.5, y: 19.5}
+        - {x: 33.5, y: 105.5}
+        - {x: -41.5, y: 105.5}
+        - {x: -103.5, y: 42.5}
+    - name: SGEnter_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -56, y: 117}
+        - {x: -118, y: 51}
+        - {x: -118, y: -18}
+        - {x: -18, y: -117}
+        - {x: 43, y: -117}
+        - {x: 117, y: -44}
+        - {x: 117, y: 56}
+        - {x: 54, y: 117}
+    - name: SGEnter_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 82.5, y: 79}
+        - {x: 21.5, y: 130}
+        - {x: -12.5, y: 130}
+        - {x: -16.5, y: 129}
+        - {x: -78.5, y: 82}
+        - {x: -129.5, y: 21}
+        - {x: -129.5, y: -13}
+        - {x: -128.5, y: -17}
+        - {x: -81.5, y: -79}
+        - {x: -20.5, y: -130}
+        - {x: 30.5, y: -130}
+        - {x: 130.5, y: -32}
+        - {x: 130.5, y: 15}
+        - {x: 129.5, y: 17}
+    - name: SGEnter_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 141, y: 15}
+        - {x: 95, y: 92}
+        - {x: 19, y: 143}
+        - {x: -13, y: 143}
+        - {x: -15, y: 141}
+        - {x: -92, y: 95}
+        - {x: -143, y: 23}
+        - {x: -143, y: -13}
+        - {x: -142, y: -17}
+        - {x: -92, y: -15}
+        - {x: -95, y: -92}
+        - {x: -23, y: -143}
+        - {x: 13, y: -143}
+        - {x: 17, y: -142}
+        - {x: 92, y: -95}
+        - {x: 143, y: -19}
+        - {x: 143, y: 13}
+    - name: SGEnter_11
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 156.5, y: -20}
+        - {x: 156.5, y: 13}
+        - {x: 154.5, y: 15}
+        - {x: 105.5, y: 15}
+        - {x: 108.5, y: 105}
+        - {x: 20.5, y: 156}
+        - {x: -12.5, y: 156}
+        - {x: -14.5, y: 154}
+        - {x: -103.5, y: 108}
+        - {x: -155.5, y: 20}
+        - {x: -155.5, y: -13}
+        - {x: -153.5, y: -15}
+        - {x: -103.5, y: -15}
+        - {x: -106.5, y: -105}
+        - {x: -19.5, y: -156}
+        - {x: 13.5, y: -156}
+        - {x: 15.5, y: -154}
+        - {x: 15.5, y: -105}
+        - {x: 105.5, y: -108}
+    - name: SGEnter_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: -204.5}
+        - {x: 14, y: -201.5}
+        - {x: -14, y: -201.5}
+        - {x: -15, y: -204.5}
+      - - {x: 168, y: -20.5}
+        - {x: 168, y: 13.5}
+        - {x: 166, y: 15.5}
+        - {x: 117, y: 15.5}
+        - {x: 117, y: 116.5}
+        - {x: 115, y: 118.5}
+        - {x: 13, y: 169.5}
+        - {x: -13, y: 169.5}
+        - {x: -15, y: 167.5}
+        - {x: -15, y: 118.5}
+        - {x: -116, y: 118.5}
+        - {x: -118, y: 116.5}
+        - {x: -169, y: 13.5}
+        - {x: -169, y: -12.5}
+        - {x: -167, y: -14.5}
+        - {x: -118, y: -14.5}
+        - {x: -118, y: -114.5}
+        - {x: -116, y: -116.5}
+        - {x: -13, y: -167.5}
+        - {x: 13, y: -167.5}
+        - {x: 15, y: -165.5}
+        - {x: 15, y: -116.5}
+        - {x: 117, y: -119.5}
+    - name: SGEnter_13
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: -204.5}
+        - {x: 14.5, y: -201.5}
+        - {x: -13.5, y: -201.5}
+        - {x: -14.5, y: -204.5}
+      - - {x: 130.5, y: -127.5}
+        - {x: 180.5, y: -14.5}
+        - {x: 182.5, y: -12.5}
+        - {x: 182.5, y: 13.5}
+        - {x: 180.5, y: 15.5}
+        - {x: 130.5, y: 15.5}
+        - {x: 130.5, y: 129.5}
+        - {x: 128.5, y: 131.5}
+        - {x: 15.5, y: 180.5}
+        - {x: 13.5, y: 182.5}
+        - {x: -12.5, y: 182.5}
+        - {x: -14.5, y: 180.5}
+        - {x: -14.5, y: 131.5}
+        - {x: -127.5, y: 131.5}
+        - {x: -129.5, y: 129.5}
+        - {x: -178.5, y: 15.5}
+        - {x: -180.5, y: 13.5}
+        - {x: -180.5, y: -12.5}
+        - {x: -178.5, y: -14.5}
+        - {x: -129.5, y: -14.5}
+        - {x: -129.5, y: -127.5}
+        - {x: -127.5, y: -129.5}
+        - {x: -14.5, y: -178.5}
+        - {x: -12.5, y: -180.5}
+        - {x: 13.5, y: -180.5}
+        - {x: 15.5, y: -178.5}
+        - {x: 15.5, y: -129.5}
+        - {x: 128.5, y: -129.5}
+    - name: SGEnter_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: -204.5}
+        - {x: 14, y: -201.5}
+        - {x: -14, y: -201.5}
+        - {x: -15, y: -204.5}
+      - - {x: 143, y: -140.5}
+        - {x: 192, y: -14.5}
+        - {x: 194, y: -12.5}
+        - {x: 194, y: 13.5}
+        - {x: 192, y: 15.5}
+        - {x: 143, y: 15.5}
+        - {x: 143, y: 141.5}
+        - {x: 141, y: 143.5}
+        - {x: 15, y: 143.5}
+        - {x: 15, y: 193.5}
+        - {x: 13, y: 195.5}
+        - {x: -13, y: 195.5}
+        - {x: -15, y: 193.5}
+        - {x: -15, y: 143.5}
+        - {x: -141, y: 143.5}
+        - {x: -143, y: 141.5}
+        - {x: -143, y: 15.5}
+        - {x: -192, y: 15.5}
+        - {x: -194, y: 13.5}
+        - {x: -194, y: -12.5}
+        - {x: -192, y: -14.5}
+        - {x: -143, y: -14.5}
+        - {x: -143, y: -140.5}
+        - {x: -141, y: -142.5}
+        - {x: -15, y: -142.5}
+        - {x: -15, y: -191.5}
+        - {x: -13, y: -193.5}
+        - {x: 13, y: -193.5}
+        - {x: 15, y: -191.5}
+        - {x: 15, y: -142.5}
+        - {x: 141, y: -142.5}
+      - - {x: 202, y: -12.5}
+        - {x: 204, y: -14.5}
+        - {x: 205, y: -14.5}
+        - {x: 205, y: 15.5}
+        - {x: 202, y: 14.5}
+    - name: SGEnter_15
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: -154.5}
+        - {x: 154.5, y: -154.5}
+        - {x: 156.5, y: -152.5}
+        - {x: 156.5, y: -14.5}
+        - {x: 205.5, y: -14.5}
+        - {x: 205.5, y: 15.5}
+        - {x: 156.5, y: 15.5}
+        - {x: 156.5, y: 154.5}
+        - {x: 154.5, y: 156.5}
+        - {x: 15.5, y: 156.5}
+        - {x: 15.5, y: 205.5}
+        - {x: -14.5, y: 205.5}
+        - {x: -14.5, y: 156.5}
+        - {x: -153.5, y: 156.5}
+        - {x: -155.5, y: 154.5}
+        - {x: -155.5, y: 15.5}
+        - {x: -204.5, y: 15.5}
+        - {x: -204.5, y: -14.5}
+        - {x: -155.5, y: -14.5}
+        - {x: -155.5, y: -152.5}
+        - {x: -153.5, y: -154.5}
+        - {x: -14.5, y: -154.5}
+        - {x: -14.5, y: -201.5}
+        - {x: -204.5, y: -201.5}
+        - {x: -204.5, y: -204.5}
+        - {x: 205.5, y: -204.5}
+        - {x: 205.5, y: -201.5}
+        - {x: 15.5, y: -201.5}
+    - name: SGEnter_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 168, y: -15}
+        - {x: 205, y: -15}
+        - {x: 205, y: 15}
+        - {x: 168, y: 15}
+        - {x: 168, y: 166}
+        - {x: 166, y: 168}
+        - {x: 15, y: 168}
+        - {x: 15, y: 205}
+        - {x: -15, y: 205}
+        - {x: -15, y: 168}
+        - {x: -167, y: 168}
+        - {x: -169, y: 166}
+        - {x: -169, y: 15}
+        - {x: -205, y: 15}
+        - {x: -205, y: -15}
+        - {x: -169, y: -15}
+        - {x: -169, y: -167}
+        - {x: -167, y: -169}
+        - {x: -15, y: -169}
+        - {x: -15, y: -205}
+        - {x: 15, y: -205}
+        - {x: 15, y: -169}
+        - {x: 166, y: -169}
+        - {x: 168, y: -167}
+    - name: SGEnter_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 182.5, y: -180}
+        - {x: 182.5, y: -15}
+        - {x: 205.5, y: -15}
+        - {x: 205.5, y: 15}
+        - {x: 182.5, y: 15}
+        - {x: 182.5, y: 179}
+        - {x: 180.5, y: 181}
+        - {x: 15.5, y: 181}
+        - {x: 15.5, y: 205}
+        - {x: -14.5, y: 205}
+        - {x: -14.5, y: 181}
+        - {x: -178.5, y: 181}
+        - {x: -180.5, y: 179}
+        - {x: -180.5, y: 15}
+        - {x: -204.5, y: 15}
+        - {x: -204.5, y: -15}
+        - {x: -180.5, y: -15}
+        - {x: -180.5, y: -180}
+        - {x: -178.5, y: -182}
+        - {x: -14.5, y: -182}
+        - {x: -14.5, y: -205}
+        - {x: 15.5, y: -205}
+        - {x: 15.5, y: -182}
+        - {x: 180.5, y: -182}
+    - name: SGEnter_18
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 194, y: -192}
+        - {x: 194, y: -15}
+        - {x: 202, y: -15}
+        - {x: 202, y: -205}
+        - {x: 205, y: -205}
+        - {x: 205, y: 205}
+        - {x: 202, y: 205}
+        - {x: 202, y: 15}
+        - {x: 194, y: 15}
+        - {x: 194, y: 192}
+        - {x: 192, y: 194}
+        - {x: 15, y: 194}
+        - {x: 15, y: 205}
+        - {x: -15, y: 205}
+        - {x: -15, y: 194}
+        - {x: -192, y: 194}
+        - {x: -194, y: 192}
+        - {x: -194, y: 15}
+        - {x: -205, y: 15}
+        - {x: -205, y: -15}
+        - {x: -194, y: -15}
+        - {x: -194, y: -192}
+        - {x: -192, y: -194}
+        - {x: -15, y: -194}
+        - {x: -15, y: -205}
+        - {x: 15, y: -205}
+        - {x: 15, y: -194}
+        - {x: 192, y: -194}
+    - name: SGEnter_19
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -204.5, y: 205}
+        - {x: -204.5, y: -205}
+        - {x: 205.5, y: -205}
+        - {x: 205.5, y: 205}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
