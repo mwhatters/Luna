@@ -31,6 +31,7 @@ public var facingRight = true;
 public var rotateRate : float;
 private var nextRotate = 0.0;
 public var canRotate = true;
+public var isSubcutaneous = false;
 public var canMove = true;
 public var canRotate180 = false;
 public var canDoExperimentalRotation = false;
@@ -105,7 +106,11 @@ function Update() {
 
 	if (isFrozen) { return false; }
 
-	if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis(GravRotateRightButton) > 0) && canRotateGravity()) {
+	if (Input.GetKeyDown(KeyCode.Backspace)) {
+		GetComponent(PlayerGameStates).Die();
+	}
+
+	if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis(GravRotateRightButton) > 0) && canRotateGravity() && !isSubcutaneous) {
 		if (SaveData.currentData) {
 			if (SaveData.currentData.rotation == 90) {
 				shiftRight();
@@ -117,7 +122,7 @@ function Update() {
 		}
 	}
 
-	if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis(GravRotateLeftButton) > 0) && canRotateGravity()) {
+	if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis(GravRotateLeftButton) > 0) && canRotateGravity() && !isSubcutaneous) {
 		if (SaveData.currentData) {
 			if (SaveData.currentData.rotation == 90) {
 				shiftLeft();
@@ -131,13 +136,13 @@ function Update() {
 
 	if (canRotate180)
 	{
-		if (Input.GetKeyDown(KeyCode.UpArrow) && canRotateGravity()) {
+		if (Input.GetKeyDown(KeyCode.UpArrow) && canRotateGravity() && !isSubcutaneous) {
 			adjustGravity180();
 			rotatePlayerAndObjects(-180);
 			rotateCameraInDegrees(-180);
 		}
 
-		if (Input.GetKeyDown(KeyCode.DownArrow) && canRotateGravity()) {
+		if (Input.GetKeyDown(KeyCode.DownArrow) && canRotateGravity() && !isSubcutaneous) {
 			adjustGravity180();
 			rotatePlayerAndObjects(180);
 			rotateCameraInDegrees(180);
@@ -145,12 +150,12 @@ function Update() {
 	}
 
 	if (canDoExperimentalRotation) {
-		if (Input.GetKeyDown(KeyCode.L) && canRotateGravity()) {
+		if (Input.GetKeyDown(KeyCode.L) && canRotateGravity() && !isSubcutaneous) {
 			rotatePlayerAndObjects(45);
 			rotateCameraInDegrees(45);
 		}
 
-		if (Input.GetKeyDown(KeyCode.K) && canRotateGravity()) {
+		if (Input.GetKeyDown(KeyCode.K) && canRotateGravity() && !isSubcutaneous) {
 			rotatePlayerAndObjects(-45);
 			rotateCameraInDegrees(-45);
 		}
@@ -330,7 +335,7 @@ function setCameraAndPlayerImmediatelyTo(degree) {
 }
 
 function canRotateGravity() {
-	return (Time.time > nextRotate + 0.001 && canRotate);
+	return (Time.time > nextRotate + 0.001 && (canRotate || isSubcutaneous));
 }
 
 function setObjectGravitySettings(gravitySetting : float, axis : String) {
