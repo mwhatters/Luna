@@ -26,7 +26,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
   //Jump
 
-  for (var item : String in ["Ground", "StubbornGround", "StubbornGroundReverse", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL","ShifterL", "ShifterR", "ShifterD", "ShifterU"]) {
+  for (var item : String in ["Ground", "StubbornGround", "StubbornGroundReverse", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL", "Rotater180", "Rotater-180", "ShifterL", "ShifterR", "ShifterD", "ShifterU"]) {
     if (tag == item) {
       yield WaitForSeconds(0.001); // hacky
       if (gravityState.touchingGround == true) {
@@ -57,6 +57,18 @@ function OnCollisionEnter2D (coll : Collision2D) {
     gravityState.adjustGravityLeft();
     gravityState.rotatePlayerAndObjects(-90);
     gravityState.rotateCameraInDegrees(-90);
+  }
+
+  if (tag == "Rotater180" && gravityState.canRotateGravity()) {
+    gravityState.adjustGravity180();
+    gravityState.rotatePlayerAndObjects(180);
+    gravityState.rotateCameraInDegrees(180);
+  }
+
+  if (tag == "Rotater-180" && gravityState.canRotateGravity()) {
+    gravityState.adjustGravity180();
+    gravityState.rotatePlayerAndObjects(-180);
+    gravityState.rotateCameraInDegrees(-180);
   }
 
   if (tag == "ShifterU") {
