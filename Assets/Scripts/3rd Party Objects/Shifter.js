@@ -43,7 +43,7 @@ function adjustShifterColors(shifters : String[]) {
 			if (shiftObject.GetComponent(Shifter).shift == this.shift) {
         FadeShifterToYellow(shiftObject.name, 0.4);
       } else {
-        FadeShifterToWhite(shiftObject.name, 0.4);
+        FadeShifterToRed(shiftObject.name, 0.4);
       }
 		}
 	}
@@ -59,11 +59,11 @@ function FadeShifterToYellow(name, rate: float) {
 	}
 }
 
-function FadeShifterToWhite(name, rate: float) {
+function FadeShifterToRed(name, rate: float) {
 	var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
 	var a = 0;
 	while (a < 10) {
-		FadeImg.color = Color.Lerp(FadeImg.color, Color.white, rate);
+		FadeImg.color = Color.Lerp(FadeImg.color, Color.red, rate);
 		a += 1;
 		yield WaitForSeconds(0.01);
 	}
