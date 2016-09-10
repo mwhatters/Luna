@@ -48,6 +48,7 @@ function PartiallyFadeInImage(name, rate : float, max : float) {
   }
 }
 
+
 function FadeOutImage(name) {
 	var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
 	while (FadeImg.color.a > 0.1) {

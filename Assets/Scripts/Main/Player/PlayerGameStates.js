@@ -26,7 +26,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
   //Jump
 
-  for (var item : String in ["Ground", "StubbornGround", "StubbornGroundReverse", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL", "Rotater180", "Rotater-180", "ShifterL", "ShifterR", "ShifterD", "ShifterU"]) {
+  for (var item : String in ["Ground", "StubbornGround", "StubbornGroundReverse", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL", "Rotater180", "Rotater-180"]) {
     if (tag == item) {
       yield WaitForSeconds(0.001); // hacky
       if (gravityState.touchingGround == true) {
@@ -69,30 +69,6 @@ function OnCollisionEnter2D (coll : Collision2D) {
     gravityState.adjustGravity180();
     gravityState.rotatePlayerAndObjects(-180);
     gravityState.rotateCameraInDegrees(-180);
-  }
-
-  if (tag == "ShifterU") {
-    gravityState.gravityObjectDirection = ObjectDirection.Up;
-    gravityState.setWorldGravityShift();
-    Sounds.use.PlaySoundByTag("ShiftSound");
-  }
-
-  if (tag == "ShifterD") {
-    gravityState.gravityObjectDirection = ObjectDirection.Down;
-    gravityState.setWorldGravityShift();
-    Sounds.use.PlaySoundByTag("ShiftSound");
-  }
-
-  if (tag == "ShifterL") {
-    gravityState.gravityObjectDirection = ObjectDirection.Left;
-    gravityState.setWorldGravityShift();
-    Sounds.use.PlaySoundByTag("ShiftSound");
-  }
-
-  if (tag == "ShifterR") {
-    gravityState.gravityObjectDirection = ObjectDirection.Right;
-    gravityState.setWorldGravityShift();
-    Sounds.use.PlaySoundByTag("ShiftSound");
   }
 
 
