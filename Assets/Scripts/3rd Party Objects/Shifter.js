@@ -5,41 +5,33 @@ public var shift = exitDirection.Down;
 
 function OnTriggerEnter2D(coll : Collider2D) {
 	if (coll.gameObject.tag == "TheGuy") {
-
     var gravityState = coll.gameObject.GetComponent(MainGravity);
-    var tag = this.gameObject.tag;
+		switch (shift)
+		{
+			case exitDirection.Up:
+				gravityState.gravityObjectDirection = ObjectDirection.Up;
+				break;
+			case exitDirection.Down:
+				gravityState.gravityObjectDirection = ObjectDirection.Down;
+				break;
+			case exitDirection.Left:
+				gravityState.gravityObjectDirection = ObjectDirection.Left;
+				break;
+			case exitDirection.Right:
+				gravityState.gravityObjectDirection = ObjectDirection.Right;
+				break;
+		}
 
-    if (shift == exitDirection.Up) {
-      gravityState.gravityObjectDirection = ObjectDirection.Up;
-      gravityState.setWorldGravityShift();
-    }
-
-    if (shift == exitDirection.Down) {
-      gravityState.gravityObjectDirection = ObjectDirection.Down;
-      gravityState.setWorldGravityShift();
-    }
-
-    if (shift == exitDirection.Left) {
-      gravityState.gravityObjectDirection = ObjectDirection.Left;
-      gravityState.setWorldGravityShift();
-    }
-
-    if (shift == exitDirection.Right) {
-      gravityState.gravityObjectDirection = ObjectDirection.Right;
-      gravityState.setWorldGravityShift();
-    }
-
+		gravityState.setWorldGravityShift();
     Sounds.use.PlaySoundByTag("ShiftSound");
     adjustShifterColors(["ShifterL", "ShifterD", "ShifterR", "ShifterU"]);
   }
-
 }
 
 function adjustShifterColors(shifters : String[]) {
 	for (var shifter : String in shifters) {
 		var shiftObjects = GameObject.FindGameObjectsWithTag(shifter);
 		for (var shiftObject in shiftObjects) {
-      Debug.Log(this.shift);
 			if (shiftObject.GetComponent(Shifter).shift == this.shift) {
         FadeShifterToYellow(shiftObject.name, 0.4);
       } else {
