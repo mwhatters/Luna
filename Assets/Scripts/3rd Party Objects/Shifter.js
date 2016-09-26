@@ -35,10 +35,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
   }
 }
 
-function beginShift() {
-
-}
-
 function adjustShifterColors(shifters : String[]) {
 	for (var shifter : String in shifters) {
 		var shiftObjects = GameObject.FindGameObjectsWithTag(shifter);
