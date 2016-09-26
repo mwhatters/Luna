@@ -3,9 +3,12 @@
 enum shiftDirection { Down, Left, Right, Up }
 public var shift = exitDirection.Down;
 
+public static var lastShift = exitDirection.Down;
+
 function OnTriggerEnter2D(coll : Collider2D) {
 	if (coll.gameObject.tag == "TheGuy") {
-    var gravityState = coll.gameObject.GetComponent(MainGravity);
+		var gravityState = coll.gameObject.GetComponent(MainGravity);
+
 		switch (shift)
 		{
 			case exitDirection.Up:
@@ -23,9 +26,17 @@ function OnTriggerEnter2D(coll : Collider2D) {
 		}
 
 		gravityState.setWorldGravityShift();
-    Sounds.use.PlaySoundByTag("ShiftSound");
+
+
+    if (lastShift != shift) { Sounds.use.PlaySoundByTag("ShiftSound"); }
+		lastShift = shift;
+
     adjustShifterColors(["ShifterL", "ShifterD", "ShifterR", "ShifterU"]);
   }
+}
+
+function beginShift() {
+
 }
 
 function adjustShifterColors(shifters : String[]) {
