@@ -1,9 +1,31 @@
 ﻿#pragma strict
 
 enum shiftDirection { Down, Left, Right, Up }
-public var shift = exitDirection.Down;
+public var shift = shiftDirection.Down;
+public static var lastShift = shiftDirection.Down;
+// private var gravityState = null;
 
-public static var lastShift = exitDirection.Down;
+function Start() {
+	var beginningGravityState = GameObject.Find("Luna").GetComponent(MainGravity);
+
+		if (this.shift == shiftDirection.Down) {
+			FadeShifterToYellow(this.name, 10);
+		}
+
+		if (beginningGravityState.gravityDirection == Direction.Up) {
+			this.transform.rotation.z = -180;
+		}
+
+		if (beginningGravityState.gravityDirection == Direction.Left) {
+			this.transform.rotation.z = 90;
+		}
+
+		if (beginningGravityState.gravityDirection == Direction.Right) {
+			this.transform.rotation.z = -90;
+		}
+
+		lastShift = shiftDirection.Down;
+}
 
 function OnTriggerEnter2D(coll : Collider2D) {
 	if (coll.gameObject.tag == "TheGuy") {
@@ -11,16 +33,16 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 		switch (shift)
 		{
-			case exitDirection.Up:
+			case shiftDirection.Up:
 				gravityState.gravityObjectDirection = ObjectDirection.Up;
 				break;
-			case exitDirection.Down:
+			case shiftDirection.Down:
 				gravityState.gravityObjectDirection = ObjectDirection.Down;
 				break;
-			case exitDirection.Left:
+			case shiftDirection.Left:
 				gravityState.gravityObjectDirection = ObjectDirection.Left;
 				break;
-			case exitDirection.Right:
+			case shiftDirection.Right:
 				gravityState.gravityObjectDirection = ObjectDirection.Right;
 				break;
 		}
