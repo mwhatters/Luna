@@ -53,9 +53,9 @@ function Update () {
     return isPaused;
   }
 
-  if (isPaused && EventSystems.EventSystem.current.currentSelectedGameObject == null) {
-    EventSystems.EventSystem.current.SetSelectedGameObject(GameObject.Find("Return To Menu"));
-  }
+  // if (isPaused && EventSystems.EventSystem.current.currentSelectedGameObject == null) {
+  //   EventSystems.EventSystem.current.SetSelectedGameObject(GameObject.Find("Return To Menu"));
+  // }
 }
 
 function OnMouseDown () {
@@ -67,6 +67,7 @@ function setPaused() {
   if (SaveData.currentData) {
     SaveButton.GetComponent(Button).Select();
   } else {
+    Debug.Log(MenuButton.GetComponent(Button));
     MenuButton.GetComponent(Button).Select();
   }
   Time.timeScale = 0;
@@ -82,6 +83,7 @@ function setPaused() {
 }
 
 function setUnPaused() {
+  EventSystems.EventSystem.current.SetSelectedGameObject(null);
   activatePauseUI(false);
   Time.timeScale = 1;
 
