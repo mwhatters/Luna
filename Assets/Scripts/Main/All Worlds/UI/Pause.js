@@ -158,7 +158,6 @@ public function ChangeRotation() {
 
 public function Quit() {
   Application.Quit();
-  // AppHelper.Quit();
 }
 
 function LoadMenu() {
