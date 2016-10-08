@@ -91,6 +91,7 @@ function startBossBattle() {
   yield Round5();
   yield WaitForSeconds(13);
   SceneHelper.use.ShowAndHideText(Text4, 2);
+  GameObject.Find("Camera").GetComponent(CameraBehavior).shaking = true;
   yield Round6();
   yield WaitForSeconds(22);
   if (!luna.GetComponent(PlayerGameStates).isDead) {
@@ -162,6 +163,7 @@ function fadeBlocksToRed() {
 function GodFreezesEverythingScene() {
   Sounds.use.PlaySoundByName("Refuge");
   SceneHelper.use.FadeInImage("black", 0.008);
+  GameObject.Find("Camera").GetComponent(CameraBehavior).shaking = false;
 
   Destroy(GameObject.Find("BackgroundMusic"));
   Destroy(GameObject.Find("IntroMusic"));

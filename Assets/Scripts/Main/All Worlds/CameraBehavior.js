@@ -5,15 +5,22 @@ public var staticPoint : Vector3;
 public var isStatic : boolean;
 private var lunaObj : GameObject;
 
+public var shaking : boolean = false;
+private var lastPositionX : int;
+private var lastPositionY : int;
+
 function Start () {
 	lunaObj = GameObject.Find("Luna");
 }
 
 function Update() {
-
 	if (!staticCamera()) {
 		transform.position.x = lunaObj.transform.position.x;
 		transform.position.y = lunaObj.transform.position.y;
+	}
+
+	if (shaking) {
+		StaticShake();
 	}
 }
 
@@ -23,4 +30,24 @@ function rotate(degrees : float, rate : float) {
 
 function staticCamera() {
 	return isStatic == true;
+}
+
+function StaticShake() {
+	if (lastPositionY == 0) {
+		lastPositionY = transform.position.y;
+	} else if (lastPositionY == transform.position.y) {
+		transform.position.y += Random.value;
+		transform.position.y -= Random.value;
+	} else {
+		transform.position.y = lastPositionY;
+	}
+
+	if (lastPositionX == 0) {
+		lastPositionX = transform.position.x;
+	} else if (lastPositionX == transform.position.x) {
+		transform.position.x += Random.value;
+		transform.position.x -= Random.value;
+	} else {
+		transform.position.x = lastPositionX;
+	}
 }
