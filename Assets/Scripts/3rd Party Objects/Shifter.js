@@ -13,15 +13,15 @@ function Start() {
 		}
 
 		if (beginningGravityState.gravityDirection == Direction.Up) {
-			this.transform.rotation.z = -180;
+			this.transform.eulerAngles.z = 180;
 		}
 
 		if (beginningGravityState.gravityDirection == Direction.Left) {
-			this.transform.rotation.z = 90;
+			this.transform.eulerAngles.z = 90;
 		}
 
 		if (beginningGravityState.gravityDirection == Direction.Right) {
-			this.transform.rotation.z = -90;
+			this.transform.eulerAngles.z = -90;
 		}
 
 		lastShift = shiftDirection.Down;

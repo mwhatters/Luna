@@ -59,7 +59,6 @@ function PowerBoyStartScene() {
   luna.GetComponent(MainGravity).canMove = false;
   luna.GetComponent(MainGravity).canRotate = false;
 
-  Debug.Log('hit');
   yield WaitForSeconds(1);
   SceneHelper.use.ShowAndHideText(Text1, 2);
   yield WaitForSeconds(6);

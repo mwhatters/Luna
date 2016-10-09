@@ -67,7 +67,6 @@ function setPaused() {
   if (SaveData.currentData) {
     SaveButton.GetComponent(Button).Select();
   } else {
-    Debug.Log(MenuButton.GetComponent(Button));
     MenuButton.GetComponent(Button).Select();
   }
   Time.timeScale = 0;
