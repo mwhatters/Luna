@@ -73,7 +73,7 @@ function PureBoyStartScene() {
   SceneHelper.use.ShowAndHideText(Text4, 2);
   yield WaitForSeconds(8.5);
   SceneHelper.use.ShowAndHideText(Text5, 2);
-  yield WaitForSeconds(9);
+  yield WaitForSeconds(12);
   SceneHelper.use.ShowAndHideText(Text6, 2);
   yield WaitForSeconds(2);
   SceneHelper.use.FadeOutImageWithRate("Pure Boy", 0.04);
@@ -105,7 +105,8 @@ function StartRound3() {
 }
 
 function StartRound4() {
-
+  Instantiate(Round4, Vector3 (-222.0897, 555.9163, 0), Quaternion.identity);
+  fadeInRound("Round4(Clone)");
 }
 
 function fadeInRound(round) {
