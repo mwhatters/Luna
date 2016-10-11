@@ -21,6 +21,7 @@ function FadeInImages(tag) {
   }
 }
 
+
 function FadeInImage(name, rate : float) {
   var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
   while (FadeImg.color.a < 1) {
@@ -42,6 +43,14 @@ function FadeToRed(name, rate: float) {
 
 function PartiallyFadeInImage(name, rate : float, max : float) {
   var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
+  while (FadeImg.color.a < max) {
+    FadeImg.color.a += rate;
+    yield;
+  }
+}
+
+function PartiallyFadeInObject(fadeObj : GameObject, rate : float, max : float) {
+	var FadeImg = fadeObj.GetComponent(SpriteRenderer);
   while (FadeImg.color.a < max) {
     FadeImg.color.a += rate;
     yield;
@@ -77,7 +86,7 @@ function FadeInGameObj(obj : GameObject, rate : float) {
 
 function FadeOutGameObj(obj : GameObject, rate : float) {
   var FadeImg = obj.GetComponent(SpriteRenderer);
-  while (FadeImg.color.a >= 0) {
+  while (FadeImg.color.a >= 0.001) {
     FadeImg.color.a -= rate;
     yield;
   }

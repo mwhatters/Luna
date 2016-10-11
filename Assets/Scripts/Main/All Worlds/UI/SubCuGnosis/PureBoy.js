@@ -14,6 +14,11 @@ var pauseMenu : GameObject;
 var timer : Timer;
 var cam : GameObject;
 
+var Round1 : Transform;
+var Round2 : Transform;
+var Round3 : Transform;
+var Round4 : Transform;
+
 function Start () {
   luna = GameObject.Find("Luna");
   cam = GameObject.Find("Camera");
@@ -76,9 +81,45 @@ function PureBoyStartScene() {
 
 function startBossBattle() {
   GameObject.Find("PureBoyRoom").GetComponent(CamShifting).zoomCameraExit();
+  StartRound1();
+
   if (!luna.GetComponent(PlayerGameStates).isDead) {
     // yield LunaGoesToSpaceScene();
   }
+}
+
+
+function StartRound1() {
+  Instantiate(Round1, Vector3 (-227.2719, 552.8459, 0), Quaternion.identity);
+  fadeInRound("Round1(Clone)");
+}
+
+function StartRound2() {
+  Instantiate(Round2, Vector3 (-227.1312, 552.8459, 0), Quaternion.identity);
+  fadeInRound("Round2(Clone)");
+}
+
+function StartRound3() {
+  Instantiate(Round3, Vector3 (-227.1312, 552.8459, 0), Quaternion.identity);
+  fadeInRound("Round3(Clone)");
+}
+
+function StartRound4() {
+
+}
+
+function fadeInRound(round) {
+  for (var child : Transform in GameObject.Find(round).transform) {
+    SceneHelper.use.PartiallyFadeInObject(child.gameObject, 0.04, 1);
+  }
+}
+
+function fadeOutRound(round) {
+  for (var child : Transform in GameObject.Find(round).transform) {
+    SceneHelper.use.FadeOutGameObj(child.gameObject, 0.04);
+  }
+  yield WaitForSeconds(1);
+  Destroy(GameObject.Find(round));
 }
 
 // END OF BATTLE
