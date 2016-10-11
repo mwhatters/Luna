@@ -1,4 +1,4 @@
-﻿#pragma strict
+﻿#pragma downcast
 
 function OnTriggerEnter2D(coll : Collider2D) {
 	if (coll.name == "Luna") {

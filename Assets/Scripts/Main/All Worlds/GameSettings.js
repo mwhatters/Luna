@@ -36,11 +36,6 @@ function Awake() {
   }
 }
 
-function OnLevelWasLoaded () {
-
-}
-
-
 function SetUIInputsFor(os) {
   if (os == "Macintosh") {
     // EventSystems.StandaloneInputModule.cancelButton = "Cancel Macintosh";

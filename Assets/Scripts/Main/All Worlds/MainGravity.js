@@ -385,6 +385,8 @@ function setMovements(jumpHeight : float, moveSpeed : float) {
 	Jump(x, y, jumpHeight);
 	if (Input.GetKey(KeyCode.A) || Input.GetAxis(MovementAxis) < -0.40) { Move(x, y, -moveSpeed, facingRight);   } // Left
 	if (Input.GetKey(KeyCode.D) || Input.GetAxis(MovementAxis) >  0.40) { Move(x, y, moveSpeed, !facingRight);   } // Right
+
+	return true;
 }
 
 function setNoMovements() {

@@ -1,4 +1,4 @@
-#pragma strict
+#pragma downcast
 
 private static var scenePlayed : boolean = false;
 var skipScene : boolean = false;
@@ -126,6 +126,7 @@ function StartRound4() {
 
 function EndBattle() {
   LunaGoesToSpaceScene();
+  Debug.Log("Finished");
 }
 
 function fadeInRound(round) {

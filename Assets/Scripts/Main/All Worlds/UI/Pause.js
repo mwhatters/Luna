@@ -1,4 +1,4 @@
-#pragma strict
+#pragma downcast
 
 public var canPause : boolean = true;
 public var isPaused : boolean = false;
@@ -38,7 +38,6 @@ function Start () {
 }
 
 function Update () {
-
   if (!canPause) { return false; }
 
   if (Input.GetButtonDown("Cancel") && !isPaused) {
@@ -56,6 +55,8 @@ function Update () {
   // if (isPaused && EventSystems.EventSystem.current.currentSelectedGameObject == null) {
   //   EventSystems.EventSystem.current.SetSelectedGameObject(GameObject.Find("Return To Menu"));
   // }
+
+  return true;
 }
 
 function OnMouseDown () {
@@ -166,7 +167,7 @@ function LoadMenu() {
 function PrivateSaveFromPause() {
   SaveData.use.SaveGame(
     SaveData.currentData.username,
-    Application.loadedLevelName,
+    SceneManager.GetActiveScene().name,
     SaveData.currentData.rotation
   );
 }

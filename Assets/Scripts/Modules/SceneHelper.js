@@ -1,4 +1,4 @@
-#pragma strict
+#pragma downcast
 
 static var use : SceneHelper;
 
@@ -147,6 +147,8 @@ function grabComponentType(object : GameObject, type : String) {
 	if (type == "Image") {
 		return object.GetComponent(Image);
 	}
+
+	return true;
 }
 
 // Camera

@@ -1,4 +1,4 @@
-﻿#pragma strict
+﻿#pragma downcast
 
 enum shiftDirection { Down, Left, Right, Up }
 public var shift = shiftDirection.Down;
@@ -48,7 +48,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
 		}
 
 		gravityState.setWorldGravityShift();
-
 
     if (lastShift != shift) { Sounds.use.PlaySoundByTag("ShiftSound"); }
 		lastShift = shift;

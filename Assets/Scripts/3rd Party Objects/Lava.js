@@ -1,11 +1,11 @@
-﻿#pragma strict
+﻿#pragma downcast
 
 public var lavaDir : String = "up";
 public var active : boolean = false;
 public var rate : float = 0.06;
 public var tracker : GameObject;
 
-function FixedUpdate () {
+function FixedUpdate() {
 
   if (!active) { return false; }
   if (lavaDir == "up") {
@@ -17,6 +17,8 @@ function FixedUpdate () {
   } else if (lavaDir == "right") {
       adjustLava(Vector3.right);
   }
+
+  return true;
 }
 
 function adjustLava(vector : Vector3) {

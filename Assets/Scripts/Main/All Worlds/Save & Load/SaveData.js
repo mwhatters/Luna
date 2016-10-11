@@ -1,4 +1,4 @@
-﻿#pragma strict
+﻿#pragma downcast
 import System.Runtime.Serialization.Formatters.Binary;
 import System.Runtime.Serialization;
 import System.IO;
@@ -40,7 +40,7 @@ public function SaveGame(user : String, level : String, rotation : int) {
 	currentData = data;
 }
 
-public function LoadGameFromLoadMenu(savedGame) {
+public function LoadGameFromLoadMenu(savedGame : String) {
 	var filepath : String = "/" + savedGame + ".dat";
 	if (File.Exists(Application.persistentDataPath + filepath)) {
 		var bf : BinaryFormatter = new BinaryFormatter();

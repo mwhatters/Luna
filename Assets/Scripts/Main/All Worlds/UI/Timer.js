@@ -11,7 +11,7 @@ static var isLevelTransition : boolean = true;
 function OnLevelWasLoaded() {
   if (isLevelTransition) {
     startTimerFromZero();
-  } 
+  }
 }
 
 

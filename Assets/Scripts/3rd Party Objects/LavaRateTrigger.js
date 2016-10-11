@@ -14,4 +14,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
   for (var obj in otherObjects) {
     obj.GetComponent(Lava).rate = desiredRate;
   }
+
+  return true;
 }

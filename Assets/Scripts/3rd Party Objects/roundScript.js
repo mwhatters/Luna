@@ -1,4 +1,4 @@
-﻿#pragma strict
+﻿#pragma downcast
 
 var children : Component[];
 
@@ -35,4 +35,6 @@ function FixedUpdate() {
       child.GetComponent(Rigidbody2D).velocity.x = speed;
     }
   }
+
+  return true;
 }
