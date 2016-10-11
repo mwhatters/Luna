@@ -3,6 +3,8 @@
 private static var scenePlayed : boolean = false;
 var skipScene : boolean = false;
 
+static var currentRound = "1";
+
 var luna : GameObject;
 var Text1 : GameObject;
 var Text2 : GameObject;
@@ -79,7 +81,16 @@ function PureBoyStartScene() {
 
 function startBossBattle() {
   GameObject.Find("PureBoyRoom").GetComponent(CamShifting).zoomCameraExit();
-  StartRound1();
+
+  if (currentRound == "1") {
+    StartRound1();
+  } else if (currentRound == "2") {
+    StartRound2();
+  } else if (currentRound == "3") {
+    StartRound3();
+  } else if (currentRound == "4") {
+    StartRound4();
+  }
 
   if (!luna.GetComponent(PlayerGameStates).isDead) {
     // yield LunaGoesToSpaceScene();
@@ -92,16 +103,22 @@ function StartRound1() {
 }
 
 function StartRound2() {
+  currentRound = "2";
+  GameObject.Find("R2CP").GetComponent(Checkpoint).setupCheckPoint();
   Instantiate(Round2, Vector3 (-227.1312, 552.8459, 0), Quaternion.identity);
   fadeInRound("Round2(Clone)");
 }
 
 function StartRound3() {
+  currentRound = "3";
+  GameObject.Find("R3CP").GetComponent(Checkpoint).setupCheckPoint();
   Instantiate(Round3, Vector3 (-227.1312, 552.8459, 0), Quaternion.identity);
   fadeInRound("Round3(Clone)");
 }
 
 function StartRound4() {
+  currentRound = "4";
+  GameObject.Find("R4CP").GetComponent(Checkpoint).setupCheckPoint();
   Instantiate(Round4, Vector3 (-222.0897, 555.9163, 0), Quaternion.identity);
   fadeInRound("Round4(Clone)");
 }

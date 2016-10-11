@@ -18,13 +18,17 @@ function OnTriggerEnter2D(coll : Collider2D) {
 	if (triggered) { return false; }
 
 	if (coll.name == "Luna") {
-    GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).checkPointPos = transform.position;
-    GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).gravityDirection = gravityRespawnDirection;
-		if (cameraSize > 0) { GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).cameraSize = cameraSize; }
-		triggered = true;
+		setupCheckPoint();
   }
 
 	return true;
+}
+
+function setupCheckPoint() {
+	GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).checkPointPos = transform.position;
+	GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).gravityDirection = gravityRespawnDirection;
+	if (cameraSize > 0) { GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).cameraSize = cameraSize; }
+	triggered = true;
 }
 
 function DestroyInvalidatedObjects() {
