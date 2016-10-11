@@ -31,7 +31,6 @@ function Start () {
   Text5 = GameObject.Find("Text5");
   Text6 = GameObject.Find("Text6");
 
-
   if (!scenePlayed && !skipScene) {
     scenePlayed = true;
     yield PureBoyStartScene();
@@ -41,7 +40,6 @@ function Start () {
   }
 
   // END SCENE START PLAY
-
   luna.GetComponent(MainGravity).canMove = true;
   luna.GetComponent(MainGravity).canRotate = true;
   luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
@@ -88,7 +86,6 @@ function startBossBattle() {
   }
 }
 
-
 function StartRound1() {
   Instantiate(Round1, Vector3 (-227.2719, 552.8459, 0), Quaternion.identity);
   fadeInRound("Round1(Clone)");
@@ -109,6 +106,10 @@ function StartRound4() {
   fadeInRound("Round4(Clone)");
 }
 
+function EndBattle() {
+
+}
+
 function fadeInRound(round) {
   for (var child : Transform in GameObject.Find(round).transform) {
     SceneHelper.use.PartiallyFadeInObject(child.gameObject, 0.04, 1);
@@ -124,7 +125,6 @@ function fadeOutRound(round) {
 }
 
 // END OF BATTLE
-
 function LunaGoesToSpaceScene() {
   GameObject.Find("Camera").GetComponent(CameraBehavior).shaking = false;
 

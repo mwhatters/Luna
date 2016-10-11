@@ -19,6 +19,8 @@ function OnTriggerEnter2D (coll : Collider2D) {
       bossBattle.StartRound3();
     } else if (nextRound == "Round4") {
       bossBattle.StartRound4();
+    } else if (nextRound == "Round5") {
+      bossBattle.EndBattle();
     }
 	}
 }
