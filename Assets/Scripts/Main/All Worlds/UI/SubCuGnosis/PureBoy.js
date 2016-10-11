@@ -81,16 +81,17 @@ function PureBoyStartScene() {
 
 function startBossBattle() {
   GameObject.Find("PureBoyRoom").GetComponent(CamShifting).zoomCameraExit();
+  StartRound4();
 
-  if (currentRound == "1") {
-    StartRound1();
-  } else if (currentRound == "2") {
-    StartRound2();
-  } else if (currentRound == "3") {
-    StartRound3();
-  } else if (currentRound == "4") {
-    StartRound4();
-  }
+  // if (currentRound == "1") {
+  //   StartRound1();
+  // } else if (currentRound == "2") {
+  //   StartRound2();
+  // } else if (currentRound == "3") {
+  //   StartRound3();
+  // } else if (currentRound == "4") {
+  //   StartRound4();
+  // }
 
   if (!luna.GetComponent(PlayerGameStates).isDead) {
     // yield LunaGoesToSpaceScene();
@@ -124,7 +125,7 @@ function StartRound4() {
 }
 
 function EndBattle() {
-
+  LunaGoesToSpaceScene();
 }
 
 function fadeInRound(round) {
@@ -143,15 +144,15 @@ function fadeOutRound(round) {
 
 // END OF BATTLE
 function LunaGoesToSpaceScene() {
-  GameObject.Find("Camera").GetComponent(CameraBehavior).shaking = false;
-
-  Destroy(GameObject.Find("BackgroundMusic"));
-  Destroy(GameObject.Find("IntroMusic"));
   timer.running = false;
   pauseMenu.GetComponent(Pause).canPause = false;
   luna.GetComponent(MainGravity).canMove = false;
   luna.GetComponent(MainGravity).canRotate = false;
   luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
 
-  GameObject.Find("Portal").GetComponent(SceneLoader).beginSceneTransition();
+  yield WaitForSeconds(5);
+  SceneHelper.use.ChangeCameraColor(cam.GetComponent(Camera), Color.black, 0.04);
+  yield WaitForSeconds(10);
+
+  // GameObject.Find("Portal").GetComponent(SceneLoader).beginSceneTransition();
 }

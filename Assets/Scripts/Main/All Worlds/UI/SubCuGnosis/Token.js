@@ -11,6 +11,13 @@ function Start() {
 function OnTriggerEnter2D (coll : Collider2D) {
 	if (coll.gameObject.tag == "TheGuy") {
     bossBattle.fadeOutRound(thisRound);
+
+    if (nextRound == "Round5") {
+      Destroy(GameObject.Find("BackgroundMusic"));
+      Destroy(GameObject.Find("IntroMusic"));
+      Sounds.use.PlaySoundByName("Refuge");
+    }
+
     yield WaitForSeconds(1);
 
     if (nextRound == "Round2") {

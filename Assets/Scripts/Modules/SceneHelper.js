@@ -149,6 +149,18 @@ function grabComponentType(object : GameObject, type : String) {
 	}
 }
 
+// Camera
+
+function ChangeCameraColor(camera : Camera, color : Color, rate : float) {
+	var t : float = 0.4;
+	var a = 0;
+	while (a < 500) {
+		camera.backgroundColor = Color.Lerp(camera.backgroundColor, color, rate);
+		a += 1;
+		yield WaitForSeconds(0.02);
+	}
+}
+
 // TEXT DISPLAY
 
 function ShowAndHideText(text : GameObject, time) {

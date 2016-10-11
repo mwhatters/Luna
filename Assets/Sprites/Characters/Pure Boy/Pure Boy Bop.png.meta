@@ -1,23 +1,25 @@
 fileFormatVersion: 2
-guid: 2bb1ee2f4352345a9bb81245b53e2e0d
-timeCreated: 1476045884
+guid: cc23d28715e70423697393e2a960d069
+timeCreated: 1476164640
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Pure Boy_0
-    21300002: Pure Boy_1
-    21300004: Pure Boy_2
-    21300006: Pure Boy_3
-    21300008: Pure Boy_4
-    21300010: Pure Boy_5
-    21300012: Pure Boy_6
-    21300014: Pure Boy_7
-    21300016: Pure Boy_8
-    21300018: Pure Boy_9
-    21300020: Pure Boy_10
-    21300022: Pure Boy_11
-    21300024: Pure Boy_12
-    21300026: Pure Boy_13
+    21300000: Pure Boy Bop_0
+    21300002: Pure Boy Bop_1
+    21300004: Pure Boy Bop_2
+    21300006: Pure Boy Bop_3
+    21300008: Pure Boy Bop_4
+    21300010: Pure Boy Bop_5
+    21300012: Pure Boy Bop_6
+    21300014: Pure Boy Bop_7
+    21300016: Pure Boy Bop_8
+    21300018: Pure Boy Bop_9
+    21300020: Pure Boy Bop_10
+    21300022: Pure Boy Bop_11
+    21300024: Pure Boy Bop_12
+    21300026: Pure Boy Bop_13
+    21300028: Pure Boy Bop_14
+    21300030: Pure Boy Bop_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -67,7 +69,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pure Boy_0
+      name: Pure Boy Bop_0
       rect:
         serializedVersion: 2
         x: 0
@@ -75,12 +77,12 @@ TextureImporter:
         width: 1032
         height: 1032
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_1
+      name: Pure Boy Bop_1
       rect:
         serializedVersion: 2
         x: 1032
@@ -88,12 +90,12 @@ TextureImporter:
         width: 1032
         height: 1032
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_2
+      name: Pure Boy Bop_2
       rect:
         serializedVersion: 2
         x: 2064
@@ -106,7 +108,20 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_3
+      name: Pure Boy Bop_3
+      rect:
+        serializedVersion: 2
+        x: 3096
+        y: 3096
+        width: 1032
+        height: 1032
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Pure Boy Bop_4
       rect:
         serializedVersion: 2
         x: 0
@@ -119,7 +134,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_4
+      name: Pure Boy Bop_5
       rect:
         serializedVersion: 2
         x: 1032
@@ -132,7 +147,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_5
+      name: Pure Boy Bop_6
       rect:
         serializedVersion: 2
         x: 2064
@@ -145,7 +160,20 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_6
+      name: Pure Boy Bop_7
+      rect:
+        serializedVersion: 2
+        x: 3096
+        y: 2064
+        width: 1032
+        height: 1032
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Pure Boy Bop_8
       rect:
         serializedVersion: 2
         x: 0
@@ -158,7 +186,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_7
+      name: Pure Boy Bop_9
       rect:
         serializedVersion: 2
         x: 1032
@@ -171,7 +199,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_8
+      name: Pure Boy Bop_10
       rect:
         serializedVersion: 2
         x: 2064
@@ -184,7 +212,20 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_9
+      name: Pure Boy Bop_11
+      rect:
+        serializedVersion: 2
+        x: 3096
+        y: 1032
+        width: 1032
+        height: 1032
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Pure Boy Bop_12
       rect:
         serializedVersion: 2
         x: 0
@@ -197,10 +238,23 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_10
+      name: Pure Boy Bop_13
       rect:
         serializedVersion: 2
         x: 1032
+        y: 0
+        width: 1032
+        height: 1032
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Pure Boy Bop_14
+      rect:
+        serializedVersion: 2
+        x: 2064
         y: 0
         width: 1032
         height: 1032
@@ -210,15 +264,15 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pure Boy_11
+      name: Pure Boy Bop_15
       rect:
         serializedVersion: 2
-        x: 2064
+        x: 3096
         y: 0
         width: 1032
         height: 1032
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
