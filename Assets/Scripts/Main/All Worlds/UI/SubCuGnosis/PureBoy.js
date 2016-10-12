@@ -1,7 +1,7 @@
 #pragma downcast
 
 private static var scenePlayed : boolean = false;
-var skipScene : boolean = false;
+public var skipScene : boolean = false;
 
 static var currentRound = "1";
 
@@ -12,6 +12,7 @@ var Text3 : GameObject;
 var Text4 : GameObject;
 var Text5 : GameObject;
 var Text6 : GameObject;
+var Text7 : GameObject;
 var pauseMenu : GameObject;
 var timer : Timer;
 var cam : GameObject;
@@ -32,6 +33,7 @@ function Start () {
   Text4 = GameObject.Find("Text4");
   Text5 = GameObject.Find("Text5");
   Text6 = GameObject.Find("Text6");
+  Text7 = GameObject.Find("Text7");
 
   if (!scenePlayed && !skipScene) {
     scenePlayed = true;
@@ -151,9 +153,31 @@ function LunaGoesToSpaceScene() {
   luna.GetComponent(MainGravity).canRotate = false;
   luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
 
-  yield WaitForSeconds(5);
+  yield WaitForSeconds(4);
+
+  SceneHelper.use.PartiallyFadeInImage("Pure Boy 2", 0.004, 0.4);
+  SceneHelper.use.ShowAndHideText(Text7, 3);
+
+  yield WaitForSeconds(7);
+  Sounds.use.PlaySoundByName("BirthMotherMonster");
   SceneHelper.use.ChangeCameraColor(cam.GetComponent(Camera), Color.black, 0.04);
-  yield WaitForSeconds(10);
+  yield WaitForSeconds(5);
+  var backgrounds = GameObject.FindGameObjectsWithTag("Background");
+  for (var bg in backgrounds) {
+    SceneHelper.use.FadeOutGameObj(bg.gameObject, 0.01);
+  }
+
+  // unfreeze gravity
+  luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
+  luna.GetComponent(MainGravity).lunaGravity = -9.81;
+  cam.isStatic = false;
+  var allGround = GameObject.FindGameObjectsWithTag("Ground");
+  for (var ground in allGround) {
+    Destroy(ground);
+  }
+
+  SceneHelper.use.FadeOutImageWithRate("Pure Boy 2", 0.001);
+  yield WaitForSeconds(30);
 
   // GameObject.Find("Portal").GetComponent(SceneLoader).beginSceneTransition();
 }
