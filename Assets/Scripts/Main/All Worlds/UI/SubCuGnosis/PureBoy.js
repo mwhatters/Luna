@@ -13,6 +13,7 @@ var Text4 : GameObject;
 var Text5 : GameObject;
 var Text6 : GameObject;
 var Text7 : GameObject;
+var Text8 : GameObject;
 var pauseMenu : GameObject;
 var timer : Timer;
 var cam : GameObject;
@@ -34,6 +35,7 @@ function Start () {
   Text5 = GameObject.Find("Text5");
   Text6 = GameObject.Find("Text6");
   Text7 = GameObject.Find("Text7");
+  Text8 = GameObject.Find("Text8");
 
   if (!scenePlayed && !skipScene) {
     scenePlayed = true;
@@ -83,17 +85,16 @@ function PureBoyStartScene() {
 
 function startBossBattle() {
   GameObject.Find("PureBoyRoom").GetComponent(CamShifting).zoomCameraExit();
-  StartRound4();
 
-  // if (currentRound == "1") {
-  //   StartRound1();
-  // } else if (currentRound == "2") {
-  //   StartRound2();
-  // } else if (currentRound == "3") {
-  //   StartRound3();
-  // } else if (currentRound == "4") {
-  //   StartRound4();
-  // }
+  if (currentRound == "1") {
+    StartRound1();
+  } else if (currentRound == "2") {
+    StartRound2();
+  } else if (currentRound == "3") {
+    StartRound3();
+  } else if (currentRound == "4") {
+    StartRound4();
+  }
 
   if (!luna.GetComponent(PlayerGameStates).isDead) {
     // yield LunaGoesToSpaceScene();
@@ -177,7 +178,16 @@ function LunaGoesToSpaceScene() {
   }
 
   SceneHelper.use.FadeOutImageWithRate("Pure Boy 2", 0.001);
-  yield WaitForSeconds(30);
+  yield WaitForSeconds(16);
 
-  // GameObject.Find("Portal").GetComponent(SceneLoader).beginSceneTransition();
+  var allSpace = GameObject.FindGameObjectsWithTag("Space");
+  for (var space in allSpace) {
+    space.GetComponent(SpriteRenderer).color = Color.white;
+  }
+
+  yield WaitForSeconds(11);
+  SceneHelper.use.ShowAndHideText(Text8, 6);
+
+  yield WaitForSeconds(16);
+  GameObject.Find("Portal").GetComponent(SceneLoader).beginSceneTransition();
 }
