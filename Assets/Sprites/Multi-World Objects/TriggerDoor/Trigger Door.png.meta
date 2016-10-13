@@ -56,11 +56,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Trigger Door_0
+    - serializedVersion: 2
+      name: Trigger Door_0
       rect:
         serializedVersion: 2
         x: 0
@@ -70,12 +78,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.5, y: 205}
-        - {x: -102.5, y: -205}
-        - {x: 102.5, y: -205}
-        - {x: 102.5, y: 205}
-    - name: Trigger Door_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Trigger Door_1
       rect:
         serializedVersion: 2
         x: 512
@@ -85,12 +91,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.2, y: 205}
-        - {x: -102.2, y: -205}
-        - {x: 103.8, y: -205}
-        - {x: 103.8, y: 205}
-    - name: Trigger Door_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Trigger Door_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -100,12 +104,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.399994, y: 205}
-        - {x: -102.399994, y: -205}
-        - {x: 103.600006, y: -205}
-        - {x: 103.600006, y: 205}
-    - name: Trigger Door_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Trigger Door_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -115,12 +117,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.599976, y: 205}
-        - {x: -102.599976, y: -205}
-        - {x: 103.400024, y: -205}
-        - {x: 103.400024, y: 205}
-    - name: Trigger Door_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Trigger Door_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -130,12 +130,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.29999, y: 205}
-        - {x: -102.29999, y: -205}
-        - {x: 102.70001, y: -205}
-        - {x: 102.70001, y: 205}
-    - name: Trigger Door_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Trigger Door_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -145,12 +143,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.5, y: 205}
-        - {x: -102.5, y: -205}
-        - {x: 102.5, y: -205}
-        - {x: 102.5, y: 205}
-    - name: Trigger Door_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Trigger Door_6
       rect:
         serializedVersion: 2
         x: 3072
@@ -160,12 +156,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.19995, y: 205}
-        - {x: -102.19995, y: -205}
-        - {x: 103.80005, y: -205}
-        - {x: 103.80005, y: 205}
-    - name: Trigger Door_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Trigger Door_7
       rect:
         serializedVersion: 2
         x: 3584
@@ -175,12 +169,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.400024, y: 205}
-        - {x: -102.400024, y: -205}
-        - {x: 103.599976, y: -205}
-        - {x: 103.599976, y: 205}
-    - name: Trigger Door_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Trigger Door_8
       rect:
         serializedVersion: 2
         x: 4096
@@ -190,12 +182,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.599976, y: 205}
-        - {x: -102.599976, y: -205}
-        - {x: 103.400024, y: -205}
-        - {x: 103.400024, y: 205}
-    - name: Trigger Door_9
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Trigger Door_9
       rect:
         serializedVersion: 2
         x: 4608
@@ -205,11 +195,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.29993, y: 205}
-        - {x: -102.29993, y: -205}
-        - {x: 102.70007, y: -205}
-        - {x: 102.70007, y: 205}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 
