@@ -12,6 +12,7 @@ function Start() {
   lineRenderer.SetColors(Color.red, Color.blue);
   lineRenderer.SetWidth(laserWidth, laserWidth);
   lineRenderer.SetVertexCount(2);
+  lineRenderer.sortingLayerName= "3PO's";
   lineRenderer.material = laserTexture;
 }
 
