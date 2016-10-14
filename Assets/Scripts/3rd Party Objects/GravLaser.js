@@ -4,7 +4,11 @@ enum gravLaserDirection { Down, Right, Up, Left, ULeft, URight, DLeft, DRight };
 public var laserDirection = gravLaserDirection.Down;
 private var vectorDirection : Vector3;
 
-public var laserTexture : Material;
+public var textureSwitch : boolean = true;
+
+public var laserTexture1 : Material;
+public var laserTexture2 : Material;
+
 public var laserWidth : float = 0.3;
 
 function Start() {
@@ -13,9 +17,7 @@ function Start() {
   lineRenderer.SetWidth(laserWidth, laserWidth);
   lineRenderer.SetVertexCount(2);
   lineRenderer.sortingLayerName= "3PO's";
-  lineRenderer.material = laserTexture;
-
-  Debug.Log(Vector3(1.0,1.0,0));
+  lineRenderer.material = laserTexture1;
 }
 
 function FixedUpdate () {
@@ -41,8 +43,19 @@ function FixedUpdate () {
     lineRenderer.SetPosition(0, transform.position);
     lineRenderer.SetPosition(1, hit.point);
 
+    if (textureSwitch) {
+      lineRenderer.material = laserTexture2;
+      textureSwitch = false;
+    } else {
+      lineRenderer.material = laserTexture1;
+      textureSwitch = true;
+    }
+
     if (hit.collider.name == "Luna") {
       GameObject.Find("Luna").GetComponent(PlayerGameStates).Die();
     }
+  } else {
+    lineRenderer.SetPosition(0, transform.position);
+    lineRenderer.SetPosition(1, transform.position);
   }
 }
