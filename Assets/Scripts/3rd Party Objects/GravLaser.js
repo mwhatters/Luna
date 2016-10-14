@@ -1,6 +1,6 @@
 ﻿#pragma strict
 var lineRenderer : LineRenderer;
-enum gravLaserDirection { Down, Right, Up, Left, ULeft, URight, DLeft, DRight };
+enum gravLaserDirection { Down, Right, Up, Left, ULeft, URight, DLeft, DRight, None };
 public var laserDirection = gravLaserDirection.Down;
 private var vectorDirection : Vector3;
 
@@ -10,6 +10,8 @@ public var laserTexture1 : Material;
 public var laserTexture2 : Material;
 
 public var laserWidth : float = 0.3;
+
+private var laserEnabled : boolean = true;
 
 function Start() {
   lineRenderer = gameObject.AddComponent(LineRenderer);
@@ -36,10 +38,13 @@ function FixedUpdate () {
     case gravLaserDirection.Right:
       vectorDirection = transform.right;
       break;
+    case gravLaserDirection.None:
+      laserEnabled = false;
+      break;
   }
 
   var hit : RaycastHit2D = Physics2D.Raycast(transform.position, vectorDirection);
-  if (hit.collider != null) {
+  if (hit.collider != null && laserEnabled) {
     lineRenderer.SetPosition(0, transform.position);
     lineRenderer.SetPosition(1, hit.point);
 
