@@ -1,6 +1,6 @@
 ﻿#pragma strict
 var lineRenderer : LineRenderer;
-enum gravLaserDirection { Down, Right, Up, Left };
+enum gravLaserDirection { Down, Right, Up, Left, ULeft, URight, DLeft, DRight };
 public var laserDirection = gravLaserDirection.Down;
 private var vectorDirection : Vector3;
 
@@ -14,6 +14,8 @@ function Start() {
   lineRenderer.SetVertexCount(2);
   lineRenderer.sortingLayerName= "3PO's";
   lineRenderer.material = laserTexture;
+
+  Debug.Log(Vector3(1.0,1.0,0));
 }
 
 function FixedUpdate () {
