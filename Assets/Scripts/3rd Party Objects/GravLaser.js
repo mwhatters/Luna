@@ -3,15 +3,13 @@ var lineRenderer : LineRenderer;
 enum gravLaserDirection { Down, Right, Up, Left, ULeft, URight, DLeft, DRight, None };
 public var laserDirection = gravLaserDirection.Down;
 private var vectorDirection : Vector3;
+private var laserEnabled : boolean = true;
 
 public var textureSwitch : boolean = true;
-
 public var laserTexture1 : Material;
 public var laserTexture2 : Material;
-
 public var laserWidth : float = 0.3;
 
-private var laserEnabled : boolean = true;
 
 function Start() {
   lineRenderer = gameObject.AddComponent(LineRenderer);
