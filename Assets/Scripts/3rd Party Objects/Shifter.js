@@ -28,7 +28,7 @@ function Start() {
 }
 
 function OnTriggerEnter2D(coll : Collider2D) {
-	if (coll.gameObject.tag == "TheGuy") {
+	if (coll.gameObject.CompareTag("TheGuy")) {
 		var gravityState = coll.gameObject.GetComponent(MainGravity);
 
 		switch (shift)

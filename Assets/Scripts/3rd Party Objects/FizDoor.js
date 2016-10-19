@@ -11,7 +11,7 @@ function Start() {
 }
 
 function OnTriggerExit2D(coll : Collider2D) {
-  if (coll.gameObject.tag == "TheGuy" && freezeOnExit && exitedInCorrectDirection(coll)) {
+  if (coll.gameObject.CompareTag("TheGuy") && freezeOnExit && exitedInCorrectDirection(coll)) {
     StartCoroutine("disableAnimation");
     this.GetComponent(BoxCollider2D).isTrigger = false;
     fizDoor.GetComponent(BoxCollider2D).isTrigger = true;

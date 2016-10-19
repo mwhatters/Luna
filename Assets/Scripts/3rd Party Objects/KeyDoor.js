@@ -5,7 +5,7 @@ public var keysNeeded : GameObject[];
 private var keysToBeDestroyed : GameObject[] = [];
 
 function OnTriggerEnter2D(coll : Collider2D) {
-	if (coll.gameObject.tag == "TheGuy") {
+	if (coll.gameObject.CompareTag("TheGuy")) {
 		if (keysNeeded.Length == 0) {
 			DestroyDoor();
 			return true;

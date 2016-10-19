@@ -505,7 +505,7 @@ function playerIsTouchingGround(contactPoint : RaycastHit2D) {
 
 	var itemIsGround : boolean = false;
 	for (var item : String in groundObjects) {
-		if (contactPoint.collider.tag == item) {
+		if (contactPoint.collider.CompareTag(item)) {
 			itemIsGround = true;
 		}
 	}

@@ -43,7 +43,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 		if (!boxesUnfrozen && objectsList != null) {
 			for (var item in objectsList) {
-				if (item.tag == "BurdenBall") {
+				if (item.CompareTag("BurdenBall")) {
 					item.GetComponent(Clinger).active = true;
 				} else {
 					item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
@@ -207,7 +207,7 @@ function performCameraZoom(cameraScope : Camera, endpoint : float, t : float) {
 function freezeObjects() {
 	boxesUnfrozen = false;
 	for (var obj in objectsList) {
-		if (obj.tag == "BurdenBall") {
+		if (obj.CompareTag("BurdenBall")) {
 			obj.GetComponent(Clinger).active = false;
 		} else {
 			obj.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;

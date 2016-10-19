@@ -9,7 +9,7 @@ function Start() {
 }
 
 function OnTriggerEnter2D (coll : Collider2D) {
-	if (coll.gameObject.tag == "TheGuy") {
+	if (coll.gameObject.CompareTag("TheGuy")) {
     bossBattle.fadeOutRound(thisRound);
 
     if (nextRound == "Round5") {
