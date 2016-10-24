@@ -140,6 +140,8 @@ public function ReturnToMenu() {
   Time.timeScale = 1;
   Sounds.use.Kill("BackgroundMusic");
   Sounds.use.Kill("IntroMusic");
+
+  SaveData.use.ClearCurrentSaveData();
   Invoke("LoadMenu", 0);
 }
 

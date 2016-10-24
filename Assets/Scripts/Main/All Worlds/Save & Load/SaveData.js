@@ -55,6 +55,10 @@ public function SaveFileAlreadyExists(name) {
 	return File.Exists(Application.persistentDataPath + filepath);
 }
 
+public function ClearCurrentSaveData() {
+	currentData = null;
+}
+
 public class PlayerData {
 	public var username : String;
 	public var level : String;
