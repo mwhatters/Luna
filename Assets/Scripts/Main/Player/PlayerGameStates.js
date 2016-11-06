@@ -26,7 +26,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
 
   //Jump
 
-  for (var item : String in ["Ground", "StubbornGround", "StubbornGroundReverse", "NiceBox", "BlackHoleBox", "RotaterR", "RotaterL", "Rotater180", "Rotater-180"]) {
+  for (var item : String in ["Ground", "StubbornGround", "StubbornGroundReverse", "NiceBox", "BlackHoleBox", "Door", "RotaterR", "RotaterL", "Rotater180", "Rotater-180"]) {
     if (tag == item) {
       yield WaitForSeconds(0.001); // hacky
       if (gravityState.touchingGround == true) {
