@@ -62,11 +62,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: MinimLeave2_0
+    - serializedVersion: 2
+      name: MinimLeave2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -76,18 +84,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 202, y: 205}
-        - {x: 202, y: -205}
-        - {x: 205, y: -205}
-        - {x: 205, y: 205}
-      - - {x: -194, y: 194}
-        - {x: -194, y: -194}
-        - {x: 192, y: -194}
-        - {x: 194, y: -192}
-        - {x: 194, y: 192}
-        - {x: 192, y: 194}
-    - name: MinimLeave2_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -97,12 +97,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -204.5, y: 205}
-        - {x: -204.5, y: -205}
-        - {x: 205.5, y: -205}
-        - {x: 205.5, y: 205}
-    - name: MinimLeave2_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_2
       rect:
         serializedVersion: 2
         x: 2048
@@ -112,14 +110,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -182, y: 182}
-        - {x: -182, y: -181}
-        - {x: 179, y: -181}
-        - {x: 181, y: -179}
-        - {x: 181, y: 180}
-        - {x: 179, y: 182}
-    - name: MinimLeave2_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_3
       rect:
         serializedVersion: 2
         x: 3072
@@ -129,16 +123,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -165.5, y: 169}
-        - {x: -167.5, y: 167}
-        - {x: -167.5, y: -166}
-        - {x: -165.5, y: -168}
-        - {x: 167.5, y: -168}
-        - {x: 169.5, y: -166}
-        - {x: 169.5, y: 167}
-        - {x: 167.5, y: 169}
-    - name: MinimLeave2_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_4
       rect:
         serializedVersion: 2
         x: 0
@@ -148,14 +136,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -156, y: 156.5}
-        - {x: -156, y: -154.5}
-        - {x: 154, y: -154.5}
-        - {x: 156, y: -152.5}
-        - {x: 156, y: 154.5}
-        - {x: 154, y: 156.5}
-    - name: MinimLeave2_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_5
       rect:
         serializedVersion: 2
         x: 1024
@@ -165,14 +149,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -140.5, y: 144.5}
-        - {x: -142.5, y: 142.5}
-        - {x: -142.5, y: -141.5}
-        - {x: 143.5, y: -141.5}
-        - {x: 143.5, y: 142.5}
-        - {x: 141.5, y: 144.5}
-    - name: MinimLeave2_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_6
       rect:
         serializedVersion: 2
         x: 2048
@@ -182,16 +162,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -128, y: 131.5}
-        - {x: -130, y: 129.5}
-        - {x: -130, y: -127.5}
-        - {x: -128, y: -129.5}
-        - {x: 128, y: -129.5}
-        - {x: 130, y: -127.5}
-        - {x: 130, y: 129.5}
-        - {x: 128, y: 131.5}
-    - name: MinimLeave2_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_7
       rect:
         serializedVersion: 2
         x: 3072
@@ -201,16 +175,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -114.5, y: 118.5}
-        - {x: -116.5, y: 116.5}
-        - {x: -116.5, y: -114.5}
-        - {x: -114.5, y: -116.5}
-        - {x: 116.5, y: -116.5}
-        - {x: 118.5, y: -114.5}
-        - {x: 118.5, y: 116.5}
-        - {x: 116.5, y: 118.5}
-    - name: MinimLeave2_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_8
       rect:
         serializedVersion: 2
         x: 0
@@ -220,16 +188,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -103, y: 105}
-        - {x: -105, y: 103}
-        - {x: -105, y: -103}
-        - {x: -103, y: -105}
-        - {x: 102, y: -105}
-        - {x: 104, y: -103}
-        - {x: 104, y: 103}
-        - {x: 102, y: 105}
-    - name: MinimLeave2_9
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_9
       rect:
         serializedVersion: 2
         x: 1024
@@ -239,16 +201,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -89.5, y: 92}
-        - {x: -91.5, y: 90}
-        - {x: -91.5, y: -90}
-        - {x: -89.5, y: -92}
-        - {x: 90.5, y: -92}
-        - {x: 92.5, y: -90}
-        - {x: 92.5, y: 90}
-        - {x: 90.5, y: 92}
-    - name: MinimLeave2_10
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_10
       rect:
         serializedVersion: 2
         x: 2048
@@ -258,16 +214,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -77, y: 79}
-        - {x: -79, y: 77}
-        - {x: -79, y: -77}
-        - {x: -77, y: -79}
-        - {x: 77, y: -79}
-        - {x: 79, y: -77}
-        - {x: 79, y: 77}
-        - {x: 77, y: 79}
-    - name: MinimLeave2_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_11
       rect:
         serializedVersion: 2
         x: 3072
@@ -277,14 +227,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -65.5, y: 66}
-        - {x: -65.5, y: -66}
-        - {x: 64.5, y: -66}
-        - {x: 66.5, y: -64}
-        - {x: 66.5, y: 64}
-        - {x: 64.5, y: 66}
-    - name: MinimLeave2_12
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_12
       rect:
         serializedVersion: 2
         x: 0
@@ -294,16 +240,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -52, y: 54.5}
-        - {x: -54, y: 52.5}
-        - {x: -54, y: -50.5}
-        - {x: -52, y: -52.5}
-        - {x: 51, y: -52.5}
-        - {x: 53, y: -50.5}
-        - {x: 53, y: 52.5}
-        - {x: 51, y: 54.5}
-    - name: MinimLeave2_13
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_13
       rect:
         serializedVersion: 2
         x: 1024
@@ -313,16 +253,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -37.5, y: 41.5}
-        - {x: -39.5, y: 39.5}
-        - {x: -39.5, y: -37.5}
-        - {x: -37.5, y: -39.5}
-        - {x: 39.5, y: -39.5}
-        - {x: 41.5, y: -37.5}
-        - {x: 41.5, y: 39.5}
-        - {x: 39.5, y: 41.5}
-    - name: MinimLeave2_14
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_14
       rect:
         serializedVersion: 2
         x: 2048
@@ -332,16 +266,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -26, y: 28.5}
-        - {x: -28, y: 26.5}
-        - {x: -28, y: -24.5}
-        - {x: -26, y: -26.5}
-        - {x: 26, y: -26.5}
-        - {x: 28, y: -24.5}
-        - {x: 28, y: 26.5}
-        - {x: 26, y: 28.5}
-    - name: MinimLeave2_15
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: MinimLeave2_15
       rect:
         serializedVersion: 2
         x: 3072
@@ -351,15 +279,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -12.5, y: 15.5}
-        - {x: -14.5, y: 13.5}
-        - {x: -14.5, y: -12.5}
-        - {x: -12.5, y: -14.5}
-        - {x: 13.5, y: -14.5}
-        - {x: 15.5, y: -12.5}
-        - {x: 15.5, y: 13.5}
-        - {x: 13.5, y: 15.5}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

@@ -48,11 +48,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: LunaIdle_0
+    - serializedVersion: 2
+      name: LunaIdle_0
       rect:
         serializedVersion: 2
         x: 160
@@ -62,54 +70,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 2, y: -225.5}
-        - {x: 2, y: -195.5}
-        - {x: 30, y: -195.5}
-        - {x: 30, y: -225.5}
-        - {x: 32, y: -227.5}
-        - {x: 62, y: -227.5}
-        - {x: 62, y: -478.5}
-        - {x: 162, y: -478.5}
-        - {x: 162, y: -99.5}
-        - {x: 192, y: -99.5}
-        - {x: 194, y: -97.5}
-        - {x: 194, y: -35.5}
-        - {x: 224, y: -35.5}
-        - {x: 224, y: 192.5}
-        - {x: 194, y: 192.5}
-        - {x: 194, y: 222.5}
-        - {x: 192, y: 224.5}
-        - {x: 98, y: 224.5}
-        - {x: 98, y: 252.5}
-        - {x: 160, y: 252.5}
-        - {x: 162, y: 254.5}
-        - {x: 162, y: 446.5}
-        - {x: 160, y: 448.5}
-        - {x: 2, y: 448.5}
-        - {x: 2, y: 478.5}
-        - {x: -130, y: 478.5}
-        - {x: -130, y: 254.5}
-        - {x: -128, y: 252.5}
-        - {x: -66, y: 252.5}
-        - {x: -66, y: 224.5}
-        - {x: -192, y: 224.5}
-        - {x: -194, y: 222.5}
-        - {x: -194, y: 192.5}
-        - {x: -224, y: 192.5}
-        - {x: -224, y: -35.5}
-        - {x: -194, y: -35.5}
-        - {x: -194, y: -65.5}
-        - {x: -192, y: -67.5}
-        - {x: -162, y: -67.5}
-        - {x: -162, y: -129.5}
-        - {x: -160, y: -131.5}
-        - {x: -130, y: -131.5}
-        - {x: -130, y: -478.5}
-        - {x: -30, y: -478.5}
-        - {x: -30, y: -227.5}
-        - {x: 0, y: -227.5}
-    - name: LunaIdle_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: LunaIdle_1
       rect:
         serializedVersion: 2
         x: 1184
@@ -119,52 +83,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 2, y: -228.5}
-        - {x: 2, y: -198.5}
-        - {x: 30, y: -198.5}
-        - {x: 30, y: -228.5}
-        - {x: 32, y: -230.5}
-        - {x: 62, y: -230.5}
-        - {x: 62, y: -479.5}
-        - {x: 162, y: -479.5}
-        - {x: 162, y: -102.5}
-        - {x: 192, y: -102.5}
-        - {x: 194, y: -100.5}
-        - {x: 194, y: -70.5}
-        - {x: 224, y: -70.5}
-        - {x: 224, y: 157.5}
-        - {x: 194, y: 157.5}
-        - {x: 194, y: 187.5}
-        - {x: 192, y: 189.5}
-        - {x: 98, y: 189.5}
-        - {x: 98, y: 217.5}
-        - {x: 160, y: 217.5}
-        - {x: 162, y: 219.5}
-        - {x: 162, y: 411.5}
-        - {x: 160, y: 413.5}
-        - {x: 2, y: 413.5}
-        - {x: 2, y: 443.5}
-        - {x: 0, y: 445.5}
-        - {x: -128, y: 445.5}
-        - {x: -130, y: 443.5}
-        - {x: -130, y: 219.5}
-        - {x: -128, y: 217.5}
-        - {x: -66, y: 217.5}
-        - {x: -66, y: 189.5}
-        - {x: -192, y: 189.5}
-        - {x: -194, y: 187.5}
-        - {x: -194, y: 157.5}
-        - {x: -224, y: 157.5}
-        - {x: -224, y: -70.5}
-        - {x: -162, y: -70.5}
-        - {x: -162, y: -132.5}
-        - {x: -160, y: -134.5}
-        - {x: -130, y: -134.5}
-        - {x: -130, y: -479.5}
-        - {x: -30, y: -479.5}
-        - {x: -30, y: -230.5}
-        - {x: 0, y: -230.5}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

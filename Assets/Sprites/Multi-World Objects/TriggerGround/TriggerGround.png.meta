@@ -166,11 +166,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 1000
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: TriggerGround_0
+    - serializedVersion: 2
+      name: TriggerGround_0
       rect:
         serializedVersion: 2
         x: 0
@@ -181,7 +189,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -192,7 +202,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_2
       rect:
         serializedVersion: 2
         x: 2048
@@ -203,7 +215,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_3
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_3
       rect:
         serializedVersion: 2
         x: 3072
@@ -214,7 +228,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_4
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_4
       rect:
         serializedVersion: 2
         x: 4096
@@ -225,7 +241,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_5
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_5
       rect:
         serializedVersion: 2
         x: 5120
@@ -236,7 +254,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_6
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_6
       rect:
         serializedVersion: 2
         x: 6144
@@ -247,7 +267,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_7
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_7
       rect:
         serializedVersion: 2
         x: 7168
@@ -258,7 +280,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_8
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_8
       rect:
         serializedVersion: 2
         x: 8192
@@ -269,7 +293,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_9
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_9
       rect:
         serializedVersion: 2
         x: 9216
@@ -280,7 +306,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_10
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_10
       rect:
         serializedVersion: 2
         x: 10240
@@ -291,7 +319,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_11
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_11
       rect:
         serializedVersion: 2
         x: 11264
@@ -302,7 +332,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_12
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_12
       rect:
         serializedVersion: 2
         x: 12288
@@ -313,7 +345,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_13
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_13
       rect:
         serializedVersion: 2
         x: 13312
@@ -324,7 +358,9 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: TriggerGround_14
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: TriggerGround_14
       rect:
         serializedVersion: 2
         x: 14336
@@ -335,6 +371,7 @@ TextureImporter:
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

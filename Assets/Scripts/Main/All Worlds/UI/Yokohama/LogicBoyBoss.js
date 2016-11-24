@@ -65,7 +65,7 @@ function Start () {
 
     // yield WaitForSeconds(1);
     // SceneHelper.use.ShowAndHideText(Text1, 2);
-    yield WaitForSeconds(3);
+    yield WaitForSeconds(0);
     // Sounds.use.PlaySoundByName("LushFade");
     // yield WaitForSeconds(2);
     // SceneHelper.use.PartiallyFadeInImage("Pure Boy", 0.04, 0.9);

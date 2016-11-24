@@ -9,14 +9,23 @@ public var shaking : boolean = false;
 private var lastPositionX : int;
 private var lastPositionY : int;
 
+private var pixelToUnits : float = 40.0;
+
 function Start () {
 	lunaObj = GameObject.Find("Luna");
 }
 
-function Update() {
+function LateUpdate() {
 	if (!staticCamera()) {
 		transform.position.x = lunaObj.transform.position.x;
 		transform.position.y = lunaObj.transform.position.y;
+
+		// var player_x = lunaObj.transform.position.x;
+		// var player_y = lunaObj.transform.position.y;
+		//
+		// var rounded_x = RoundToNearestPixel(player_x);
+		// var rounded_y = RoundToNearestPixel(player_y);
+		// transform.position = new Vector3(rounded_x, rounded_y, transform.position.z);
 	}
 
 	if (shaking) {
@@ -50,4 +59,11 @@ function StaticShake() {
 	} else {
 		transform.position.x = lastPositionX;
 	}
+}
+
+function RoundToNearestPixel(unityUnits : float) {
+ var valueInPixels : float = (unityUnits * pixelToUnits);
+ valueInPixels = Mathf.Round(valueInPixels);
+ var roundedUnityUnits : float = valueInPixels * (1 / pixelToUnits);
+ return roundedUnityUnits;
 }

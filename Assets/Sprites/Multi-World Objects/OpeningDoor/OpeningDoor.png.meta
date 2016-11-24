@@ -56,11 +56,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: OpeningDoor_0
+    - serializedVersion: 2
+      name: OpeningDoor_0
       rect:
         serializedVersion: 2
         x: 30
@@ -70,12 +78,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -91.83594, y: 172.66406}
-        - {x: -91.83594, y: -171.33594}
-        - {x: 93.16406, y: -171.33594}
-        - {x: 93.16406, y: 172.66406}
-    - name: OpeningDoor_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: OpeningDoor_1
       rect:
         serializedVersion: 2
         x: 606
@@ -85,12 +91,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -91.58594, y: 172.66406}
-        - {x: -91.58594, y: -171.33594}
-        - {x: 92.41406, y: -171.33594}
-        - {x: 92.41406, y: 172.66406}
-    - name: OpeningDoor_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: OpeningDoor_2
       rect:
         serializedVersion: 2
         x: 1183
@@ -100,12 +104,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -91.48047, y: 172.66406}
-        - {x: -91.48047, y: -171.33594}
-        - {x: 92.51953, y: -171.33594}
-        - {x: 92.51953, y: 172.66406}
-    - name: OpeningDoor_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: OpeningDoor_3
       rect:
         serializedVersion: 2
         x: 1759
@@ -115,12 +117,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -91.73047, y: 172.66406}
-        - {x: -91.73047, y: -171.33594}
-        - {x: 92.26953, y: -171.33594}
-        - {x: 92.26953, y: 172.66406}
-    - name: OpeningDoor_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: OpeningDoor_4
       rect:
         serializedVersion: 2
         x: 2333
@@ -130,12 +130,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -92.19141, y: 172.66406}
-        - {x: -92.19141, y: -171.33594}
-        - {x: 92.80859, y: -171.33594}
-        - {x: 92.80859, y: 172.66406}
-    - name: OpeningDoor_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: OpeningDoor_5
       rect:
         serializedVersion: 2
         x: 2910
@@ -145,12 +143,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -92.08594, y: 172.66406}
-        - {x: -92.08594, y: -171.33594}
-        - {x: 92.91406, y: -171.33594}
-        - {x: 92.91406, y: 172.66406}
-    - name: OpeningDoor_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: OpeningDoor_6
       rect:
         serializedVersion: 2
         x: 3486
@@ -160,12 +156,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -91.83594, y: 172.66406}
-        - {x: -91.83594, y: -171.33594}
-        - {x: 92.16406, y: -171.33594}
-        - {x: 92.16406, y: 172.66406}
-    - name: OpeningDoor_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: OpeningDoor_7
       rect:
         serializedVersion: 2
         x: 4063
@@ -175,12 +169,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -91.23047, y: 172.66406}
-        - {x: -91.23047, y: -171.33594}
-        - {x: 91.76953, y: -171.33594}
-        - {x: 91.76953, y: 172.66406}
-    - name: OpeningDoor_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: OpeningDoor_8
       rect:
         serializedVersion: 2
         x: 4639
@@ -190,12 +182,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -91.98047, y: 172.66406}
-        - {x: -91.98047, y: -171.33594}
-        - {x: 92.01953, y: -171.33594}
-        - {x: 92.01953, y: 172.66406}
-    - name: OpeningDoor_9
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: OpeningDoor_9
       rect:
         serializedVersion: 2
         x: 5213
@@ -205,11 +195,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -91.94141, y: 172.66406}
-        - {x: -91.94141, y: -171.33594}
-        - {x: 92.05859, y: -171.33594}
-        - {x: 92.05859, y: 172.66406}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

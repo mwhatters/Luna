@@ -54,11 +54,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: FireJoint_0
+    - serializedVersion: 2
+      name: FireJoint_0
       rect:
         serializedVersion: 2
         x: 0
@@ -68,15 +76,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 127.5, y: 50}
-        - {x: 116.5, y: 60}
-        - {x: -109.5, y: 60}
-        - {x: -127.5, y: 41}
-        - {x: -127.5, y: -50}
-        - {x: -95.5, y: -60}
-        - {x: 127.5, y: -60}
-    - name: FireJoint_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: FireJoint_1
       rect:
         serializedVersion: 2
         x: 680
@@ -86,17 +89,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 127.5, y: 57}
-        - {x: 92.5, y: 60}
-        - {x: -68.5, y: 60}
-        - {x: -127.5, y: 50}
-        - {x: -127.5, y: -60}
-        - {x: -113.5, y: -60}
-        - {x: -92.5, y: -52}
-        - {x: 4.5, y: -60}
-        - {x: 127.5, y: -60}
-    - name: FireJoint_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: FireJoint_2
       rect:
         serializedVersion: 2
         x: 1360
@@ -106,15 +102,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 127.5, y: -38}
-        - {x: 127.5, y: 39}
-        - {x: 111.5, y: 60}
-        - {x: -106.5, y: 60}
-        - {x: -127.5, y: 44}
-        - {x: -127.5, y: -60}
-        - {x: 88.5, y: -60}
-    - name: FireJoint_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: FireJoint_3
       rect:
         serializedVersion: 2
         x: 2040
@@ -124,17 +115,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 51.5, y: 60}
-        - {x: -45.5, y: 60}
-        - {x: -86.5, y: 52}
-        - {x: -127.5, y: 40}
-        - {x: -127.5, y: -52}
-        - {x: -114.5, y: -60}
-        - {x: 118.5, y: -60}
-        - {x: 127.5, y: -50}
-        - {x: 127.5, y: 54}
-    - name: FireJoint_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: FireJoint_4
       rect:
         serializedVersion: 2
         x: 2720
@@ -144,18 +128,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 77.5, y: 60}
-        - {x: -117.5, y: 60}
-        - {x: -127.5, y: 58}
-        - {x: -127.5, y: -50}
-        - {x: -123.5, y: -50}
-        - {x: -121.5, y: -48}
-        - {x: -102.5, y: -60}
-        - {x: 127.5, y: -60}
-        - {x: 127.5, y: 39}
-        - {x: 117.5, y: 50}
-    - name: FireJoint_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: FireJoint_5
       rect:
         serializedVersion: 2
         x: 3400
@@ -165,16 +141,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -13.5, y: 60}
-        - {x: -103.5, y: 60}
-        - {x: -127.5, y: 47}
-        - {x: -127.5, y: -60}
-        - {x: 71.5, y: -60}
-        - {x: 116.5, y: -52}
-        - {x: 127.5, y: -39}
-        - {x: 127.5, y: 42}
-    - name: FireJoint_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: FireJoint_6
       rect:
         serializedVersion: 2
         x: 4080
@@ -184,15 +154,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 11.5, y: 60}
-        - {x: -20.5, y: 52}
-        - {x: -127.5, y: 50}
-        - {x: -127.5, y: -38}
-        - {x: -82.5, y: -60}
-        - {x: 127.5, y: -60}
-        - {x: 127.5, y: 60}
-    - name: FireJoint_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: FireJoint_7
       rect:
         serializedVersion: 2
         x: 4760
@@ -202,17 +167,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 127.5, y: 58}
-        - {x: 116.5, y: 60}
-        - {x: -3.5, y: 60}
-        - {x: -44.5, y: 54}
-        - {x: -107.5, y: 60}
-        - {x: -127.5, y: 60}
-        - {x: -127.5, y: -60}
-        - {x: 103.5, y: -60}
-        - {x: 124.5, y: -52}
-        - {x: 127.5, y: -45}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

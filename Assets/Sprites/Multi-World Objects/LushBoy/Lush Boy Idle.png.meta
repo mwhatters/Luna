@@ -50,11 +50,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Lush Boy Idle_0
+    - serializedVersion: 2
+      name: Lush Boy Idle_0
       rect:
         serializedVersion: 2
         x: 255
@@ -64,27 +72,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 82.5, y: -106.5}
-        - {x: 105.5, y: -107.5}
-        - {x: 121.5, y: -92.5}
-        - {x: 121.5, y: 9.5}
-        - {x: 120.5, y: 10.5}
-        - {x: 106.5, y: 40.5}
-        - {x: 104.5, y: 42.5}
-        - {x: 86.5, y: 105.5}
-        - {x: 37.5, y: 201.5}
-        - {x: -16.5, y: 201.5}
-        - {x: -46.5, y: 173.5}
-        - {x: -120.5, y: 60.5}
-        - {x: -120.5, y: -105.5}
-        - {x: -115.5, y: -126.5}
-        - {x: -75.5, y: -108.5}
-        - {x: -44.5, y: -200.5}
-        - {x: 44.5, y: -200.5}
-        - {x: 42.5, y: -183.5}
-        - {x: 40.5, y: -181.5}
-    - name: Lush Boy Idle_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Lush Boy Idle_1
       rect:
         serializedVersion: 2
         x: 1279
@@ -94,27 +85,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 4.5, y: -168}
-        - {x: 1.5, y: -206}
-        - {x: 58.5, y: -206}
-        - {x: 104.5, y: -167}
-        - {x: 120.5, y: -113}
-        - {x: 120.5, y: 61}
-        - {x: 66.5, y: 137}
-        - {x: 34.5, y: 181}
-        - {x: -34.5, y: 181}
-        - {x: -122.5, y: 69}
-        - {x: -122.5, y: -136}
-        - {x: -117.5, y: -148}
-        - {x: -75.5, y: -131}
-        - {x: -74.5, y: -93}
-        - {x: -62.5, y: -159}
-        - {x: -46.5, y: -206}
-        - {x: -7.5, y: -206}
-        - {x: -7.5, y: -173}
-        - {x: -9.5, y: -171}
-    - name: Lush Boy Idle_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Lush Boy Idle_2
       rect:
         serializedVersion: 2
         x: 2303
@@ -124,25 +98,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 5.5, y: -165}
-        - {x: 2.5, y: -203}
-        - {x: 76.5, y: -203}
-        - {x: 121.5, y: -150}
-        - {x: 121.5, y: 11}
-        - {x: 81.5, y: 131}
-        - {x: 33.5, y: 168}
-        - {x: -11.5, y: 168}
-        - {x: -75.5, y: 128}
-        - {x: -121.5, y: -5}
-        - {x: -121.5, y: -123}
-        - {x: -120.5, y: -124}
-        - {x: -86.5, y: -127}
-        - {x: -45.5, y: -203}
-        - {x: -6.5, y: -203}
-        - {x: -6.5, y: -170}
-        - {x: -8.5, y: -168}
-    - name: Lush Boy Idle_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Lush Boy Idle_3
       rect:
         serializedVersion: 2
         x: 3327
@@ -152,26 +111,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 5.5, y: -164}
-        - {x: 2.5, y: -202}
-        - {x: 55.5, y: -202}
-        - {x: 70.5, y: -160}
-        - {x: 121.5, y: -109}
-        - {x: 121.5, y: 10}
-        - {x: 47.5, y: 163}
-        - {x: 38.5, y: 169}
-        - {x: -44.5, y: 169}
-        - {x: -121.5, y: 68}
-        - {x: -121.5, y: -131}
-        - {x: -116.5, y: -144}
-        - {x: -74.5, y: -127}
-        - {x: -73.5, y: -89}
-        - {x: -61.5, y: -155}
-        - {x: -45.5, y: -202}
-        - {x: -6.5, y: -202}
-        - {x: -6.5, y: -169}
-        - {x: -8.5, y: -167}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

@@ -28,6 +28,8 @@ function Start () {
 }
 
 function Awake() {
+  // Application.targetFrameRate = 60;
+
   if (SettingsInstance) {
     DestroyImmediate(gameObject);
   } else {

@@ -55,11 +55,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Mean Box_0
+    - serializedVersion: 2
+      name: Mean Box_0
       rect:
         serializedVersion: 2
         x: 0
@@ -69,12 +77,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -114, y: 114}
-        - {x: -114, y: -114}
-        - {x: 114, y: -114}
-        - {x: 114, y: 114}
-    - name: Mean Box_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Mean Box_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -84,12 +90,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -113.94444, y: 114}
-        - {x: -113.94444, y: -114}
-        - {x: 115.05556, y: -114}
-        - {x: 115.05556, y: 114}
-    - name: Mean Box_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Mean Box_2
       rect:
         serializedVersion: 2
         x: 2048
@@ -99,12 +103,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -113.888885, y: 114}
-        - {x: -113.888885, y: -114}
-        - {x: 114.111115, y: -114}
-        - {x: 114.111115, y: 114}
-    - name: Mean Box_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Mean Box_3
       rect:
         serializedVersion: 2
         x: 3072
@@ -114,12 +116,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -113.83331, y: 114}
-        - {x: -113.83331, y: -114}
-        - {x: 115.16669, y: -114}
-        - {x: 115.16669, y: 114}
-    - name: Mean Box_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Mean Box_4
       rect:
         serializedVersion: 2
         x: 4096
@@ -129,12 +129,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -113.77777, y: 114}
-        - {x: -113.77777, y: -114}
-        - {x: 114.22223, y: -114}
-        - {x: 114.22223, y: 114}
-    - name: Mean Box_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Mean Box_5
       rect:
         serializedVersion: 2
         x: 5120
@@ -144,12 +142,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -113.72217, y: 114}
-        - {x: -113.72217, y: -114}
-        - {x: 115.27783, y: -114}
-        - {x: 115.27783, y: 114}
-    - name: Mean Box_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Mean Box_6
       rect:
         serializedVersion: 2
         x: 6144
@@ -159,12 +155,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -113.666626, y: 114}
-        - {x: -113.666626, y: -114}
-        - {x: 114.333374, y: -114}
-        - {x: 114.333374, y: 114}
-    - name: Mean Box_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Mean Box_7
       rect:
         serializedVersion: 2
         x: 7168
@@ -174,12 +168,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -113.611084, y: 114}
-        - {x: -113.611084, y: -114}
-        - {x: 115.388916, y: -114}
-        - {x: 115.388916, y: 114}
-    - name: Mean Box_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Mean Box_8
       rect:
         serializedVersion: 2
         x: 8192
@@ -189,11 +181,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -113.55554, y: 114}
-        - {x: -113.55554, y: -114}
-        - {x: 114.44446, y: -114}
-        - {x: 114.44446, y: 114}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

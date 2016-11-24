@@ -54,11 +54,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Portal_0
+    - serializedVersion: 2
+      name: Portal_0
       rect:
         serializedVersion: 2
         x: 0
@@ -68,34 +76,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 126, y: -29}
-        - {x: 115, y: -28}
-        - {x: 128, y: 52}
-        - {x: 128, y: 83}
-        - {x: 105, y: 124}
-        - {x: 55, y: 123}
-        - {x: 47, y: 128}
-        - {x: -47, y: 128}
-        - {x: -55, y: 124}
-        - {x: -105, y: 124}
-        - {x: -116, y: 105}
-        - {x: -128, y: 85}
-        - {x: -128, y: 61}
-        - {x: -124, y: 52}
-        - {x: -125, y: 30}
-        - {x: -115, y: 28}
-        - {x: -128, y: -53}
-        - {x: -128, y: -85}
-        - {x: -118, y: -106}
-        - {x: -108, y: -122}
-        - {x: -56, y: -126}
-        - {x: -49, y: -128}
-        - {x: 62, y: -128}
-        - {x: 105, y: -123}
-        - {x: 128, y: -86}
-        - {x: 128, y: -41}
-    - name: Portal_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Portal_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -105,27 +89,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 121, y: -106}
-        - {x: 128, y: -84}
-        - {x: 128, y: -18}
-        - {x: 117, y: -21}
-        - {x: 128, y: 20}
-        - {x: 128, y: 85}
-        - {x: 119, y: 108}
-        - {x: 101, y: 128}
-        - {x: -110, y: 128}
-        - {x: -128, y: 98}
-        - {x: -128, y: 39}
-        - {x: -125, y: 30}
-        - {x: -115, y: 28}
-        - {x: -128, y: -36}
-        - {x: -128, y: -108}
-        - {x: -126, y: -115}
-        - {x: -105, y: -124}
-        - {x: -86, y: -128}
-        - {x: 99, y: -128}
-    - name: Portal_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Portal_2
       rect:
         serializedVersion: 2
         x: 2048
@@ -135,26 +102,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 128, y: -99}
-        - {x: 128, y: -18}
-        - {x: 117, y: -21}
-        - {x: 128, y: 44}
-        - {x: 128, y: 93}
-        - {x: 118, y: 123}
-        - {x: 110, y: 128}
-        - {x: -103, y: 128}
-        - {x: -119, y: 106}
-        - {x: -128, y: 82}
-        - {x: -128, y: 18}
-        - {x: -117, y: 21}
-        - {x: -128, y: -36}
-        - {x: -128, y: -108}
-        - {x: -126, y: -115}
-        - {x: -105, y: -124}
-        - {x: -86, y: -128}
-        - {x: 99, y: -128}
-    - name: Portal_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Portal_3
       rect:
         serializedVersion: 2
         x: 3072
@@ -164,29 +115,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 120, y: -107}
-        - {x: 128, y: -89}
-        - {x: 128, y: -42}
-        - {x: 126, y: -29}
-        - {x: 115, y: -28}
-        - {x: 128, y: 45}
-        - {x: 128, y: 93}
-        - {x: 118, y: 123}
-        - {x: 110, y: 128}
-        - {x: -103, y: 128}
-        - {x: -119, y: 106}
-        - {x: -128, y: 87}
-        - {x: -128, y: 46}
-        - {x: -125, y: 30}
-        - {x: -115, y: 28}
-        - {x: -128, y: -12}
-        - {x: -128, y: -108}
-        - {x: -126, y: -115}
-        - {x: -105, y: -124}
-        - {x: -86, y: -128}
-        - {x: 99, y: -128}
-    - name: Portal_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Portal_4
       rect:
         serializedVersion: 2
         x: 4096
@@ -196,33 +128,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 126, y: -29}
-        - {x: 115, y: -28}
-        - {x: 128, y: 53}
-        - {x: 128, y: 98}
-        - {x: 126, y: 111}
-        - {x: 121, y: 123}
-        - {x: 55, y: 123}
-        - {x: 47, y: 128}
-        - {x: -103, y: 128}
-        - {x: -119, y: 106}
-        - {x: -128, y: 87}
-        - {x: -128, y: 61}
-        - {x: -124, y: 52}
-        - {x: -125, y: 30}
-        - {x: -115, y: 28}
-        - {x: -128, y: -55}
-        - {x: -128, y: -84}
-        - {x: -118, y: -106}
-        - {x: -108, y: -122}
-        - {x: -56, y: -126}
-        - {x: -49, y: -128}
-        - {x: 62, y: -128}
-        - {x: 105, y: -123}
-        - {x: 128, y: -86}
-        - {x: 128, y: -41}
-    - name: Portal_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Portal_5
       rect:
         serializedVersion: 2
         x: 5120
@@ -232,32 +141,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 126, y: -29}
-        - {x: 115, y: -28}
-        - {x: 128, y: 53}
-        - {x: 128, y: 86}
-        - {x: 120, y: 106}
-        - {x: 125, y: 122}
-        - {x: 55, y: 124}
-        - {x: 47, y: 128}
-        - {x: -103, y: 128}
-        - {x: -119, y: 106}
-        - {x: -128, y: 87}
-        - {x: -128, y: 61}
-        - {x: -124, y: 52}
-        - {x: -125, y: 30}
-        - {x: -115, y: 28}
-        - {x: -128, y: -32}
-        - {x: -128, y: -107}
-        - {x: -123, y: -109}
-        - {x: -105, y: -122}
-        - {x: -60, y: -128}
-        - {x: 67, y: -128}
-        - {x: 113, y: -124}
-        - {x: 128, y: -89}
-        - {x: 128, y: -42}
-    - name: Portal_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Portal_6
       rect:
         serializedVersion: 2
         x: 6144
@@ -267,31 +154,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 128, y: -24}
-        - {x: 126, y: -13}
-        - {x: 115, y: -12}
-        - {x: 128, y: 20}
-        - {x: 128, y: 88}
-        - {x: 107, y: 126}
-        - {x: 89, y: 128}
-        - {x: -96, y: 128}
-        - {x: -105, y: 124}
-        - {x: -125, y: 98}
-        - {x: -128, y: 80}
-        - {x: -128, y: 45}
-        - {x: -125, y: 30}
-        - {x: -115, y: 28}
-        - {x: -128, y: -53}
-        - {x: -128, y: -85}
-        - {x: -118, y: -106}
-        - {x: -108, y: -122}
-        - {x: -60, y: -128}
-        - {x: 59, y: -128}
-        - {x: 104, y: -122}
-        - {x: 122, y: -107}
-        - {x: 128, y: -92}
-    - name: Portal_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Portal_7
       rect:
         serializedVersion: 2
         x: 7168
@@ -301,36 +167,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 105, y: -123}
-        - {x: 128, y: -86}
-        - {x: 128, y: -41}
-        - {x: 126, y: -29}
-        - {x: 125, y: 2}
-        - {x: 116, y: 4}
-        - {x: 128, y: 57}
-        - {x: 128, y: 84}
-        - {x: 105, y: 124}
-        - {x: 64, y: 128}
-        - {x: -67, y: 128}
-        - {x: -105, y: 124}
-        - {x: -116, y: 105}
-        - {x: -128, y: 85}
-        - {x: -128, y: 46}
-        - {x: -125, y: 30}
-        - {x: -115, y: 28}
-        - {x: -128, y: -53}
-        - {x: -128, y: -84}
-        - {x: -117, y: -107}
-        - {x: -108, y: -122}
-        - {x: -91, y: -128}
-        - {x: 95, y: -128}
-      - - {x: -128, y: 10}
-        - {x: -128, y: -2}
-        - {x: -120, y: -2}
-        - {x: -118, y: 0}
-        - {x: -118, y: 8}
-        - {x: -120, y: 10}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

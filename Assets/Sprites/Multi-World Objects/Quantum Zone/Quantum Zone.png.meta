@@ -61,11 +61,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Quantum Zone_0
+    - serializedVersion: 2
+      name: Quantum Zone_0
       rect:
         serializedVersion: 2
         x: 0
@@ -75,12 +83,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_1
       rect:
         serializedVersion: 2
         x: 512
@@ -90,12 +96,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -105,12 +109,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -120,12 +122,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -135,12 +135,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -150,12 +148,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_6
       rect:
         serializedVersion: 2
         x: 3072
@@ -165,12 +161,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_7
       rect:
         serializedVersion: 2
         x: 3584
@@ -180,12 +174,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_8
       rect:
         serializedVersion: 2
         x: 4096
@@ -195,12 +187,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_9
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_9
       rect:
         serializedVersion: 2
         x: 4608
@@ -210,12 +200,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_10
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_10
       rect:
         serializedVersion: 2
         x: 5120
@@ -225,12 +213,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_11
       rect:
         serializedVersion: 2
         x: 5632
@@ -240,12 +226,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_12
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_12
       rect:
         serializedVersion: 2
         x: 6144
@@ -255,12 +239,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_13
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_13
       rect:
         serializedVersion: 2
         x: 6656
@@ -270,12 +252,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
-    - name: Quantum Zone_14
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Quantum Zone_14
       rect:
         serializedVersion: 2
         x: 7168
@@ -285,11 +265,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 496}
-        - {x: -256, y: -496}
-        - {x: 256, y: -496}
-        - {x: 256, y: 496}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

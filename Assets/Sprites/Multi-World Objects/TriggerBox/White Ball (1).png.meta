@@ -54,11 +54,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: White Ball (1)_0
+    - serializedVersion: 2
+      name: White Ball (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -68,12 +76,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -128, y: 128}
-        - {x: -128, y: -128}
-        - {x: 128, y: -128}
-        - {x: 128, y: 128}
-    - name: White Ball (1)_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: White Ball (1)_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -83,12 +89,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -128, y: 128}
-        - {x: -128, y: -128}
-        - {x: 128, y: -128}
-        - {x: 128, y: 128}
-    - name: White Ball (1)_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: White Ball (1)_2
       rect:
         serializedVersion: 2
         x: 2048
@@ -98,12 +102,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -128, y: 128}
-        - {x: -128, y: -128}
-        - {x: 128, y: -128}
-        - {x: 128, y: 128}
-    - name: White Ball (1)_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: White Ball (1)_3
       rect:
         serializedVersion: 2
         x: 3072
@@ -113,12 +115,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -128, y: 128}
-        - {x: -128, y: -128}
-        - {x: 128, y: -128}
-        - {x: 128, y: 128}
-    - name: White Ball (1)_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: White Ball (1)_4
       rect:
         serializedVersion: 2
         x: 4096
@@ -128,12 +128,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -128, y: 128}
-        - {x: -128, y: -128}
-        - {x: 128, y: -128}
-        - {x: 128, y: 128}
-    - name: White Ball (1)_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: White Ball (1)_5
       rect:
         serializedVersion: 2
         x: 5120
@@ -143,12 +141,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -128, y: 128}
-        - {x: -128, y: -128}
-        - {x: 128, y: -128}
-        - {x: 128, y: 128}
-    - name: White Ball (1)_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: White Ball (1)_6
       rect:
         serializedVersion: 2
         x: 6144
@@ -158,12 +154,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -128, y: 128}
-        - {x: -128, y: -128}
-        - {x: 128, y: -128}
-        - {x: 128, y: 128}
-    - name: White Ball (1)_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: White Ball (1)_7
       rect:
         serializedVersion: 2
         x: 7168
@@ -173,11 +167,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -128, y: 128}
-        - {x: -128, y: -128}
-        - {x: 128, y: -128}
-        - {x: 128, y: 128}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 
