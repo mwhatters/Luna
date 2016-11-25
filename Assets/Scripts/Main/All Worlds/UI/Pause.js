@@ -135,6 +135,9 @@ public function saveGameFromPaused() {
 public function ReturnToMenu() {
   if (SaveData.currentData) {
     PrivateSaveFromPause();
+    // Kill Intro Scripts for Specified scenes
+    if (SaveData.currentData.level == "1 Intro Level") { Destroy(GameObject.Find("IntroGame")); }
+    if (SaveData.currentData.level == "1 Burdens") { Destroy(GameObject.Find("EnterPAL")); }
   }
 
   Time.timeScale = 1;

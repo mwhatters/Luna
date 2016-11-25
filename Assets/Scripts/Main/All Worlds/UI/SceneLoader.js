@@ -53,6 +53,10 @@ function playNormalSceneExit() {
     Destroy(GameObject.Find("BackgroundMusic"));
     Destroy(GameObject.Find("IntroMusic"));
   }
+
+  for (var gobj : GameObject in persistentObjectsToKill) {
+    Destroy(gobj);
+  }
 }
 
 function resetCheckPointLoader() {

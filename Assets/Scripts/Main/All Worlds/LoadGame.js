@@ -1,4 +1,8 @@
-﻿#pragma strict
+﻿#pragma downcast
+
+import System.Runtime.Serialization.Formatters.Binary;
+import System.Runtime.Serialization;
+import System.IO;
 
 public var prefab : GameObject;
 public var canvas : GameObject;
@@ -44,15 +48,21 @@ function generateSavedGames() {
   var fileInfo = info.GetFiles();
 
   var x = -300;
-  var y = 580;
+  var y = 500;
   var index = 1;
 
-  for (file in fileInfo) {
+  for (var file in fileInfo) {
+    var bf : BinaryFormatter = new BinaryFormatter();
+    var foundFile = File.Open(Application.persistentDataPath + "/" + file.Name, FileMode.Open);
+    var data : PlayerData = bf.Deserialize(foundFile);
+
+    // Build child object
     var thisPrefab = Instantiate(prefab, new Vector3(x,y,0), Quaternion.identity).gameObject;
-    thisPrefab.name = Path.GetFileNameWithoutExtension(file.Name);
+    thisPrefab.name = Path.GetFileNameWithoutExtension(data.username);
     thisPrefab.transform.SetParent(canvas.transform, false);
+
     var nameField = thisPrefab.GetComponent(Text);
-    nameField.text = Path.GetFileNameWithoutExtension(file.Name);
+    nameField.text = (data.username + " -- " + data.level);
 
     y -= 25;
 
@@ -61,17 +71,16 @@ function generateSavedGames() {
       continue;
     }
 
+    // add click listener to instantiated object
     var captured : String = Path.GetFileNameWithoutExtension(file.Name);
-    SceneHelper.use.FadeTextToWhite(nameField.text, 0.3);
+    SceneHelper.use.FadeTextToWhite(data.username, 0.3);
     AddListener(thisPrefab.GetComponent(Button), captured);
 
     if (index == 1) {
       thisPrefab.GetComponent(Button).Select();
       Destroy(GameObject.Find("Load Game"));
       index += 1;
-
     }
-
 
     yield WaitForSeconds(0.03);
   }
