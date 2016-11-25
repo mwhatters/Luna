@@ -10,6 +10,7 @@ function Start() {
 
 		if (this.shift == shiftDirection.Down) {
 			FadeShifterToYellow(this.name, 10);
+			this.transform.eulerAngles.z = 0;
 		}
 
 		if (beginningGravityState.gravityDirection == Direction.Up) {
