@@ -82,8 +82,11 @@ function generateSavedGames() {
       index += 1;
     }
 
+    foundFile.Close();
+
     yield WaitForSeconds(0.03);
   }
+
 }
 
 function AddListener(b : Button, a : String) {
