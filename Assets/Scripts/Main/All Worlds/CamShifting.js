@@ -36,6 +36,18 @@ function Start () {
 	explanatoryText = explanatoryText;
 }
 
+function FreezeRotation() : RigidbodyConstraints2D {
+	if (freezeZRotations) { return RigidbodyConstraints2D.FreezeRotation; } else { return; }
+}
+
+function FreezeX() : RigidbodyConstraints2D {
+	if (freezeXMovement) { return RigidbodyConstraints2D.FreezePositionX; } else { return; }
+}
+
+function FreezeY() : RigidbodyConstraints2D {
+	if (freezeYMovement) { return RigidbodyConstraints2D.FreezePositionY; } else { return; }
+}
+
 function OnTriggerEnter2D(coll : Collider2D) {
 
 	if (coll.name == "Luna") {
@@ -46,16 +58,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 				if (item.CompareTag("BurdenBall")) {
 					item.GetComponent(Clinger).active = true;
 				} else {
-					item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
-					if (freezeZRotations) {
-						item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeRotation;
-					}
-					if (freezeXMovement) {
-						item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezePositionX;
-					}
-					if (freezeYMovement) {
-						item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezePositionY;
-					}
+					item.GetComponent(Rigidbody2D).constraints = (FreezeRotation() | FreezeX() | FreezeY());
 				}
 			}
 			boxesUnfrozen = true;
