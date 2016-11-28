@@ -68,7 +68,7 @@ function PureBoyStartScene() {
   yield WaitForSeconds(3);
   Sounds.use.PlaySoundByName("LushFade");
   yield WaitForSeconds(2);
-  SceneHelper.use.PartiallyFadeInImage("Pure Boy", 0.04, 0.9);
+  SceneHelper.use.PartiallyFadeInImage("Pure Boy", 0.004, 0.9);
   yield WaitForSeconds(4);
   SceneHelper.use.ShowAndHideText(Text2, 1.8);
   yield WaitForSeconds(3.5);
