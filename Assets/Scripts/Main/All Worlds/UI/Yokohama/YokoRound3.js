@@ -26,7 +26,7 @@ function Begin() {
 // total = 11 seconds
 function Box1Script() {
   var controller = LB1.GetComponent(LogicBox);
-  controller.SetMovement(0, 0, -0.85);
+  controller.SetMovement(0, 0, -0.8);
   yield WaitForSeconds(1);
   controller.Enable();
   yield WaitForSeconds(9);

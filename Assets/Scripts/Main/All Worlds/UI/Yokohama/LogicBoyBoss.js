@@ -106,7 +106,7 @@ function StartRound3() {
   Instantiate(Round3, Vector3(441.7, 733.2, 0.1), Quaternion.identity);
   var r3 = GameObject.Find("Round3(Clone)").GetComponent(YokoRound3);
   r3.Begin();
-  yield WaitForSeconds(14);
+  yield WaitForSeconds(15);
 }
 
 function StartRound4() {
