@@ -31,16 +31,6 @@ function FadeInImage(name, rate : float) {
   FadeImg.color.a = 255;
 }
 
-function FadeToRed(name, rate: float) {
-	var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
-	var a = 0;
-	while (a < 500) {
-		FadeImg.color = Color.Lerp(FadeImg.color, Color.red, rate);
-		a += 1;
-		yield WaitForSeconds(0.06);
-	}
-}
-
 function PartiallyFadeInImage(name, rate : float, max : float) {
   var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
   while (FadeImg.color.a < max) {
@@ -149,6 +139,28 @@ function grabComponentType(object : GameObject, type : String) {
 	}
 
 	return true;
+}
+
+// Color Faders
+
+function FadeTo(name, rate : float, colorFade : Color) {
+	var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
+	var a = 0;
+	while (a < 500) {
+		FadeImg.color = Color.Lerp(FadeImg.color, colorFade, rate);
+		a += 1;
+		yield WaitForSeconds(0.06);
+	}
+}
+
+function FadeToRed(name, rate: float) {
+	var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
+	var a = 0;
+	while (a < 500) {
+		FadeImg.color = Color.Lerp(FadeImg.color, Color.red, rate);
+		a += 1;
+		yield WaitForSeconds(0.06);
+	}
 }
 
 // Camera

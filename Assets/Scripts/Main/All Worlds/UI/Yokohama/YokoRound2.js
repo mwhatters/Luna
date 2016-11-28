@@ -9,6 +9,7 @@ function Start () {
   Begin();
 }
 
+// begin has 4 seconds
 function Begin() {
   GetComponent(RoundInitializer).fadeInRound();
   yield WaitForSeconds(2);

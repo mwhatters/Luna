@@ -67,7 +67,6 @@ function LogicBoyStartScene() {
   yield WaitForSeconds(4);
   Sounds.use.PlaySoundByName("LushFade");
   SceneHelper.use.PartiallyFadeInImage("LogicBoy", 0.001, 1);
-  // yield WaitForSeconds(2);
   yield WaitForSeconds(2);
   SceneHelper.use.ShowAndHideText(Text3, 4);
   yield WaitForSeconds(3);
@@ -77,30 +76,34 @@ function LogicBoyStartScene() {
   yield WaitForSeconds(4);
   SceneHelper.use.ShowAndHideText(Text6, 2);
   yield WaitForSeconds(4);
-  // SceneHelper.use.FadeOutImageWithRate("Pure Boy", 0.04);
 }
 
 
 function startBossBattle() {
-  SceneHelper.use.FadeToRed("YokoBack", 0.05);
+  SceneHelper.use.FadeTo("YokoBack", 0.05, Color.red);
   yield StartRound1();
   yield StartRound2();
+  SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
+  yield StartRound3();
 }
 
 function StartRound1() {
-  Debug.Log("hit 1");
-  Instantiate(Round1, Vector3 (441.7, 733.2, 0.1), Quaternion.identity);
-  yield WaitForSeconds(1);
-  Debug.Log("hit 2");
+  Instantiate(Round1, Vector3(441.7, 733.2, 0.1), Quaternion.identity);
   var r1 = GameObject.Find("Round1(Clone)").GetComponent(YokoRound1);
   r1.Begin();
-  yield WaitForSeconds(13); // length of wait on begin function + 1
-  Debug.Log("hit 3");
+  yield WaitForSeconds(14);
 }
 
 function StartRound2() {
-  Instantiate(Round2, Vector3 (441.7, 733.2, 0.1), Quaternion.identity);
-  yield WaitForSeconds(1);
+  Instantiate(Round2, Vector3(441.7, 733.2, 0.1), Quaternion.identity);
   var r2 = GameObject.Find("Round2(Clone)").GetComponent(YokoRound2);
-  yield r2.Begin();
+  r2.Begin();
+  yield WaitForSeconds(14);
+}
+
+function StartRound3() {
+  Instantiate(Round3, Vector3(441.7, 733.2, 0.1), Quaternion.identity);
+  var r3 = GameObject.Find("Round3(Clone)").GetComponent(YokoRound3);
+  r3.Begin();
+  yield WaitForSeconds(14);
 }

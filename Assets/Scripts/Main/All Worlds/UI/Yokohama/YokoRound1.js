@@ -7,6 +7,7 @@ function Start () {
   Begin();
 }
 
+// begin has 4 seconds
 function Begin() {
   GetComponent(RoundInitializer).fadeInRound();
   yield WaitForSeconds(2);
@@ -20,10 +21,9 @@ function Begin() {
   StopCoroutine("Box2Script");
 
   yield GetComponent(RoundInitializer).fadeOutRound();
-  Debug.Log("done fading");
-  return;
 }
 
+// script is 11
 function Box1Script() {
   var controller = LB1.GetComponent(LogicBox);
   controller.Enable();
