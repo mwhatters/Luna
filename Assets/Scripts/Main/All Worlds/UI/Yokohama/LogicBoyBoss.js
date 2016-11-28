@@ -36,6 +36,7 @@ function Start () {
   Text6 = GameObject.Find("Text6");
   Text7 = GameObject.Find("Text7");
   Text8 = GameObject.Find("Text8");
+  lunaState = luna.GetComponent(PlayerGameStates);
 
   if (!scenePlayed && !skipScene) {
     scenePlayed = true;
@@ -54,50 +55,51 @@ function Start () {
   startBossBattle();
 }
 
-  function LogicBoyStartScene() {
-    timer.running = false;
-    pauseMenu.GetComponent(Pause).canPause = false;
-    LunaController.use.Freeze();
+function LogicBoyStartScene() {
+  timer.running = false;
+  pauseMenu.GetComponent(Pause).canPause = false;
+  LunaController.use.Freeze();
 
-    yield WaitForSeconds(1);
-    SceneHelper.use.ShowAndHideText(Text1, 3);
-    yield WaitForSeconds(4);
-    SceneHelper.use.ShowAndHideText(Text2, 3);
-    yield WaitForSeconds(4);
-    Sounds.use.PlaySoundByName("LushFade");
-    SceneHelper.use.PartiallyFadeInImage("LogicBoy", 0.001, 1);
-    // yield WaitForSeconds(2);
-    yield WaitForSeconds(2);
-    SceneHelper.use.ShowAndHideText(Text3, 4);
-    yield WaitForSeconds(3);
-    SceneHelper.use.ShowAndHideText(Text4, 2);
-    yield WaitForSeconds(4);
-    SceneHelper.use.ShowAndHideText(Text5, 2);
-    yield WaitForSeconds(4);
-    SceneHelper.use.ShowAndHideText(Text6, 2);
-    yield WaitForSeconds(4);
-    // SceneHelper.use.FadeOutImageWithRate("Pure Boy", 0.04);
-  }
+  yield WaitForSeconds(1);
+  SceneHelper.use.ShowAndHideText(Text1, 3);
+  yield WaitForSeconds(4);
+  SceneHelper.use.ShowAndHideText(Text2, 3);
+  yield WaitForSeconds(4);
+  Sounds.use.PlaySoundByName("LushFade");
+  SceneHelper.use.PartiallyFadeInImage("LogicBoy", 0.001, 1);
+  // yield WaitForSeconds(2);
+  yield WaitForSeconds(2);
+  SceneHelper.use.ShowAndHideText(Text3, 4);
+  yield WaitForSeconds(3);
+  SceneHelper.use.ShowAndHideText(Text4, 2);
+  yield WaitForSeconds(4);
+  SceneHelper.use.ShowAndHideText(Text5, 2);
+  yield WaitForSeconds(4);
+  SceneHelper.use.ShowAndHideText(Text6, 2);
+  yield WaitForSeconds(4);
+  // SceneHelper.use.FadeOutImageWithRate("Pure Boy", 0.04);
+}
 
 
 function startBossBattle() {
   SceneHelper.use.FadeToRed("YokoBack", 0.05);
   yield StartRound1();
   yield StartRound2();
-
-  if (!luna.GetComponent(PlayerGameStates).isDead) {
-    // yield LunaGoesToSpaceScene();
-  }
 }
 
 function StartRound1() {
+  Debug.Log("hit 1");
   Instantiate(Round1, Vector3 (441.7, 733.2, 0.1), Quaternion.identity);
   yield WaitForSeconds(1);
-  yield GameObject.Find("Round1(Clone)").GetComponent(YokoRound1).Begin();
+  Debug.Log("hit 2");
+  var r1 = GameObject.Find("Round1(Clone)").GetComponent(YokoRound1);
+  yield r1.Begin();
+  Debug.Log("hit 3");
 }
 
 function StartRound2() {
-  Instantiate(Round1, Vector3 (441.7, 733.2, 0.1), Quaternion.identity);
+  Instantiate(Round2, Vector3 (441.7, 733.2, 0.1), Quaternion.identity);
   yield WaitForSeconds(1);
-  yield GameObject.Find("Round1(Clone)").GetComponent(YokoRound1).Begin();
+  var r2 = GameObject.Find("Round2(Clone)").GetComponent(YokoRound2);
+  yield r2.Begin();
 }

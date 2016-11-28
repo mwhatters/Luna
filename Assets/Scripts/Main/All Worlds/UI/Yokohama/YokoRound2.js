@@ -1,4 +1,4 @@
-﻿#pragma strict
+#pragma strict
 
 public var LB1 : GameObject;
 public var LB2 : GameObject;
@@ -19,9 +19,7 @@ function Begin() {
   StopCoroutine("Box1Script");
   StopCoroutine("Box2Script");
 
-  yield GetComponent(RoundInitializer).fadeOutRound();
-  Debug.Log("done fading");
-  return;
+  GetComponent(RoundInitializer).fadeOutRound();
 }
 
 function Box1Script() {

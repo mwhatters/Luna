@@ -32,7 +32,7 @@ function Disable() {
   }
 }
 
-function EnableMovement(x,y,r) {
+function SetMovement(x,y,r) {
   SetX(x); SetY(y); SetR(r);
 }
 
