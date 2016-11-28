@@ -82,19 +82,22 @@ function Start () {
 
 function startBossBattle() {
   SceneHelper.use.FadeToRed("YokoBack", 0.05);
-  // GameObject.Find("PureBoyRoom").GetComponent(CamShifting).zoomCameraExit();
-
-  if (currentRound == "1") {
-    // StartRound1();
-  } else if (currentRound == "2") {
-    // StartRound2();
-  } else if (currentRound == "3") {
-    // StartRound3();
-  } else if (currentRound == "4") {
-    // StartRound4();
-  }
+  yield StartRound1();
+  yield StartRound2();
 
   if (!luna.GetComponent(PlayerGameStates).isDead) {
     // yield LunaGoesToSpaceScene();
   }
+}
+
+function StartRound1() {
+  Instantiate(Round1, Vector3 (441.7, 733.2, 0.1), Quaternion.identity);
+  yield WaitForSeconds(1);
+  yield GameObject.Find("Round1(Clone)").GetComponent(YokoRound1).Begin();
+}
+
+function StartRound2() {
+  Instantiate(Round1, Vector3 (441.7, 733.2, 0.1), Quaternion.identity);
+  yield WaitForSeconds(1);
+  yield GameObject.Find("Round1(Clone)").GetComponent(YokoRound1).Begin();
 }

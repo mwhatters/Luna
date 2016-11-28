@@ -1,4 +1,7 @@
 ﻿#pragma strict
+
+public var active : boolean = true;
+
 var lineRenderer : LineRenderer;
 enum gravLaserDirection { Down, Right, Up, Left, ULeft, URight, DLeft, DRight, None };
 public var laserDirection = gravLaserDirection.Down;
@@ -9,7 +12,6 @@ public var textureSwitch : boolean = true;
 public var laserTexture1 : Material;
 public var laserTexture2 : Material;
 public var laserWidth : float = 0.3;
-
 
 function Start() {
   lineRenderer = gameObject.AddComponent(LineRenderer);
@@ -22,6 +24,12 @@ function Start() {
 }
 
 function FixedUpdate () {
+
+  if (!active) {
+    lineRenderer.SetPosition(0, transform.position);
+    lineRenderer.SetPosition(1, transform.position);
+    return false;
+  }
 
   switch (laserDirection)
   {
