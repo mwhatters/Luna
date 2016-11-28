@@ -2,6 +2,8 @@
 
 public var LB1 : GameObject;
 public var LB2 : GameObject;
+public var LB3 : GameObject;
+public var LB4 : GameObject;
 
 function Start () {
   Begin();
@@ -22,13 +24,14 @@ function Begin() {
   GetComponent(RoundInitializer).fadeOutRound();
 }
 
+// total = 11 seconds
 function Box1Script() {
   var controller = LB1.GetComponent(LogicBox);
   controller.Enable();
   yield WaitForSeconds(2);
-  controller.SetMovement(0, 0, 0.3);
+  controller.SetMovement(4, 0, -0.4);
   yield WaitForSeconds(2);
-  controller.SetMovement(4.0, 0.0, -0.5);
+  controller.SetMovement(4.0, 0.0, -0.4);
   yield WaitForSeconds(5);
   controller.DisableMovement();
   yield WaitForSeconds(1);
@@ -39,10 +42,10 @@ function Box2Script() {
   var controller = LB2.GetComponent(LogicBox);
   controller.Enable();
   yield WaitForSeconds(2);
-  controller.SetMovement(2.0, -1.0, 0.0);
-  yield WaitForSeconds(2);
-  controller.SetMovement(0.0, 1.0, -0.2);
-  yield WaitForSeconds(5);
+  controller.SetMovement(0.0, 0.0, 0.0);
+  yield WaitForSeconds(1);
+  controller.SetMovement(0.0, 0.0, 0.4);
+  yield WaitForSeconds(6);
   controller.DisableMovement();
   yield WaitForSeconds(1);
   controller.Disable();

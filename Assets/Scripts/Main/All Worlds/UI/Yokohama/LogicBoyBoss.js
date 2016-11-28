@@ -93,7 +93,8 @@ function StartRound1() {
   yield WaitForSeconds(1);
   Debug.Log("hit 2");
   var r1 = GameObject.Find("Round1(Clone)").GetComponent(YokoRound1);
-  yield r1.Begin();
+  r1.Begin();
+  yield WaitForSeconds(13); // length of wait on begin function + 1
   Debug.Log("hit 3");
 }
 

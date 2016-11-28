@@ -41,7 +41,7 @@ function Box2Script() {
   var controller = LB2.GetComponent(LogicBox);
   controller.Enable();
   yield WaitForSeconds(2);
-  controller.SetMovement(2.0, -1.0, 0.0);
+  controller.SetMovement(2.0, -1.0, -0.2);
   yield WaitForSeconds(2);
   controller.SetMovement(0.0, 1.0, -0.2);
   yield WaitForSeconds(5);
