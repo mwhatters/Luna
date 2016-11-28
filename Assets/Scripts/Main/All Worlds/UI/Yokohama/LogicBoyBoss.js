@@ -80,11 +80,11 @@ function LogicBoyStartScene() {
 
 
 function startBossBattle() {
-  // SceneHelper.use.FadeTo("YokoBack", 0.05, Color.red);
-  // yield StartRound1();
-  // yield StartRound2();
+  SceneHelper.use.FadeTo("YokoBack", 0.05, Color.red);
+  yield StartRound1();
+  yield StartRound2();
   SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
-  // yield StartRound3();
+  yield StartRound3();
   yield StartRound4();
 }
 
