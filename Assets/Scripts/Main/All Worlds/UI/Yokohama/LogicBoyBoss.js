@@ -80,11 +80,12 @@ function LogicBoyStartScene() {
 
 
 function startBossBattle() {
-  SceneHelper.use.FadeTo("YokoBack", 0.05, Color.red);
-  yield StartRound1();
-  yield StartRound2();
+  // SceneHelper.use.FadeTo("YokoBack", 0.05, Color.red);
+  // yield StartRound1();
+  // yield StartRound2();
   SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
-  yield StartRound3();
+  // yield StartRound3();
+  yield StartRound4();
 }
 
 function StartRound1() {
@@ -105,5 +106,12 @@ function StartRound3() {
   Instantiate(Round3, Vector3(441.7, 733.2, 0.1), Quaternion.identity);
   var r3 = GameObject.Find("Round3(Clone)").GetComponent(YokoRound3);
   r3.Begin();
+  yield WaitForSeconds(14);
+}
+
+function StartRound4() {
+  Instantiate(Round4, Vector3(441.7, 733.2, 0.1), Quaternion.identity);
+  var r4 = GameObject.Find("Round4(Clone)").GetComponent(YokoRound4);
+  r4.Begin();
   yield WaitForSeconds(14);
 }

@@ -6,7 +6,7 @@ public var LB3 : GameObject;
 public var LB4 : GameObject;
 
 function Start () {
-  Begin();
+  // Begin();
 }
 
 // begin has 4 seconds
