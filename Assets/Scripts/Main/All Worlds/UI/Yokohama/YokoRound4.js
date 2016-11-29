@@ -30,7 +30,7 @@ function Box1Script() {
   var controller = LB1.GetComponent(LogicBox);
   controller.Enable();
   yield WaitForSeconds(1);
-  controller.SetMovement(0.0, 0.0, -0.3);
+  controller.SetMovement(4.0, 0.0, -0.3);
   yield WaitForSeconds(12);
   controller.DisableMovement();
   yield WaitForSeconds(1);

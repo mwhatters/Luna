@@ -1,9 +1,6 @@
 #pragma downcast
-
 private static var scenePlayed : boolean = false;
 public var skipScene : boolean = false;
-
-static var currentRound = "1";
 
 var luna : GameObject;
 var Text1 : GameObject;
@@ -22,6 +19,7 @@ var Round1 : Transform;
 var Round2 : Transform;
 var Round3 : Transform;
 var Round4 : Transform;
+var Round5 : Transform;
 
 function Start () {
   luna = GameObject.Find("Luna");
@@ -80,12 +78,14 @@ function LogicBoyStartScene() {
 
 
 function startBossBattle() {
-  SceneHelper.use.FadeTo("YokoBack", 0.05, Color.red);
+  SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
   yield StartRound1();
   yield StartRound2();
-  SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
+  SceneHelper.use.FadeTo("YokoBack", 0.05, Color.yellow);
   yield StartRound3();
   yield StartRound4();
+  SceneHelper.use.FadeTo("YokoBack", 0.05, Color.red);
+  yield StartRound5();
 }
 
 function StartRound1() {
@@ -114,4 +114,12 @@ function StartRound4() {
   var r4 = GameObject.Find("Round4(Clone)").GetComponent(YokoRound4);
   r4.Begin();
   yield WaitForSeconds(14);
+}
+
+function StartRound5() {
+  Instantiate(Round5, Vector3(441.7, 733.2, 0.1), Quaternion.identity);
+  var r5 = GameObject.Find("Round5(Clone)").GetComponent(YokoRound5);
+  Debug.Log(r5);
+  r5.Begin();
+  yield WaitForSeconds(52);
 }

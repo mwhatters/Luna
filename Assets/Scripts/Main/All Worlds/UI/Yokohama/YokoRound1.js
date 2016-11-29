@@ -3,10 +3,6 @@
 public var LB1 : GameObject;
 public var LB2 : GameObject;
 
-function Start () {
-  // Begin();
-}
-
 // begin has 4 seconds
 function Begin() {
   GetComponent(RoundInitializer).fadeInRound();
