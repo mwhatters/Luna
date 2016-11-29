@@ -4,6 +4,19 @@ public var LB1 : GameObject;
 public var LB2 : GameObject;
 public var LB3 : GameObject;
 public var LB4 : GameObject;
+var luna : GameObject;
+var lunaAlive : PlayerGameStates;
+
+function Start() {
+  luna = GameObject.Find("Luna");
+  lunaAlive = luna.GetComponent(PlayerGameStates);
+}
+
+function Update() {
+  if (lunaAlive.isDead) {
+    StopAllCoroutines();
+  }
+}
 
 // begin has 4 seconds
 function Begin() {
@@ -25,12 +38,12 @@ function Begin() {
   GetComponent(RoundInitializer).fadeOutRound();
 }
 
-// total = 13 seconds
+// total = 14 seconds
 function Box1Script() {
   var controller = LB1.GetComponent(LogicBox);
   controller.Enable();
   yield WaitForSeconds(1);
-  controller.SetMovement(4.0, 0.0, -0.3);
+  controller.SetMovement(0.0, 0.0, -0.3);
   yield WaitForSeconds(12);
   controller.DisableMovement();
   yield WaitForSeconds(1);

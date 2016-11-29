@@ -37,6 +37,7 @@ function beginSceneTransition() {
 function playNormalSceneExit() {
   // save timer results
 
+  GameObject.Find("Camera").GetComponent(CameraBehavior).shaking = false;
   GameObject.Find("User Interface").GetComponent(Timer).running = false;
   GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = true;
   GameObject.Find("ETInstantiator").GetComponent(UISceneTransition).PortalExitTransition();

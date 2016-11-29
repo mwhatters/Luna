@@ -64,7 +64,8 @@ function FixedUpdate () {
     }
 
     if (hit.collider.name == "Luna") {
-      GameObject.Find("Luna").GetComponent(PlayerGameStates).Die();
+      var luna = GameObject.Find("Luna").GetComponent(PlayerGameStates);
+      luna.Die();
     }
   } else {
     lineRenderer.SetPosition(0, transform.position);

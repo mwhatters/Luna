@@ -4,6 +4,19 @@ public var LB1 : GameObject;
 public var LB2 : GameObject;
 public var LB3 : GameObject;
 public var LB4 : GameObject;
+var luna : GameObject;
+var lunaAlive : PlayerGameStates;
+
+function Start() {
+  luna = GameObject.Find("Luna");
+  lunaAlive = luna.GetComponent(PlayerGameStates);
+}
+
+function Update() {
+  if (lunaAlive.isDead) {
+    StopAllCoroutines();
+  }
+}
 
 // begin has 4 seconds
 function Begin() {

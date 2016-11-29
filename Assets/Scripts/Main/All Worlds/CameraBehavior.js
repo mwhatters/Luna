@@ -15,17 +15,10 @@ function Start () {
 	lunaObj = GameObject.Find("Luna");
 }
 
-function LateUpdate() {
+function Update() {
 	if (!staticCamera()) {
 		transform.position.x = lunaObj.transform.position.x;
 		transform.position.y = lunaObj.transform.position.y;
-
-		// var player_x = lunaObj.transform.position.x;
-		// var player_y = lunaObj.transform.position.y;
-		//
-		// var rounded_x = RoundToNearestPixel(player_x);
-		// var rounded_y = RoundToNearestPixel(player_y);
-		// transform.position = new Vector3(rounded_x, rounded_y, transform.position.z);
 	}
 
 	if (shaking) {

@@ -80,7 +80,7 @@ function PureBoyStartScene() {
   yield WaitForSeconds(12);
   SceneHelper.use.ShowAndHideText(Text6, 2);
   yield WaitForSeconds(2);
-  SceneHelper.use.FadeOutImageWithRate("Pure Boy", 0.04);
+  SceneHelper.use.FadeOutImageWithRate("Pure Boy", 0.004);
 }
 
 function startBossBattle() {
@@ -129,7 +129,6 @@ function StartRound4() {
 
 function EndBattle() {
   LunaGoesToSpaceScene();
-  Debug.Log("Finished");
 }
 
 function fadeInRound(round) {
