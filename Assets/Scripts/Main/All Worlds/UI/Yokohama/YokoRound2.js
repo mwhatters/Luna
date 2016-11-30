@@ -21,7 +21,10 @@ function Update() {
 // begin has 4 seconds
 function Begin() {
   GetComponent(RoundInitializer).fadeInRound();
-  yield WaitForSeconds(2);
+  yield WaitForSeconds(1);
+  ObjectFX.use.BlinkToColor(LB1.GetComponent(SpriteRenderer), Color.red);
+  ObjectFX.use.BlinkToColor(LB2.GetComponent(SpriteRenderer), Color.red);
+  yield WaitForSeconds(1);
 
   StartCoroutine("Box1Script");
   yield StartCoroutine("Box2Script"); // yield last coroutine
