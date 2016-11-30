@@ -43,7 +43,7 @@ function Box1Script() {
   var controller = LB1.GetComponent(LogicBox);
   controller.Enable();
   yield WaitForSeconds(1);
-  controller.SetMovement(0.0, 0.0, -0.3);
+  controller.SetMovement(0.0, 0.0, 0.2);
   yield WaitForSeconds(12);
   controller.DisableMovement();
   yield WaitForSeconds(1);
@@ -54,7 +54,7 @@ function Box2Script() {
   var controller = LB2.GetComponent(LogicBox);
   controller.Enable();
   yield WaitForSeconds(1);
-  controller.SetMovement(0.0, 0.0, 0.3);
+  controller.SetMovement(0.0, 0.0, 0.2);
   yield WaitForSeconds(12);
   controller.DisableMovement();
   yield WaitForSeconds(1);
@@ -65,7 +65,7 @@ function Box3Script() {
   var controller = LB3.GetComponent(LogicBox);
   controller.Enable();
   yield WaitForSeconds(1);
-  controller.SetMovement(0.0, 0.0, 0.3);
+  controller.SetMovement(0.0, 0.0, 0.2);
   yield WaitForSeconds(12);
   controller.DisableMovement();
   yield WaitForSeconds(1);
@@ -76,7 +76,7 @@ function Box4Script() {
   var controller = LB4.GetComponent(LogicBox);
   controller.Enable();
   yield WaitForSeconds(1);
-  controller.SetMovement(0.0, 0.0, -0.3);
+  controller.SetMovement(0.0, 0.0, 0.2);
   yield WaitForSeconds(12);
   controller.DisableMovement();
   yield WaitForSeconds(1);
