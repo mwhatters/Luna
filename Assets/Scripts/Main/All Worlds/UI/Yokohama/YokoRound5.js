@@ -45,19 +45,19 @@ function Box1Script() {
 
   // part a -- 11
   yield WaitForSeconds(3);
-  controller.SetMovement(-5, -5, 0.0);
+  controller.SetMovement(-4.5, -4.5, 0.0);
   yield WaitForSeconds(5);
   controller.DisableMovement();
   yield WaitForSeconds(3);
 
   // part b -- 16
-  controller.SetMovement(0, 5, 0.0);
+  controller.SetMovement(0, 4.5, 0.0);
   yield WaitForSeconds(4);
-  controller.SetMovement(5, 0, 0.0);
+  controller.SetMovement(4.5, 0, 0.0);
   yield WaitForSeconds(4);
-  controller.SetMovement(0, -5, 0.0);
+  controller.SetMovement(0, -4.5, 0.0);
   yield WaitForSeconds(4);
-  controller.SetMovement(-5, 5, 0.0);
+  controller.SetMovement(-4.5, 4.5, 0.0);
   yield WaitForSeconds(4);
   controller.DisableMovement();
 
@@ -75,7 +75,7 @@ function Box2Script() {
   yield WaitForSeconds(27);
 
   // part c -- 8
-  controller.SetMovement(0, 5, 0.0);
+  controller.SetMovement(0, 4.5, 0.0);
   yield WaitForSeconds(4);
   controller.DisableMovement();
   yield WaitForSeconds(4);
@@ -93,9 +93,9 @@ function Box3Script() {
   yield WaitForSeconds(27);
 
   // part c -- 8
-  controller.SetMovement(0, -5, 0.0);
+  controller.SetMovement(0, -4.5, 0.0);
   yield WaitForSeconds(4);
-  controller.SetMovement(5, 0, 0.0);
+  controller.SetMovement(4.5, 0, 0.0);
   yield WaitForSeconds(4);
   controller.DisableMovement();
 
@@ -112,13 +112,13 @@ function Box4Script() {
   yield WaitForSeconds(11);
 
   // part b -- 16
-  controller.SetMovement(0, 5, 0.0);
+  controller.SetMovement(0, 4.5, 0.0);
   yield WaitForSeconds(4);
-  controller.SetMovement(5, 0, 0.0);
+  controller.SetMovement(4.5, 0, 0.0);
   yield WaitForSeconds(4);
-  controller.SetMovement(0, -5, 0.0);
+  controller.SetMovement(0, -4.5, 0.0);
   yield WaitForSeconds(4);
-  controller.SetMovement(-5, 5, 0.0);
+  controller.SetMovement(-4.5, 4.5, 0.0);
   yield WaitForSeconds(4);
   controller.DisableMovement();
 

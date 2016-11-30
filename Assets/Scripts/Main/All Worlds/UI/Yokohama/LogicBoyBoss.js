@@ -96,19 +96,19 @@ function LogicBoyStartScene() {
 
 
 function startBossBattle() {
-  // if (!luna.GetComponent(PlayerGameStates).isDead) {
-  //   SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
-  //   yield StartRound1();
-  // }
-  //
-  // if (!luna.GetComponent(PlayerGameStates).isDead) {
-  //   yield StartRound2();
-  // }
-  //
-  // if (!luna.GetComponent(PlayerGameStates).isDead) {
-  //   SceneHelper.use.FadeTo("YokoBack", 0.05, Color.yellow);
-  //   yield StartRound3();
-  // }
+  if (!luna.GetComponent(PlayerGameStates).isDead) {
+    SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
+    yield StartRound1();
+  }
+
+  if (!luna.GetComponent(PlayerGameStates).isDead) {
+    yield StartRound2();
+  }
+
+  if (!luna.GetComponent(PlayerGameStates).isDead) {
+    SceneHelper.use.FadeTo("YokoBack", 0.05, Color.yellow);
+    yield StartRound3();
+  }
 
   if (!luna.GetComponent(PlayerGameStates).isDead) {
     yield StartRound4();
