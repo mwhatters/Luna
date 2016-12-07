@@ -1,5 +1,6 @@
 #pragma downcast
 private static var scenePlayed : boolean = false;
+private static var halfwayPointReached : boolean = false;
 public var skipScene : boolean = false;
 
 var luna : GameObject;
@@ -96,21 +97,25 @@ function LogicBoyStartScene() {
 
 
 function startBossBattle() {
-  if (!luna.GetComponent(PlayerGameStates).isDead) {
-    SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
-    yield StartRound1();
+
+  if (!halfwayPointReached) {
+    if (!luna.GetComponent(PlayerGameStates).isDead) {
+      SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
+      yield StartRound1();
+    }
+
+    if (!luna.GetComponent(PlayerGameStates).isDead) {
+      yield StartRound2();
+    }
+
+    if (!luna.GetComponent(PlayerGameStates).isDead) {
+      SceneHelper.use.FadeTo("YokoBack", 0.05, Color.yellow);
+      yield StartRound3();
+    }
   }
 
   if (!luna.GetComponent(PlayerGameStates).isDead) {
-    yield StartRound2();
-  }
-
-  if (!luna.GetComponent(PlayerGameStates).isDead) {
-    SceneHelper.use.FadeTo("YokoBack", 0.05, Color.yellow);
-    yield StartRound3();
-  }
-
-  if (!luna.GetComponent(PlayerGameStates).isDead) {
+    halfwayPointReached = true;
     yield StartRound4();
   }
 
