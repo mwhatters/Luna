@@ -38,3 +38,11 @@ function DisableSoundByName(name : String) {
 function Kill(sound : String) {
 	Destroy(GameObject.Find(sound));
 }
+
+function FadeIn(name : String, rate : float, max : float) {
+	var foundSound = GameObject.Find(name).GetComponent(AudioSource);
+	while (foundSound.volume < max) {
+		foundSound.volume += rate;
+		yield;
+	}
+}
