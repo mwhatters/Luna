@@ -6,10 +6,9 @@ public var yspeed : int = -9;
 private var nextBounce = 0.0;
 private var bounceRate = 0.0;
 
-function FixedUpdate () {
+function FixedUpdate() {
 	GetComponent(Rigidbody2D).velocity.y = yspeed;
 	GetComponent(Rigidbody2D).velocity.x = xspeed;
-
 }
 
 function OnCollisionEnter2D (coll : Collision2D) {
