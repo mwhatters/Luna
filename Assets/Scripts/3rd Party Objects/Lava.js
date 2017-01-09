@@ -12,8 +12,10 @@ private var nextReverse : float = 0;
 private var reversed : boolean = false;
 
 function Start() {
-  nextReverse = 0;
-  reversed = false;
+  if (backAndForthTimer) {
+    nextReverse = Time.time;
+    reversed = true;
+  }
 }
 
 function FixedUpdate() {
@@ -25,6 +27,7 @@ function FixedUpdate() {
       reverseDirections();
       reversed = !reversed;
       nextReverse += time;
+      Debug.Log(nextReverse);
     }
   }
 
@@ -40,7 +43,6 @@ function FixedUpdate() {
 
   return true;
 }
-
 
 function reverseDirections() {
   switch (lavaDir)

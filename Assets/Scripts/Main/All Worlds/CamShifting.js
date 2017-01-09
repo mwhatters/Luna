@@ -75,6 +75,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 		}
 
 		if (!hasFaded && hasFader) {
+			Debug.Log(fader);
 			StartCoroutine(SceneHelper.use.FadeOutGameObj(fader, 0.01));
 			hasFaded = true;
 		}
