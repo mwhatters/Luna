@@ -89,10 +89,18 @@ function setWorldGravityShift() {
 			setAxisForcesTo(vertical, -9.81);
 			break;
 		case ObjectDirection.Left:
-			setAxisForcesTo(horizontal, 9.81);
+			if (gravityIsUpOrDown()) {
+				setAxisForcesTo(horizontal, 9.81);
+			} else {
+				setAxisForcesTo(horizontal, -9.81);
+			}
 			break;
 		case ObjectDirection.Right:
-			setAxisForcesTo(horizontal, -9.81);
+			if (gravityIsUpOrDown()) {
+				setAxisForcesTo(horizontal, -9.81);
+			} else {
+				setAxisForcesTo(horizontal, 9.81);
+			}
 			break;
 	}
 }
@@ -120,6 +128,7 @@ function Update() {
 		} else {
 			shiftRight();
 		}
+		setWorldGravityShift();
 	}
 
 	if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis(GravRotateLeftButton) > 0) && canRotateGravity() && !isSubcutaneous) {
@@ -132,6 +141,7 @@ function Update() {
 		} else {
 			shiftLeft();
 		}
+		setWorldGravityShift();
 	}
 
 	if (canRotate180)
@@ -234,7 +244,8 @@ function rotatePlayerAndObjects(degrees : float) {
 	MoveObject.use.Rotation(transform, Vector3.forward * degrees, rotateRate);
 	nextRotate = Time.time + rotateRate + 0.2;
 	adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * degrees);
-	adjustShifters(["ShifterL", "ShifterR"], Vector3.forward * -degrees);
+	adjustShifters(["ShifterL"], Vector3.forward * degrees);
+	adjustShifters(["ShifterR"], Vector3.forward * degrees);
 	adjustShifters(["StubbornGround"], Vector3.forward * degrees);
 	adjustShifters(["StubbornGroundReverse"], Vector3.forward * -degrees);
 }

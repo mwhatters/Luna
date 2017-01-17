@@ -5,11 +5,14 @@ public var shift = shiftDirection.Down;
 public static var lastShift = shiftDirection.Down;
 // private var gravityState = null;
 
+public var staticColor : Color = Color.red;
+public var activeColor : Color = Color.yellow;
+
 function Start() {
 	var beginningGravityState = GameObject.Find("Luna").GetComponent(MainGravity);
 
 		if (this.shift == shiftDirection.Down) {
-			FadeShifterToYellow(this.name, 10);
+			FadeShifterTo(this.name, 10, Color.yellow);
 			this.transform.eulerAngles.z = 0;
 		}
 
@@ -62,29 +65,19 @@ function adjustShifterColors(shifters : String[]) {
 		var shiftObjects = GameObject.FindGameObjectsWithTag(shifter);
 		for (var shiftObject in shiftObjects) {
 			if (shiftObject.GetComponent(Shifter).shift == this.shift) {
-        FadeShifterToYellow(shiftObject.name, 0.4);
+        FadeShifterTo(shiftObject.name, 0.4, activeColor);
       } else {
-        FadeShifterToRed(shiftObject.name, 0.4);
+        FadeShifterTo(shiftObject.name, 0.4, staticColor);
       }
 		}
 	}
 }
 
-function FadeShifterToYellow(name, rate: float) {
+function FadeShifterTo(name, rate: float, chosenColor : Color) {
 	var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
 	var a = 0;
 	while (a < 10) {
-		FadeImg.color = Color.Lerp(FadeImg.color, Color.yellow, rate);
-		a += 1;
-		yield WaitForSeconds(0.01);
-	}
-}
-
-function FadeShifterToRed(name, rate: float) {
-	var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
-	var a = 0;
-	while (a < 10) {
-		FadeImg.color = Color.Lerp(FadeImg.color, Color.red, rate);
+		FadeImg.color = Color.Lerp(FadeImg.color, chosenColor, rate);
 		a += 1;
 		yield WaitForSeconds(0.01);
 	}
