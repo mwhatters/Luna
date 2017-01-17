@@ -51,24 +51,28 @@ function OnCollisionEnter2D (coll : Collision2D) {
     gravityState.adjustGravityRight();
     gravityState.rotatePlayerAndObjects(90);
     gravityState.rotateCameraInDegrees(90);
+    gravityState.setWorldGravityShift();
   }
 
   if (tag == "RotaterL" && gravityState.canRotateGravity()) {
     gravityState.adjustGravityLeft();
     gravityState.rotatePlayerAndObjects(-90);
     gravityState.rotateCameraInDegrees(-90);
+    gravityState.setWorldGravityShift();
   }
 
   if (tag == "Rotater180" && gravityState.canRotateGravity()) {
     gravityState.adjustGravity180();
     gravityState.rotatePlayerAndObjects(180);
     gravityState.rotateCameraInDegrees(180);
+    gravityState.setWorldGravityShift();
   }
 
   if (tag == "Rotater-180" && gravityState.canRotateGravity()) {
     gravityState.adjustGravity180();
     gravityState.rotatePlayerAndObjects(-180);
     gravityState.rotateCameraInDegrees(-180);
+    gravityState.setWorldGravityShift();
   }
 
 
