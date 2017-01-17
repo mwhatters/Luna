@@ -12,7 +12,7 @@ function Start() {
 	var beginningGravityState = GameObject.Find("Luna").GetComponent(MainGravity);
 
 		if (this.shift == shiftDirection.Down) {
-			FadeShifterTo(this.name, 10, Color.yellow);
+			FadeShifterTo(this.name, 10, activeColor);
 			this.transform.eulerAngles.z = 0;
 		}
 
