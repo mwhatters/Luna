@@ -1,7 +1,6 @@
 ﻿#pragma strict
 
 function Update() {
-
 	var state = GetComponent(MainGravity);
 	var animator = GetComponent(Animator);
 	var rigidbody = GetComponent(Rigidbody2D);
@@ -29,5 +28,4 @@ function Update() {
 		animator.ResetTrigger("Moving");
 		animator.ResetTrigger("IsIdle");
 	}
-
 }
