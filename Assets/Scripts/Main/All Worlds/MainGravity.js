@@ -27,6 +27,7 @@ public var feetDistanceFromCenter : float;
 
 // Orientation & Rotation
 
+public var cameraRotationEnabled : boolean = true;
 public var facingRight = true;
 public var rotateRate : float;
 private var nextRotate = 0.0;
@@ -207,7 +208,9 @@ function shiftLeft() {
 }
 
 function rotateCameraInDegrees(degrees : float) {
-	GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotate(degrees, rotateRate);
+	if (cameraRotationEnabled) {
+		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotate(degrees, rotateRate);
+	}
 	Sounds.use.PlaySoundByTag("RotateGravitySound");
 }
 
