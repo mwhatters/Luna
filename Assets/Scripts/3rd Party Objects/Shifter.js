@@ -9,7 +9,13 @@ public var staticColor : Color = Color.red;
 public var activeColor : Color = Color.yellow;
 
 function Start() {
+	yield WaitForSeconds(0.03);
+	setShift();
+}
+
+function setShift() {
 	var beginningGravityState = GameObject.Find("Luna").GetComponent(MainGravity);
+
 
 		if (this.shift == shiftDirection.Down) {
 			FadeShifterTo(this.name, 10, activeColor);
@@ -17,16 +23,16 @@ function Start() {
 		}
 
 		if (beginningGravityState.gravityDirection == Direction.Up) {
-			this.transform.eulerAngles.z = 180;
+			this.transform.eulerAngles.z += 180;
 		}
 
 		if (beginningGravityState.gravityDirection == Direction.Left) {
-			this.transform.eulerAngles.z = 90;
+			this.transform.eulerAngles.z += -90;
 		}
 
 		if (beginningGravityState.gravityDirection == Direction.Right) {
-			this.transform.eulerAngles.z = -90;
-		}
+				this.transform.eulerAngles.z += 90;
+			}
 
 		lastShift = shiftDirection.Down;
 }
