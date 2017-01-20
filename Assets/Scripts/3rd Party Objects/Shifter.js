@@ -9,13 +9,15 @@ public var staticColor : Color = Color.red;
 public var activeColor : Color = Color.yellow;
 
 function Start() {
-	yield WaitForSeconds(0.03);
+	yield WaitForSeconds(0.04); // THIS SHOULD NOT BE BUT IT FUCKING SOLVES THE PROBLEM
+	// the problem is that a small additional amount of time is required for luna's gravity direction to be set by the checkpoint tracker before the shifters
+	// rotation is set. Because there's a loading graphic at the beginning of load, this behavior isn't seen in game. I hate it, but it works.
+	//
 	setShift();
 }
 
 function setShift() {
 	var beginningGravityState = GameObject.Find("Luna").GetComponent(MainGravity);
-
 
 		if (this.shift == shiftDirection.Down) {
 			FadeShifterTo(this.name, 10, activeColor);
