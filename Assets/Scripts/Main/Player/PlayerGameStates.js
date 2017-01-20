@@ -91,7 +91,6 @@ function Die() {
   removeLuna();
   Sounds.use.PlaySoundByTag("DieSound");
   yield WaitForSeconds(3.0);
-  Debug.Log('4');
   GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = false;
   SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 }
