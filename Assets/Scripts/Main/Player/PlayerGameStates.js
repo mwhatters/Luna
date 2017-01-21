@@ -5,6 +5,7 @@ public var killMusicOnDeath = false;
 public var isDead = false;
 public var hasWon = false;
 public var keysFound : GameObject[];
+enum DeathType { Void, Explode, Laser }
 
 function Update() {
     if (isDead || hasWon) {
@@ -23,7 +24,6 @@ function OnCollisionEnter2D (coll : Collision2D) {
   var tag : String = coll.gameObject.tag;
   var gravityState = GetComponent(MainGravity);
 
-
   //Jump
 
   for (var item : String in ["Ground", "StubbornGround", "StubbornGroundReverse", "NiceBox", "BlackHoleBox", "Door", "RotaterR", "RotaterL", "Rotater180", "Rotater-180"]) {
@@ -31,7 +31,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
       yield WaitForSeconds(0.001); // hacky
       if (gravityState.touchingGround == true) {
         GetComponent(MainGravity).numJumps = 0;
-        Sounds.use.PlaySoundByTag("HitGround");
+        Sounds.use.ConstructOneOffSound("HitGround", transform.position);
       }
     }
   }
@@ -39,7 +39,9 @@ function OnCollisionEnter2D (coll : Collision2D) {
   //Death
   for (var item : String in ["Death", "DeathRock", "DeathBall", "ReverseDeathObject", "BurdenBall", "LeftieDeathObject", "RightieDeathObject"]) {
     if (tag == item) {
+
       Die();
+
     }
   }
 
@@ -89,10 +91,22 @@ function Die() {
 
   isDead = true;
   removeLuna();
-  Sounds.use.PlaySoundByTag("DieSound");
-  yield WaitForSeconds(3.0);
+  doExplosionDeath();
+  yield WaitForSeconds(2.0);
   GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = false;
   SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+}
+
+function doExplosionDeath() {
+  Sounds.use.ConstructOneOffSound("Die", transform.position);
+}
+
+function doVoidDeath() {
+
+}
+
+function doLaserDeath() {
+
 }
 
 function removeLuna() {
