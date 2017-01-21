@@ -211,7 +211,7 @@ function rotateCameraInDegrees(degrees : float) {
 	if (cameraRotationEnabled) {
 		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotate(degrees, rotateRate);
 	}
-	Sounds.use.PlaySoundByTag("RotateGravitySound");
+	Sounds.use.ConstructOneOffSound("Warp", transform.position);
 }
 
 function FixedUpdate () {
@@ -245,7 +245,7 @@ function FixedUpdate () {
 
 function rotatePlayerAndObjects(degrees : float) {
 	MoveObject.use.Rotation(transform, Vector3.forward * degrees, rotateRate);
-	nextRotate = Time.time + rotateRate + 0.2;
+	nextRotate = Time.time + rotateRate + 0.01;
 	adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * degrees);
 	adjustShifters(["ShifterL"], Vector3.forward * degrees);
 	adjustShifters(["ShifterR"], Vector3.forward * degrees);

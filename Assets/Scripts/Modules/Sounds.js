@@ -8,6 +8,19 @@ function Awake () {
 	}
 	use = this;
 }
+///
+function ConstructOneOffSound(name : String, vector : Vector3) {
+	var prefab = AssetDatabase.LoadAssetAtPath("Assets/PreFabs/Sounds/" + name + ".prefab", GameObject);
+	var instance = Instantiate(prefab, vector, Quaternion.identity);
+	yield PlaySoundByObject(instance);
+	Destroy(instance);
+}
+
+function PlaySoundByObject(instance : GameObject) {
+	var audio = instance.GetComponent(AudioSource);
+  audio.Play();
+	yield WaitForSeconds(audio.clip.length + 1);
+}
 
 function PlaySoundByTag(tag : String) {
   var audio = GameObject.FindGameObjectWithTag(tag).GetComponent(AudioSource);
@@ -43,6 +56,14 @@ function FadeIn(name : String, rate : float, max : float) {
 	var foundSound = GameObject.Find(name).GetComponent(AudioSource);
 	while (foundSound.volume < max) {
 		foundSound.volume += rate;
+		yield;
+	}
+}
+
+function FadeOut(name : String, rate : float, min : float) {
+	var foundSound = GameObject.Find(name).GetComponent(AudioSource);
+	while (foundSound.volume > min) {
+		foundSound.volume -= rate;
 		yield;
 	}
 }
