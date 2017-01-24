@@ -37,8 +37,8 @@ function FixedUpdate () {
 
 function Move (rotationOnly) {
     if (rotationOnly) {
-      var m = (luna.position.y - this.transform.position.y)/(luna.position.x - this.transform.position.x);
-      this.transform.rotation = Vector2((luna.position.x - this.transform.position.x), (luna.position.y - this.transform.position.y));
+      // var m = (luna.position.y - this.transform.position.y)/(luna.position.x - this.transform.position.x);
+      // this.transform.rotation += Vector2((luna.position.x - this.transform.position.x), (luna.position.y - this.transform.position.y))
     } else {
       clingerbody.velocity.x += (Core.transform.position.x - this.transform.position.x) / rate;
       clingerbody.velocity.y += (Core.transform.position.y - this.transform.position.y) / rate;
