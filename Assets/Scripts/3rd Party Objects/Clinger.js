@@ -39,7 +39,6 @@ function FixedUpdate () {
 function Move() {
     if (rotationOnly) {
       var heading = luna.transform.position - this.transform.position;
-      var distance = heading.magnitude;
       var angle = Mathf.Atan2(heading.y, heading.x) * Mathf.Rad2Deg;
       transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), Time.time * rotationSpeed);
     } else {
