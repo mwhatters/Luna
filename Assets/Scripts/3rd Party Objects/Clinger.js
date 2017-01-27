@@ -12,6 +12,7 @@ public var rotationOnly : boolean = false;
 
 private var clingerbody : Rigidbody2D;
 private var musicPlaying : boolean = false;
+public var shouldEmitSound : boolean = true;
 
 private var luna : Transform;
 
@@ -24,7 +25,7 @@ function Start() {
 function FixedUpdate () {
   if (active) {
     Move();
-    if (!musicPlaying) {
+    if (!musicPlaying && shouldEmitSound) {
       GetComponent(AudioSource).Play();
       musicPlaying = true;
     }
@@ -40,7 +41,7 @@ function Move() {
     if (rotationOnly) {
       var heading = luna.transform.position - this.transform.position;
       var angle = Mathf.Atan2(heading.y, heading.x) * Mathf.Rad2Deg;
-      transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), Time.time * rotationSpeed);
+      transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), rotationSpeed);
     } else {
       clingerbody.velocity.x += (Core.transform.position.x - this.transform.position.x) / rate;
       clingerbody.velocity.y += (Core.transform.position.y - this.transform.position.y) / rate;
