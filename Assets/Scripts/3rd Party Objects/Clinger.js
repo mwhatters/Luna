@@ -13,7 +13,6 @@ public var rotationOnly : boolean = false;
 private var clingerbody : Rigidbody2D;
 private var musicPlaying : boolean = false;
 public var shouldEmitSound : boolean = true;
-
 private var luna : Transform;
 
 function Start() {
