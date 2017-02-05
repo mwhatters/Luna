@@ -210,8 +210,8 @@ function shiftLeft() {
 function rotateCameraInDegrees(degrees : float) {
 	if (cameraRotationEnabled) {
 		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotate(degrees, rotateRate);
+		Sounds.use.ConstructOneOffSound("Warp", transform.position);
 	}
-	Sounds.use.ConstructOneOffSound("Warp", transform.position);
 }
 
 function FixedUpdate () {
@@ -473,7 +473,11 @@ function Jump(x, y, jump) {
 
 function registerJump() {
 	numJumps++;
-	Sounds.use.PlaySoundByTag("JumpSound");
+	
+	if (cameraRotationEnabled) {
+		Sounds.use.PlaySoundByTag("JumpSound");
+	}
+
 	GetComponent(Animator).SetTrigger("InAir");
 }
 
@@ -551,9 +555,11 @@ function gravityIsDownOrRight() {
 
 
 function adjustFallingSounds(rigidbody : Rigidbody2D) {
-	if (gravityIsUpOrDown()) {
-		wind.volume = Mathf.Abs(rigidbody.velocity.y / 80);
-	} else {
-		wind.volume = Mathf.Abs(rigidbody.velocity.x / 80);
+	if (cameraRotationEnabled) {
+		if (gravityIsUpOrDown()) {
+			wind.volume = Mathf.Abs(rigidbody.velocity.y / 80);
+		} else {
+			wind.volume = Mathf.Abs(rigidbody.velocity.x / 80);
+		}
 	}
 }

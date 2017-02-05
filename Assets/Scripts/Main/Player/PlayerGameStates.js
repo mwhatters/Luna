@@ -31,7 +31,9 @@ function OnCollisionEnter2D (coll : Collision2D) {
       yield WaitForSeconds(0.001); // hacky
       if (gravityState.touchingGround == true) {
         GetComponent(MainGravity).numJumps = 0;
-        Sounds.use.ConstructOneOffSound("HitGround", transform.position);
+        if (gravityState.cameraRotationEnabled) {
+          Sounds.use.ConstructOneOffSound("HitGround", transform.position);
+        }
       }
     }
   }

@@ -1,0 +1,30 @@
+﻿#pragma strict
+
+private var collided = false;
+
+function OnCollisionEnter2D (coll : Collision2D) {
+  if (coll.gameObject.CompareTag("TheGuy") && collided == false) {
+
+    collided = true;
+    LunaController.use.Freeze();
+
+    // Sounds.use.PlaySoundByName("Refuge");
+    SceneHelper.use.FadeTo("Luna", 0.020, Color.black);
+    SceneHelper.use.FadeInImage("white", 0.004);
+    Sounds.use.FadeOut("BackgroundMusic", 0.04, 0);
+
+
+    yield WaitForSeconds(7);
+    // SceneHelper.use.ShowText(Text1);
+    yield WaitForSeconds(2);
+    // SceneHelper.use.ShowText(Text2);
+    yield WaitForSeconds(5);
+    // var scene = GetComponent(SceneLoader);
+    // SceneHelper.use.HideText(Text1);
+    // SceneHelper.use.HideText(Text2);
+    // scene.resetCheckPointLoader();
+    // yield WaitForSeconds(4);
+    // SceneManager.LoadScene("1 Burdens");
+
+  }
+}
