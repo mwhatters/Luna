@@ -39,8 +39,8 @@ public var canDoExperimentalRotation = false;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
 private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
-private var leftieGravObjects = ["LeftieDeathObject"];
-private var rightieGravObjects = ["RightieDeathObject"];
+private var leftieGravObjects = ["LeftieObject", "LeftieDeathObject"];
+private var rightieGravObjects = ["RightieObject", "RightieDeathObject"];
 private var groundObjects = ["Ground", "StubbornGround", "StubbornGroundReverse", "RotaterL", "RotaterR", "Rotater180", "Rotater-180", "NiceBox", "BlackHoleBox", "Door"];
 
 var vertical = ["x", "y"];
