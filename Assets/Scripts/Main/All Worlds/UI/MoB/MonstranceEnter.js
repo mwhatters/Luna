@@ -6,7 +6,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
   if (coll.gameObject.CompareTag("TheGuy") && collided == false) {
 
     collided = true;
-    LunaController.use.Freeze();
+    LunaController.use.FreezeLunaAndAnimation();
 
     // Sounds.use.PlaySoundByName("Refuge");
     SceneHelper.use.FadeTo("Luna", 0.020, Color.black);
