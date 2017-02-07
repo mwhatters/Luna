@@ -220,7 +220,6 @@ function FixedUpdate () {
 	adjustFallingSounds(rigidbody);
 	checkIfMoving();
 
-
 	switch (gravityDirection)
 	{
 		case Direction.Down:
@@ -473,7 +472,7 @@ function Jump(x, y, jump) {
 
 function registerJump() {
 	numJumps++;
-	
+
 	if (cameraRotationEnabled) {
 		Sounds.use.PlaySoundByTag("JumpSound");
 	}
