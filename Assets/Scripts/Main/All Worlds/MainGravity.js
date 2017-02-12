@@ -62,7 +62,6 @@ function Start () {
 	var gameSettings;
 	if (!GameObject.Find("GameSettings")) {
 		gameSettings = false;
-	} else {
 	}
 
 	if (!gameSettings) { // dev
@@ -241,7 +240,6 @@ function FixedUpdate () {
 	}
 }
 
-
 function rotatePlayerAndObjects(degrees : float) {
 	MoveObject.use.Rotation(transform, Vector3.forward * degrees, rotateRate);
 	nextRotate = Time.time + rotateRate + 0.01;
@@ -260,7 +258,6 @@ function adjustShifters(shifters : String[], degrees : Vector3) {
 		}
 	}
 }
-
 
 function adjustGravityLeft()
 {
@@ -368,7 +365,6 @@ function oppositeAxis(axis) {
 	if (axis == "y") { return "x"; } else { return "y"; }
 }
 
-
 function objGravity(taggedItems : String[], gravity : float, axis : String) {
 	for (var taggedItem : String in taggedItems) {
 		if (taggedItem == "BlackHoleBox") { gravity *= 10; }
@@ -378,7 +374,6 @@ function objGravity(taggedItems : String[], gravity : float, axis : String) {
 			if (axis == "y") { object.GetComponent(Rigidbody2D).velocity.y += gravity * Time.deltaTime; }
 			if (axis == "x") { object.GetComponent(Rigidbody2D).velocity.x += gravity * Time.deltaTime; }
 		}
-
 	}
 }
 
@@ -406,7 +401,6 @@ function setNoMovements() {
 	GetComponent(Rigidbody2D).velocity = new Vector2(0,0);
 	isFrozen = true;
 }
-
 
 function Move(x, y, moveSpeed : float, orientation) {
 	var rigidbody = GetComponent(Rigidbody2D);
@@ -454,7 +448,6 @@ function calculateAcceleration(speed : float, vectorDirection : float) {
 	return newVelocity;
 }
 
-
 function Jump(x, y, jump) {
 	var rigidbody = GetComponent(Rigidbody2D);
 	if (Input.GetButtonDown(AButton) && canJump()) {
@@ -468,6 +461,10 @@ function Jump(x, y, jump) {
 		rigidbody.velocity = new Vector2(x, y);
 		registerJump();
 	}
+}
+
+function canJump() {
+	return numJumps < maxJumps;
 }
 
 function registerJump() {
@@ -497,11 +494,6 @@ function Flip() {
 	rigidbody.transform.localScale = flipScale;
 	facingRight = !facingRight;
 }
-
-function canJump() {
-	return numJumps < maxJumps;
-}
-
 
 // Ground Raycast Functions
 
@@ -551,7 +543,6 @@ function gravityIsUpOrDown() {
 function gravityIsDownOrRight() {
 	return	gravityDirection == Direction.Down || gravityDirection == Direction.Right;
 }
-
 
 function adjustFallingSounds(rigidbody : Rigidbody2D) {
 	if (cameraRotationEnabled) {
