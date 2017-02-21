@@ -29,3 +29,23 @@ function Unfreeze() {
   luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeRotation;
 	luna.GetComponent(LunaAnimation).forceIdle = false;
 }
+
+function FreezeOtherLunas() {
+	var lunas = GameObject.FindGameObjectsWithTag("OtherLuna");
+	for (var otherLuna in lunas) {
+		otherLuna.GetComponent(MainGravity).canMove = false;
+		otherLuna.GetComponent(MainGravity).canRotate = false;
+		otherLuna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
+	}
+}
+
+function UnfreezeOtherLunas() {
+	var lunas = GameObject.FindGameObjectsWithTag("OtherLuna");
+	for (var otherLuna in lunas) {
+		otherLuna.GetComponent(MainGravity).canMove = true;
+	  otherLuna.GetComponent(MainGravity).canRotate = true;
+	  otherLuna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
+	  otherLuna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeRotation;
+		otherLuna.GetComponent(LunaAnimation).forceIdle = false;
+	}
+}

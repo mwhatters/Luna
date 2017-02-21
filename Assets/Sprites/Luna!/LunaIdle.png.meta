@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e1abaa30b32c74f3c99cab32bb6dbc38
-timeCreated: 1458419830
+timeCreated: 1486971454
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -50,12 +50,7 @@ TextureImporter:
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings:
-  - buildTarget: Standalone
-    maxTextureSize: 8192
-    textureFormat: -1
-    compressionQuality: 50
-    allowsAlphaSplitting: 0
+  buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -64,27 +59,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 35
+        y: 32
         width: 448
-        height: 957
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
       name: LunaIdle_1
       rect:
         serializedVersion: 2
         x: 1184
-        y: 37
+        y: 32
         width: 448
-        height: 959
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

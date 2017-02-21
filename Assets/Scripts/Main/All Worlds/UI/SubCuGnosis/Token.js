@@ -17,7 +17,6 @@ function OnTriggerEnter2D (coll : Collider2D) {
       Destroy(GameObject.Find("IntroMusic"));
       Sounds.use.PlaySoundByName("Refuge");
 
-
       var luna = GameObject.Find("Luna");
       var gravity = luna.GetComponent(MainGravity);
 
@@ -36,8 +35,6 @@ function OnTriggerEnter2D (coll : Collider2D) {
         gravity.rotatePlayerAndObjects(180);
         gravity.rotateCameraInDegrees(180);
       }
-
-
     }
 
     if (nextRound == "Round2") {

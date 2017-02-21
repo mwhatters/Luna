@@ -153,6 +153,16 @@ function FadeTo(name, rate : float, colorFade : Color) {
 	}
 }
 
+function FadeObjTo(obj : GameObject, rate : float, colorFade : Color) {
+	var FadeImg = obj.GetComponent(SpriteRenderer);
+	var a = 0;
+	while (a < 500) {
+		FadeImg.color = Color.Lerp(FadeImg.color, colorFade, rate);
+		a += 1;
+		yield WaitForSeconds(0.06);
+	}
+}
+
 function FadeToRed(name, rate: float) {
 	var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
 	var a = 0;

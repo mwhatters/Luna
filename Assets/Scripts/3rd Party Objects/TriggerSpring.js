@@ -3,11 +3,24 @@
 public var trigDoor : GameObject;
 private var triggered : boolean = false;
 
+public var triggerSound : String = "GrabKey";
+public var stopAnimation : boolean = true;
+
 function OnCollisionEnter2D(coll : Collision2D) {
   if (coll.gameObject.CompareTag("TheGuy") && !triggered) {
-    Destroy(trigDoor);
-    GetComponent(Animator).Stop();
-    Sounds.use.PlaySoundByTag("GrabKeySound");
-    triggered = true;
+    handleDoor();
   }
+}
+
+function OnTriggerEnter2D(coll : Collider2D) {
+  if (coll.gameObject.CompareTag("TheGuy") && !triggered) {
+    handleDoor();
+  }
+}
+
+function handleDoor() {
+  Destroy(trigDoor);
+  if (stopAnimation) { GetComponent(Animator).Stop(); }
+  Sounds.use.PlaySoundByName(triggerSound);
+  triggered = true;
 }
