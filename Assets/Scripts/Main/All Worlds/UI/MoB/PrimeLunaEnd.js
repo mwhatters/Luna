@@ -1,9 +1,11 @@
 ﻿#pragma strict
 
+private var triggered : boolean = true;
+
 function OnTriggerEnter2D(coll : Collider2D) {
 
-  if (coll.gameObject.CompareTag("TheGuy")) {
-
+  if (coll.gameObject.CompareTag("TheGuy") && !triggered) {
+    triggered = true;
     var luna = GameObject.Find("Luna");
     var gravity = luna.GetComponent(MainGravity);
 

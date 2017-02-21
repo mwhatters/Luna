@@ -49,3 +49,8 @@ function UnfreezeOtherLunas() {
 		otherLuna.GetComponent(LunaAnimation).forceIdle = false;
 	}
 }
+
+
+function enableCameraRotation() {
+	luna.GetComponent(MainGravity).cameraRotationEnabled = true;
+}
