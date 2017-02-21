@@ -37,19 +37,19 @@ function OnTriggerEnter2D(coll : Collider2D) {
     LunaController.use.Unfreeze();
     LunaController.use.enableCameraRotation();
     // camObj.GetComponent(CameraBehavior).shaking = true;
-    Sounds.use.PlaySoundByName("fire");
+    // Sounds.use.PlaySoundByName("fire");
 
-    var iGround = GameObject.Find("InvisibleGround");
-    var iChildren : Component[] = iGround.GetComponentsInChildren(Transform);
-    for (var child : Transform in iChildren) {
-      if (child == iGround.transform) { continue; }
-      child.tag = "NiceBox";
-      child.GetComponent(BoxCollider2D).sharedMaterial = frictionMaterial;
-      child.gameObject.AddComponent(Rigidbody2D);
-      child.GetComponent(Rigidbody2D).gravityScale = 0;
-
-    }
-
+    // var iGround = GameObject.Find("InvisibleGround");
+    // var iChildren : Component[] = iGround.GetComponentsInChildren(Transform);
+    // for (var child : Transform in iChildren) {
+    //   if (child == iGround.transform) { continue; }
+    //   child.tag = "NiceBox";
+    //   child.GetComponent(BoxCollider2D).sharedMaterial = frictionMaterial;
+    //   child.gameObject.AddComponent(Rigidbody2D);
+    //   child.GetComponent(Rigidbody2D).gravityScale = 0;
+    //
+    // }
+    //
     // var gGround = GameObject.Find("Ground");
     // var gChildren : Component[] = gGround.GetComponentsInChildren(Transform);
     // for (var child : Transform in gChildren) {
