@@ -199,7 +199,7 @@ function zoomCameraExit() {
 	currentlyTransitioning = false;
 }
 
-
+// TODO: Need to figure out how to zoom a camera out over a longer time period
 function performCameraZoom(cameraScope : Camera, endpoint : float, t : float) {
 	if (isOrthographic) {
 		cameraScope.orthographicSize = Mathf.Lerp(cameraScope.orthographicSize, endpoint, t);

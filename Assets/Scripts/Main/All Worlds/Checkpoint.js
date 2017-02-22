@@ -11,7 +11,6 @@ function Start () {
 	if (camera.GetComponent(CheckpointTracker).checkPointPos == transform.position) {
 		DestroyInvalidatedObjects();
 	}
-
 }
 
 function OnTriggerEnter2D(coll : Collider2D) {

@@ -9,6 +9,10 @@ public var shaking : boolean = false;
 private var lastPositionX : int;
 private var lastPositionY : int;
 
+public var dynamicShaking : boolean = false;
+private var lastLunaPositionX : int;
+private var lastLunaPositionY : int;
+
 private var pixelToUnits : float = 40.0;
 
 function Start () {
@@ -21,8 +25,13 @@ function Update() {
 		transform.position.y = lunaObj.transform.position.y;
 	}
 
+	// TODO: Check behavior here
 	if (shaking) {
-		StaticShake();
+		if (isStatic) {
+			StaticShake();
+		} else {
+			DynamicShake();
+		}
 	}
 }
 
@@ -51,6 +60,28 @@ function StaticShake() {
 		transform.position.x -= Random.value;
 	} else {
 		transform.position.x = lastPositionX;
+	}
+}
+
+function DynamicShake() {
+	if (lastLunaPositionY == 0) {
+		lastLunaPositionY = lunaObj.transform.position.y;
+	} else if (lastLunaPositionY == lunaObj.transform.position.y) {
+		transform.position.y += Random.value;
+		transform.position.y -= Random.value;
+		lastPositionY = lunaObj.transform.position.y;
+	} else {
+		lastPositionY = lunaObj.transform.position.y;
+	}
+
+	if (lastLunaPositionX == 0) {
+		lastLunaPositionX = lunaObj.transform.position.x;
+	} else if (lastLunaPositionX == lunaObj.transform.position.x) {
+		transform.position.x += Random.value;
+		transform.position.x -= Random.value;
+		lastPositionX = lunaObj.transform.position.x;
+	} else {
+		lastPositionX = lunaObj.transform.position.x;
 	}
 }
 

@@ -6,6 +6,8 @@ private var fizDoor : Transform;
 enum exitDirection { Down, Left, Right, Up }
 public var exitFrom = exitDirection.Left;
 
+public var fadeToBlack : boolean = false;
+
 function Start() {
   fizDoor = GetComponent(Transform).parent;
 }
@@ -26,9 +28,20 @@ function disableAnimation() {
   var colorObject = fizDoor.GetComponent(SpriteRenderer);
   var colorTone : float = 1;
 
+  var colorToneForA : float = colorObject.color.r;
+  var colorToneForB : float = colorObject.color.b;
+  var colorToneForC : float = colorObject.color.g;
+
   while (animatorObject.speed > 0) {
     colorTone -= 0.01;
-    colorObject.color = new Color(colorTone, colorTone, 1, 1);
+    if (fadeToBlack) {
+      colorToneForA -= 0.01;
+      colorToneForB -= 0.01;
+      colorToneForC -= 0.01;
+      colorObject.color = new Color(colorToneForA, colorToneForB, colorToneForC, 1);
+    } else {
+      colorObject.color = new Color(colorTone, colorTone, 1, 1);
+    }
     animatorObject.speed -= 0.01;
     yield WaitForSeconds(0.01);
   }

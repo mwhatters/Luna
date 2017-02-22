@@ -36,8 +36,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
     LunaController.use.Unfreeze();
     LunaController.use.enableCameraRotation();
-    // camObj.GetComponent(CameraBehavior).shaking = true;
-    // Sounds.use.PlaySoundByName("fire");
 
     var iGround = GameObject.Find("freeboxes");
     var iChildren : Component[] = iGround.GetComponentsInChildren(Transform);
@@ -47,16 +45,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
       child.gameObject.AddComponent(Rigidbody2D);
       child.GetComponent(Rigidbody2D).gravityScale = 0;
     }
-    //
-    // var gGround = GameObject.Find("Ground");
-    // var gChildren : Component[] = gGround.GetComponentsInChildren(Transform);
-    // for (var child : Transform in gChildren) {
-    //   if (child == gGround.transform) { continue; }
-    //   child.gameObject.AddComponent(Rigidbody2D);
-    //   child.GetComponent(BoxCollider2D).sharedMaterial = frictionMaterial;
-    //   child.GetComponent(Rigidbody2D).gravityScale = 0;
-    // }
-    //
+
     var clingers = GameObject.Find("Clingers");
     var clingerKids : Component[] = clingers.GetComponentsInChildren(Transform);
     for (var child : Transform in clingerKids) {
@@ -65,11 +54,12 @@ function OnTriggerEnter2D(coll : Collider2D) {
     }
 
 
+    Sounds.use.FadeIn("DrowningAtSea", 0.002, 0.5);
 
-    var cps = GameObject.Find("ChangePoints");
-    cps.transform.position.x = 999999999;
-    cps.transform.position.y = 999999999;
 
+    // var cps = GameObject.Find("ChangePoints");
+    // cps.transform.position.x = 999999999;
+    // cps.transform.position.y = 999999999;
 
   }
 }

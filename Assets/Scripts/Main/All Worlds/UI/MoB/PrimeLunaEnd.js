@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-private var triggered : boolean = true;
+private var triggered : boolean = false;
 
 function OnTriggerEnter2D(coll : Collider2D) {
 

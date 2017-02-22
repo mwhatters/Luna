@@ -79,7 +79,6 @@ function setPaused() {
 
   windVolume = Lwind.volume;
   Lwind.volume = 0;
-
 }
 
 function setUnPaused() {
