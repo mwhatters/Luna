@@ -1,6 +1,10 @@
 #pragma strict
 
+private static var scenePlayed : boolean = false;
+
 function Start () {
+  if (scenePlayed) { return; } else { scenePlayed = true; }
+
   LunaController.use.FreezeLunaAndAnimation();
   LunaController.use.FreezeOtherLunas();
   yield WaitForSeconds(2);
