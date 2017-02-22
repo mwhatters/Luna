@@ -32,7 +32,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
     FinalScene();
 
-    yield WaitForSeconds(3);
+    yield WaitForSeconds(5);
 
     LunaController.use.Unfreeze();
     LunaController.use.enableCameraRotation();
