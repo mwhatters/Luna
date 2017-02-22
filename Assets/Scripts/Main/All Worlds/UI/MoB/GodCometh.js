@@ -39,16 +39,14 @@ function OnTriggerEnter2D(coll : Collider2D) {
     // camObj.GetComponent(CameraBehavior).shaking = true;
     // Sounds.use.PlaySoundByName("fire");
 
-    // var iGround = GameObject.Find("InvisibleGround");
-    // var iChildren : Component[] = iGround.GetComponentsInChildren(Transform);
-    // for (var child : Transform in iChildren) {
-    //   if (child == iGround.transform) { continue; }
-    //   child.tag = "NiceBox";
-    //   child.GetComponent(BoxCollider2D).sharedMaterial = frictionMaterial;
-    //   child.gameObject.AddComponent(Rigidbody2D);
-    //   child.GetComponent(Rigidbody2D).gravityScale = 0;
-    //
-    // }
+    var iGround = GameObject.Find("freeboxes");
+    var iChildren : Component[] = iGround.GetComponentsInChildren(Transform);
+    for (var child : Transform in iChildren) {
+      if (child == iGround.transform) { continue; }
+      child.GetComponent(BoxCollider2D).sharedMaterial = frictionMaterial;
+      child.gameObject.AddComponent(Rigidbody2D);
+      child.GetComponent(Rigidbody2D).gravityScale = 0;
+    }
     //
     // var gGround = GameObject.Find("Ground");
     // var gChildren : Component[] = gGround.GetComponentsInChildren(Transform);
@@ -56,9 +54,22 @@ function OnTriggerEnter2D(coll : Collider2D) {
     //   if (child == gGround.transform) { continue; }
     //   child.gameObject.AddComponent(Rigidbody2D);
     //   child.GetComponent(BoxCollider2D).sharedMaterial = frictionMaterial;
-    //   child.tag = "NiceBox";
     //   child.GetComponent(Rigidbody2D).gravityScale = 0;
     // }
+    //
+    var clingers = GameObject.Find("Clingers");
+    var clingerKids : Component[] = clingers.GetComponentsInChildren(Transform);
+    for (var child : Transform in clingerKids) {
+      if (child == clingers.transform) { continue; }
+      child.GetComponent(Clinger).active = true;
+    }
+
+
+
+    var cps = GameObject.Find("ChangePoints");
+    cps.transform.position.x = 999999999;
+    cps.transform.position.y = 999999999;
+
 
   }
 }
