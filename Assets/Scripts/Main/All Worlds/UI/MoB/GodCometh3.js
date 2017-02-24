@@ -17,7 +17,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
     LunaController.use.Unfreeze();
     LunaController.use.enableCameraRotation();
 
-    GameObject.Find("DrowningAtSea").GetComponent(AudioSource).pitch = 1.07;
+    GameObject.Find("DrowningAtSea").GetComponent(AudioSource).pitch = 0.70;
     Sounds.use.FadeIn("DrowningAtSea", 0.002, 0.5);
 
     var clingers = GameObject.Find("ClingersR3");
