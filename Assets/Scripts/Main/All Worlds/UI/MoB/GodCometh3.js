@@ -1,42 +1,33 @@
-﻿#pragma strict
+#pragma strict
 
 public var triggered : boolean = false;
 public var frictionMaterial : PhysicsMaterial2D;
-
 
 function OnTriggerEnter2D(coll : Collider2D) {
 
   if (coll.gameObject.CompareTag("TheGuy") && !triggered) {
     triggered = true;
     Sounds.use.FadeOut("DrowningAtSea", 0.2, 0.0);
+    GameObject.Find("arrival").GetComponent(AudioSource).pitch = 0.99;
     Sounds.use.PlaySoundByName("arrival");
-    GameObject.Find("godboy2").GetComponent(SpriteRenderer).color = Color.black;
-
-    var clingers = GameObject.Find("Clingers");
-    var clingerKids : Component[] = clingers.GetComponentsInChildren(Transform);
-    for (var child : Transform in clingerKids) {
-      if (child == clingers.transform) { continue; }
-      child.GetComponent(Clinger).active = false;
-    }
+    GameObject.Find("godboy3").GetComponent(SpriteRenderer).color = Color.red;
 
     yield WaitForSeconds(4);
 
     LunaController.use.Unfreeze();
     LunaController.use.enableCameraRotation();
 
-    GameObject.Find("DrowningAtSea").GetComponent(AudioSource).pitch = 0.91;
+    GameObject.Find("DrowningAtSea").GetComponent(AudioSource).pitch = 1.07;
     Sounds.use.FadeIn("DrowningAtSea", 0.002, 0.5);
 
-
-    var lasers = GameObject.Find("LaserBoxes");
-    var laserKids : Component[] = lasers.GetComponentsInChildren(Transform);
-    for (var child : Transform in laserKids) {
-      if (child == lasers.transform) { continue; }
-      if (child.GetComponent(GravLaser)) { continue; }
-      child.GetComponent(Rigidbody2D).velocity.x = -13;
+    var clingers = GameObject.Find("ClingersR3");
+    var clingerKids : Component[] = clingers.GetComponentsInChildren(Transform);
+    for (var child : Transform in clingerKids) {
+      if (child == clingers.transform) { continue; }
+      child.GetComponent(Clinger).active = true;
     }
 
-    var iGround = GameObject.Find("freeboxes2");
+    var iGround = GameObject.Find("freeboxes3");
     var iChildren : Component[] = iGround.GetComponentsInChildren(Transform);
     for (var child : Transform in iChildren) {
       if (child == iGround.transform) { continue; }
@@ -45,7 +36,4 @@ function OnTriggerEnter2D(coll : Collider2D) {
       child.GetComponent(Rigidbody2D).gravityScale = 0;
     }
   }
-
-
-
 }

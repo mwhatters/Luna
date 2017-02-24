@@ -27,7 +27,6 @@ function FixedUpdate() {
       reverseDirections();
       reversed = !reversed;
       nextReverse += time;
-      Debug.Log(nextReverse);
     }
   }
 
