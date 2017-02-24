@@ -3,9 +3,7 @@
 public var triggered : boolean = false;
 public var frictionMaterial : PhysicsMaterial2D;
 
-
 function OnTriggerEnter2D(coll : Collider2D) {
-
   if (coll.gameObject.CompareTag("TheGuy") && !triggered) {
     triggered = true;
     Sounds.use.FadeOut("DrowningAtSea", 0.2, 0.0);
@@ -27,7 +25,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
     GameObject.Find("DrowningAtSea").GetComponent(AudioSource).pitch = 0.91;
     Sounds.use.FadeIn("DrowningAtSea", 0.002, 0.5);
 
-
     var lasers = GameObject.Find("LaserBoxes");
     var laserKids : Component[] = lasers.GetComponentsInChildren(Transform);
     for (var child : Transform in laserKids) {
@@ -45,7 +42,4 @@ function OnTriggerEnter2D(coll : Collider2D) {
       child.GetComponent(Rigidbody2D).gravityScale = 0;
     }
   }
-
-
-
 }

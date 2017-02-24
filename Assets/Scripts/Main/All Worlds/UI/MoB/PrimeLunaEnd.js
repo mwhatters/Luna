@@ -52,7 +52,6 @@ function rotateGravityCorrectly() {
   ensureLunaAndCameraAreDown();
 };
 
-
 function ensureLunaAndCameraAreDown() {
   if (luna.transform.eulerAngles.z != 0 || camObj.transform.eulerAngles.z != 0) {
     luna.transform.eulerAngles.z = 0;

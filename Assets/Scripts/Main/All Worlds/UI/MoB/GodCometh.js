@@ -2,9 +2,7 @@
 
 private var camObj : GameObject;
 private var darkRed : Color;
-
 public var frictionMaterial : PhysicsMaterial2D;
-
 public var triggered : boolean = false;
 
 function Start() {
@@ -17,7 +15,6 @@ function Start() {
 }
 
 function OnTriggerEnter2D(coll : Collider2D) {
-
   if (coll.gameObject.CompareTag("TheGuy") && !triggered) {
     triggered = true;
     Sounds.use.PlaySoundByName("arrival");
@@ -29,8 +26,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
     for (var otherLuna : Transform in otherLunas) {
       Destroy(otherLuna.gameObject);
     }
-
-    FinalScene();
 
     yield WaitForSeconds(4);
 
@@ -53,12 +48,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
       child.GetComponent(Clinger).active = true;
     }
 
-
     Sounds.use.FadeIn("DrowningAtSea", 0.002, 0.5);
   }
-}
-
-
-function FinalScene() {
-
 }

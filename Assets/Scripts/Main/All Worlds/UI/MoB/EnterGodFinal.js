@@ -3,7 +3,17 @@
 private static var scenePlayed : boolean = false;
 
 function Start () {
-  if (scenePlayed) { return; } else { scenePlayed = true; }
+  if (scenePlayed) {
+    var seenGround = GameObject.Find("InvisibleGround");
+    var seenChildren : Component[] = seenGround.GetComponentsInChildren(Transform);
+    for (var child : Transform in seenChildren) {
+      if (child == seenGround.transform) { continue; }
+      child.gameObject.GetComponent(SpriteRenderer).color = Color.black;
+    }
+    return;
+  } else {
+    scenePlayed = true;
+  }
 
   LunaController.use.FreezeLunaAndAnimation();
   LunaController.use.FreezeOtherLunas();

@@ -4,7 +4,6 @@ public var triggered : boolean = false;
 public var frictionMaterial : PhysicsMaterial2D;
 
 function OnTriggerEnter2D(coll : Collider2D) {
-
   if (coll.gameObject.CompareTag("TheGuy") && !triggered) {
     triggered = true;
     Sounds.use.FadeOut("DrowningAtSea", 0.2, 0.0);
