@@ -32,7 +32,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
     FinalScene();
 
-    yield WaitForSeconds(5);
+    yield WaitForSeconds(4);
 
     LunaController.use.Unfreeze();
     LunaController.use.enableCameraRotation();
@@ -55,12 +55,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 
     Sounds.use.FadeIn("DrowningAtSea", 0.002, 0.5);
-
-
-    // var cps = GameObject.Find("ChangePoints");
-    // cps.transform.position.x = 999999999;
-    // cps.transform.position.y = 999999999;
-
   }
 }
 

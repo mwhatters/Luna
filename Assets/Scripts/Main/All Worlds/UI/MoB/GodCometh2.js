@@ -1,0 +1,40 @@
+﻿#pragma strict
+
+public var triggered : boolean = false;
+
+function OnTriggerEnter2D(coll : Collider2D) {
+
+  if (coll.gameObject.CompareTag("TheGuy") && !triggered) {
+    triggered = true;
+    Sounds.use.FadeOut("DrowningAtSea", 0.2, 0.0);
+    Sounds.use.PlaySoundByName("arrival");
+    GameObject.Find("godboy2").GetComponent(SpriteRenderer).color = Color.black;
+
+    var clingers = GameObject.Find("Clingers");
+    var clingerKids : Component[] = clingers.GetComponentsInChildren(Transform);
+    for (var child : Transform in clingerKids) {
+      if (child == clingers.transform) { continue; }
+      child.GetComponent(Clinger).active = false;
+    }
+
+    yield WaitForSeconds(4);
+
+    LunaController.use.Unfreeze();
+    LunaController.use.enableCameraRotation();
+
+    GameObject.Find("DrowningAtSea").GetComponent(AudioSource).pitch = 0.91;
+    Sounds.use.FadeIn("DrowningAtSea", 0.002, 0.5);
+
+
+    var lasers = GameObject.Find("LaserBoxes");
+    var laserKids : Component[] = lasers.GetComponentsInChildren(Transform);
+    for (var child : Transform in laserKids) {
+      if (child == lasers.transform) { continue; }
+      if (child.GetComponent(GravLaser)) { continue; }
+      child.GetComponent(Rigidbody2D).velocity.x = -13;
+    }
+  }
+
+
+
+}
