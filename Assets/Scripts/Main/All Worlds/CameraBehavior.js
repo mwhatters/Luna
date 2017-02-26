@@ -91,3 +91,21 @@ function RoundToNearestPixel(unityUnits : float) {
  var roundedUnityUnits : float = valueInPixels * (1 / pixelToUnits);
  return roundedUnityUnits;
 }
+
+
+function FadeToColor(targetColor : Color, rate : float) {
+	var cam = GetComponent(Camera);
+	var currentColour;
+	var n = 0;
+
+	while (n < 1000) {
+		currentColour = Color.Lerp(cam.backgroundColor, targetColor, rate);
+		cam.backgroundColor = currentColour;
+		n++;
+		yield;
+
+		if (cam.backgroundColor == targetColor) {
+			break;
+		}
+	}
+}
