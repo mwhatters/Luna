@@ -2,10 +2,11 @@
 
 function Start () {
   yield WaitForSeconds(1);
-  SceneHelper.use.FadeImageToClear("Blackness", 0.08);
+  StartCoroutine("CreditsIn");
   yield WaitForSeconds(20);
-  SceneHelper.use.FadeImageToBlack("Blackness", 0.08);
-  yield WaitForSeconds(3);
+  StopCoroutine("CreditsIn");
+  StartCoroutine("CreditsOut");
+  yield WaitForSeconds(10);
 
   if (SaveData.currentData) {
     SaveData.use.SaveGame(
@@ -18,4 +19,12 @@ function Start () {
   }
 
   SceneManager.LoadScene("MainMenu");
+}
+
+function CreditsIn() {
+  SceneHelper.use.FadeImageToClear("Blackness", 0.01);
+}
+
+function CreditsOut() {
+  SceneHelper.use.FadeTo("blackout", 0.03, Color.black);
 }

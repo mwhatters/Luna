@@ -38,7 +38,5 @@ function OnTriggerEnter2D(coll : Collider2D) {
     yield WaitForSeconds(5);
 
     SceneManager.LoadScene("Credits");
-
-
   }
 }
