@@ -10,8 +10,8 @@ function Awake () {
 }
 ///
 function ConstructOneOffSound(name : String, vector : Vector3) {
-	var prefab = AssetDatabase.LoadAssetAtPath("Assets/PreFabs/Sounds/" + name + ".prefab", GameObject);
-	var instance = Instantiate(prefab, vector, Quaternion.identity);
+	// var prefab = AssetDatabase.LoadAssetAtPath("Assets/PreFabs/Sounds/" + name + ".prefab", GameObject);
+	var instance = Instantiate(Resources.Load(name, GameObject), vector, Quaternion.identity);
 	yield PlaySoundByObject(instance);
 	Destroy(instance);
 }
