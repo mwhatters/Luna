@@ -12,8 +12,10 @@ function OnCollisionEnter2D(coll : Collision2D) {
       Sounds.use.PlaySoundByName("woosh");
       SceneHelper.use.FadeOutGameObj(this.gameObject, 0.04);
       yield SceneHelper.use.FadeOutGameObj(coll.gameObject, 0.04);
-      Destroy(coll.gameObject);
-      Destroy(this.gameObject);
+
+      yield WaitForSeconds(3);
+        Destroy(coll.gameObject);
+        Destroy(this.gameObject);
 
       if (secretDoorToUnlock) {
         Destroy(secretDoorToUnlock);

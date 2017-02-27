@@ -34,8 +34,32 @@ function OnTriggerEnter2D(coll : Collider2D) {
     SceneHelper.use.ShowAndHideText(Text2, 3);
     yield WaitForSeconds(5);
 
-    SceneHelper.use.ShowAndHideText(Text3, 3);
+    var god = GameObject.Find("god");
+    var godPieces : Component[] = god.GetComponentsInChildren(Transform);
+    for (var child : Transform in godPieces) {
+      if (child == god.transform) { continue; }
+      SceneHelper.use.FadeTo(child.name, 0.05, Color.white);
+    }
+
     yield WaitForSeconds(5);
+    SceneHelper.use.ShowAndHideText(Text3, 3);
+
+    yield WaitForSeconds(5);
+
+    for (var child : Transform in godPieces) {
+      if (child == god.transform) { continue; }
+      child.gameObject.AddComponent(Rigidbody2D);
+      child.GetComponent(Rigidbody2D).gravityScale = 0;
+    }
+
+    var godKiller = GameObject.Find("godkiller");
+    godKiller.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
+
+    yield WaitForSeconds(0.5);
+    Destroy(GameObject.Find("godwhite"));
+
+
+    yield WaitForSeconds(15);
 
     SceneManager.LoadScene("Credits");
   }
