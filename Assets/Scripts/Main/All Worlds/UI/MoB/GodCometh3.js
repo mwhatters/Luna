@@ -11,6 +11,14 @@ function OnTriggerEnter2D(coll : Collider2D) {
     Sounds.use.PlaySoundByName("arrival");
     GameObject.Find("godboy3").GetComponent(SpriteRenderer).color = Color.red;
 
+    var lunas = GameObject.Find("Lunas");
+    if (!lunas) { Debug.Log("hey"); } else {
+      var otherLunas : Component[] = lunas.GetComponentsInChildren(Transform);
+      for (var otherLuna : Transform in otherLunas) {
+        Destroy(otherLuna.gameObject);
+      }
+    }
+
     yield WaitForSeconds(4);
 
     LunaController.use.Unfreeze();

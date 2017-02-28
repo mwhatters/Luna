@@ -10,6 +10,14 @@ function OnTriggerEnter2D(coll : Collider2D) {
     Sounds.use.PlaySoundByName("arrival");
     GameObject.Find("godboy2").GetComponent(SpriteRenderer).color = Color.black;
 
+    var lunas = GameObject.Find("Lunas");
+    if (!lunas) { Debug.Log("hey"); } else {
+      var otherLunas : Component[] = lunas.GetComponentsInChildren(Transform);
+      for (var otherLuna : Transform in otherLunas) {
+        Destroy(otherLuna.gameObject);
+      }
+    }
+
     var clingers = GameObject.Find("Clingers");
     var clingerKids : Component[] = clingers.GetComponentsInChildren(Transform);
     for (var child : Transform in clingerKids) {
