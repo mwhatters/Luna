@@ -18,6 +18,8 @@ function Start () {
     SaveData.use.ClearCurrentSaveData();
   }
 
+  Destroy(GameObject.Find("BackgroundMusic"));
+  Destroy(GameObject.Find("IntroMusic"));
   SceneManager.LoadScene("MainMenu");
 }
 
@@ -27,4 +29,5 @@ function CreditsIn() {
 
 function CreditsOut() {
   SceneHelper.use.FadeTo("blackout", 0.03, Color.black);
+  Sounds.use.FadeOut("BackgroundMusic", 0.0015);
 }

@@ -26,6 +26,8 @@ function OnTriggerEnter2D(coll : Collider2D) {
     triggered = true;
 
     Sounds.use.PlaySoundByName("arrival");
+    StartCoroutine("HandleOutroMusic");
+
     luna.GetComponent(SpriteRenderer).color = Color.white;
     GameObject.Find("white").GetComponent(SpriteRenderer).color = Color.white;
 
@@ -60,7 +62,17 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 
     yield WaitForSeconds(15);
+    yield WaitForSeconds(15);
+    yield WaitForSeconds(15);
+    yield WaitForSeconds(15);
+    yield WaitForSeconds(15);
 
     SceneManager.LoadScene("Credits");
   }
+}
+
+function HandleOutroMusic() {
+  Sounds.use.EnableSoundByName("IntroMusic", 0.84);
+  yield WaitForSeconds(78.710);
+  Sounds.use.EnableSoundByName("BackgroundMusic", 0.84);
 }
