@@ -1,12 +1,12 @@
 ﻿#pragma strict
 
 function Start () {
-  yield WaitForSeconds(1);
+  yield WaitForSeconds(5);
   StartCoroutine("CreditsIn");
-  yield WaitForSeconds(20);
+  yield WaitForSeconds(35);
   StopCoroutine("CreditsIn");
   StartCoroutine("CreditsOut");
-  yield WaitForSeconds(10);
+  yield WaitForSeconds(20);
 
   if (SaveData.currentData) {
     SaveData.use.SaveGame(
@@ -29,5 +29,5 @@ function CreditsIn() {
 
 function CreditsOut() {
   SceneHelper.use.FadeTo("blackout", 0.03, Color.black);
-  Sounds.use.FadeOut("BackgroundMusic", 0.0015);
+  Sounds.use.FadeOut("BackgroundMusic", 0.0015, 0);
 }
