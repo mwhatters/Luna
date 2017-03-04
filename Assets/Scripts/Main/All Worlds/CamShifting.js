@@ -62,6 +62,9 @@ function OnTriggerEnter2D(coll : Collider2D) {
 				} else {
 					item.GetComponent(Rigidbody2D).constraints = (FreezeRotation() | FreezeX() | FreezeY());
 				}
+
+				var hasSound = item.GetComponent(BoxCollision);
+				if (hasSound) { hasSound.canTriggerSound = true; }
 			}
 			boxesUnfrozen = true;
 		}
@@ -220,5 +223,8 @@ function freezeObjects() {
 		} else {
 			item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
 		}
+
+		var hasSound = item.GetComponent(BoxCollision);
+		if (hasSound) { hasSound.canTriggerSound = false; }
 	}
 }
