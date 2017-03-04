@@ -17,6 +17,10 @@ var pauseMenu : GameObject;
 var timer : Timer;
 var cam : GameObject;
 
+public var answerBlockOne : GameObject;
+public var answerBlockTwo : GameObject;
+public var answerBlockThree : GameObject;
+
 function Start () {
   luna = GameObject.Find("Luna");
   cam = GameObject.Find("Camera");
@@ -54,6 +58,7 @@ function Start () {
 }
 
 function PowerBoyStartScene() {
+
   timer.running = false;
   pauseMenu.GetComponent(Pause).canPause = false;
   luna.GetComponent(MainGravity).canMove = false;
@@ -128,6 +133,7 @@ function Round4() {
   round4a.GetComponent(roundScript).left = true;
   round4b.GetComponent(roundScript).down = true;
   round4b.GetComponent(roundScript).right = true;
+  StartCoroutine(BlinkAnswerBlock(answerBlockOne));
   return true;
 }
 
@@ -138,12 +144,14 @@ function Round5() {
   round5a.GetComponent(roundScript).right = true;
   round5b.GetComponent(roundScript).up = true;
   round5b.GetComponent(roundScript).left = true;
+  StartCoroutine(BlinkAnswerBlock(answerBlockTwo));
   return true;
 }
 
 function Round6() {
   var round6a = GameObject.Find("Round6");
   round6a.GetComponent(roundScript).down = true;
+  StartCoroutine(BlinkAnswerBlock(answerBlockThree));
   return true;
 }
 
@@ -154,6 +162,17 @@ function fadeBlocksToRed() {
     if (img.name == "IntroMusic") { continue; }
     StartCoroutine(SceneHelper.use.FadeToRed(img.name, 0.004));
   }
+}
+
+function BlinkAnswerBlock(answerBlock : GameObject) {
+  Debug.Log("Hit");
+  Sounds.use.ConstructOneOffSound("Blip", this.transform.position);
+  yield ObjectFX.use.BlinkToColor(answerBlock.GetComponent(SpriteRenderer), Color.yellow);
+  Sounds.use.ConstructOneOffSound("Blip", this.transform.position);
+  yield ObjectFX.use.BlinkToColor(answerBlock.GetComponent(SpriteRenderer), Color.yellow);
+  Sounds.use.ConstructOneOffSound("Blip", this.transform.position);
+  yield ObjectFX.use.BlinkToColor(answerBlock.GetComponent(SpriteRenderer), Color.yellow);
+  yield;
 }
 
 
