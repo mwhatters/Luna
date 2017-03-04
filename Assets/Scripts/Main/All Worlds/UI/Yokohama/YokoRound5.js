@@ -22,7 +22,7 @@ function Update() {
 function Begin() {
   GetComponent(RoundInitializer).fadeInRound();
   yield WaitForSeconds(1);
-
+  Sounds.use.ConstructOneOffSound("Blip", this.transform.position);
   ObjectFX.use.BlinkToColor(LB1.GetComponent(SpriteRenderer), Color.red);
   ObjectFX.use.BlinkToColor(LB2.GetComponent(SpriteRenderer), Color.red);
   ObjectFX.use.BlinkToColor(LB3.GetComponent(SpriteRenderer), Color.red);
@@ -53,15 +53,15 @@ function Box1Script() {
 
   // part a -- 11
   yield WaitForSeconds(3);
-  controller.SetMovement(-4.5, -4.5, 0.0);
+  controller.SetMovement(-8, -8, 0.0);
   yield WaitForSeconds(5);
   controller.DisableMovement();
   yield WaitForSeconds(3);
 
   // part b -- 16
-  controller.SetMovement(0, 4.5, 0.0);
+  controller.SetMovement(0, 6, 0.0);
   yield WaitForSeconds(4);
-  controller.SetMovement(4.5, 0, 0.0);
+  controller.SetMovement(7, 0, 0.0);
   yield WaitForSeconds(4);
   controller.SetMovement(0, -4.5, 0.0);
   yield WaitForSeconds(4);
@@ -83,7 +83,7 @@ function Box2Script() {
   yield WaitForSeconds(27);
 
   // part c -- 8
-  controller.SetMovement(0, 4.5, 0.0);
+  controller.SetMovement(0, 7, 0.0);
   yield WaitForSeconds(4);
   controller.DisableMovement();
   yield WaitForSeconds(4);
@@ -101,7 +101,7 @@ function Box3Script() {
   yield WaitForSeconds(27);
 
   // part c -- 8
-  controller.SetMovement(0, -4.5, 0.0);
+  controller.SetMovement(0, -6, 0.0);
   yield WaitForSeconds(4);
   controller.SetMovement(4.5, 0, 0.0);
   yield WaitForSeconds(4);
@@ -120,9 +120,9 @@ function Box4Script() {
   yield WaitForSeconds(11);
 
   // part b -- 16
-  controller.SetMovement(0, 4.5, 0.0);
+  controller.SetMovement(0, 6, 0.0);
   yield WaitForSeconds(4);
-  controller.SetMovement(4.5, 0, 0.0);
+  controller.SetMovement(7, 0, 0.0);
   yield WaitForSeconds(4);
   controller.SetMovement(0, -4.5, 0.0);
   yield WaitForSeconds(4);

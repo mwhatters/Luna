@@ -98,26 +98,26 @@ function LogicBoyStartScene() {
 
 function startBossBattle() {
 
-  if (!halfwayPointReached) {
-    if (!luna.GetComponent(PlayerGameStates).isDead) {
-      SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
-      yield StartRound1();
-    }
+  // if (!halfwayPointReached) {
+  //   if (!luna.GetComponent(PlayerGameStates).isDead) {
+  //     SceneHelper.use.FadeTo("YokoBack", 0.05, Color.magenta);
+  //     yield StartRound1();
+  //   }
+  //
+  //   if (!luna.GetComponent(PlayerGameStates).isDead) {
+  //     yield StartRound2();
+  //   }
+  //
+  //   if (!luna.GetComponent(PlayerGameStates).isDead) {
+  //     SceneHelper.use.FadeTo("YokoBack", 0.05, Color.yellow);
+  //     yield StartRound3();
+  //   }
+  // }
 
-    if (!luna.GetComponent(PlayerGameStates).isDead) {
-      yield StartRound2();
-    }
-
-    if (!luna.GetComponent(PlayerGameStates).isDead) {
-      SceneHelper.use.FadeTo("YokoBack", 0.05, Color.yellow);
-      yield StartRound3();
-    }
-  }
-
-  if (!luna.GetComponent(PlayerGameStates).isDead) {
-    halfwayPointReached = true;
-    yield StartRound4();
-  }
+  // if (!luna.GetComponent(PlayerGameStates).isDead) {
+  //   halfwayPointReached = true;
+  //   yield StartRound4();
+  // }
 
   if (!luna.GetComponent(PlayerGameStates).isDead) {
     SceneHelper.use.FadeTo("YokoBack", 0.05, Color.red);
@@ -203,6 +203,7 @@ function EndScene() {
   SceneHelper.use.ShowAndHideText(Text11, 4);
   yield WaitForSeconds(3);
   SceneHelper.use.ShowAndHideText(Text12, 4);
+  yield WaitForSeconds(1.3);
   SceneHelper.use.ShowAndHideText(Text122, 4);
   yield WaitForSeconds(6);
   SceneHelper.use.ShowAndHideText(Text13, 5);

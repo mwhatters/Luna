@@ -22,6 +22,7 @@ function Update() {
 function Begin() {
   GetComponent(RoundInitializer).fadeInRound();
   yield WaitForSeconds(1);
+  Sounds.use.ConstructOneOffSound("Blip", this.transform.position);
   ObjectFX.use.BlinkToColor(LB1.GetComponent(SpriteRenderer), Color.red);
   ObjectFX.use.BlinkToColor(LB2.GetComponent(SpriteRenderer), Color.red);
   ObjectFX.use.BlinkToColor(LB3.GetComponent(SpriteRenderer), Color.red);

@@ -19,12 +19,12 @@ function StartScene() {
   StartCoroutine(SceneHelper.use.FadeInImage("God", 0.001));
 
   yield WaitForSeconds(1);
-  yield SceneHelper.use.ShowAndHideText(Text2, 1);
-  yield SceneHelper.use.ShowAndHideText(Text3, 0.8);
-  yield SceneHelper.use.ShowAndHideText(Text4, 1);
-  yield SceneHelper.use.ShowAndHideText(Text5, 1);
-  yield SceneHelper.use.ShowAndHideText(Text6, 1);
-  yield SceneHelper.use.ShowAndHideText(Text7, 1);
+  yield SceneHelper.use.ShowAndHideText(Text2, 2);
+  yield SceneHelper.use.ShowAndHideText(Text3, 2);
+  yield SceneHelper.use.ShowAndHideText(Text4, 2);
+  yield SceneHelper.use.ShowAndHideText(Text5, 2);
+  yield SceneHelper.use.ShowAndHideText(Text6, 2);
+  yield SceneHelper.use.ShowAndHideText(Text7, 2);
 
   luna.canMove = true;
   // GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
