@@ -139,10 +139,9 @@ function fadeInRound(round) {
 
 function fadeOutRound(round) {
   for (var child : Transform in GameObject.Find(round).transform) {
-    SceneHelper.use.FadeOutGameObj(child.gameObject, 0.04);
+    if (child.name == "Key") { continue; }
+    SceneHelper.use.FadeOutGameObjAndDestroy(child.gameObject, 0.04);
   }
-  yield WaitForSeconds(1);
-  Destroy(GameObject.Find(round));
 }
 
 // END OF BATTLE

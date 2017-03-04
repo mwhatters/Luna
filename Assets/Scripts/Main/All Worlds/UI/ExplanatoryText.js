@@ -6,9 +6,12 @@ public var turnedOff : boolean = false;
 private var stringLength : int;
 public var timeToPrint : float = 0.07;
 
+var cameraObjSounds : Sounds;
+
 
 function Start() {
   stringLength = displayText.Length;
+  cameraObjSounds = GameObject.Find("Camera").GetComponent(Sounds);
 }
 
 
@@ -23,7 +26,8 @@ function revealUIText() {
     this.GetComponent(Text).text += displayText[i];
 
     if (useSounds) {
-      GameObject.FindGameObjectWithTag("TypeSound").GetComponent(AudioSource).Play();
+      // GameObject.FindGameObjectWithTag("TypeSound").GetComponent(AudioSource).Play();
+      cameraObjSounds.use.ConstructOneOffSound("Type", this.transform.position);
     }
 
     yield WaitForSeconds(timeToPrint);

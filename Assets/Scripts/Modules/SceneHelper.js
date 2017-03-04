@@ -83,6 +83,15 @@ function FadeOutGameObj(obj : GameObject, rate : float) {
   FadeImg.color.a = 0;
 }
 
+function FadeOutGameObjAndDestroy(obj : GameObject, rate : float) {
+  var FadeImg = obj.GetComponent(SpriteRenderer);
+  while (FadeImg.color.a >= 0.001) {
+    FadeImg.color.a -= rate;
+    yield;
+  }
+  Destroy(obj);
+}
+
 // SCENE FX
 
 function FadeImageToClear(object : String, rate : float) {
@@ -145,6 +154,7 @@ function grabComponentType(object : GameObject, type : String) {
 
 function FadeTo(name, rate : float, colorFade : Color) {
 	var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
+	if (!FadeImg) { return; }
 	var a = 0;
 	while (a < 500) {
 		FadeImg.color = Color.Lerp(FadeImg.color, colorFade, rate);
@@ -155,6 +165,7 @@ function FadeTo(name, rate : float, colorFade : Color) {
 
 function FadeObjTo(obj : GameObject, rate : float, colorFade : Color) {
 	var FadeImg = obj.GetComponent(SpriteRenderer);
+	if (!FadeImg) { return; }
 	var a = 0;
 	while (a < 500) {
 		FadeImg.color = Color.Lerp(FadeImg.color, colorFade, rate);
@@ -165,6 +176,7 @@ function FadeObjTo(obj : GameObject, rate : float, colorFade : Color) {
 
 function FadeToRed(name, rate: float) {
 	var FadeImg = GameObject.Find(name).GetComponent(SpriteRenderer);
+	if (!FadeImg) { return; }
 	var a = 0;
 	while (a < 500) {
 		FadeImg.color = Color.Lerp(FadeImg.color, Color.red, rate);
