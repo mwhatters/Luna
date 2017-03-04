@@ -35,18 +35,14 @@ function Start () {
 
 function playLushBoyScene() {
   yield WaitForSeconds(4.0);
-  SceneHelper.use.ShowAndHideText(Text1, 2);
+  yield SceneHelper.use.ShowAndHideText(Text1, 2);
 
-  yield WaitForSeconds(3.0);
   SceneHelper.use.ShowAndHideText(Text2, 1);
-
   lushboyfade = StartCoroutine(SceneHelper.use.FadeInImage("LushBoy", 0.003));
   Sounds.use.PlaySoundByName("LushFade");
 
-  yield WaitForSeconds(7.0);
-  SceneHelper.use.ShowAndHideText(Text3, 1);
-
-  yield WaitForSeconds(6.0);
+  yield WaitForSeconds(8.0);
+  yield SceneHelper.use.ShowAndHideText(Text3, 1);
   SceneHelper.use.ShowAndHideText(Text4, 1);
 
   yield WaitForSeconds(4.0);
