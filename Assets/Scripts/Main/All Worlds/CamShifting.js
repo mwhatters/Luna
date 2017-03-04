@@ -57,6 +57,8 @@ function OnTriggerEnter2D(coll : Collider2D) {
 			for (var item in objectsList) {
 				if (item.CompareTag("BurdenBall")) {
 					item.GetComponent(Clinger).active = true;
+				} else if (item.GetComponent(emitSound)) {
+					item.GetComponent(emitSound).shouldEmitSound = true;
 				} else {
 					item.GetComponent(Rigidbody2D).constraints = (FreezeRotation() | FreezeX() | FreezeY());
 				}
@@ -210,11 +212,13 @@ function performCameraZoom(cameraScope : Camera, endpoint : float, t : float) {
 
 function freezeObjects() {
 	boxesUnfrozen = false;
-	for (var obj in objectsList) {
-		if (obj.CompareTag("BurdenBall")) {
-			obj.GetComponent(Clinger).active = false;
+	for (var item in objectsList) {
+		if (item.CompareTag("BurdenBall")) {
+			item.GetComponent(Clinger).active = false;
+		} else if (item.GetComponent(emitSound)) {
+			item.GetComponent(emitSound).shouldEmitSound = false;
 		} else {
-			obj.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
+			item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
 		}
 	}
 }

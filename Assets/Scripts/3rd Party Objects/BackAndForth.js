@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
-public var object : GameObject;
-var objRigidBody : Rigidbody2D;
+private var object : GameObject;
+private var objRigidBody : Rigidbody2D;
 
 public var direction : String = "x";
 public var active : boolean = false;
