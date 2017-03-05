@@ -30,7 +30,7 @@ public var feetDistanceFromCenter : float;
 public var cameraRotationEnabled : boolean = true;
 public var facingRight = true;
 public var rotateRate : float;
-private var nextRotate = 0.0;
+public var nextRotate = 0.0;
 public var canRotate = true;
 public var isSubcutaneous = false;
 public var canMove = true;

@@ -35,6 +35,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
       child.GetComponent(Clinger).active = false;
     }
 
+    GameObject.Find("PauseUI").GetComponent(Pause).canPause = false;
 
     yield WaitForSeconds(7);
 

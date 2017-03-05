@@ -56,6 +56,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
     gravityState.rotatePlayerAndObjects(90);
     gravityState.rotateCameraInDegrees(90);
     gravityState.setWorldGravityShift();
+    gravityState.nextRotate = Time.time + 0.3;
   }
 
   if (tag == "RotaterL" && gravityState.canRotateGravity()) {
@@ -63,6 +64,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
     gravityState.rotatePlayerAndObjects(-90);
     gravityState.rotateCameraInDegrees(-90);
     gravityState.setWorldGravityShift();
+    gravityState.nextRotate = Time.time + 0.3;
   }
 
   if (tag == "Rotater180" && gravityState.canRotateGravity()) {
@@ -70,6 +72,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
     gravityState.rotatePlayerAndObjects(180);
     gravityState.rotateCameraInDegrees(180);
     gravityState.setWorldGravityShift();
+    gravityState.nextRotate = Time.time + 0.3;
   }
 
   if (tag == "Rotater-180" && gravityState.canRotateGravity()) {
@@ -77,6 +80,7 @@ function OnCollisionEnter2D (coll : Collision2D) {
     gravityState.rotatePlayerAndObjects(-180);
     gravityState.rotateCameraInDegrees(-180);
     gravityState.setWorldGravityShift();
+    gravityState.nextRotate = Time.time + 0.3;
   }
 
 
