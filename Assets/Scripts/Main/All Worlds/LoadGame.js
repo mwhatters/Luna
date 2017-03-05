@@ -53,36 +53,42 @@ function generateSavedGames() {
 
   for (var file in fileInfo) {
     var bf : BinaryFormatter = new BinaryFormatter();
-    var foundFile = File.Open(Application.persistentDataPath + "/" + file.Name, FileMode.Open);
-    var data : PlayerData = bf.Deserialize(foundFile);
+    try {
+      var foundFile = File.Open(Application.persistentDataPath + "/" + file.Name, FileMode.Open);
 
-    // Build child object
-    var thisPrefab = Instantiate(prefab, new Vector3(x,y,0), Quaternion.identity).gameObject;
-    thisPrefab.name = Path.GetFileNameWithoutExtension(data.username);
-    thisPrefab.transform.SetParent(canvas.transform, false);
+      var data : PlayerData = bf.Deserialize(foundFile);
 
-    var nameField = thisPrefab.GetComponent(Text);
-    nameField.text = (data.username + " -- " + data.level);
+      // Build child object
+      var thisPrefab = Instantiate(prefab, new Vector3(x,y,0), Quaternion.identity).gameObject;
+      thisPrefab.name = Path.GetFileNameWithoutExtension(data.username);
+      thisPrefab.transform.SetParent(canvas.transform, false);
 
-    y -= 25;
+      var nameField = thisPrefab.GetComponent(Text);
+      nameField.text = (data.username + " -- " + data.level);
 
-    //a hack
-    if (nameField.text == "") {
-      continue;
+      y -= 25;
+
+      //a hack
+      if (nameField.text == "") {
+        continue;
+      }
+
+      // add click listener to instantiated object
+      var captured : String = Path.GetFileNameWithoutExtension(file.Name);
+      SceneHelper.use.FadeTextToWhite(data.username, 0.3);
+      AddListener(thisPrefab.GetComponent(Button), captured);
+
+      if (index == 1) {
+        thisPrefab.GetComponent(Button).Select();
+        Destroy(GameObject.Find("Load Game"));
+        index += 1;
+      }
+
+    } catch(e) {
+        Debug.Log(e);
+    } finally {
+      foundFile.Close();
     }
-
-    // add click listener to instantiated object
-    var captured : String = Path.GetFileNameWithoutExtension(file.Name);
-    SceneHelper.use.FadeTextToWhite(data.username, 0.3);
-    AddListener(thisPrefab.GetComponent(Button), captured);
-
-    if (index == 1) {
-      thisPrefab.GetComponent(Button).Select();
-      Destroy(GameObject.Find("Load Game"));
-      index += 1;
-    }
-
-    foundFile.Close();
 
     yield WaitForSeconds(0.03);
   }
