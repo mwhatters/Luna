@@ -7,6 +7,10 @@ public var hasWon = false;
 public var keysFound : GameObject[];
 enum DeathType { Void, Explode, Laser }
 
+private var rotateRate : float = 0.5;
+private var nextRotate : float = 0.0;
+private var canRotate : boolean = true;
+
 function Update() {
     if (isDead || hasWon) {
       var gravScript = GetComponent(MainGravity);
@@ -51,36 +55,40 @@ function OnCollisionEnter2D (coll : Collision2D) {
     hasWon = true;
   }
 
-  if (tag == "RotaterR" && gravityState.canRotateGravity()) {
-    gravityState.adjustGravityRight();
-    gravityState.rotatePlayerAndObjects(90);
-    gravityState.rotateCameraInDegrees(90);
-    gravityState.setWorldGravityShift();
-    gravityState.nextRotate = Time.time + 0.3;
+  if (tag == "RotaterR" && gravityState.canRotateGravity() && canRotate) {
+    if (canRotate) {
+      gravityState.adjustGravityRight();
+      gravityState.rotatePlayerAndObjects(90);
+      gravityState.rotateCameraInDegrees(90);
+      gravityState.setWorldGravityShift();
+    }
   }
 
-  if (tag == "RotaterL" && gravityState.canRotateGravity()) {
-    gravityState.adjustGravityLeft();
-    gravityState.rotatePlayerAndObjects(-90);
-    gravityState.rotateCameraInDegrees(-90);
-    gravityState.setWorldGravityShift();
-    gravityState.nextRotate = Time.time + 0.3;
+  if (tag == "RotaterL" && gravityState.canRotateGravity() && canRotate) {
+    if (canRotate) {
+      gravityState.adjustGravityLeft();
+      gravityState.rotatePlayerAndObjects(-90);
+      gravityState.rotateCameraInDegrees(-90);
+      gravityState.setWorldGravityShift();
+    }
   }
 
-  if (tag == "Rotater180" && gravityState.canRotateGravity()) {
-    gravityState.adjustGravity180();
-    gravityState.rotatePlayerAndObjects(180);
-    gravityState.rotateCameraInDegrees(180);
-    gravityState.setWorldGravityShift();
-    gravityState.nextRotate = Time.time + 0.3;
+  if (tag == "Rotater180" && gravityState.canRotateGravity() && canRotate) {
+    if (canRotate) {
+      gravityState.adjustGravity180();
+      gravityState.rotatePlayerAndObjects(180);
+      gravityState.rotateCameraInDegrees(180);
+      gravityState.setWorldGravityShift();
+    }
   }
 
-  if (tag == "Rotater-180" && gravityState.canRotateGravity()) {
-    gravityState.adjustGravity180();
-    gravityState.rotatePlayerAndObjects(-180);
-    gravityState.rotateCameraInDegrees(-180);
-    gravityState.setWorldGravityShift();
-    gravityState.nextRotate = Time.time + 0.3;
+  if (tag == "Rotater-180" && gravityState.canRotateGravity() && canRotate) {
+    if (canRotate) {
+      gravityState.adjustGravity180();
+      gravityState.rotatePlayerAndObjects(-180);
+      gravityState.rotateCameraInDegrees(-180);
+      gravityState.setWorldGravityShift();
+    }
   }
 
 

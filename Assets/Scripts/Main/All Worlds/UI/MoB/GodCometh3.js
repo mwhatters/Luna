@@ -12,7 +12,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
     GameObject.Find("godboy3").GetComponent(SpriteRenderer).color = Color.red;
 
     var lunas = GameObject.Find("Lunas");
-    if (!lunas) { Debug.Log("hey"); } else {
+    if (lunas) {
       var otherLunas : Component[] = lunas.GetComponentsInChildren(Transform);
       for (var otherLuna : Transform in otherLunas) {
         Destroy(otherLuna.gameObject);

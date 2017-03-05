@@ -165,7 +165,6 @@ function fadeBlocksToRed() {
 }
 
 function BlinkAnswerBlock(answerBlock : GameObject) {
-  Debug.Log("Hit");
   Sounds.use.ConstructOneOffSound("Blip", this.transform.position);
   yield ObjectFX.use.BlinkToColor(answerBlock.GetComponent(SpriteRenderer), Color.yellow);
   Sounds.use.ConstructOneOffSound("Blip", this.transform.position);
