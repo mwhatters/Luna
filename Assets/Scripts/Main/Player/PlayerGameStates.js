@@ -7,9 +7,8 @@ public var hasWon = false;
 public var keysFound : GameObject[];
 enum DeathType { Void, Explode, Laser }
 
-private var rotateRate : float = 0.5;
-private var nextRotate : float = 0.0;
-private var canRotate : boolean = true;
+private var rotaterRate : float = 0.5;
+private var nextRotater : float = 0.0;
 
 function Update() {
     if (isDead || hasWon) {
@@ -55,43 +54,37 @@ function OnCollisionEnter2D (coll : Collision2D) {
     hasWon = true;
   }
 
-  if (tag == "RotaterR" && gravityState.canRotateGravity() && canRotate) {
-    if (canRotate) {
+  if (tag == "RotaterR" && gravityState.canRotateGravity() && canUseRotater()) {
       gravityState.adjustGravityRight();
-      gravityState.rotatePlayerAndObjects(90);
-      gravityState.rotateCameraInDegrees(90);
-      gravityState.setWorldGravityShift();
-    }
+      rotateWorld(gravityState, 90);
   }
 
-  if (tag == "RotaterL" && gravityState.canRotateGravity() && canRotate) {
-    if (canRotate) {
+  if (tag == "RotaterL" && gravityState.canRotateGravity() && canUseRotater()) {
       gravityState.adjustGravityLeft();
-      gravityState.rotatePlayerAndObjects(-90);
-      gravityState.rotateCameraInDegrees(-90);
-      gravityState.setWorldGravityShift();
-    }
+      rotateWorld(gravityState, -90);
   }
 
-  if (tag == "Rotater180" && gravityState.canRotateGravity() && canRotate) {
-    if (canRotate) {
+  if (tag == "Rotater180" && gravityState.canRotateGravity() && canUseRotater()) {
       gravityState.adjustGravity180();
-      gravityState.rotatePlayerAndObjects(180);
-      gravityState.rotateCameraInDegrees(180);
-      gravityState.setWorldGravityShift();
-    }
+      rotateWorld(gravityState, 180);
   }
 
-  if (tag == "Rotater-180" && gravityState.canRotateGravity() && canRotate) {
-    if (canRotate) {
+  if (tag == "Rotater-180" && gravityState.canRotateGravity() && canUseRotater()) {
       gravityState.adjustGravity180();
-      gravityState.rotatePlayerAndObjects(-180);
-      gravityState.rotateCameraInDegrees(-180);
-      gravityState.setWorldGravityShift();
-    }
+      rotateWorld(gravityState, -180);
   }
+}
 
+function rotateWorld(gravityState : MainGravity, degrees : float) {
+  gravityState.rotatePlayerAndObjects(degrees);
+  gravityState.rotateCameraInDegrees(degrees);
+  gravityState.setWorldGravityShift();
 
+  nextRotater = Time.time + rotaterRate + 0.01;
+}
+
+function canUseRotater() {
+  return (Time.time > nextRotater + 0.001);
 }
 
 // EndGame & Meta

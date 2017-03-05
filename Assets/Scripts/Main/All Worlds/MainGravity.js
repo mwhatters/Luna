@@ -29,7 +29,7 @@ public var feetDistanceFromCenter : float;
 
 public var cameraRotationEnabled : boolean = true;
 public var facingRight = true;
-public var rotateRate : float;
+private var rotateRate : float = 0.36;
 public var nextRotate = 0.0;
 public var canRotate = true;
 public var isSubcutaneous = false;
@@ -248,6 +248,8 @@ function rotatePlayerAndObjects(degrees : float) {
 	adjustShifters(["ShifterR"], Vector3.forward * degrees);
 	adjustShifters(["StubbornGround"], Vector3.forward * degrees);
 	adjustShifters(["StubbornGroundReverse"], Vector3.forward * -degrees);
+
+	adjustRotaters(["RotaterL", "RotaterR", "Rotater180", "Rotater-180"], Vector3.forward * degrees);
 }
 
 function adjustShifters(shifters : String[], degrees : Vector3) {
@@ -257,6 +259,21 @@ function adjustShifters(shifters : String[], degrees : Vector3) {
 			MoveObject.use.Rotation(shift.transform, degrees, rotateRate);
 		}
 	}
+}
+
+function adjustRotaters(rotaters : String[], degrees : Vector3) {
+	for (var rotater : String in rotaters) {
+		var rotates = GameObject.FindGameObjectsWithTag(rotater);
+		for (var rotate in rotates) {
+			StartCoroutine(performRotate(rotate, degrees));
+		}
+	}
+}
+
+function performRotate(rotate : GameObject, degrees : Vector3) {
+	rotate.GetComponent(BoxCollider2D).enabled = false;
+	yield MoveObject.use.Rotation(rotate.transform, degrees, rotateRate);
+	rotate.GetComponent(BoxCollider2D).enabled = true;
 }
 
 function adjustGravityLeft()
