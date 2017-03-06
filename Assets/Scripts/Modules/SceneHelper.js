@@ -220,3 +220,22 @@ function HideText(text : GameObject) {
   yield text.GetComponent(ExplanatoryText).slowlyRemoveUIText();
   text.GetComponent(ExplanatoryText).turnedOff = true;
 }
+
+// CAMERA EFFECTS
+
+function AddCameraBloom() {
+	var cameraBloomStandard = 0.93;
+	var bloom = GameObject.Find("Camera").GetComponent(UnityStandardAssets.ImageEffects.BloomOptimized);
+	while (bloom.intensity <= cameraBloomStandard) {
+		bloom.intensity = bloom.intensity + 0.001;
+		yield;
+	}
+}
+
+function RemoveCameraBloom() {
+	var bloom = GameObject.Find("Camera").GetComponent(UnityStandardAssets.ImageEffects.BloomOptimized);
+	while (bloom.intensity > 0.0) {
+		bloom.intensity = bloom.intensity - 0.001;
+		yield;
+	}
+}

@@ -180,6 +180,7 @@ function LunaGoesToSpaceScene() {
   }
 
   SceneHelper.use.FadeOutImageWithRate("Pure Boy 2", 0.001);
+  SceneHelper.use.AddCameraBloom();
   yield WaitForSeconds(16);
 
   var allSpace = GameObject.FindGameObjectsWithTag("Space");
