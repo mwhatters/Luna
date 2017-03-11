@@ -1,4 +1,4 @@
-﻿#pragma strict
+#pragma strict
 
 public static var IntroInstance;
 
@@ -20,7 +20,9 @@ function Start () {
   var timer = GameObject.Find("User Interface").GetComponent(Timer);
 
   var Text1 = GameObject.Find("Text1");
+  var Text11 = GameObject.Find("Text1.5");
   var Text2 = GameObject.Find("Text2");
+  var Text22 = GameObject.Find("Text2.5");
   var Text3 = GameObject.Find("Text3");
 
   timer.running = false;
@@ -31,15 +33,15 @@ function Start () {
 
   yield WaitForSeconds(1);
 
-  SceneHelper.use.ShowAndHideText(Text1, 2);
-  yield WaitForSeconds(6);
+  yield SceneHelper.use.ShowAndHideText(Text1, 2);
+  yield SceneHelper.use.ShowAndHideText(Text11, 2);
 
   SceneHelper.use.PartiallyFadeInImage("Power Boy", 0.0008, 0.1);
 
-  yield WaitForSeconds(5);
-  SceneHelper.use.ShowAndHideText(Text2, 1.8);
+  yield WaitForSeconds(2);
+  yield SceneHelper.use.ShowAndHideText(Text2, 1);
+  yield SceneHelper.use.ShowAndHideText(Text22, 2);
 
-  yield WaitForSeconds(7);
   Sounds.use.PlaySoundByName("LushFade");
   SceneHelper.use.FadeOutImageWithRate("Power Boy", 0.0002);
   SceneHelper.use.ShowAndHideText(Text3, 3);
