@@ -62,11 +62,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: SZTransition_0
+    - serializedVersion: 2
+      name: SZTransition_0
       rect:
         serializedVersion: 2
         x: 0
@@ -76,16 +84,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -16, y: 18}
-        - {x: -18, y: 16}
-        - {x: -18, y: -16}
-        - {x: -16, y: -18}
-        - {x: 16, y: -18}
-        - {x: 18, y: -16}
-        - {x: 18, y: 16}
-        - {x: 16, y: 18}
-    - name: SZTransition_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -95,16 +97,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -32, y: 34}
-        - {x: -34, y: 32}
-        - {x: -34, y: -32}
-        - {x: -32, y: -34}
-        - {x: 32, y: -34}
-        - {x: 34, y: -32}
-        - {x: 34, y: 32}
-        - {x: 32, y: 34}
-    - name: SZTransition_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_2
       rect:
         serializedVersion: 2
         x: 2048
@@ -114,14 +110,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -66, y: 66}
-        - {x: -66, y: -66}
-        - {x: 64, y: -66}
-        - {x: 66, y: -64}
-        - {x: 66, y: 64}
-        - {x: 64, y: 66}
-    - name: SZTransition_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_3
       rect:
         serializedVersion: 2
         x: 3072
@@ -131,14 +123,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -82, y: 80}
-        - {x: -82, y: -82}
-        - {x: 82, y: -82}
-        - {x: 82, y: 80}
-        - {x: 80, y: 82}
-        - {x: -80, y: 82}
-    - name: SZTransition_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_4
       rect:
         serializedVersion: 2
         x: 0
@@ -148,14 +136,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -98, y: 96}
-        - {x: -98, y: -98}
-        - {x: 98, y: -98}
-        - {x: 98, y: 96}
-        - {x: 96, y: 98}
-        - {x: -96, y: 98}
-    - name: SZTransition_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_5
       rect:
         serializedVersion: 2
         x: 1024
@@ -165,14 +149,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -114, y: 112}
-        - {x: -114, y: -114}
-        - {x: 114, y: -114}
-        - {x: 114, y: 112}
-        - {x: 112, y: 114}
-        - {x: -112, y: 114}
-    - name: SZTransition_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_6
       rect:
         serializedVersion: 2
         x: 2048
@@ -182,16 +162,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -128, y: 130}
-        - {x: -130, y: 128}
-        - {x: -130, y: -128}
-        - {x: -128, y: -130}
-        - {x: 128, y: -130}
-        - {x: 130, y: -128}
-        - {x: 130, y: 128}
-        - {x: 128, y: 130}
-    - name: SZTransition_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_7
       rect:
         serializedVersion: 2
         x: 3072
@@ -201,16 +175,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -144, y: 146}
-        - {x: -146, y: 144}
-        - {x: -146, y: -144}
-        - {x: -144, y: -146}
-        - {x: 144, y: -146}
-        - {x: 146, y: -144}
-        - {x: 146, y: 144}
-        - {x: 144, y: 146}
-    - name: SZTransition_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_8
       rect:
         serializedVersion: 2
         x: 0
@@ -220,16 +188,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -160, y: 162}
-        - {x: -162, y: 160}
-        - {x: -162, y: -160}
-        - {x: -160, y: -162}
-        - {x: 160, y: -162}
-        - {x: 162, y: -160}
-        - {x: 162, y: 160}
-        - {x: 160, y: 162}
-    - name: SZTransition_9
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_9
       rect:
         serializedVersion: 2
         x: 1024
@@ -239,16 +201,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -176, y: 178}
-        - {x: -178, y: 176}
-        - {x: -178, y: -176}
-        - {x: -176, y: -178}
-        - {x: 176, y: -178}
-        - {x: 178, y: -176}
-        - {x: 178, y: 176}
-        - {x: 176, y: 178}
-    - name: SZTransition_10
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_10
       rect:
         serializedVersion: 2
         x: 2048
@@ -258,16 +214,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -192, y: 194}
-        - {x: -194, y: 192}
-        - {x: -194, y: -192}
-        - {x: -192, y: -194}
-        - {x: 192, y: -194}
-        - {x: 194, y: -192}
-        - {x: 194, y: 192}
-        - {x: 192, y: 194}
-    - name: SZTransition_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_11
       rect:
         serializedVersion: 2
         x: 3072
@@ -277,16 +227,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -208, y: 210}
-        - {x: -210, y: 208}
-        - {x: -210, y: -208}
-        - {x: -208, y: -210}
-        - {x: 208, y: -210}
-        - {x: 210, y: -208}
-        - {x: 210, y: 208}
-        - {x: 208, y: 210}
-    - name: SZTransition_12
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_12
       rect:
         serializedVersion: 2
         x: 0
@@ -296,14 +240,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -226, y: 226}
-        - {x: -226, y: -226}
-        - {x: 224, y: -226}
-        - {x: 226, y: -224}
-        - {x: 226, y: 224}
-        - {x: 224, y: 226}
-    - name: SZTransition_13
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_13
       rect:
         serializedVersion: 2
         x: 1024
@@ -313,14 +253,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -242, y: 242}
-        - {x: -242, y: -242}
-        - {x: 240, y: -242}
-        - {x: 242, y: -240}
-        - {x: 242, y: 240}
-        - {x: 240, y: 242}
-    - name: SZTransition_14
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_14
       rect:
         serializedVersion: 2
         x: 2048
@@ -330,12 +266,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
-    - name: SZTransition_15
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SZTransition_15
       rect:
         serializedVersion: 2
         x: 3072
@@ -346,6 +280,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

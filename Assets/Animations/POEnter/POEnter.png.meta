@@ -62,11 +62,19 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: POEnter_0
+    - serializedVersion: 2
+      name: POEnter_0
       rect:
         serializedVersion: 2
         x: 0
@@ -76,16 +84,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -16, y: 18}
-        - {x: -18, y: 16}
-        - {x: -18, y: -16}
-        - {x: -16, y: -18}
-        - {x: 16, y: -18}
-        - {x: 18, y: -16}
-        - {x: 18, y: 16}
-        - {x: 16, y: 18}
-    - name: POEnter_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -95,16 +97,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -32, y: 34}
-        - {x: -34, y: 32}
-        - {x: -34, y: -32}
-        - {x: -32, y: -34}
-        - {x: 32, y: -34}
-        - {x: 34, y: -32}
-        - {x: 34, y: 32}
-        - {x: 32, y: 34}
-    - name: POEnter_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_2
       rect:
         serializedVersion: 2
         x: 2048
@@ -114,13 +110,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -50, y: 50}
-        - {x: -50, y: -50}
-        - {x: 50, y: -50}
-        - {x: 50, y: 48}
-        - {x: 48, y: 50}
-    - name: POEnter_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_3
       rect:
         serializedVersion: 2
         x: 3072
@@ -130,14 +123,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -66, y: 66}
-        - {x: -66, y: -66}
-        - {x: 64, y: -66}
-        - {x: 66, y: -64}
-        - {x: 66, y: 64}
-        - {x: 64, y: 66}
-    - name: POEnter_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_4
       rect:
         serializedVersion: 2
         x: 0
@@ -147,38 +136,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -146, y: -128}
-        - {x: -145, y: -130}
-        - {x: -126, y: -130}
-        - {x: -126, y: -110}
-        - {x: -144, y: -110}
-        - {x: -146, y: -112}
-      - - {x: 126, y: -110}
-        - {x: 126, y: -128}
-        - {x: 128, y: -130}
-        - {x: 144, y: -130}
-        - {x: 146, y: -128}
-        - {x: 146, y: -110}
-      - - {x: -82, y: -82}
-        - {x: 82, y: -82}
-        - {x: 82, y: 82}
-        - {x: -82, y: 82}
-      - - {x: -144, y: 130}
-        - {x: -146, y: 128}
-        - {x: -146, y: 112}
-        - {x: -144, y: 110}
-        - {x: -126, y: 110}
-        - {x: -126, y: 130}
-      - - {x: 128, y: 130}
-        - {x: 126, y: 128}
-        - {x: 126, y: 112}
-        - {x: 128, y: 110}
-        - {x: 144, y: 110}
-        - {x: 146, y: 112}
-        - {x: 146, y: 128}
-        - {x: 144, y: 130}
-    - name: POEnter_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_5
       rect:
         serializedVersion: 2
         x: 1024
@@ -188,45 +149,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -154, y: -94}
-        - {x: -162, y: -112}
-        - {x: -162, y: -138}
-        - {x: -146, y: -146}
-        - {x: -116, y: -146}
-        - {x: -110, y: -137}
-        - {x: -110, y: -99}
-        - {x: -125, y: -94}
-      - - {x: 116, y: -94}
-        - {x: 110, y: -107}
-        - {x: 110, y: -141}
-        - {x: 123, y: -146}
-        - {x: 155, y: -146}
-        - {x: 162, y: -130}
-        - {x: 162, y: -102}
-        - {x: 152, y: -94}
-      - - {x: -98, y: 98}
-        - {x: -98, y: -98}
-        - {x: 98, y: -98}
-        - {x: 98, y: 96}
-        - {x: 96, y: 98}
-      - - {x: -157, y: 146}
-        - {x: -162, y: 133}
-        - {x: -162, y: 101}
-        - {x: -146, y: 94}
-        - {x: -118, y: 94}
-        - {x: -110, y: 104}
-        - {x: -110, y: 140}
-        - {x: -123, y: 146}
-      - - {x: 128, y: 146}
-        - {x: 110, y: 128}
-        - {x: 110, y: 112}
-        - {x: 128, y: 94}
-        - {x: 155, y: 94}
-        - {x: 162, y: 112}
-        - {x: 162, y: 136}
-        - {x: 144, y: 146}
-    - name: POEnter_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_6
       rect:
         serializedVersion: 2
         x: 2048
@@ -236,35 +162,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 93, y: -131}
-        - {x: 121, y: -146}
-        - {x: 155, y: -146}
-        - {x: 162, y: -128}
-        - {x: 162, y: -97}
-        - {x: 148, y: -79}
-        - {x: 127, y: -76}
-        - {x: 128, y: 78}
-        - {x: 146, y: 75}
-        - {x: 162, y: 103}
-        - {x: 162, y: 140}
-        - {x: 152, y: 146}
-        - {x: 109, y: 146}
-        - {x: 87, y: 121}
-        - {x: -93, y: 146}
-        - {x: -156, y: 146}
-        - {x: -162, y: 132}
-        - {x: -162, y: 69}
-        - {x: -157, y: 52}
-        - {x: -124, y: 72}
-        - {x: -162, y: -98}
-        - {x: -162, y: -136}
-        - {x: -144, y: -146}
-        - {x: -128, y: -146}
-        - {x: -126, y: -144}
-        - {x: -96, y: -130}
-        - {x: -94, y: -128}
-    - name: POEnter_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_7
       rect:
         serializedVersion: 2
         x: 3072
@@ -274,39 +175,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 147, y: -146}
-        - {x: 162, y: -131}
-        - {x: 162, y: -112}
-        - {x: 160, y: -110}
-        - {x: 146, y: -64}
-        - {x: 144, y: -62}
-        - {x: 130, y: -62}
-        - {x: 151, y: 63}
-        - {x: 162, y: 112}
-        - {x: 162, y: 137}
-        - {x: 156, y: 146}
-        - {x: 89, y: 146}
-        - {x: 92, y: 132}
-        - {x: -94, y: 130}
-        - {x: -91, y: 146}
-        - {x: -146, y: 146}
-        - {x: -146, y: 144}
-        - {x: -162, y: 128}
-        - {x: -162, y: 112}
-        - {x: -160, y: 110}
-        - {x: -146, y: 64}
-        - {x: -144, y: 62}
-        - {x: -130, y: 62}
-        - {x: -151, y: -63}
-        - {x: -162, y: -104}
-        - {x: -162, y: -137}
-        - {x: -144, y: -146}
-        - {x: -94, y: -146}
-        - {x: -92, y: -145}
-        - {x: -94, y: -130}
-        - {x: 88, y: -146}
-    - name: POEnter_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_8
       rect:
         serializedVersion: 2
         x: 0
@@ -316,40 +188,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 162, y: -128}
-        - {x: 162, y: -112}
-        - {x: 160, y: -110}
-        - {x: 146, y: -110}
-        - {x: 146, y: 110}
-        - {x: 160, y: 110}
-        - {x: 162, y: 112}
-        - {x: 162, y: 128}
-        - {x: 160, y: 130}
-        - {x: 146, y: 130}
-        - {x: 146, y: 144}
-        - {x: 144, y: 146}
-        - {x: -144, y: 146}
-        - {x: -146, y: 144}
-        - {x: -146, y: 130}
-        - {x: -160, y: 130}
-        - {x: -162, y: 128}
-        - {x: -162, y: 112}
-        - {x: -160, y: 110}
-        - {x: -146, y: 110}
-        - {x: -146, y: -110}
-        - {x: -160, y: -110}
-        - {x: -162, y: -112}
-        - {x: -162, y: -128}
-        - {x: -160, y: -130}
-        - {x: -146, y: -130}
-        - {x: -146, y: -144}
-        - {x: -144, y: -146}
-        - {x: 144, y: -146}
-        - {x: 146, y: -144}
-        - {x: 146, y: -130}
-        - {x: 160, y: -130}
-    - name: POEnter_9
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_9
       rect:
         serializedVersion: 2
         x: 1024
@@ -359,16 +201,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -160, y: 162}
-        - {x: -162, y: 160}
-        - {x: -162, y: -160}
-        - {x: -160, y: -162}
-        - {x: 160, y: -162}
-        - {x: 162, y: -160}
-        - {x: 162, y: 160}
-        - {x: 160, y: 162}
-    - name: POEnter_10
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_10
       rect:
         serializedVersion: 2
         x: 2048
@@ -378,16 +214,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -176, y: 178}
-        - {x: -178, y: 176}
-        - {x: -178, y: -176}
-        - {x: -176, y: -178}
-        - {x: 176, y: -178}
-        - {x: 178, y: -176}
-        - {x: 178, y: 176}
-        - {x: 176, y: 178}
-    - name: POEnter_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_11
       rect:
         serializedVersion: 2
         x: 3072
@@ -397,16 +227,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -192, y: 194}
-        - {x: -194, y: 192}
-        - {x: -194, y: -192}
-        - {x: -192, y: -194}
-        - {x: 192, y: -194}
-        - {x: 194, y: -192}
-        - {x: 194, y: 192}
-        - {x: 192, y: 194}
-    - name: POEnter_12
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_12
       rect:
         serializedVersion: 2
         x: 0
@@ -416,16 +240,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -208, y: 210}
-        - {x: -210, y: 208}
-        - {x: -210, y: -208}
-        - {x: -208, y: -210}
-        - {x: 208, y: -210}
-        - {x: 210, y: -208}
-        - {x: 210, y: 208}
-        - {x: 208, y: 210}
-    - name: POEnter_13
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_13
       rect:
         serializedVersion: 2
         x: 1024
@@ -435,14 +253,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -226, y: 226}
-        - {x: -226, y: -226}
-        - {x: 224, y: -226}
-        - {x: 226, y: -224}
-        - {x: 226, y: 224}
-        - {x: 224, y: 226}
-    - name: POEnter_14
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_14
       rect:
         serializedVersion: 2
         x: 2048
@@ -452,14 +266,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -242, y: 242}
-        - {x: -242, y: -242}
-        - {x: 240, y: -242}
-        - {x: 242, y: -240}
-        - {x: 242, y: 240}
-        - {x: 240, y: 242}
-    - name: POEnter_15
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: POEnter_15
       rect:
         serializedVersion: 2
         x: 3072
@@ -469,11 +279,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 
