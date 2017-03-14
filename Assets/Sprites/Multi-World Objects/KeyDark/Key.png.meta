@@ -11,7 +11,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -50,11 +50,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Key_0
+    - serializedVersion: 2
+      name: Key_0
       rect:
         serializedVersion: 2
         x: 32
@@ -64,19 +67,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -192, y: 64}
-        - {x: -192, y: -34}
-        - {x: -151, y: -64}
-        - {x: -52, y: -64}
-        - {x: -30, y: -32}
-        - {x: 64, y: -34}
-        - {x: 94, y: -64}
-        - {x: 162, y: -64}
-        - {x: 192, y: -34}
-        - {x: 192, y: 34}
-        - {x: 162, y: 64}
-    - name: Key_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Key_1
       rect:
         serializedVersion: 2
         x: 480
@@ -86,19 +80,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -192, y: 64}
-        - {x: -192, y: -34}
-        - {x: -151, y: -64}
-        - {x: -52, y: -64}
-        - {x: -30, y: -32}
-        - {x: 64, y: -34}
-        - {x: 94, y: -64}
-        - {x: 162, y: -64}
-        - {x: 192, y: -34}
-        - {x: 192, y: 34}
-        - {x: 162, y: 64}
-    - name: Key_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Key_2
       rect:
         serializedVersion: 2
         x: 928
@@ -108,19 +93,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -192, y: 64}
-        - {x: -192, y: -34}
-        - {x: -151, y: -64}
-        - {x: -52, y: -64}
-        - {x: -30, y: -32}
-        - {x: 64, y: -34}
-        - {x: 94, y: -64}
-        - {x: 162, y: -64}
-        - {x: 192, y: -34}
-        - {x: 192, y: 34}
-        - {x: 162, y: 64}
-    - name: Key_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Key_3
       rect:
         serializedVersion: 2
         x: 1376
@@ -130,18 +106,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -192, y: 64}
-        - {x: -192, y: -34}
-        - {x: -151, y: -64}
-        - {x: -52, y: -64}
-        - {x: -30, y: -32}
-        - {x: 64, y: -34}
-        - {x: 94, y: -64}
-        - {x: 162, y: -64}
-        - {x: 192, y: -34}
-        - {x: 192, y: 34}
-        - {x: 162, y: 64}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 
