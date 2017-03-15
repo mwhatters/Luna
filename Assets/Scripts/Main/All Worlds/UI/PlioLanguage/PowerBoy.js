@@ -91,7 +91,7 @@ function startBossBattle() {
   Sounds.use.PlaySoundByName("LushFade");
 
   yield Round4();
-  yield WaitForSeconds(15);
+  yield WaitForSeconds(17);
   yield Round5();
   yield WaitForSeconds(13);
   SceneHelper.use.ShowAndHideText(Text4, 2);
@@ -196,13 +196,10 @@ function GodFreezesEverythingScene() {
   yield WaitForSeconds(6);
   SceneHelper.use.FadeImageToWhite("God", 0.04);
   yield WaitForSeconds(2);
-  SceneHelper.use.ShowAndHideText(Text6, 2);
-  yield WaitForSeconds(6);
-  SceneHelper.use.ShowAndHideText(Text7, 2);
-  yield WaitForSeconds(6);
-  SceneHelper.use.ShowAndHideText(Text8, 2);
-  yield WaitForSeconds(7);
-  SceneHelper.use.ShowText(Text9);
+  yield SceneHelper.use.ShowAndHideText(Text6, 2);
+  yield SceneHelper.use.ShowAndHideText(Text7, 2);
+  yield SceneHelper.use.ShowAndHideText(Text8, 2);
+  yield SceneHelper.use.ShowText(Text9);
   yield WaitForSeconds(6);
   if (luna.GetComponent(MainGravity).facingRight == false) { luna.GetComponent(MainGravity).Flip(); }
   GameObject.Find("Portal").GetComponent(SceneLoader).beginSceneTransition();
