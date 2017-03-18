@@ -16,7 +16,6 @@ function Awake() {
 }
 
 function Start () {
-  Test();
   var pauseMenu = GameObject.Find("PauseUI");
   var timer = GameObject.Find("User Interface").GetComponent(Timer);
   var luna = GameObject.Find("Luna");
@@ -59,22 +58,4 @@ function Start () {
   timer.startTimerFromZero();
   timer.running = true;
   pauseMenu.GetComponent(Pause).canPause = true;
-}
-
-function Test() {
-  var ht : Hashtable;
-  ht = new Hashtable();
-
-  ht.Add("level1", 44.50);
-  ht.Add("level2", 44.23);
-
-  if (ht.ContainsKey("level1")) {
-    ht.Remove("level1");
-    ht.Add("level1", 666.50);
-  }
-
-  for (var s : DictionaryEntry in ht) {
-    var f : float = s.Value;
-    Debug.Log(f + 34987);
-  }
 }

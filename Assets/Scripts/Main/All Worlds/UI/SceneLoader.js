@@ -85,5 +85,8 @@ function ZoomCameraToPortal() {
 
 function SaveGameTime() {
   var timeToLevelComplete : float = GameObject.Find("User Interface").GetComponent(Timer).time;
-  var totalTime : float;
+
+  if (SaveData.use.currentData) {
+    SaveData.use.AddTimeData(SaveData.use.currentData.username, SceneManager.GetActiveScene().name, timeToLevelComplete);
+  }
 }
