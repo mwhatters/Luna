@@ -36,6 +36,7 @@ function beginSceneTransition() {
 
 function playNormalSceneExit() {
   // save timer results
+  SaveGameTime();
 
   GameObject.Find("Camera").GetComponent(CameraBehavior).shaking = false;
   GameObject.Find("User Interface").GetComponent(Timer).running = false;
@@ -80,4 +81,9 @@ function ZoomCameraToPortal() {
     cameraScope.fieldOfView = Mathf.Lerp(cameraScope.fieldOfView, endLevelZoom, t);
     yield;
   }
+}
+
+function SaveGameTime() {
+  var timeToLevelComplete : float = GameObject.Find("User Interface").GetComponent(Timer).time;
+  var totalTime : float;
 }

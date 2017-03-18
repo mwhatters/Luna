@@ -2,7 +2,7 @@
 import UnityEngine.UI;
 
 public var timerLabel : Text;
-private var time : float;
+public var time : float;
 private var resetTime : float = 0.0;
 public var running : boolean = true;
 

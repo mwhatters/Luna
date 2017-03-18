@@ -8,13 +8,15 @@ function Start () {
   yield StartCoroutine("CreditsIn");
   yield StartCoroutine("CreditsOut");
   yield WaitForSeconds(13);
+  Sounds.use.PlaySoundByName("LastLaugh");
+  yield WaitForSeconds(5);
 
   if (SaveData.currentData) {
-    SaveData.use.SaveGame(
-      SaveData.currentData.username,
-      SceneManager.GetActiveScene().name,
-      SaveData.currentData.rotation
-    );
+    // SaveData.use.SaveGame(
+    //   SaveData.currentData.username,
+    //   SceneManager.GetActiveScene().name,
+    //   SaveData.currentData.rotation
+    // );
 
     SaveData.use.ClearCurrentSaveData();
   }

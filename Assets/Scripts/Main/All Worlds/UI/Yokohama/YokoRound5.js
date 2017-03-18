@@ -53,7 +53,7 @@ function Box1Script() {
 
   // part a -- 11
   yield WaitForSeconds(3);
-  controller.SetMovement(-8, -8, 0.0);
+  controller.SetMovement(-6, -6, 0.0);
   yield WaitForSeconds(5);
   controller.DisableMovement();
   yield WaitForSeconds(3);

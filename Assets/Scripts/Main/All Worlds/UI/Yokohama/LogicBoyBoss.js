@@ -95,7 +95,6 @@ function LogicBoyStartScene() {
   yield WaitForSeconds(4);
 }
 
-
 function startBossBattle() {
 
   if (!halfwayPointReached) {

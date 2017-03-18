@@ -57,8 +57,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
 			for (var item in objectsList) {
 				if (item.CompareTag("BurdenBall")) {
 					item.GetComponent(Clinger).active = true;
-				} else if (item.GetComponent(emitSound)) {
-					item.GetComponent(emitSound).shouldEmitSound = true;
 				} else {
 					item.GetComponent(Rigidbody2D).constraints = (FreezeRotation() | FreezeX() | FreezeY());
 				}
@@ -217,8 +215,6 @@ function freezeObjects() {
 	for (var item in objectsList) {
 		if (item.CompareTag("BurdenBall")) {
 			item.GetComponent(Clinger).active = false;
-		} else if (item.GetComponent(emitSound)) {
-			item.GetComponent(emitSound).shouldEmitSound = false;
 		} else {
 			item.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
 		}

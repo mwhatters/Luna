@@ -52,7 +52,7 @@ function Disable() {
   }
 }
 
-function SetMovement(x,y,r) {
+function SetMovement(x : float, y : float, r : float) {
   SetX(x); SetY(y); SetR(r);
 }
 
@@ -62,14 +62,14 @@ function DisableMovement() {
   xMove = 0.0;
 }
 
-function SetX(fl) {
+function SetX(fl : float) {
   xMove = fl;
 }
 
-function SetY(fl) {
+function SetY(fl : float) {
   yMove = fl;
 }
 
-function SetR(fl) {
+function SetR(fl : float) {
   rotateRate = fl;
 }
