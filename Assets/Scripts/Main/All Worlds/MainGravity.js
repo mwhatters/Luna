@@ -36,6 +36,7 @@ public var isSubcutaneous = false;
 public var canMove = true;
 public var canRotate180 = false;
 public var canDoExperimentalRotation = false;
+public var canKillSelf : boolean = true;
 
 private var normalGravObjects = ["DeathRock", "NiceBox", "BlackHoleBox"];
 private var reverseGravObjects = ["ReverseObject", "ReverseDeathObject"];
@@ -51,7 +52,7 @@ private var AButton = "";
 private var MovementAxis = "";
 private var GravRotateRightButton = "";
 private var GravRotateLeftButton = "";
-
+private var BackButton = "";
 
 private var wind : AudioSource;
 
@@ -69,6 +70,7 @@ function Start () {
 		MovementAxis = "Left Joystick Macintosh";
 		GravRotateRightButton = "Right Trigger Macintosh";
 		GravRotateLeftButton = "Left Trigger Macintosh";
+		BackButton = "Back Button Macintosh";
 	} else {
 		var gameSettingsRef : GameObject = GameObject.Find("GameSettings");
 
@@ -76,6 +78,7 @@ function Start () {
 		MovementAxis = gameSettingsRef.GetComponent(GameSettings).MovementAxis;
 		GravRotateRightButton = gameSettingsRef.GetComponent(GameSettings).GravRotateRightButton;
 		GravRotateLeftButton = gameSettingsRef.GetComponent(GameSettings).GravRotateLeftButton;
+		BackButton = gameSettingsRef.GetComponent(GameSettings).BackButton;
 	}
 }
 
@@ -114,7 +117,7 @@ function Update() {
 
 	if (isFrozen) { return false; }
 
-	if (Input.GetKeyDown(KeyCode.Backspace)) {
+	if ((Input.GetKeyDown(KeyCode.Backspace) || Input.GetButtonDown(BackButton)) && canKillSelf) {
 		GetComponent(PlayerGameStates).Die();
 	}
 

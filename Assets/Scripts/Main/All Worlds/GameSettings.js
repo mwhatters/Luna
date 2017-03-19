@@ -8,6 +8,7 @@ public static var AButton = "";
 public static var MovementAxis = "";
 public static var GravRotateRightButton = "";
 public static var GravRotateLeftButton = "";
+public static var BackButton = "";
 
 function Start () {
   Cursor.visible = false;
@@ -17,12 +18,14 @@ function Start () {
     MovementAxis = "Left Joystick Macintosh";
     GravRotateRightButton = "Right Trigger Macintosh";
     GravRotateLeftButton = "Left Trigger Macintosh";
+    BackButton = "Back Button Macintosh";
     SetUIInputsFor("Macintosh");
   } else if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor) {
     AButton = "A Button Windows";
     MovementAxis = "Left Joystick Windows";
     GravRotateRightButton = "Right Trigger Windows";
     GravRotateLeftButton = "Left Trigger Windows";
+    BackButton = "Back Button Windows";
     SetUIInputsFor("Windows");
   }
 }
