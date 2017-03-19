@@ -36,8 +36,16 @@ function OnTriggerEnter2D(coll : Collider2D) {
   if (coll.gameObject.CompareTag("TheGuy") && !triggered) {
     triggered = true;
 
-    Sounds.use.PlaySoundByName("arrival");
+    // Sounds.use.PlaySoundByName("arrival");
+
     StartCoroutine("HandleOutroMusic");
+
+    var god = GameObject.Find("god");
+    var godPieces : Component[] = god.GetComponentsInChildren(Transform);
+    for (var child : Transform in godPieces) {
+      if (child == god.transform) { continue; }
+      SceneHelper.use.FadeTo(child.name, 0.05, Color.white);
+    }
 
     luna.GetComponent(SpriteRenderer).color = Color.white;
     GameObject.Find("white").GetComponent(SpriteRenderer).color = Color.white;
@@ -47,11 +55,13 @@ function OnTriggerEnter2D(coll : Collider2D) {
     SceneHelper.use.ShowAndHideText(Text2, 3);
     yield WaitForSeconds(5);
 
-    var god = GameObject.Find("god");
-    var godPieces : Component[] = god.GetComponentsInChildren(Transform);
+
+
+    Sounds.use.PlaySoundByName("crack");
     for (var child : Transform in godPieces) {
       if (child == god.transform) { continue; }
-      SceneHelper.use.FadeTo(child.name, 0.05, Color.white);
+      child.gameObject.AddComponent(Rigidbody2D);
+      child.GetComponent(Rigidbody2D).gravityScale = 0;
     }
 
     yield WaitForSeconds(5);
@@ -80,12 +90,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
     yield WaitForSeconds(5);
 
-    Sounds.use.PlaySoundByName("crack");
-    for (var child : Transform in godPieces) {
-      if (child == god.transform) { continue; }
-      child.gameObject.AddComponent(Rigidbody2D);
-      child.GetComponent(Rigidbody2D).gravityScale = 0;
-    }
+
 
     var godKiller = GameObject.Find("godkiller");
     godKiller.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
