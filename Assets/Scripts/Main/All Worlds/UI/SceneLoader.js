@@ -4,6 +4,7 @@ import UnityEngine.SceneManagement;
 public var normalSceneTransition : boolean = true;
 public var sceneToLoad : String;
 public var killMusic : boolean = false;
+public var recordTimeStats : boolean = true;
 
 public var persistentObjectsToKill : GameObject[];
 public var endLevelZoom : float = 125;
@@ -36,7 +37,7 @@ function beginSceneTransition() {
 
 function playNormalSceneExit() {
   // save timer results
-  SaveGameTime();
+  if (recordTimeStats) { SaveGameTime(); }
 
   GameObject.Find("Camera").GetComponent(CameraBehavior).shaking = false;
   GameObject.Find("User Interface").GetComponent(Timer).running = false;

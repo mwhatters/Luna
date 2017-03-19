@@ -16,6 +16,7 @@ function Start() {
 
 
 function revealUIText() {
+  stringLength = displayText.Length;
   for (var i : int = 0; i < stringLength; i++) {
 
     if (turnedOff) {
@@ -26,7 +27,6 @@ function revealUIText() {
     this.GetComponent(Text).text += displayText[i];
 
     if (useSounds) {
-      // GameObject.FindGameObjectWithTag("TypeSound").GetComponent(AudioSource).Play();
       cameraObjSounds.use.ConstructOneOffSound("Type", this.transform.position);
     }
 
@@ -41,8 +41,6 @@ function removeUIText() {
 
 function slowlyRemoveUIText() {
   for (var i : int = 0; i < stringLength; i++) {
-    // this.GetComponent(Text).text = this.GetComponent(Text).text.Remove(i, 1);
-    // this.GetComponent(Text).text = this.GetComponent(Text).text.Insert(i, " ");
 
     this.GetComponent(Text).text = this.GetComponent(Text).text.Substring(0, stringLength - i - 1);
 

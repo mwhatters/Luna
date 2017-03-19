@@ -4,10 +4,16 @@
 var createdBy : GameObject;
 
 function Start () {
+  grabTotalTime();
+
   yield WaitForSeconds(5);
   yield StartCoroutine("CreditsIn");
   yield StartCoroutine("CreditsOut");
   yield WaitForSeconds(13);
+
+  yield SceneHelper.use.ShowAndHideText(GameObject.Find("TotalTime"), 3);
+
+  yield WaitForSeconds(2);
   Sounds.use.PlaySoundByName("LastLaugh");
   yield WaitForSeconds(5);
 
@@ -93,4 +99,13 @@ function CreditsIn() {
 function CreditsOut() {
   SceneHelper.use.FadeTo("blackout", 0.02, Color.black);
   Sounds.use.FadeOut("BackgroundMusic", 0.0015, 0.0);
+}
+
+function grabTotalTime() {
+  if (SaveData.currentData) {
+    var total : float = SaveData.use.currentTimeStats.totalTime();
+    GameObject.Find("TotalTime").GetComponent(ExplanatoryText).displayText = "Total Time: " + total;
+  } else {
+    GameObject.Find("TotalTime").GetComponent(ExplanatoryText).displayText = "No Time Score Data";
+  }
 }

@@ -127,6 +127,8 @@ private function loadTimeStatsFromPlayerData(username : String) {
 		var file = File.Open(Application.persistentDataPath + filepath, FileMode.Open);
 		var data : TimeStats = bf.Deserialize(file);
 		currentTimeStats = data;
+	} else {
+		createNewTimeStatsFromPlayerData(username);
 	}
 }
 
