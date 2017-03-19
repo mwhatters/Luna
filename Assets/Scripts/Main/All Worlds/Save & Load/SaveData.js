@@ -27,7 +27,7 @@ public function CreateNewGame(user : String, level : String, rotation : int) {
 		bf.Serialize(file, data);
 		file.Close();
 		currentData = data;
-		createNewTimeStatsFromPlayerData(currentData.name);
+		createNewTimeStatsFromPlayerData(currentData.username);
 	}
 }
 
@@ -97,21 +97,22 @@ private function saveTimeStats(user : String, timeData : Hashtable) {
 	var filepath : String = getTimeStatsPath(user);
 	var bf : BinaryFormatter = new BinaryFormatter();
 	var file = File.Create(Application.persistentDataPath + filepath);
-	var data : TimeStats = new TimeStats(user, timeData);
+	var statsData : TimeStats = new TimeStats(user, timeData);
 
-	bf.Serialize(file, data);
+	bf.Serialize(file, statsData);
 	file.Close();
-	currentTimeStats = data;
+	currentTimeStats = statsData;
+	Debug.Log(currentTimeStats);
 }
 
 private function createNewTimeStatsFromPlayerData(username : String) {
-	var filepath : String = getTimeStatsPath(username);
+	var statsFilepath : String = getTimeStatsPath(username);
 
-	if (File.Exists(Application.persistentDataPath + filepath)) {
+	if (File.Exists(Application.persistentDataPath + statsFilepath)) {
 		Debug.Log('error -- stats already exists, cannot overwrite');
 	} else {
 		var bf : BinaryFormatter = new BinaryFormatter();
-		var file = File.Create(Application.persistentDataPath + filepath);
+		var file = File.Create(Application.persistentDataPath + statsFilepath);
 		var data : TimeStats = new TimeStats(username, new Hashtable());
 
 		bf.Serialize(file, data);
