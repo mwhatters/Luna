@@ -7,6 +7,8 @@ import System.IO;
 public var prefab : GameObject;
 public var canvas : GameObject;
 
+private var filesLoaded = false;
+
 function Start () {
   yield WaitForSeconds(0.5);
   SceneHelper.use.FadeImageToClear("Blackness", 0.3);
@@ -15,6 +17,10 @@ function Start () {
 function Update() {
   if (EventSystems.EventSystem.current.currentSelectedGameObject == null) {
     EventSystems.EventSystem.current.SetSelectedGameObject(EventSystems.EventSystem.current.firstSelectedGameObject);
+  }
+
+  if (filesLoaded) {
+    
   }
 }
 
@@ -92,7 +98,7 @@ function generateSavedGames() {
 
     yield WaitForSeconds(0.03);
   }
-
+  filesLoaded = true;
 }
 
 function AddListener(b : Button, a : String) {

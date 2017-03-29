@@ -65,7 +65,7 @@ function CreditsIn() {
   yield WaitForSeconds(0.5);
   SceneHelper.use.ShowAndHideText(GameObject.Find("TSchoe"), 9);
   yield WaitForSeconds(0.5);
-  SceneHelper.use.ShowAndHideText(GameObject.Find("ECaba"), 9);
+  SceneHelper.use.ShowAndHideText(GameObject.Find("EKai"), 9);
   yield WaitForSeconds(0.5);
   SceneHelper.use.ShowAndHideText(GameObject.Find("CDreim"), 9);
   yield WaitForSeconds(0.5);
@@ -82,6 +82,8 @@ function CreditsIn() {
   SceneHelper.use.ShowAndHideText(GameObject.Find("DDavis"), 9);
   yield WaitForSeconds(0.5);
   SceneHelper.use.ShowAndHideText(GameObject.Find("RStein"), 9);
+  yield WaitForSeconds(0.5);
+  SceneHelper.use.ShowAndHideText(GameObject.Find("LMath"), 9);
   yield WaitForSeconds(0.5);
   yield SceneHelper.use.ShowAndHideText(GameObject.Find("ManyMore"), 10.5);
 
