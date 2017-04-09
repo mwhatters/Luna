@@ -3,7 +3,7 @@ import UnityEngine.UI;
 
 public var timerLabel : Text;
 public var time : float;
-private var resetTime : float = 0.0;
+private static var resetTime : float = 0.0;
 public var running : boolean = true;
 
 static var isLevelTransition : boolean = true;
@@ -32,4 +32,5 @@ function Update () {
 
 function startTimerFromZero() {
   resetTime = Time.time;
+  Debug.Log(resetTime);
 }
