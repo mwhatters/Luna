@@ -32,5 +32,4 @@ function Update () {
 
 function startTimerFromZero() {
   resetTime = Time.time;
-  Debug.Log(resetTime);
 }

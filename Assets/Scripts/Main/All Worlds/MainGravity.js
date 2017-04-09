@@ -57,10 +57,6 @@ private var BackButton = "";
 private var wind : AudioSource;
 
 function Start () {
-
-
-	Debug.Log(this.GetComponent(SpriteRenderer).sprite.texture.anisoLevel);
-
 	setWorldGravityShift();
 	wind = GameObject.Find("Wind").GetComponent(AudioSource);
 
