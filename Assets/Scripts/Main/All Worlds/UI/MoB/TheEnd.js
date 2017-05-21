@@ -36,6 +36,8 @@ function OnTriggerEnter2D(coll : Collider2D) {
   if (coll.gameObject.CompareTag("TheGuy") && !triggered) {
     triggered = true;
 
+    GameObject.Find("Camera").GetComponent(CheckpointTracker).checkPointPos = Vector3(0,0,0);
+
     Sounds.use.PlaySoundByName("arrival");
     StartCoroutine("HandleOutroMusic");
 
