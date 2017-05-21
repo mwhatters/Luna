@@ -9,6 +9,10 @@ public var canvas : GameObject;
 
 private var filesLoaded = false;
 
+function Awake() {
+ // Environment.SetEnvironmentVariable("MONO_REFLECTION_SERIALIZER", "yes");
+}
+
 function Start () {
   yield WaitForSeconds(0.5);
   SceneHelper.use.FadeImageToClear("Blackness", 0.3);
@@ -20,7 +24,7 @@ function Update() {
   }
 
   if (filesLoaded) {
-    
+
   }
 }
 
@@ -61,7 +65,6 @@ function generateSavedGames() {
     var bf : BinaryFormatter = new BinaryFormatter();
     try {
       var foundFile = File.Open(Application.persistentDataPath + "/" + file.Name, FileMode.Open);
-
       var data : PlayerData = bf.Deserialize(foundFile);
 
       // Build child object
