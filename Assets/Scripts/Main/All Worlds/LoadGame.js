@@ -7,8 +7,6 @@ import System.IO;
 public var prefab : GameObject;
 public var canvas : GameObject;
 
-private var filesLoaded = false;
-
 function Awake() {
  // Environment.SetEnvironmentVariable("MONO_REFLECTION_SERIALIZER", "yes");
 }
@@ -21,10 +19,6 @@ function Start () {
 function Update() {
   if (EventSystems.EventSystem.current.currentSelectedGameObject == null) {
     EventSystems.EventSystem.current.SetSelectedGameObject(EventSystems.EventSystem.current.firstSelectedGameObject);
-  }
-
-  if (filesLoaded) {
-
   }
 }
 
@@ -101,7 +95,6 @@ function generateSavedGames() {
 
     yield WaitForSeconds(0.03);
   }
-  filesLoaded = true;
 }
 
 function AddListener(b : Button, a : String) {
