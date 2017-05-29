@@ -58,7 +58,7 @@ function Quit() {
 }
 
 function StartGame() {
-  SceneManager.LoadScene("1 Intro Level");
+  SceneManager.LoadScene("1-1 The Dream");
 }
 
 function GoToLoadGame() {
