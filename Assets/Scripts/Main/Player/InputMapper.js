@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-static var input : InputMapper;
+import InControl;
 
 private var AButton = "";
 private var MovementAxis = "";
@@ -8,11 +8,17 @@ private var GravRotateRightButton = "";
 private var GravRotateLeftButton = "";
 private var BackButton = "";
 
+static var input : InputMapper;
+
 function Awake () {
 	if (input) {
 		return;
 	}
 	input = this;
+}
+
+function Update() {
+	Debug.log(InputMapper);
 }
 
 function Start() {
