@@ -10,9 +10,4 @@ public class ICMapper : MonoBehaviour {
 		InputControl control = device.GetControl( InputControlType.Action1 );
 		Debug.Log(control.State);
 	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
 }

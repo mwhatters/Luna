@@ -9,8 +9,10 @@ private var GravRotateLeftButton = "";
 private var BackButton = "";
 
 static var input : InputMapper;
+private var device : InputDevice;
 
 function Awake () {
+	device = InputManager.ActiveDevice;
 	if (input) {
 		return;
 	}
@@ -18,7 +20,7 @@ function Awake () {
 }
 
 function Update() {
-	Debug.log(InputMapper);
+	device = InputManager.ActiveDevice;
 }
 
 function Start() {
@@ -46,51 +48,51 @@ function Start() {
 
 function IsMoving() {
   return (
-    (Input.GetKey(KeyCode.A) ||
-    Input.GetAxis(MovementAxis) < -0.40)  ||
-
-    (Input.GetKey(KeyCode.D) ||
-    Input.GetAxis(MovementAxis) >  0.40)
+    this.MoveLeft() ||
+		this.MoveRight()
   );
 }
 
 function Suicide() {
   return (
-    Input.GetKeyDown(KeyCode.Backspace) ||
-    Input.GetButtonDown(BackButton)
+		device.DPadDown.WasPressed ||
+    Input.GetKeyDown(KeyCode.Backspace)
   );
 }
 
 function RotateRight() {
   return (
-    Input.GetKeyDown(KeyCode.RightArrow) ||
-    Input.GetAxis(GravRotateRightButton) > 0
+		device.RightTrigger.WasPressed ||
+		device.RightBumper.WasPressed ||
+    Input.GetKeyDown(KeyCode.RightArrow)
   );
 }
 
 function RotateLeft() {
   return (
-    Input.GetKeyDown(KeyCode.LeftArrow) ||
-    Input.GetAxis(GravRotateLeftButton) > 0
+		device.LeftTrigger.WasPressed ||
+		device.LeftBumper.WasPressed ||
+    Input.GetKeyDown(KeyCode.LeftArrow)
   );
 }
 
 function Jump() {
   return (
-    Input.GetButtonDown(AButton)
+		device.Action1.WasPressed ||
+    Input.GetKeyDown(KeyCode.Space)
   );
 }
 
 function MoveLeft() {
   return (
     Input.GetKey(KeyCode.A) ||
-    Input.GetAxis(MovementAxis) < -0.40
+		device.LeftStickLeft.Value > 0.40
   );
 }
 
 function MoveRight() {
   return (
     Input.GetKey(KeyCode.D) ||
-    Input.GetAxis(MovementAxis) >  0.40
+		device.LeftStickRight.Value > 0.40
   );
 }
