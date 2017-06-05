@@ -1,13 +1,6 @@
 ﻿#pragma strict
 
 import InControl;
-
-private var AButton = "";
-private var MovementAxis = "";
-private var GravRotateRightButton = "";
-private var GravRotateLeftButton = "";
-private var BackButton = "";
-
 static var input : InputMapper;
 private var device : InputDevice;
 
@@ -27,22 +20,6 @@ function Start() {
   var gameSettings;
   if (!GameObject.Find("GameSettings")) {
     gameSettings = false;
-  }
-
-  if (!gameSettings) { // dev
-    AButton = "A Button Macintosh";
-    MovementAxis = "Left Joystick Macintosh";
-    GravRotateRightButton = "Right Trigger Macintosh";
-    GravRotateLeftButton = "Left Trigger Macintosh";
-    BackButton = "Back Button Macintosh";
-  } else {
-    var gameSettingsRef : GameObject = GameObject.Find("GameSettings");
-
-    AButton = gameSettingsRef.GetComponent(GameSettings).AButton;
-    MovementAxis = gameSettingsRef.GetComponent(GameSettings).MovementAxis;
-    GravRotateRightButton = gameSettingsRef.GetComponent(GameSettings).GravRotateRightButton;
-    GravRotateLeftButton = gameSettingsRef.GetComponent(GameSettings).GravRotateLeftButton;
-    BackButton = gameSettingsRef.GetComponent(GameSettings).BackButton;
   }
 }
 
