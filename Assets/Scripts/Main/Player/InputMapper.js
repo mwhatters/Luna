@@ -9,6 +9,13 @@ private var GravRotateLeftButton = "";
 private var BackButton = "";
 
 function Awake () {
+	if (input) {
+		return;
+	}
+	input = this;
+}
+
+function Start() {
   var gameSettings;
   if (!GameObject.Find("GameSettings")) {
     gameSettings = false;
@@ -29,11 +36,6 @@ function Awake () {
     GravRotateLeftButton = gameSettingsRef.GetComponent(GameSettings).GravRotateLeftButton;
     BackButton = gameSettingsRef.GetComponent(GameSettings).BackButton;
   }
-
-	if (input) {
-		return;
-	}
-	input = this;
 }
 
 function IsMoving() {
