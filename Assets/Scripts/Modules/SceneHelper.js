@@ -123,6 +123,7 @@ function FadeTextToGrey(object, rate : float) {
 function GeneralFadeIn(object : GameObject, type : String, color : Color, multiplier : float, rate : float) {
 	var image = grabComponentType(object, type);
 	while (image.color.a < 255) {
+		if (!image) { return; }
     image.color = Color.Lerp(image.color, color, multiplier * rate);
     yield WaitForSeconds(0.1);
   }
@@ -132,6 +133,7 @@ function GeneralFadeIn(object : GameObject, type : String, color : Color, multip
 function GeneralFadeOut(object : GameObject, type : String, color : Color, multiplier : float, rate : float) {
 	var image = grabComponentType(object, type);
 	while (image.color.a > 0.02) {
+		if (!image) { return; }
 		image.color = Color.Lerp(image.color, color, multiplier * rate);
     yield WaitForSeconds(0.1);
   }
