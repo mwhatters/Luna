@@ -106,7 +106,7 @@ function CreditsOut() {
 function grabTotalTime() {
   if (SaveData.currentData) {
     var total : float = SaveData.use.currentTimeStats.totalTime();
-    GameObject.Find("TotalTime").GetComponent(ExplanatoryText).displayText = "Total Time: " + total;
+    GameObject.Find("TotalTime").GetComponent(ExplanatoryText).displayText = "Clear Time: " + total + " seconds";
   } else {
     GameObject.Find("TotalTime").GetComponent(ExplanatoryText).displayText = "No Time Score Data";
   }
