@@ -74,6 +74,22 @@ function Suicide() {
   );
 }
 
+// Menu
+
+function MenuMoveUp() {
+	return (
+		device.RightStickUp.State ||
+		Input.GetKey(KeyCode.W)
+	);
+}
+
+function MenuMoveDown() {
+	return (
+		device.RightStickDown.State ||
+		Input.GetKey(KeyCode.S)
+	);
+}
+
 // Experimental
 
 function RotateUp180() {

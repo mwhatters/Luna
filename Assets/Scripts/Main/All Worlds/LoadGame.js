@@ -7,11 +7,11 @@ import System.IO;
 public var prefab : GameObject;
 public var canvas : GameObject;
 
-function Awake() {
- // Environment.SetEnvironmentVariable("MONO_REFLECTION_SERIALIZER", "yes");
-}
+private var saveFilesContainer : RectTransform;
+private var savesLoaded : boolean = false;
 
 function Start () {
+  saveFilesContainer = GameObject.Find("SaveFileContainers").GetComponent(RectTransform);
   yield WaitForSeconds(0.5);
   SceneHelper.use.FadeImageToClear("Blackness", 0.3);
 }
@@ -19,6 +19,16 @@ function Start () {
 function Update() {
   if (EventSystems.EventSystem.current.currentSelectedGameObject == null) {
     EventSystems.EventSystem.current.SetSelectedGameObject(EventSystems.EventSystem.current.firstSelectedGameObject);
+  }
+
+  if (savesLoaded) {
+    if (InputMapper.input.MenuMoveUp()) {
+      saveFilesContainer.anchoredPosition.y += 2;
+    }
+
+    if (InputMapper.input.MenuMoveDown()) {
+      saveFilesContainer.anchoredPosition.y -= 2;
+    }
   }
 }
 
@@ -95,6 +105,8 @@ function generateSavedGames() {
 
     yield WaitForSeconds(0.03);
   }
+
+  savesLoaded = true;
 }
 
 function AddListener(b : Button, a : String) {
