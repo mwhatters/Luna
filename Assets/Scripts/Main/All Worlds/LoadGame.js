@@ -23,11 +23,11 @@ function Update() {
 
   if (savesLoaded) {
     if (InputMapper.input.MenuMoveUp()) {
-      saveFilesContainer.anchoredPosition.y += 2;
+      saveFilesContainer.anchoredPosition.y += 4;
     }
 
     if (InputMapper.input.MenuMoveDown()) {
-      saveFilesContainer.anchoredPosition.y -= 2;
+      saveFilesContainer.anchoredPosition.y -= 4;
     }
   }
 }
@@ -42,6 +42,7 @@ function GoToMainMenu() {
 }
 
 function displayGameFinder() {
+  SceneHelper.use.FadeTextToWhite("Scrolling", 0.3);
   generateSavedGames();
 }
 
