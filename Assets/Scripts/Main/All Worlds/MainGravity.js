@@ -122,13 +122,13 @@ function Update() {
 
 	if (canRotate180)
 	{
-		if (Input.GetKeyDown(KeyCode.UpArrow) && canRotateGravity() && !isSubcutaneous) {
+		if (InputMapper.input.RotateUp180() && canRotateGravity() && !isSubcutaneous) {
 			adjustGravity180();
 			rotatePlayerAndObjects(-180);
 			rotateCameraInDegrees(-180);
 		}
 
-		if (Input.GetKeyDown(KeyCode.DownArrow) && canRotateGravity() && !isSubcutaneous) {
+		if (InputMapper.input.RotateDown180() && canRotateGravity() && !isSubcutaneous) {
 			adjustGravity180();
 			rotatePlayerAndObjects(180);
 			rotateCameraInDegrees(180);
@@ -136,12 +136,12 @@ function Update() {
 	}
 
 	if (canDoExperimentalRotation) {
-		if (Input.GetKeyDown(KeyCode.L) && canRotateGravity() && !isSubcutaneous) {
+		if (InputMapper.input.Rotate45Right() && canRotateGravity() && !isSubcutaneous) {
 			rotatePlayerAndObjects(45);
 			rotateCameraInDegrees(45);
 		}
 
-		if (Input.GetKeyDown(KeyCode.K) && canRotateGravity() && !isSubcutaneous) {
+		if (InputMapper.input.Rotate45Left() && canRotateGravity() && !isSubcutaneous) {
 			rotatePlayerAndObjects(-45);
 			rotateCameraInDegrees(-45);
 		}

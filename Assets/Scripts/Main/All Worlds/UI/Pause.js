@@ -40,21 +40,17 @@ function Start () {
 function Update () {
   if (!canPause) { return false; }
 
-  if (Input.GetButtonDown("Cancel") && !isPaused) {
+  if (InputMapper.input.Pause() && !isPaused) {
     setPaused();
     isPaused = true;
     return isPaused;
   }
 
-  if (Input.GetButtonDown("Cancel") && isPaused) {
+  if (InputMapper.input.Pause() && isPaused) {
     setUnPaused();
     isPaused = false;
     return isPaused;
   }
-
-  // if (isPaused && EventSystems.EventSystem.current.currentSelectedGameObject == null) {
-  //   EventSystems.EventSystem.current.SetSelectedGameObject(GameObject.Find("Return To Menu"));
-  // }
 
   return true;
 }

@@ -16,11 +16,11 @@ function Update() {
 	device = InputManager.ActiveDevice;
 }
 
-function Start() {
-  var gameSettings;
-  if (!GameObject.Find("GameSettings")) {
-    gameSettings = false;
-  }
+function Pause() {
+	return (
+		device.Command.WasPressed ||
+		Input.GetButtonDown("Cancel")
+	);
 }
 
 function IsMoving() {
@@ -30,10 +30,17 @@ function IsMoving() {
   );
 }
 
-function Suicide() {
+function MoveLeft() {
   return (
-		device.DPadDown.WasPressed ||
-    Input.GetKeyDown(KeyCode.Backspace)
+    Input.GetKey(KeyCode.A) ||
+		device.LeftStickLeft.Value > 0.40
+  );
+}
+
+function MoveRight() {
+  return (
+    Input.GetKey(KeyCode.D) ||
+		device.LeftStickRight.Value > 0.40
   );
 }
 
@@ -60,16 +67,35 @@ function Jump() {
   );
 }
 
-function MoveLeft() {
+function Suicide() {
   return (
-    Input.GetKey(KeyCode.A) ||
-		device.LeftStickLeft.Value > 0.40
+		device.DPadDown.WasPressed ||
+    Input.GetKeyDown(KeyCode.Backspace)
   );
 }
 
-function MoveRight() {
-  return (
-    Input.GetKey(KeyCode.D) ||
-		device.LeftStickRight.Value > 0.40
-  );
+// Experimental
+
+function RotateUp180() {
+	return (
+		Input.GetKeyDown(KeyCode.UpArrow)
+	);
+}
+
+function RotateDown180() {
+	return (
+		Input.GetKeyDown(KeyCode.DownArrow)
+	);
+}
+
+function Rotate45Right() {
+	return (
+		Input.GetKeyDown(KeyCode.K)
+	);
+}
+
+function Rotate45Left() {
+	return (
+		Input.GetKeyDown(KeyCode.L)
+	);
 }
