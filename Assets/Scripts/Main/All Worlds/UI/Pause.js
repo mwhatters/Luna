@@ -133,9 +133,9 @@ public function ReturnToMenu() {
   if (SaveData.currentData) {
     PrivateSaveFromPause();
     // Kill Intro Scripts for Specified scenes
-    if (SaveData.currentData.level == "1 Intro Level") { Destroy(GameObject.Find("IntroGame")); }
-    if (SaveData.currentData.level == "1 Burdens") { Destroy(GameObject.Find("EnterPAL")); }
-    if (SaveData.currentData.level == "8 The End") { Destroy(GameObject.Find("EnterGod")); }
+    if (SaveData.currentData.level == "1-1 The Dream") { Destroy(GameObject.Find("IntroGame")); }
+    if (SaveData.currentData.level == "3-1 Burdens") { Destroy(GameObject.Find("EnterPAL")); }
+    if (SaveData.currentData.level == "6-8 The Door") { Destroy(GameObject.Find("EnterGod")); }
   }
 
   Time.timeScale = 1;

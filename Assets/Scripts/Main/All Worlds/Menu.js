@@ -17,7 +17,7 @@ public function startNewGame() {
     return;
   }
 
-  SaveData.use.CreateNewGame(saveName, "1 Intro Level", 90);
+  SaveData.use.CreateNewGame(saveName, "1-1 The Dream", 90);
 
   if (SaveData.currentData) {
     Sounds.use.PlaySoundByName("StartGame");
