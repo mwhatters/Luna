@@ -60,6 +60,7 @@ function OnMouseDown () {
 }
 
 function setPaused() {
+  GameObject.Find("EventSystem").GetComponent(MenuControlsAdapter).enabled = true;
   activatePauseUI(true);
   if (SaveData.currentData) {
     SaveButton.GetComponent(Button).Select();
@@ -78,6 +79,7 @@ function setPaused() {
 }
 
 function setUnPaused() {
+  GameObject.Find("EventSystem").GetComponent(MenuControlsAdapter).enabled = false;
   EventSystems.EventSystem.current.SetSelectedGameObject(null);
   activatePauseUI(false);
   Time.timeScale = 1;

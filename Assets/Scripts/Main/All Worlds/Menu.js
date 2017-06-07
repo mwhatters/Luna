@@ -1,16 +1,11 @@
 ﻿#pragma strict
+import MenuControls;
 
 function Start () {
   yield WaitForSeconds(1);
   SceneHelper.use.FadeImageToClear("LunaBlack", 0.13);
   yield WaitForSeconds(2.5);
   SceneHelper.use.FadeImageToClear("MenuBlack", 0.13);
-}
-
-function Update() {
-  if (EventSystems.EventSystem.current.currentSelectedGameObject == null) {
-    EventSystems.EventSystem.current.SetSelectedGameObject(EventSystems.EventSystem.current.firstSelectedGameObject);
-  }
 }
 
 public function startNewGame() {

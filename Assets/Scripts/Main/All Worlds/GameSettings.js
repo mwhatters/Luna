@@ -1,5 +1,4 @@
 ﻿#pragma strict
-import EventSystems;
 
 public static var SettingsInstance;
 
