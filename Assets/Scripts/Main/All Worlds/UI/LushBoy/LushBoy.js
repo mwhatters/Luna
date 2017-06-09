@@ -25,8 +25,7 @@ function Start () {
     startSceneFromPlay();
   }
 
-  luna.canMove = true;
-  luna.canRotate = true;
+  LunaController.use.Unfreeze();
   GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
   yield WaitForSeconds(1.0);
   GameObject.Find("Lava").GetComponent(Lava).active = true;

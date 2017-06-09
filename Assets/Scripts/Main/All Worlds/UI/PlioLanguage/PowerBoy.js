@@ -46,10 +46,7 @@ function Start () {
 
   // END SCENE START PLAY
 
-  luna.GetComponent(MainGravity).canMove = true;
-  luna.GetComponent(MainGravity).canRotate = true;
-  luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
-  luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeRotation;
+  LunaController.use.Unfreeze();
   timer.startTimerFromZero();
   timer.running = true;
   pauseMenu.GetComponent(Pause).canPause = true;
@@ -61,8 +58,7 @@ function PowerBoyStartScene() {
 
   timer.running = false;
   pauseMenu.GetComponent(Pause).canPause = false;
-  luna.GetComponent(MainGravity).canMove = false;
-  luna.GetComponent(MainGravity).canRotate = false;
+  LunaController.use.Freeze();
 
   yield WaitForSeconds(1);
   SceneHelper.use.ShowAndHideText(Text1, 2);
@@ -186,9 +182,7 @@ function GodFreezesEverythingScene() {
   Destroy(GameObject.Find("IntroMusic"));
   timer.running = false;
   pauseMenu.GetComponent(Pause).canPause = false;
-  luna.GetComponent(MainGravity).canMove = false;
-  luna.GetComponent(MainGravity).canRotate = false;
-  luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
+  LunaController.use.Freeze();
   GameObject.Find("Thorium Core").GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
 
   yield WaitForSeconds(4);

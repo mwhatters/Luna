@@ -48,10 +48,7 @@ function Start () {
   }
 
   // END SCENE START PLAY
-  luna.GetComponent(MainGravity).canMove = true;
-  luna.GetComponent(MainGravity).canRotate = true;
-  luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
-  luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeRotation;
+  LunaController.use.Unfreeze();
   timer.startTimerFromZero();
   timer.running = true;
   pauseMenu.GetComponent(Pause).canPause = true;
@@ -62,8 +59,7 @@ function PureBoyStartScene() {
   luna.GetComponent(MainGravity).Flip();
   timer.running = false;
   pauseMenu.GetComponent(Pause).canPause = false;
-  luna.GetComponent(MainGravity).canMove = false;
-  luna.GetComponent(MainGravity).canRotate = false;
+  LunaController.use.Freeze();
 
   yield WaitForSeconds(1);
   SceneHelper.use.ShowAndHideText(Text1, 2);
@@ -152,9 +148,7 @@ function fadeOutRound(round) {
 function LunaGoesToSpaceScene() {
   timer.running = false;
   pauseMenu.GetComponent(Pause).canPause = false;
-  luna.GetComponent(MainGravity).canMove = false;
-  luna.GetComponent(MainGravity).canRotate = false;
-  luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
+  LunaController.use.Freeze();
 
   yield WaitForSeconds(4);
 
