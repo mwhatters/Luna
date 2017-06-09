@@ -13,11 +13,16 @@ function Start() {
 
 function MovePlayerToCheckpoint(pos : Vector3) {
   var luna = GameObject.Find("Luna");
+  var mainCamera = GameObject.Find("Camera").GetComponent(Camera);
+
   luna.transform.position = pos;
+  mainCamera.transform.position.x = pos.x;
+  mainCamera.transform.position.y = pos.y;
+  
   luna.GetComponent(MainGravity).adjustGravityTo(gravityDirection);
 
   if (cameraSize > 0) {
-    var mainCamera = GameObject.Find("Camera").GetComponent(Camera);
+
     mainCamera.fieldOfView = cameraSize;
   }
 }
