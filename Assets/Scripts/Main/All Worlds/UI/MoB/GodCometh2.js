@@ -24,6 +24,15 @@ function OnTriggerEnter2D(coll : Collider2D) {
       if (child == clingers.transform) { continue; }
       child.GetComponent(Clinger).active = false;
     }
+    
+    var iGround = GameObject.Find("freeboxes2");
+    var iChildren : Component[] = iGround.GetComponentsInChildren(Transform);
+    for (var child : Transform in iChildren) {
+      if (child == iGround.transform) { continue; }
+      child.GetComponent(BoxCollider2D).sharedMaterial = frictionMaterial;
+      child.gameObject.AddComponent(Rigidbody2D);
+      child.GetComponent(Rigidbody2D).gravityScale = 0;
+    }
 
     yield WaitForSeconds(4);
 
@@ -41,13 +50,5 @@ function OnTriggerEnter2D(coll : Collider2D) {
       child.GetComponent(Rigidbody2D).velocity.x = -13;
     }
 
-    var iGround = GameObject.Find("freeboxes2");
-    var iChildren : Component[] = iGround.GetComponentsInChildren(Transform);
-    for (var child : Transform in iChildren) {
-      if (child == iGround.transform) { continue; }
-      child.GetComponent(BoxCollider2D).sharedMaterial = frictionMaterial;
-      child.gameObject.AddComponent(Rigidbody2D);
-      child.GetComponent(Rigidbody2D).gravityScale = 0;
-    }
   }
 }

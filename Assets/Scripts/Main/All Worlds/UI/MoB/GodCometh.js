@@ -27,11 +27,6 @@ function OnTriggerEnter2D(coll : Collider2D) {
       Destroy(otherLuna.gameObject);
     }
 
-    yield WaitForSeconds(4);
-
-    LunaController.use.Unfreeze();
-    LunaController.use.enableCameraRotation();
-
     var iGround = GameObject.Find("freeboxes");
     var iChildren : Component[] = iGround.GetComponentsInChildren(Transform);
     for (var child : Transform in iChildren) {
@@ -40,6 +35,12 @@ function OnTriggerEnter2D(coll : Collider2D) {
       child.gameObject.AddComponent(Rigidbody2D);
       child.GetComponent(Rigidbody2D).gravityScale = 0;
     }
+    
+    yield WaitForSeconds(4);
+
+    LunaController.use.Unfreeze();
+    LunaController.use.enableCameraRotation();
+
 
     var clingers = GameObject.Find("Clingers");
     var clingerKids : Component[] = clingers.GetComponentsInChildren(Transform);
