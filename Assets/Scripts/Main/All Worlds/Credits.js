@@ -11,19 +11,13 @@ function Start () {
   yield StartCoroutine("CreditsOut");
   yield WaitForSeconds(13);
 
-  yield SceneHelper.use.ShowAndHideText(GameObject.Find("TotalTime"), 3);
+  yield SceneHelper.use.ShowAndHideText(GameObject.Find("TotalTime"), 5);
 
-  yield WaitForSeconds(2);
+  yield WaitForSeconds(4);
   Sounds.use.PlaySoundByName("LastLaugh");
   yield WaitForSeconds(5);
 
   if (SaveData.currentData) {
-    // SaveData.use.SaveGame(
-    //   SaveData.currentData.username,
-    //   SceneManager.GetActiveScene().name,
-    //   SaveData.currentData.rotation
-    // );
-
     SaveData.use.ClearCurrentSaveData();
   }
 
