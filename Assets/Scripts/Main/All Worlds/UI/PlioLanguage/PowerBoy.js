@@ -1,6 +1,6 @@
 #pragma strict
 
-private static var scenePlayed : boolean = false;
+private static var powerScenePlayed : boolean = false;
 var skipScene : boolean = false;
 
 var luna : GameObject;
@@ -36,12 +36,11 @@ function Start () {
   Text8 = GameObject.Find("Text8");
   Text9 = GameObject.Find("Text9");
 
-
-  if (!scenePlayed && !skipScene) {
-    scenePlayed = true;
+  if (!powerScenePlayed && !skipScene) {
+    powerScenePlayed = true;
     yield PowerBoyStartScene();
   } else {
-    scenePlayed = true;
+    powerScenePlayed = true;
   }
 
   // END SCENE START PLAY

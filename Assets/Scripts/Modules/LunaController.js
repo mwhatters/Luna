@@ -8,7 +8,10 @@ function Awake () {
 		return;
 	}
 	use = this;
-  luna = GameObject.Find("Luna");
+}
+
+function Start() {
+	luna = GameObject.Find("Luna");
 }
 
 function Freeze() {
