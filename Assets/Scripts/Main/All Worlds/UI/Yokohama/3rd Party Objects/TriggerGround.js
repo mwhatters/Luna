@@ -15,7 +15,7 @@ function OnCollisionEnter2D(coll : Collision2D) {
       coll.gameObject.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
       var BallObj = coll.gameObject;
       if (BallObj.GetComponent(Animator) != null) {
-        BallObj.GetComponent(Animator).Stop();
+        BallObj.GetComponent(Animator).StopPlayback();
         BallObj.tag = "NiceBox";
         BallObj.GetComponent(SpriteRenderer).color = Color.grey;
       }
@@ -29,7 +29,7 @@ function OnCollisionEnter2D(coll : Collision2D) {
       }
     }
 
-    GetComponent(Animator).Stop();
+    GetComponent(Animator).StopPlayback();
     Sounds.use.PlaySoundByTag("GrabKeySound");
     triggered = true;
   }

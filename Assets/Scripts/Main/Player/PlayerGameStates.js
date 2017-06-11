@@ -118,7 +118,8 @@ function doLaserDeath() {
 
 function removeLuna() {
   Destroy(GetComponent(SpriteRenderer));
-  Destroy(GetComponent(PolygonCollider2D));
+  GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
+  this.gameObject.layer = 17;
 }
 
 function Remove(tag : String) {

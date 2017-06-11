@@ -20,7 +20,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
 function handleDoor() {
   Destroy(trigDoor);
-  if (stopAnimation) { GetComponent(Animator).Stop(); }
+  if (stopAnimation) { GetComponent(Animator).StopPlayback(); }
   Sounds.use.PlaySoundByName(triggerSound);
   triggered = true;
 }
