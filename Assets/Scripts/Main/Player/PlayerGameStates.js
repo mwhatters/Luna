@@ -90,7 +90,7 @@ function canUseRotater() {
 // EndGame & Meta
 
 function Die() {
-  if (hasWon == true) { return; }
+  if (hasWon == true || isDead == true) { return; }
   if (killMusicOnDeath) {
     Destroy(GameObject.Find("BackgroundMusic"));
     Destroy(GameObject.Find("IntroMusic"));
@@ -118,7 +118,6 @@ function doLaserDeath() {
 
 function removeLuna() {
   Destroy(GetComponent(SpriteRenderer));
-  GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
   this.gameObject.layer = 17;
 }
 
