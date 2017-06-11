@@ -106,6 +106,7 @@ function StartRound2() {
   currentRound = "2";
   GameObject.Find("R2CP").GetComponent(Checkpoint).setupCheckPoint();
   Instantiate(Round2, Vector3 (-227.1312, 552.8459, 0), Quaternion.identity);
+  GameObject.Find("SpecialRotater").GetComponent(Rotater).setRotaterRotationToLuna();
   fadeInRound("Round2(Clone)");
 }
 
@@ -120,6 +121,8 @@ function StartRound4() {
   currentRound = "4";
   GameObject.Find("R4CP").GetComponent(Checkpoint).setupCheckPoint();
   Instantiate(Round4, Vector3 (-222.0897, 555.9163, 0), Quaternion.identity);
+  GameObject.Find("SpecialRotater2").GetComponent(Rotater).setRotaterRotationToLuna();
+  GameObject.Find("SpecialRotater3").GetComponent(Rotater).setRotaterRotationToLuna();
   fadeInRound("Round4(Clone)");
 }
 
