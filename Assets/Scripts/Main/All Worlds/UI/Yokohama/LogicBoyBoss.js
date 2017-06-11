@@ -70,8 +70,6 @@ function Start () {
   startBossBattle();
 }
 
-
-
 function LogicBoyStartScene() {
   timer.running = false;
   pauseMenu.GetComponent(Pause).canPause = false;
@@ -202,7 +200,7 @@ function EndScene() {
   SceneHelper.use.ShowAndHideText(Text11, 4);
   yield WaitForSeconds(3);
   SceneHelper.use.ShowAndHideText(Text12, 4);
-  yield WaitForSeconds(1.3);
+  yield WaitForSeconds(2);
   SceneHelper.use.ShowAndHideText(Text122, 4);
   yield WaitForSeconds(6);
   SceneHelper.use.ShowAndHideText(Text13, 5);
