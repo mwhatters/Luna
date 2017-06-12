@@ -13,6 +13,8 @@ public var laserTexture1 : Material;
 public var laserTexture2 : Material;
 public var laserWidth : float = 0.3;
 
+private var deathMask : LayerMask = ~(1 << 17) & ~(1 << 2);
+
 function Start() {
   lineRenderer = gameObject.AddComponent(LineRenderer);
   lineRenderer.SetColors(Color.red, Color.blue);
@@ -50,8 +52,9 @@ function FixedUpdate () {
       break;
   }
 
-  var hit : RaycastHit2D = Physics2D.Raycast(transform.position, vectorDirection, Mathf.Infinity);
+  var hit : RaycastHit2D = Physics2D.Raycast(transform.position, vectorDirection, Mathf.Infinity, deathMask.value);
   if (hit.collider != null && laserEnabled) {
+    Debug.Log(hit.collider.gameObject.layer);
     lineRenderer.SetPosition(0, transform.position);
     lineRenderer.SetPosition(1, hit.point);
 
