@@ -54,7 +54,6 @@ function FixedUpdate () {
 
   var hit : RaycastHit2D = Physics2D.Raycast(transform.position, vectorDirection, Mathf.Infinity, deathMask.value);
   if (hit.collider != null && laserEnabled) {
-    Debug.Log(hit.collider.gameObject.layer);
     lineRenderer.SetPosition(0, transform.position);
     lineRenderer.SetPosition(1, hit.point);
 
