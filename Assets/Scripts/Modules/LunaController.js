@@ -4,14 +4,14 @@ static var use : LunaController;
 private static var luna : GameObject;
 
 function Awake () {
-	if (use) {
-		return;
-	}
-	use = this;
+    if (use) {
+        return;
+    }
+    use = this;
 }
 
 function Start() {
-	luna = GameObject.Find("Luna");
+    luna = GameObject.Find("Luna");
 }
 
 function Freeze() {
@@ -22,8 +22,8 @@ function Freeze() {
 }
 
 function FreezeLunaAndAnimation() {
-	Freeze();
-	luna.GetComponent(LunaAnimation).forceIdle = true;
+    Freeze();
+    luna.GetComponent(LunaAnimation).forceIdle = true;
 }
 
 function Unfreeze() {
@@ -32,31 +32,31 @@ function Unfreeze() {
   luna.GetComponent(MainGravity).canKillSelf = true;
   luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
   luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeRotation;
-	luna.GetComponent(LunaAnimation).forceIdle = false;
+    luna.GetComponent(LunaAnimation).forceIdle = false;
 }
 
 function FreezeOtherLunas() {
-	var lunas = GameObject.FindGameObjectsWithTag("OtherLuna");
-	for (var otherLuna in lunas) {
-		otherLuna.GetComponent(MainGravity).canMove = false;
-		otherLuna.GetComponent(MainGravity).canRotate = false;
-		otherLuna.GetComponent(MainGravity).canKillSelf = false;
-		otherLuna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
-	}
+    var lunas = GameObject.FindGameObjectsWithTag("OtherLuna");
+    for (var otherLuna in lunas) {
+        otherLuna.GetComponent(MainGravity).canMove = false;
+        otherLuna.GetComponent(MainGravity).canRotate = false;
+        otherLuna.GetComponent(MainGravity).canKillSelf = false;
+        otherLuna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
+    }
 }
 
 function UnfreezeOtherLunas() {
-	var lunas = GameObject.FindGameObjectsWithTag("OtherLuna");
-	for (var otherLuna in lunas) {
-		otherLuna.GetComponent(MainGravity).canMove = true;
-	  otherLuna.GetComponent(MainGravity).canRotate = true;
-	  otherLuna.GetComponent(MainGravity).canKillSelf = false;
-	  otherLuna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
-	  otherLuna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeRotation;
-		otherLuna.GetComponent(LunaAnimation).forceIdle = false;
-	}
+    var lunas = GameObject.FindGameObjectsWithTag("OtherLuna");
+    for (var otherLuna in lunas) {
+        otherLuna.GetComponent(MainGravity).canMove = true;
+      otherLuna.GetComponent(MainGravity).canRotate = true;
+      otherLuna.GetComponent(MainGravity).canKillSelf = false;
+      otherLuna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
+      otherLuna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeRotation;
+        otherLuna.GetComponent(LunaAnimation).forceIdle = false;
+    }
 }
 
 function enableCameraRotation() {
-	luna.GetComponent(MainGravity).cameraRotationEnabled = true;
+    luna.GetComponent(MainGravity).cameraRotationEnabled = true;
 }

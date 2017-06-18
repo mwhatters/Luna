@@ -51,498 +51,498 @@ var upDownAxis = vertical;
 private var wind : AudioSource;
 
 function Start () {
-	setWorldGravityShift();
-	wind = GameObject.Find("Wind").GetComponent(AudioSource);
+    setWorldGravityShift();
+    wind = GameObject.Find("Wind").GetComponent(AudioSource);
 }
 
 function setWorldGravityShift() {
-	switch (gravityObjectDirection)
-	{
-		case ObjectDirection.Down:
-			setAxisForcesTo(vertical, 9.81);
-			break;
-		case ObjectDirection.Up:
-			setAxisForcesTo(vertical, -9.81);
-			break;
-		case ObjectDirection.Left:
-			if (gravityIsUpOrDown()) {
-				setAxisForcesTo(horizontal, 9.81);
-			} else {
-				setAxisForcesTo(horizontal, -9.81);
-			}
-			break;
-		case ObjectDirection.Right:
-			if (gravityIsUpOrDown()) {
-				setAxisForcesTo(horizontal, -9.81);
-			} else {
-				setAxisForcesTo(horizontal, 9.81);
-			}
-			break;
-	}
+    switch (gravityObjectDirection)
+    {
+        case ObjectDirection.Down:
+            setAxisForcesTo(vertical, 9.81);
+            break;
+        case ObjectDirection.Up:
+            setAxisForcesTo(vertical, -9.81);
+            break;
+        case ObjectDirection.Left:
+            if (gravityIsUpOrDown()) {
+                setAxisForcesTo(horizontal, 9.81);
+            } else {
+                setAxisForcesTo(horizontal, -9.81);
+            }
+            break;
+        case ObjectDirection.Right:
+            if (gravityIsUpOrDown()) {
+                setAxisForcesTo(horizontal, -9.81);
+            } else {
+                setAxisForcesTo(horizontal, 9.81);
+            }
+            break;
+    }
 }
 
 function setAxisForcesTo(dir : String[], grav : float) {
-	upDownAxis = dir; gravity = grav;
+    upDownAxis = dir; gravity = grav;
 }
 
 function Update() {
-	// Gravity Rotation
+    // Gravity Rotation
 
-	if (isFrozen) { return false; }
+    if (isFrozen) { return false; }
 
-	if (InputMapper.input.Suicide() && canKillSelf) {
-		GetComponent(PlayerGameStates).Die();
-	}
+    if (InputMapper.input.Suicide() && canKillSelf) {
+        GetComponent(PlayerGameStates).Die();
+    }
 
-	if (InputMapper.input.RotateRight() && canRotateGravity() && !isSubcutaneous) {
-		if (SaveData.currentData) {
-			if (SaveData.currentData.rotation == 90) {
-				shiftRight();
-			} else {
-				shiftLeft();
-			}
-		} else {
-			shiftRight();
-		}
-		setWorldGravityShift();
-	}
+    if (InputMapper.input.RotateRight() && canRotateGravity() && !isSubcutaneous) {
+        if (SaveData.currentData) {
+            if (SaveData.currentData.rotation == 90) {
+                shiftRight();
+            } else {
+                shiftLeft();
+            }
+        } else {
+            shiftRight();
+        }
+        setWorldGravityShift();
+    }
 
-	if (InputMapper.input.RotateLeft() && canRotateGravity() && !isSubcutaneous) {
-		if (SaveData.currentData) {
-			if (SaveData.currentData.rotation == 90) {
-				shiftLeft();
-			} else {
-				shiftRight();
-			}
-		} else {
-			shiftLeft();
-		}
-		setWorldGravityShift();
-	}
+    if (InputMapper.input.RotateLeft() && canRotateGravity() && !isSubcutaneous) {
+        if (SaveData.currentData) {
+            if (SaveData.currentData.rotation == 90) {
+                shiftLeft();
+            } else {
+                shiftRight();
+            }
+        } else {
+            shiftLeft();
+        }
+        setWorldGravityShift();
+    }
 
-	if (canRotate180)
-	{
-		if (InputMapper.input.RotateUp180() && canRotateGravity() && !isSubcutaneous) {
-			adjustGravity180();
-			rotatePlayerAndObjects(-180);
-			rotateCameraInDegrees(-180);
-		}
+    if (canRotate180)
+    {
+        if (InputMapper.input.RotateUp180() && canRotateGravity() && !isSubcutaneous) {
+            adjustGravity180();
+            rotatePlayerAndObjects(-180);
+            rotateCameraInDegrees(-180);
+        }
 
-		if (InputMapper.input.RotateDown180() && canRotateGravity() && !isSubcutaneous) {
-			adjustGravity180();
-			rotatePlayerAndObjects(180);
-			rotateCameraInDegrees(180);
-		}
-	}
+        if (InputMapper.input.RotateDown180() && canRotateGravity() && !isSubcutaneous) {
+            adjustGravity180();
+            rotatePlayerAndObjects(180);
+            rotateCameraInDegrees(180);
+        }
+    }
 
-	if (canDoExperimentalRotation) {
-		if (InputMapper.input.Rotate45Right() && canRotateGravity() && !isSubcutaneous) {
-			rotatePlayerAndObjects(45);
-			rotateCameraInDegrees(45);
-		}
+    if (canDoExperimentalRotation) {
+        if (InputMapper.input.Rotate45Right() && canRotateGravity() && !isSubcutaneous) {
+            rotatePlayerAndObjects(45);
+            rotateCameraInDegrees(45);
+        }
 
-		if (InputMapper.input.Rotate45Left() && canRotateGravity() && !isSubcutaneous) {
-			rotatePlayerAndObjects(-45);
-			rotateCameraInDegrees(-45);
-		}
-	}
+        if (InputMapper.input.Rotate45Left() && canRotateGravity() && !isSubcutaneous) {
+            rotatePlayerAndObjects(-45);
+            rotateCameraInDegrees(-45);
+        }
+    }
 
-	switch (gravityDirection)
-	{
-		case Direction.Down:
-			setMovements(jumpHeight, moveSpeed);
-			checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
-			break;
-		case Direction.Up:
-			setMovements(-jumpHeight, -moveSpeed);
-			checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
-			break;
-		case Direction.Left:
-			setMovements(jumpHeight, -moveSpeed);
-			checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
-			break;
-		case Direction.Right:
-			setMovements(-jumpHeight, moveSpeed);
-			checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
-			break;
-	}
+    switch (gravityDirection)
+    {
+        case Direction.Down:
+            setMovements(jumpHeight, moveSpeed);
+            checkIfGrounded(-Vector2.up, feetDistanceFromCenter);
+            break;
+        case Direction.Up:
+            setMovements(-jumpHeight, -moveSpeed);
+            checkIfGrounded(-Vector2.down, -feetDistanceFromCenter);
+            break;
+        case Direction.Left:
+            setMovements(jumpHeight, -moveSpeed);
+            checkIfGrounded(-Vector2.right, feetDistanceFromCenter);
+            break;
+        case Direction.Right:
+            setMovements(-jumpHeight, moveSpeed);
+            checkIfGrounded(-Vector2.left, -feetDistanceFromCenter);
+            break;
+    }
 
-	return true;
+    return true;
 }
 
 function shiftRight() {
-	adjustGravityRight();
-	rotatePlayerAndObjects(90);
-	rotateCameraInDegrees(90);
+    adjustGravityRight();
+    rotatePlayerAndObjects(90);
+    rotateCameraInDegrees(90);
 }
 
 function shiftLeft() {
-	adjustGravityLeft();
-	rotatePlayerAndObjects(-90);
-	rotateCameraInDegrees(-90);
+    adjustGravityLeft();
+    rotatePlayerAndObjects(-90);
+    rotateCameraInDegrees(-90);
 }
 
 function rotateCameraInDegrees(degrees : float) {
-	if (cameraRotationEnabled) {
-		GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotate(degrees, rotateRate);
-		Sounds.use.ConstructOneOffSound("Warp", transform.position);
-	}
+    if (cameraRotationEnabled) {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CameraBehavior).rotate(degrees, rotateRate);
+        Sounds.use.ConstructOneOffSound("Warp", transform.position);
+    }
 }
 
 function FixedUpdate () {
 
-	var rigidbody = GetComponent(Rigidbody2D);
-	adjustFallingSounds(rigidbody);
-	checkIfMoving();
+    var rigidbody = GetComponent(Rigidbody2D);
+    adjustFallingSounds(rigidbody);
+    checkIfMoving();
 
-	switch (gravityDirection)
-	{
-		case Direction.Down:
-			rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(-gravity, upDownAxis[1]);
-			break;
-		case Direction.Up:
-			rigidbody.velocity.y += lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(gravity, upDownAxis[1]);
-			break;
-		case Direction.Left:
-			rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(-gravity, upDownAxis[0]);
-			break;
-		case Direction.Right:
-			rigidbody.velocity.x += lunaGravity * Time.deltaTime;
-			setObjectGravitySettings(gravity, upDownAxis[0]);
-			break;
-	}
+    switch (gravityDirection)
+    {
+        case Direction.Down:
+            rigidbody.velocity.y += -lunaGravity * Time.deltaTime;
+            setObjectGravitySettings(-gravity, upDownAxis[1]);
+            break;
+        case Direction.Up:
+            rigidbody.velocity.y += lunaGravity * Time.deltaTime;
+            setObjectGravitySettings(gravity, upDownAxis[1]);
+            break;
+        case Direction.Left:
+            rigidbody.velocity.x += -lunaGravity * Time.deltaTime;
+            setObjectGravitySettings(-gravity, upDownAxis[0]);
+            break;
+        case Direction.Right:
+            rigidbody.velocity.x += lunaGravity * Time.deltaTime;
+            setObjectGravitySettings(gravity, upDownAxis[0]);
+            break;
+    }
 }
 
 function rotatePlayerAndObjects(degrees : float) {
-	MoveObject.use.Rotation(transform, Vector3.forward * degrees, rotateRate);
-	nextRotate = Time.time + rotateRate + 0.01;
-	adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * degrees);
-	adjustShifters(["ShifterL"], Vector3.forward * degrees);
-	adjustShifters(["ShifterR"], Vector3.forward * degrees);
-	adjustShifters(["StubbornGround"], Vector3.forward * degrees);
-	adjustShifters(["StubbornGroundReverse"], Vector3.forward * -degrees);
+    MoveObject.use.Rotation(transform, Vector3.forward * degrees, rotateRate);
+    nextRotate = Time.time + rotateRate + 0.01;
+    adjustShifters(["ShifterD", "ShifterU"], Vector3.forward * degrees);
+    adjustShifters(["ShifterL"], Vector3.forward * degrees);
+    adjustShifters(["ShifterR"], Vector3.forward * degrees);
+    adjustShifters(["StubbornGround"], Vector3.forward * degrees);
+    adjustShifters(["StubbornGroundReverse"], Vector3.forward * -degrees);
 
-	adjustRotaters(["RotaterL", "RotaterR", "Rotater180", "Rotater-180"], Vector3.forward * degrees);
+    adjustRotaters(["RotaterL", "RotaterR", "Rotater180", "Rotater-180"], Vector3.forward * degrees);
 }
 
 function adjustShifters(shifters : String[], degrees : Vector3) {
-	for (var shifter : String in shifters) {
-		var shifts = GameObject.FindGameObjectsWithTag(shifter);
-		for (var shift in shifts) {
-			MoveObject.use.Rotation(shift.transform, degrees, rotateRate);
-		}
-	}
+    for (var shifter : String in shifters) {
+        var shifts = GameObject.FindGameObjectsWithTag(shifter);
+        for (var shift in shifts) {
+            MoveObject.use.Rotation(shift.transform, degrees, rotateRate);
+        }
+    }
 }
 
 function adjustRotaters(rotaters : String[], degrees : Vector3) {
-	for (var rotater : String in rotaters) {
-		var rotates = GameObject.FindGameObjectsWithTag(rotater);
-		for (var rotate in rotates) {
-			StartCoroutine(performRotate(rotate, degrees));
-		}
-	}
+    for (var rotater : String in rotaters) {
+        var rotates = GameObject.FindGameObjectsWithTag(rotater);
+        for (var rotate in rotates) {
+            StartCoroutine(performRotate(rotate, degrees));
+        }
+    }
 }
 
 function performRotate(rotate : GameObject, degrees : Vector3) {
-	rotate.GetComponent(BoxCollider2D).enabled = false;
-	yield MoveObject.use.Rotation(rotate.transform, degrees, rotateRate);
-	rotate.GetComponent(BoxCollider2D).enabled = true;
+    rotate.GetComponent(BoxCollider2D).enabled = false;
+    yield MoveObject.use.Rotation(rotate.transform, degrees, rotateRate);
+    rotate.GetComponent(BoxCollider2D).enabled = true;
 }
 
 function adjustGravityLeft()
 {
-	switch (gravityDirection)
-	{
-		case Direction.Down:
-			gravityDirection = Direction.Left;
-			break;
-		case Direction.Left:
-			gravityDirection = Direction.Up;
-			break;
-		case Direction.Up:
-			gravityDirection = Direction.Right;
-			break;
-		case Direction.Right:
-			gravityDirection = Direction.Down;
-			break;
-	}
+    switch (gravityDirection)
+    {
+        case Direction.Down:
+            gravityDirection = Direction.Left;
+            break;
+        case Direction.Left:
+            gravityDirection = Direction.Up;
+            break;
+        case Direction.Up:
+            gravityDirection = Direction.Right;
+            break;
+        case Direction.Right:
+            gravityDirection = Direction.Down;
+            break;
+    }
 }
 
 function adjustGravityRight()
 {
-	switch (gravityDirection)
-	{
-		case Direction.Down:
-			gravityDirection = Direction.Right;
-			break;
-		case Direction.Right:
-			gravityDirection = Direction.Up;
-			break;
-		case Direction.Up:
-			gravityDirection = Direction.Left;
-			break;
-		case Direction.Left:
-			gravityDirection = Direction.Down;
-			break;
-	}
+    switch (gravityDirection)
+    {
+        case Direction.Down:
+            gravityDirection = Direction.Right;
+            break;
+        case Direction.Right:
+            gravityDirection = Direction.Up;
+            break;
+        case Direction.Up:
+            gravityDirection = Direction.Left;
+            break;
+        case Direction.Left:
+            gravityDirection = Direction.Down;
+            break;
+    }
 }
 
 function adjustGravity180()
 {
-	switch (gravityDirection)
-	{
-		case Direction.Down:
-			gravityDirection = Direction.Up;
-			break;
-		case Direction.Right:
-			gravityDirection = Direction.Left;
-			break;
-		case Direction.Up:
-			gravityDirection = Direction.Down;
-			break;
-		case Direction.Left:
-			gravityDirection = Direction.Right;
-			break;
-	}
+    switch (gravityDirection)
+    {
+        case Direction.Down:
+            gravityDirection = Direction.Up;
+            break;
+        case Direction.Right:
+            gravityDirection = Direction.Left;
+            break;
+        case Direction.Up:
+            gravityDirection = Direction.Down;
+            break;
+        case Direction.Left:
+            gravityDirection = Direction.Right;
+            break;
+    }
 }
 
 // for checkpoints only to be called on level load after death if checkpoint has been triggered
 function adjustGravityTo(direction) {
-	switch (direction)
-	{
-		case "Down":
-			gravityDirection = Direction.Down;
-			setCameraAndPlayerImmediatelyTo(0);
-			break;
-		case "Up":
-			gravityDirection = Direction.Up;
-			setCameraAndPlayerImmediatelyTo(180);
-			break;
-		case "Left":
-			gravityDirection = Direction.Left;
-			setCameraAndPlayerImmediatelyTo(-90);
-			break;
-		case "Right":
-			gravityDirection = Direction.Right;
-			setCameraAndPlayerImmediatelyTo(90);
-			break;
-	}
+    switch (direction)
+    {
+        case "Down":
+            gravityDirection = Direction.Down;
+            setCameraAndPlayerImmediatelyTo(0);
+            break;
+        case "Up":
+            gravityDirection = Direction.Up;
+            setCameraAndPlayerImmediatelyTo(180);
+            break;
+        case "Left":
+            gravityDirection = Direction.Left;
+            setCameraAndPlayerImmediatelyTo(-90);
+            break;
+        case "Right":
+            gravityDirection = Direction.Right;
+            setCameraAndPlayerImmediatelyTo(90);
+            break;
+    }
 }
 
 function setCameraAndPlayerImmediatelyTo(degree) {
-	GameObject.Find("Camera").transform.rotation = Quaternion.Euler(Vector3(0,0,degree));
-	transform.rotation = Quaternion.Euler(Vector3(0,0,degree));
+    GameObject.Find("Camera").transform.rotation = Quaternion.Euler(Vector3(0,0,degree));
+    transform.rotation = Quaternion.Euler(Vector3(0,0,degree));
 }
 
 function canRotateGravity() {
-	return (Time.time > nextRotate + 0.001 && (canRotate || isSubcutaneous));
+    return (Time.time > nextRotate + 0.001 && (canRotate || isSubcutaneous));
 }
 
 function setObjectGravitySettings(gravitySetting : float, axis : String) {
-	objGravity(normalGravObjects, gravitySetting, axis);
-	objGravity(reverseGravObjects, -gravitySetting, axis);
+    objGravity(normalGravObjects, gravitySetting, axis);
+    objGravity(reverseGravObjects, -gravitySetting, axis);
 
-	if (axis == "y") {
-		objGravity(leftieGravObjects, gravitySetting, oppositeAxis(axis));
-		objGravity(rightieGravObjects, -gravitySetting, oppositeAxis(axis));
-	} else {
-		objGravity(leftieGravObjects, -gravitySetting, oppositeAxis(axis));
-		objGravity(rightieGravObjects, gravitySetting, oppositeAxis(axis));
-	}
+    if (axis == "y") {
+        objGravity(leftieGravObjects, gravitySetting, oppositeAxis(axis));
+        objGravity(rightieGravObjects, -gravitySetting, oppositeAxis(axis));
+    } else {
+        objGravity(leftieGravObjects, -gravitySetting, oppositeAxis(axis));
+        objGravity(rightieGravObjects, gravitySetting, oppositeAxis(axis));
+    }
 }
 
 function oppositeAxis(axis) {
-	if (axis == "y") { return "x"; } else { return "y"; }
+    if (axis == "y") { return "x"; } else { return "y"; }
 }
 
 function objGravity(taggedItems : String[], gravity : float, axis : String) {
-	for (var taggedItem : String in taggedItems) {
-		if (taggedItem == "BlackHoleBox") { gravity *= 10; }
+    for (var taggedItem : String in taggedItems) {
+        if (taggedItem == "BlackHoleBox") { gravity *= 10; }
 
-		var objects = GameObject.FindGameObjectsWithTag(taggedItem);
-		for (var object : GameObject in objects) {
-			if (axis == "y") { object.GetComponent(Rigidbody2D).velocity.y += gravity * Time.deltaTime; }
-			if (axis == "x") { object.GetComponent(Rigidbody2D).velocity.x += gravity * Time.deltaTime; }
-		}
-	}
+        var objects = GameObject.FindGameObjectsWithTag(taggedItem);
+        for (var object : GameObject in objects) {
+            if (axis == "y") { object.GetComponent(Rigidbody2D).velocity.y += gravity * Time.deltaTime; }
+            if (axis == "x") { object.GetComponent(Rigidbody2D).velocity.x += gravity * Time.deltaTime; }
+        }
+    }
 }
 
 function checkIfMoving() {
-	if (InputMapper.input.IsMoving()) {
-		isMoving = true;
-	} else {
-		isMoving = false;
-	}
+    if (InputMapper.input.IsMoving()) {
+        isMoving = true;
+    } else {
+        isMoving = false;
+    }
 }
 
 // Movement and Orientation
 
 function setMovements(jumpHeight : float, moveSpeed : float) {
-	if (!canMove) { return false; }
-	var x; var y;
-	Jump(x, y, jumpHeight);
-	if (InputMapper.input.MoveLeft()) { Move(x, y, -moveSpeed, facingRight);   } // Left
-	if (InputMapper.input.MoveRight()) { Move(x, y, moveSpeed, !facingRight);   } // Right
+    if (!canMove) { return false; }
+    var x; var y;
+    Jump(x, y, jumpHeight);
+    if (InputMapper.input.MoveLeft()) { Move(x, y, -moveSpeed, facingRight);   } // Left
+    if (InputMapper.input.MoveRight()) { Move(x, y, moveSpeed, !facingRight);   } // Right
 
-	return true;
+    return true;
 }
 
 function setNoMovements() {
-	GetComponent(Rigidbody2D).velocity = new Vector2(0,0);
-	isFrozen = true;
+    GetComponent(Rigidbody2D).velocity = new Vector2(0,0);
+    isFrozen = true;
 }
 
 function Move(x, y, moveSpeed : float, orientation) {
-	var rigidbody = GetComponent(Rigidbody2D);
+    var rigidbody = GetComponent(Rigidbody2D);
 
-	if (gravityIsUpOrDown()) {
-		x = calculateAcceleration(moveSpeed, rigidbody.velocity.x);
-		y = rigidbody.velocity.y;
-	} else {
-		x = rigidbody.velocity.x;
-		y = calculateAcceleration(moveSpeed, rigidbody.velocity.y);
-	}
+    if (gravityIsUpOrDown()) {
+        x = calculateAcceleration(moveSpeed, rigidbody.velocity.x);
+        y = rigidbody.velocity.y;
+    } else {
+        x = rigidbody.velocity.x;
+        y = calculateAcceleration(moveSpeed, rigidbody.velocity.y);
+    }
 
-	calculateMovement(x,y, orientation);
+    calculateMovement(x,y, orientation);
 }
 
 function calculateMovement(x,y, orientation) {
-	GetComponent(Rigidbody2D).velocity = new Vector2(x, y);
-	flipIf(orientation);
+    GetComponent(Rigidbody2D).velocity = new Vector2(x, y);
+    flipIf(orientation);
 }
 
 function calculateAcceleration(speed : float, vectorDirection : float) {
-	var newAccel = speed * accelerationRate;
-	var newVelocity = (newAccel * Time.deltaTime) + vectorDirection;
+    var newAccel = speed * accelerationRate;
+    var newVelocity = (newAccel * Time.deltaTime) + vectorDirection;
 
-	// account for acceleration from a standing position && reset velocity max if touching ground
-	if (touchingGround && Mathf.Abs(newVelocity) > Mathf.Abs(speed)) {
-		newVelocity = speed;
-	}
+    // account for acceleration from a standing position && reset velocity max if touching ground
+    if (touchingGround && Mathf.Abs(newVelocity) > Mathf.Abs(speed)) {
+        newVelocity = speed;
+    }
 
-	// Account for forward momentum, don't kill it on input in the same direction
-	if (newVelocity > speed && Mathf.Abs(speed) == speed) {
-		return vectorDirection;
-	} else if (newVelocity < speed && Mathf.Abs(speed) != speed) {
-		return vectorDirection;
-	}
+    // Account for forward momentum, don't kill it on input in the same direction
+    if (newVelocity > speed && Mathf.Abs(speed) == speed) {
+        return vectorDirection;
+    } else if (newVelocity < speed && Mathf.Abs(speed) != speed) {
+        return vectorDirection;
+    }
 
-	// Account for the abs of reverse momentum being greater than the abs of speed, account for
-	// direction changes at high velocities
-	if (newVelocity > 0 && Mathf.Abs(speed) != speed) {
-		return newVelocity;
-	} else if (newVelocity < 0 && Mathf.Abs(speed) == speed) {
-		return newVelocity;
-	}
+    // Account for the abs of reverse momentum being greater than the abs of speed, account for
+    // direction changes at high velocities
+    if (newVelocity > 0 && Mathf.Abs(speed) != speed) {
+        return newVelocity;
+    } else if (newVelocity < 0 && Mathf.Abs(speed) == speed) {
+        return newVelocity;
+    }
 
-	return newVelocity;
+    return newVelocity;
 }
 
 function Jump(x, y, jump) {
-	var rigidbody = GetComponent(Rigidbody2D);
-	if (InputMapper.input.Jump() && canJump()) {
-		if (gravityIsUpOrDown()) {
-			x = rigidbody.velocity.x;
-			y = jump;
-		} else {
-			y = rigidbody.velocity.y;
-			x = jump;
-		}
-		rigidbody.velocity = new Vector2(x, y);
-		registerJump();
-	}
+    var rigidbody = GetComponent(Rigidbody2D);
+    if (InputMapper.input.Jump() && canJump()) {
+        if (gravityIsUpOrDown()) {
+            x = rigidbody.velocity.x;
+            y = jump;
+        } else {
+            y = rigidbody.velocity.y;
+            x = jump;
+        }
+        rigidbody.velocity = new Vector2(x, y);
+        registerJump();
+    }
 }
 
 function canJump() {
-	return numJumps < maxJumps;
+    return numJumps < maxJumps;
 }
 
 function registerJump() {
-	numJumps++;
+    numJumps++;
 
-	if (cameraRotationEnabled) {
-		Sounds.use.PlaySoundByTag("JumpSound");
-	}
+    if (cameraRotationEnabled) {
+        Sounds.use.PlaySoundByTag("JumpSound");
+    }
 
-	GetComponent(Animator).SetTrigger("InAir");
+    GetComponent(Animator).SetTrigger("InAir");
 }
 
 function flipIf(orientation) {
-	if (orientation) {
-		Flip();
-	}
+    if (orientation) {
+        Flip();
+    }
 }
 
 function Flip() {
-	var flipScale : Vector3;
-	var rigidbody : Rigidbody2D;
+    var flipScale : Vector3;
+    var rigidbody : Rigidbody2D;
 
-	rigidbody = GetComponent(Rigidbody2D);
-	flipScale = rigidbody.transform.localScale;
-	flipScale.x *= -1;
+    rigidbody = GetComponent(Rigidbody2D);
+    flipScale = rigidbody.transform.localScale;
+    flipScale.x *= -1;
 
-	rigidbody.transform.localScale = flipScale;
-	facingRight = !facingRight;
+    rigidbody.transform.localScale = flipScale;
+    facingRight = !facingRight;
 }
 
 // Ground Raycast Functions
 
 function checkIfGrounded(direction : Vector2, distance : float) {
-	var vector : Vector2 = determinedRaycastVector(distance);
-	var contactPoint : RaycastHit2D = Physics2D.Raycast(vector, direction);
+    var vector : Vector2 = determinedRaycastVector(distance);
+    var contactPoint : RaycastHit2D = Physics2D.Raycast(vector, direction);
 
-	if (playerIsTouchingGround(contactPoint)) {
-		if (!isMoving) { killDownwardsVelocity(); }
-		touchingGround = true;
-	} else {
-		touchingGround = false;
-	}
+    if (playerIsTouchingGround(contactPoint)) {
+        if (!isMoving) { killDownwardsVelocity(); }
+        touchingGround = true;
+    } else {
+        touchingGround = false;
+    }
 }
 
 function playerIsTouchingGround(contactPoint : RaycastHit2D) {
-	if (contactPoint.collider == null) { return false; }
-	var itemIsGround : boolean = false;
-	for (var item : String in groundObjects) {
-		if (contactPoint.collider.CompareTag(item)) {
-			itemIsGround = true;
-		}
-	}
-	return contactPoint.distance == 0 && itemIsGround;
+    if (contactPoint.collider == null) { return false; }
+    var itemIsGround : boolean = false;
+    for (var item : String in groundObjects) {
+        if (contactPoint.collider.CompareTag(item)) {
+            itemIsGround = true;
+        }
+    }
+    return contactPoint.distance == 0 && itemIsGround;
 }
 
 function determinedRaycastVector(distance : float) {
-	if (gravityIsUpOrDown()) {
-		return Vector2(transform.position.x, transform.position.y - distance);
-	} else {
-		return Vector2(transform.position.x - distance, transform.position.y);
-	}
+    if (gravityIsUpOrDown()) {
+        return Vector2(transform.position.x, transform.position.y - distance);
+    } else {
+        return Vector2(transform.position.x - distance, transform.position.y);
+    }
 }
 
 function killDownwardsVelocity() {
-	if (gravityIsUpOrDown()) {
-		GetComponent(Rigidbody2D).velocity.x = 0;
-	} else {
-		GetComponent(Rigidbody2D).velocity.y = 0;
-	}
+    if (gravityIsUpOrDown()) {
+        GetComponent(Rigidbody2D).velocity.x = 0;
+    } else {
+        GetComponent(Rigidbody2D).velocity.y = 0;
+    }
 }
 
 function gravityIsUpOrDown() {
-	return	gravityDirection == Direction.Down || gravityDirection == Direction.Up;
+    return  gravityDirection == Direction.Down || gravityDirection == Direction.Up;
 }
 
 function gravityIsDownOrRight() {
-	return	gravityDirection == Direction.Down || gravityDirection == Direction.Right;
+    return  gravityDirection == Direction.Down || gravityDirection == Direction.Right;
 }
 
 function adjustFallingSounds(rigidbody : Rigidbody2D) {
-	if (cameraRotationEnabled) {
-		if (gravityIsUpOrDown()) {
-			wind.volume = Mathf.Abs(rigidbody.velocity.y / 80);
-		} else {
-			wind.volume = Mathf.Abs(rigidbody.velocity.x / 80);
-		}
-	}
+    if (cameraRotationEnabled) {
+        if (gravityIsUpOrDown()) {
+            wind.volume = Mathf.Abs(rigidbody.velocity.y / 80);
+        } else {
+            wind.volume = Mathf.Abs(rigidbody.velocity.x / 80);
+        }
+    }
 }

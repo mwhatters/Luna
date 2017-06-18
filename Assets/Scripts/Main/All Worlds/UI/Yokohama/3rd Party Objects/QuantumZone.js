@@ -1,7 +1,7 @@
 ﻿#pragma downcast
 
 function OnTriggerEnter2D(coll : Collider2D) {
-	if (coll.name == "Luna") {
+    if (coll.name == "Luna") {
     // change layer to Quantum Luna
     coll.gameObject.layer = 17;
     changeColor(coll, Color.yellow);
@@ -9,7 +9,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 }
 
 function OnTriggerExit2D(coll : Collider2D) {
-	if (coll.name == "Luna") {
+    if (coll.name == "Luna") {
     // change back to regular Luna
     coll.gameObject.layer = 13;
     changeColor(coll, Color.white);

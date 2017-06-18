@@ -6,15 +6,15 @@ function Awake() {
   if (IntroInstance) {
     var White = GameObject.Find("white");
     Destroy(White);
-		DestroyImmediate(gameObject);
+        DestroyImmediate(gameObject);
     var luna = GameObject.Find("Luna");
     luna.GetComponent(MainGravity).isFrozen = false;
     luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.None;
     luna.GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeRotation;
-	} else {
-		DontDestroyOnLoad (transform.gameObject);
-		IntroInstance = this;
-	}
+    } else {
+        DontDestroyOnLoad (transform.gameObject);
+        IntroInstance = this;
+    }
 }
 
 function Start () {

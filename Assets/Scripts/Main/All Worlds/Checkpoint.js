@@ -6,32 +6,32 @@ public var gravityRespawnDirection : String = "Down";
 public var cameraSize : int = 0;
 
 function Start () {
-	var camera = GameObject.FindGameObjectWithTag("MainCamera");
+    var camera = GameObject.FindGameObjectWithTag("MainCamera");
 
-	if (camera.GetComponent(CheckpointTracker).checkPointPos == transform.position) {
-		DestroyInvalidatedObjects();
-	}
+    if (camera.GetComponent(CheckpointTracker).checkPointPos == transform.position) {
+        DestroyInvalidatedObjects();
+    }
 }
 
 function OnTriggerEnter2D(coll : Collider2D) {
-	if (triggered) { return false; }
+    if (triggered) { return false; }
 
-	if (coll.name == "Luna") {
-		setupCheckPoint();
+    if (coll.name == "Luna") {
+        setupCheckPoint();
   }
 
-	return true;
+    return true;
 }
 
 function setupCheckPoint() {
-	GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).checkPointPos = transform.position;
-	GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).gravityDirection = gravityRespawnDirection;
-	if (cameraSize > 0) { GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).cameraSize = cameraSize; }
-	triggered = true;
+    GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).checkPointPos = transform.position;
+    GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).gravityDirection = gravityRespawnDirection;
+    if (cameraSize > 0) { GameObject.FindGameObjectWithTag("MainCamera").GetComponent(CheckpointTracker).cameraSize = cameraSize; }
+    triggered = true;
 }
 
 function DestroyInvalidatedObjects() {
-	for (var object in invalidatedObjects) {
-		Destroy(object);
-	}
+    for (var object in invalidatedObjects) {
+        Destroy(object);
+    }
 }
