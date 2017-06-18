@@ -50,6 +50,7 @@ public function StartNameInput() {
   SceneHelper.use.FadeTextToWhite("Text", 0.6);
 
   if (InputMapper.input.Device().Name != "None") {
+    SceneHelper.use.FadeTextToWhite("ControllerInstructions", 0.6);
     GameObject.Find("ControllerInputHandler").GetComponent(TextInputMapper).active = true;
   }
 }
