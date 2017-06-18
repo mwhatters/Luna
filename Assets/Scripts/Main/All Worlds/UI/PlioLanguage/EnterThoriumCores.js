@@ -4,13 +4,13 @@ public static var IntroInstance;
 
 function Awake() {
   if (IntroInstance) {
-		DestroyImmediate(gameObject);
+        DestroyImmediate(gameObject);
     var luna = GameObject.Find("Luna");
     luna.GetComponent(MainGravity).canMove = true;
-	} else {
-		DontDestroyOnLoad (transform.gameObject);
-		IntroInstance = this;
-	}
+    } else {
+        DontDestroyOnLoad (transform.gameObject);
+        IntroInstance = this;
+    }
 }
 
 function Start () {

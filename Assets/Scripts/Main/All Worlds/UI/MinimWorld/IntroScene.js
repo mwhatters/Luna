@@ -8,11 +8,11 @@ function Awake() {
   if (IntroInstance) {
     var Blackness = GameObject.Find("Blackness");
     Destroy(Blackness);
-		DestroyImmediate(gameObject);
-	} else {
-		DontDestroyOnLoad (transform.gameObject);
-		IntroInstance = this;
-	}
+        DestroyImmediate(gameObject);
+    } else {
+        DontDestroyOnLoad (transform.gameObject);
+        IntroInstance = this;
+    }
 }
 
 function Start () {

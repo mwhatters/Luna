@@ -8,150 +8,150 @@ public static var currentData : PlayerData;
 public static var currentTimeStats : TimeStats;
 
 function Awake () {
-	if (use) {
-		return;
-	}
-	use = this;
+    if (use) {
+        return;
+    }
+    use = this;
 }
 
 public function CreateNewGame(user : String, level : String, rotation : int) {
-	var filepath : String = getFilePath(user);
+    var filepath : String = getFilePath(user);
 
-	if (File.Exists(Application.persistentDataPath + filepath)) {
-		Debug.Log('error -- game already exists, cannot overwrite');
-	} else {
-		var bf : BinaryFormatter = new BinaryFormatter();
-		var file = File.Create(Application.persistentDataPath + filepath);
-		var data : PlayerData = new PlayerData(user, level, rotation);
+    if (File.Exists(Application.persistentDataPath + filepath)) {
+        Debug.Log('error -- game already exists, cannot overwrite');
+    } else {
+        var bf : BinaryFormatter = new BinaryFormatter();
+        var file = File.Create(Application.persistentDataPath + filepath);
+        var data : PlayerData = new PlayerData(user, level, rotation);
 
-		bf.Serialize(file, data);
-		file.Close();
-		currentData = data;
-		createNewTimeStatsFromPlayerData(currentData.username);
-	}
+        bf.Serialize(file, data);
+        file.Close();
+        currentData = data;
+        createNewTimeStatsFromPlayerData(currentData.username);
+    }
 }
 
 public function SaveGame(user : String, level : String, rotation : int) {
-	var filepath : String = getFilePath(user);
-	var bf : BinaryFormatter = new BinaryFormatter();
-	var file = File.Create(Application.persistentDataPath + filepath);
-	var data : PlayerData = new PlayerData(user, level, rotation);
+    var filepath : String = getFilePath(user);
+    var bf : BinaryFormatter = new BinaryFormatter();
+    var file = File.Create(Application.persistentDataPath + filepath);
+    var data : PlayerData = new PlayerData(user, level, rotation);
 
-	bf.Serialize(file, data);
-	file.Close();
-	currentData = data;
+    bf.Serialize(file, data);
+    file.Close();
+    currentData = data;
 }
 
 public function LoadGameFromLoadMenu(savedGame : String) {
-	var filepath : String = getFilePath(savedGame);
-	if (File.Exists(Application.persistentDataPath + filepath)) {
-		var bf : BinaryFormatter = new BinaryFormatter();
-		var file = File.Open(Application.persistentDataPath + filepath, FileMode.Open);
-		var data : PlayerData = bf.Deserialize(file);
-		currentData = data;
-		loadTimeStatsFromPlayerData(currentData.username);
-	}
+    var filepath : String = getFilePath(savedGame);
+    if (File.Exists(Application.persistentDataPath + filepath)) {
+        var bf : BinaryFormatter = new BinaryFormatter();
+        var file = File.Open(Application.persistentDataPath + filepath, FileMode.Open);
+        var data : PlayerData = bf.Deserialize(file);
+        currentData = data;
+        loadTimeStatsFromPlayerData(currentData.username);
+    }
 }
 
 public function SaveFileAlreadyExists(name) {
-	var filepath : String = getFilePath(name);
-	return File.Exists(Application.persistentDataPath + filepath);
+    var filepath : String = getFilePath(name);
+    return File.Exists(Application.persistentDataPath + filepath);
 }
 
 public function ClearCurrentSaveData() {
-	currentData = null;
-	currentTimeStats = null;
+    currentData = null;
+    currentTimeStats = null;
 }
 
 private function getFilePath(name : String) {
-	return "/" + name + ".dat";
+    return "/" + name + ".dat";
 }
 
 public class PlayerData {
-	public var username : String;
-	public var level : String;
-	public var rotation : int;
+    public var username : String;
+    public var level : String;
+    public var rotation : int;
 
-	public function PlayerData(username : String, level : String, rotation: int) {
-		this.username = username;
-		this.level = level;
-		this.rotation = rotation;
+    public function PlayerData(username : String, level : String, rotation: int) {
+        this.username = username;
+        this.level = level;
+        this.rotation = rotation;
   }
 }
 
 // TIME STATS
 
 public function AddTimeData(username : String, level : String, time : float) {
-	var data = currentTimeStats.timeData;
-	if (data.ContainsKey(level)) {
-		data.Remove(level);
-		data.Add(level, time);
-	} else {
-		data.Add(level, time);
-	}
+    var data = currentTimeStats.timeData;
+    if (data.ContainsKey(level)) {
+        data.Remove(level);
+        data.Add(level, time);
+    } else {
+        data.Add(level, time);
+    }
 
-	saveTimeStats(username, data);
+    saveTimeStats(username, data);
 }
 
 private function saveTimeStats(user : String, timeData : Hashtable) {
-	var filepath : String = getTimeStatsPath(user);
-	var bf : BinaryFormatter = new BinaryFormatter();
-	var file = File.Create(Application.persistentDataPath + filepath);
-	var statsData : TimeStats = new TimeStats(user, timeData);
+    var filepath : String = getTimeStatsPath(user);
+    var bf : BinaryFormatter = new BinaryFormatter();
+    var file = File.Create(Application.persistentDataPath + filepath);
+    var statsData : TimeStats = new TimeStats(user, timeData);
 
-	bf.Serialize(file, statsData);
-	file.Close();
-	currentTimeStats = statsData;
-	Debug.Log(currentTimeStats);
+    bf.Serialize(file, statsData);
+    file.Close();
+    currentTimeStats = statsData;
+    Debug.Log(currentTimeStats);
 }
 
 private function createNewTimeStatsFromPlayerData(username : String) {
-	var statsFilepath : String = getTimeStatsPath(username);
+    var statsFilepath : String = getTimeStatsPath(username);
 
-	if (File.Exists(Application.persistentDataPath + statsFilepath)) {
-		Debug.Log('error -- stats already exists, cannot overwrite');
-	} else {
-		var bf : BinaryFormatter = new BinaryFormatter();
-		var file = File.Create(Application.persistentDataPath + statsFilepath);
-		var data : TimeStats = new TimeStats(username, new Hashtable());
+    if (File.Exists(Application.persistentDataPath + statsFilepath)) {
+        Debug.Log('error -- stats already exists, cannot overwrite');
+    } else {
+        var bf : BinaryFormatter = new BinaryFormatter();
+        var file = File.Create(Application.persistentDataPath + statsFilepath);
+        var data : TimeStats = new TimeStats(username, new Hashtable());
 
-		bf.Serialize(file, data);
-		file.Close();
-		currentTimeStats = data;
-	}
+        bf.Serialize(file, data);
+        file.Close();
+        currentTimeStats = data;
+    }
 }
 
 private function loadTimeStatsFromPlayerData(username : String) {
-	var filepath = getTimeStatsPath(username);
-	if (File.Exists(Application.persistentDataPath + filepath)) {
-		var bf : BinaryFormatter = new BinaryFormatter();
-		var file = File.Open(Application.persistentDataPath + filepath, FileMode.Open);
-		var data : TimeStats = bf.Deserialize(file);
-		currentTimeStats = data;
-	} else {
-		createNewTimeStatsFromPlayerData(username);
-	}
+    var filepath = getTimeStatsPath(username);
+    if (File.Exists(Application.persistentDataPath + filepath)) {
+        var bf : BinaryFormatter = new BinaryFormatter();
+        var file = File.Open(Application.persistentDataPath + filepath, FileMode.Open);
+        var data : TimeStats = bf.Deserialize(file);
+        currentTimeStats = data;
+    } else {
+        createNewTimeStatsFromPlayerData(username);
+    }
 }
 
 private function getTimeStatsPath(name : String) {
-	return "/" + name + "_stats.dat";
+    return "/" + name + "_stats.dat";
 }
 
 public class TimeStats {
-	public var username : String;
-	public var timeData : Hashtable;
+    public var username : String;
+    public var timeData : Hashtable;
 
-	public function TimeStats(username : String, timeData : Hashtable) {
-		this.username = username;
-		this.timeData = timeData;
-	}
+    public function TimeStats(username : String, timeData : Hashtable) {
+        this.username = username;
+        this.timeData = timeData;
+    }
 
-	public function totalTime() {
-		var totalTime : float = 0.0;
-		for (var time : DictionaryEntry in this.timeData) {
-			var value : float = time.Value;
-			totalTime = totalTime + value;
-		}
-		return totalTime;
-	}
+    public function totalTime() {
+        var totalTime : float = 0.0;
+        for (var time : DictionaryEntry in this.timeData) {
+            var value : float = time.Value;
+            totalTime = totalTime + value;
+        }
+        return totalTime;
+    }
 }

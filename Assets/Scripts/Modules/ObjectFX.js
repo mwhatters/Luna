@@ -3,10 +3,10 @@
 static var use : ObjectFX;
 
 function Awake () {
-	if (use) {
-		return;
-	}
-	use = this;
+    if (use) {
+        return;
+    }
+    use = this;
 }
 
 function BlinkToColor(sprite : SpriteRenderer, color : Color) {
