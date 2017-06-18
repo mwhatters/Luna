@@ -95,7 +95,7 @@ function RoundToNearestPixel(unityUnits : float) {
 
 function FadeToColor(targetColor : Color, rate : float) {
     var cam = GetComponent(Camera);
-    var currentColour;
+    var currentColour : Color;
     var n = 0;
 
     while (n < 1000) {

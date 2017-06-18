@@ -11,8 +11,7 @@ private var nameEntry : InputField;
 private var currentCaret : int;
 
 function Start() {
-    nameEntry = GameObject.Find("NameEntry").GetComponent(InputField);
-    Debug.Log(nameEntry.caretPosition);
+	nameEntry = GameObject.Find("NameEntry").GetComponent(InputField);
 }
 
 function Update() {
