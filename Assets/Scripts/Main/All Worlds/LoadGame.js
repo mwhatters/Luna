@@ -80,7 +80,7 @@ function generateSavedGames() {
       var nameField = thisPrefab.GetComponent(Text);
       nameField.text = (data.username + " -- " + data.level);
 
-      y -= 25;
+      y -= 35;
 
       //a hack
       if (nameField.text == "") {

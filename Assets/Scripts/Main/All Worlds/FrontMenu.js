@@ -8,6 +8,8 @@ function Start () {
   SceneHelper.use.FadeImageToClear("LunaBlack", 0.13);
   yield WaitForSeconds(2.5);
   SceneHelper.use.FadeImageToClear("MenuBlack", 0.13);
+  yield WaitForSeconds(2);
+  GameObject.Find("EventSystem").GetComponent(InControlInputModule).enabled = true;
 }
 
 public function startNewGame() {
