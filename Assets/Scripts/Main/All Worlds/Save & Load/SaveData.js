@@ -59,6 +59,14 @@ public function SaveFileAlreadyExists(name) {
 }
 
 public function ClearCurrentSaveData() {
+    var cam = GameObject.Find("Camera");
+    if (cam) {
+      var checkpointer = cam.GetComponent(CheckpointTracker);
+      if (checkpointer) {
+        checkpointer.checkPointPos = Vector3(0,0,0);
+      }
+    }
+
     currentData = null;
     currentTimeStats = null;
 }
