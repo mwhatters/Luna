@@ -12,6 +12,10 @@ function Awake () {
 	input = this;
 }
 
+function Device() {
+	return device;
+}
+
 function Update() {
 	device = InputManager.ActiveDevice;
 }
@@ -87,6 +91,38 @@ function MenuMoveDown() {
 	return (
 		device.RightStickDown.State ||
 		Input.GetKey(KeyCode.S)
+	);
+}
+
+function TextEntryUp() {
+	return (
+		device.DPadDown.WasPressed
+	);
+}
+
+function TextEntryDown() {
+	return (
+		device.DPadUp.WasPressed
+	);
+}
+
+function TextEntryDelete() {
+	return (
+		device.Action2.WasPressed ||
+		device.DPadLeft.WasPressed
+	);
+}
+
+function TextEntry() {
+	return (
+		device.Action1.WasPressed ||
+		device.DPadRight
+	);
+}
+
+function TextSubmit() {
+	return (
+		device.Command.WasPressed
 	);
 }
 

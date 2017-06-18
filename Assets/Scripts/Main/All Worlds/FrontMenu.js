@@ -1,6 +1,8 @@
 ﻿#pragma strict
 import MenuControls;
 
+public var test = "test";
+
 function Start () {
   yield WaitForSeconds(1);
   SceneHelper.use.FadeImageToClear("LunaBlack", 0.13);
@@ -46,6 +48,10 @@ public function StartNameInput() {
   nameField.ActivateInputField();
   nameField.Select();
   SceneHelper.use.FadeTextToWhite("Text", 0.6);
+
+  if (InputMapper.input.Device().Name != "None") {
+    GameObject.Find("ControllerInputHandler").GetComponent(TextInputMapper).active = true;
+  }
 }
 
 function Quit() {
