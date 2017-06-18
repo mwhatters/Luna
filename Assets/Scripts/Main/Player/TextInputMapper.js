@@ -81,6 +81,10 @@ function Update() {
 		}
 	}
 
+	// if (InputMapper.input.LeaveTextInput()) {
+	// 	GameObject.Find("Menu").GetComponent(FrontMenu).leaveNameInput();
+	// }
+
 	if (InputMapper.input.TextSubmit()) {
 		if (nameEntry.text == "") { return; }
 		GameObject.Find("Menu").GetComponent(FrontMenu).startNewGame();

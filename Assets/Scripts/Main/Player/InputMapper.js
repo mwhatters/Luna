@@ -126,6 +126,13 @@ function TextSubmit() {
 	);
 }
 
+function LeaveTextInput() {
+	return (
+		device.Action2.WasPressed ||
+		Input.GetKey(KeyCode.Escape)
+	);
+}
+
 // Experimental
 
 function RotateUp180() {

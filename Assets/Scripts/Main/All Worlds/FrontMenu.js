@@ -55,6 +55,17 @@ public function StartNameInput() {
   }
 }
 
+public function leaveNameInput() {
+  SceneHelper.use.FadeTextToClear("NameText", 0.6);
+  if (InputMapper.input.Device().Name != "None") {
+    SceneHelper.use.FadeTextToClear("ControllerInstructions", 0.6);
+  }
+
+  try {
+    EventSystems.EventSystem.current.SetSelectedGameObject(EventSystems.EventSystem.current.firstSelectedGameObject);
+  } catch(e) {}
+}
+
 function Quit() {
   Application.Quit();
 }
