@@ -46,7 +46,7 @@ function Update () {
     return isPaused;
   }
 
-  if (InputMapper.input.Pause() && isPaused) {
+  if (InputMapper.input.UnPause() && isPaused) {
     setUnPaused();
     isPaused = false;
     return isPaused;

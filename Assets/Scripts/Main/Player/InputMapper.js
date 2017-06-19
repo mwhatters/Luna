@@ -27,6 +27,14 @@ function Pause() {
     );
 }
 
+function UnPause() {
+    return (
+        device.Command.WasPressed ||
+        device.Action2.WasPressed ||
+        Input.GetButtonDown("Cancel")
+    );
+}
+
 function IsMoving() {
   return (
     this.MoveLeft() ||
