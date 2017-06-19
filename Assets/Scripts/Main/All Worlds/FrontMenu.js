@@ -17,13 +17,14 @@ public function startNewGame() {
   var saveName = nameField.text.ToLower();
 
   if (saveName == "" || SaveData.use.SaveFileAlreadyExists(saveName)) {
-    EventSystems.EventSystem.current.SetSelectedGameObject(EventSystems.EventSystem.current.firstSelectedGameObject);
+    GameObject.Find("NameError").GetComponent(Text).color.a = 255;
     return;
   }
 
   SaveData.use.CreateNewGame(saveName, "1-1 The Dream", 90);
 
   if (SaveData.currentData) {
+    GameObject.Find("NameError").GetComponent(Text).color.a = 0;
     Sounds.use.PlaySoundByName("StartGame");
     SceneHelper.use.FadeImageToBlack("Blackness", 0.6);
     Invoke("StartGame", 4);
