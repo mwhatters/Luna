@@ -8,6 +8,7 @@ private var escapeText : GameObject;
 private var SaveButton : GameObject;
 private var QuitButton : GameObject;
 private var MenuButton : GameObject;
+private var LevelDesc : GameObject;
 private var IRButton : GameObject;
 private var successText : GameObject;
 private var luna : GameObject;
@@ -27,6 +28,7 @@ function Start () {
   QuitButton = GameObject.Find("Quit Game");
   IRButton = GameObject.Find("Inverse Rotation");
   MenuButton = GameObject.Find("Return To Menu");
+  LevelDesc = GameObject.Find("LevelDesc");
   luna = GameObject.Find("Luna");
   Lwind = GameObject.Find("Wind").GetComponent(AudioSource);
 
@@ -35,6 +37,7 @@ function Start () {
     Imusic = GameObject.Find("IntroMusic").GetComponent(AudioSource);
   }
 
+  LevelDesc.GetComponent(Text).text = "World " + SceneManager.GetActiveScene().name;
 }
 
 function Update () {
@@ -99,6 +102,7 @@ function activatePauseUI(bool) {
   }
 
   pausePanel.GetComponent(Image).enabled = bool;
+  LevelDesc.GetComponent(Text).enabled = bool;
   pausedText.GetComponent(Text).enabled = bool;
   escapeText.GetComponent(Text).enabled = bool;
   QuitButton.GetComponent(Text).enabled = bool;
