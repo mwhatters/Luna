@@ -41,5 +41,5 @@ function LushBoyDie() {
   SceneHelper.use.HideText(Text2);
   scene.resetCheckPointLoader();
   yield WaitForSeconds(4);
-  SceneManager.LoadScene("3-1 Burdens");
+  SceneManager.LoadScene("3-1 Plionarctos Orbit");
 }
