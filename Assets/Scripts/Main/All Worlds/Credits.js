@@ -41,6 +41,11 @@ function CreditsIn() {
 
   yield WaitForSeconds(1);
 
+  SceneHelper.use.ShowAndHideText(GameObject.Find("QA"), 3);
+  yield SceneHelper.use.ShowAndHideText(GameObject.Find("JHatt2"), 3.5);
+
+  yield WaitForSeconds(1);
+
   SceneHelper.use.ShowAndHideText(GameObject.Find("Programming"), 3);
   SceneHelper.use.ShowAndHideText(GameObject.Find("Ian Harshman"), 3.5);
   yield SceneHelper.use.ShowAndHideText(GameObject.Find("Brandon Istenes"), 3.5);

@@ -41,7 +41,7 @@ function removeUIText() {
 
 function slowlyRemoveUIText() {
   for (var i : int = 0; i < stringLength; i++) {
-    this.GetComponent(Text).text = this.GetComponent(Text).text.Substring(1, (stringLength - 1) - i);
+    this.GetComponent(Text).text = this.GetComponent(Text).text.Substring(0, stringLength - 1 - i);
 
     yield WaitForSeconds(timeToPrint);
   }
