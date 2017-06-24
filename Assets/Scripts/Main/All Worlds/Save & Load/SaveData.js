@@ -111,7 +111,6 @@ private function saveTimeStats(user : String, timeData : Hashtable) {
     bf.Serialize(file, statsData);
     file.Close();
     currentTimeStats = statsData;
-    Debug.Log(currentTimeStats);
 }
 
 private function createNewTimeStatsFromPlayerData(username : String) {

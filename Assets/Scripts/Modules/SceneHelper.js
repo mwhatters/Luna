@@ -110,6 +110,10 @@ function FadeTextToWhite(object : String, rate : float) {
     GeneralFadeIn(GameObject.Find(object), "Text", Color.white, 1, rate);
 }
 
+function FadeTextToCyan(object : String, rate : float) {
+    GeneralFadeIn(GameObject.Find(object), "Text", Color.cyan, 1, rate);
+}
+
 function FadeTextToClear(object : String, rate : float) {
     GeneralFadeOut(GameObject.Find(object), "Text", Color.clear, 1, rate);
 }

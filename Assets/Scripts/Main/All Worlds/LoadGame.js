@@ -78,7 +78,15 @@ function generateSavedGames() {
       thisPrefab.transform.SetParent(canvas.transform, false);
 
       var nameField = thisPrefab.GetComponent(Text);
-      nameField.text = (data.username + " -- " + data.level);
+
+      if (data.level == "6-8 The Door") {
+        var foundTimeFile = File.Open(Application.persistentDataPath + "/" + data.username + "_stats.dat", FileMode.Open);
+        var timeData : TimeStats = bf.Deserialize(foundTimeFile);
+        var timeScore = timeData.totalTime();
+        nameField.text = (data.username + " -- Clear  Time: " + timeScore + "  seconds");
+      } else {
+        nameField.text = (data.username + " -- " + data.level);
+      }
 
       y -= 35;
 
@@ -89,7 +97,13 @@ function generateSavedGames() {
 
       // add click listener to instantiated object
       var captured : String = Path.GetFileNameWithoutExtension(file.Name);
-      SceneHelper.use.FadeTextToWhite(data.username, 0.3);
+
+      if (data.level == "6-8 The Door") {
+        SceneHelper.use.FadeTextToCyan(data.username, 0.3);
+      } else {
+        SceneHelper.use.FadeTextToWhite(data.username, 0.3);
+      }
+
       AddListener(thisPrefab.GetComponent(Button), captured);
 
       if (index == 1) {
