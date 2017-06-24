@@ -79,7 +79,7 @@ function generateSavedGames() {
 
       var nameField = thisPrefab.GetComponent(Text);
 
-      if (data.level == "6-8 The Door") {
+      if (data.level == "Credits") {
         var foundTimeFile = File.Open(Application.persistentDataPath + "/" + data.username + "_stats.dat", FileMode.Open);
         var timeData : TimeStats = bf.Deserialize(foundTimeFile);
         var timeScore = timeData.totalTime();
@@ -98,13 +98,12 @@ function generateSavedGames() {
       // add click listener to instantiated object
       var captured : String = Path.GetFileNameWithoutExtension(file.Name);
 
-      if (data.level == "6-8 The Door") {
+      if (data.level == "Credits") {
         SceneHelper.use.FadeTextToCyan(data.username, 0.3);
       } else {
         SceneHelper.use.FadeTextToWhite(data.username, 0.3);
+        AddListener(thisPrefab.GetComponent(Button), captured);
       }
-
-      AddListener(thisPrefab.GetComponent(Button), captured);
 
       if (index == 1) {
         thisPrefab.GetComponent(Button).Select();

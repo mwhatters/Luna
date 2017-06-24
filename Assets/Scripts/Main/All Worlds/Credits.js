@@ -6,6 +6,14 @@ var createdBy : GameObject;
 function Start () {
   grabTotalTime();
 
+  if (SaveData.currentData) {
+    SaveData.use.SaveGame(
+      SaveData.currentData.username,
+      SceneManager.GetActiveScene().name,
+      SaveData.currentData.rotation
+    );
+  }
+
   yield WaitForSeconds(5);
   yield StartCoroutine("CreditsIn");
   yield StartCoroutine("CreditsOut");
