@@ -22,7 +22,7 @@ function StartScene() {
   yield SceneHelper.use.ShowAndHideText(Text2, 2);
   yield SceneHelper.use.ShowAndHideText(Text3, 2);
   yield SceneHelper.use.ShowAndHideText(Text4, 2);
-  yield SceneHelper.use.ShowAndHideText(Text5, 2);
+  //yield SceneHelper.use.ShowAndHideText(Text5, 2);
   yield SceneHelper.use.ShowAndHideText(Text6, 2);
   yield SceneHelper.use.ShowAndHideText(Text7, 2);
 
