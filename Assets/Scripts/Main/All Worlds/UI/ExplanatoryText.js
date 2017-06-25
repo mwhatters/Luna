@@ -24,7 +24,11 @@ function revealUIText() {
       break;
     }
 
-    this.GetComponent(Text).text += displayText[i];
+    if (displayText[i] == ';') {
+      this.GetComponent(Text).text += "\n";
+    } else {
+      this.GetComponent(Text).text += displayText[i];
+    }
 
     if (useSounds) {
       cameraObjSounds.use.ConstructOneOffSound("Type", this.transform.position);
