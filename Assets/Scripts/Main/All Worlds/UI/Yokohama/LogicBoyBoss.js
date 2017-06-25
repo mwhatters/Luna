@@ -86,11 +86,10 @@ function LogicBoyStartScene() {
   SceneHelper.use.ShowAndHideText(Text3, 4);
   yield WaitForSeconds(3);
   SceneHelper.use.ShowAndHideText(Text4, 2);
-  yield WaitForSeconds(4);
-  SceneHelper.use.ShowAndHideText(Text5, 2);
-  yield WaitForSeconds(4);
-  SceneHelper.use.ShowAndHideText(Text6, 2);
-  yield WaitForSeconds(4);
+  yield WaitForSeconds(5.5);
+  SceneHelper.use.ShowAndHideText(Text5, 2.5);
+  yield WaitForSeconds(3);
+  yield SceneHelper.use.ShowAndHideText(Text6, 2);
 }
 
 function startBossBattle() {
@@ -197,10 +196,10 @@ function EndScene() {
   Sounds.use.PlaySoundByName("rumble");
 
   yield WaitForSeconds(3);
-  SceneHelper.use.ShowAndHideText(Text11, 4);
-  yield WaitForSeconds(3);
-  SceneHelper.use.ShowAndHideText(Text12, 4);
-  yield WaitForSeconds(2);
+  SceneHelper.use.ShowAndHideText(Text11, 6);
+  yield WaitForSeconds(4);
+  SceneHelper.use.ShowAndHideText(Text12, 5);
+  yield WaitForSeconds(4);
   SceneHelper.use.ShowAndHideText(Text122, 4);
   yield WaitForSeconds(6);
   SceneHelper.use.ShowAndHideText(Text13, 5);
