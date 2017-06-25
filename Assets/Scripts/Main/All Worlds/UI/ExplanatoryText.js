@@ -41,7 +41,7 @@ function removeUIText() {
 
 function slowlyRemoveUIText() {
   if (timeToPrint > 0.03) {
-    timeToPrint = timeToPrint - 0.0025;
+    timeToPrint = timeToPrint - 0.004;
   }
 
   for (var i : int = 0; i < stringLength; i++) {
