@@ -57,30 +57,18 @@ function OnTriggerEnter2D(coll : Collider2D) {
     }
 
     yield WaitForSeconds(5);
-    SceneHelper.use.ShowAndHideText(Text3, 3);
-
-    yield WaitForSeconds(5);
-    SceneHelper.use.ShowAndHideText(Text4, 3);
-
-    yield WaitForSeconds(5);
-    SceneHelper.use.ShowAndHideText(Text5, 3);
-
-    yield WaitForSeconds(7);
-    SceneHelper.use.ShowAndHideText(Text6, 3);
-
-    yield WaitForSeconds(5);
-    SceneHelper.use.ShowAndHideText(Text7, 3);
-
-    yield WaitForSeconds(6);
-    SceneHelper.use.ShowAndHideText(Text8, 3);
-
-    yield WaitForSeconds(6);
+    yield SceneHelper.use.ShowAndHideText(Text3, 3);
+    yield SceneHelper.use.ShowAndHideText(Text4, 3);
+    yield SceneHelper.use.ShowAndHideText(Text5, 3);
+    yield SceneHelper.use.ShowAndHideText(Text6, 3);
+    yield SceneHelper.use.ShowAndHideText(Text7, 3);
+    yield SceneHelper.use.ShowAndHideText(Text8, 3);
     SceneHelper.use.ShowAndHideText(Text9, 3);
 
-    yield WaitForSeconds(8);
-    SceneHelper.use.ShowAndHideText(Text10, 3);
+    yield WaitForSeconds(7);
+    yield SceneHelper.use.ShowAndHideText(Text10, 3);
 
-    yield WaitForSeconds(5);
+    // yield WaitForSeconds(3.5);
 
     Sounds.use.PlaySoundByName("crack");
     for (var child : Transform in godPieces) {

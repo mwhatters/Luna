@@ -6,6 +6,8 @@ public var turnedOff : boolean = false;
 private var stringLength : int;
 public var timeToPrint : float = 0.07;
 
+public var shouldSpeedUpRemoveRext : boolean = true;
+
 var cameraObjSounds : Sounds;
 
 
@@ -44,7 +46,7 @@ function removeUIText() {
 
 
 function slowlyRemoveUIText() {
-  if (timeToPrint > 0.03) {
+  if (shouldSpeedUpRemoveRext && timeToPrint > 0.03) {
     timeToPrint = timeToPrint - 0.004;
   }
 
