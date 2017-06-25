@@ -14,6 +14,8 @@ function Start () {
   saveFilesContainer = GameObject.Find("SaveFileContainers").GetComponent(RectTransform);
   yield WaitForSeconds(0.5);
   SceneHelper.use.FadeImageToClear("Blackness", 0.3);
+  yield WaitForSeconds(1);
+  generateSavedGames();
 }
 
 function Update() {
