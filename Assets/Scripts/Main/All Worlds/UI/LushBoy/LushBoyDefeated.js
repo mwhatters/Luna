@@ -33,7 +33,7 @@ function LushBoyDie() {
   SceneHelper.use.FadeInImage("white", 0.008);
   yield WaitForSeconds(7);
   SceneHelper.use.ShowText(Text1);
-  yield WaitForSeconds(2);
+  yield WaitForSeconds(4);
   SceneHelper.use.ShowText(Text2);
   yield WaitForSeconds(5);
   var scene = GetComponent(SceneLoader);
