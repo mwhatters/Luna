@@ -6,6 +6,7 @@ var skipScene : boolean = false;
 var Text1 : GameObject;
 var Text2 : GameObject;
 var Text3 : GameObject;
+var Text3Two : GameObject;
 var Text4 : GameObject;
 var Text5 : GameObject;
 
@@ -14,6 +15,7 @@ function Start () {
   Text1 = GameObject.Find("Text1");
   Text2 = GameObject.Find("Text2");
   Text3 = GameObject.Find("Text3");
+  Text3Two = GameObject.Find("Text3Two");
   Text4 = GameObject.Find("Text4");
   Text5 = GameObject.Find("Text5");
 
@@ -33,15 +35,17 @@ function Start () {
 }
 
 function playLushBoyScene() {
-  yield WaitForSeconds(4.0);
-  yield SceneHelper.use.ShowAndHideText(Text1, 2);
+  yield WaitForSeconds(3.0);
+  yield SceneHelper.use.ShowAndHideText(Text1, 1);
 
-  SceneHelper.use.ShowAndHideText(Text2, 1);
+  yield WaitForSeconds(1);
   lushboyfade = StartCoroutine(SceneHelper.use.FadeInImage("LushBoy", 0.003));
   Sounds.use.PlaySoundByName("LushFade");
+  yield SceneHelper.use.ShowAndHideText(Text2, 2);
 
-  yield WaitForSeconds(8.3);
-  yield SceneHelper.use.ShowAndHideText(Text3, 1);
+  SceneHelper.use.ShowAndHideText(Text3, 4);
+  yield WaitForSeconds(1);
+  yield SceneHelper.use.ShowAndHideText(Text3Two, 2);
   SceneHelper.use.ShowAndHideText(Text4, 1);
 
   yield WaitForSeconds(4.0);
