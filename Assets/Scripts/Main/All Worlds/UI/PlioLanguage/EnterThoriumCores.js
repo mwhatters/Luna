@@ -23,6 +23,7 @@ function Start () {
   var Text11 = GameObject.Find("Text1.5");
   var Text2 = GameObject.Find("Text2");
   var Text22 = GameObject.Find("Text2.5");
+  var Text222 = GameObject.Find("Text2.7");
   var Text3 = GameObject.Find("Text3");
 
   timer.running = false;
@@ -32,14 +33,15 @@ function Start () {
 
   yield WaitForSeconds(1);
 
-  yield SceneHelper.use.ShowAndHideText(Text1, 2);
-  yield SceneHelper.use.ShowAndHideText(Text11, 2);
+  yield SceneHelper.use.ShowAndHideText(Text1, 3);
+  yield SceneHelper.use.ShowAndHideText(Text11, 3);
 
   SceneHelper.use.PartiallyFadeInImage("Power Boy", 0.0008, 0.1);
 
   yield WaitForSeconds(2);
-  yield SceneHelper.use.ShowAndHideText(Text2, 1);
-  yield SceneHelper.use.ShowAndHideText(Text22, 2);
+  yield SceneHelper.use.ShowAndHideText(Text2, 3);
+  yield SceneHelper.use.ShowAndHideText(Text22, 3);
+  yield SceneHelper.use.ShowAndHideText(Text222, 3);
 
   Sounds.use.PlaySoundByName("LushFade");
   SceneHelper.use.FadeOutImageWithRate("Power Boy", 0.0002);
