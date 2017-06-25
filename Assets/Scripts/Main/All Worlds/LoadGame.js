@@ -95,13 +95,12 @@ function generateSavedGames() {
         continue;
       }
 
-      // add click listener to instantiated object
-      var captured : String = Path.GetFileNameWithoutExtension(file.Name);
-
       if (data.level == "Credits") {
         SceneHelper.use.FadeTextToCyan(data.username, 0.3);
       } else {
         SceneHelper.use.FadeTextToWhite(data.username, 0.3);
+        // add click listener to instantiated object
+        var captured : String = Path.GetFileNameWithoutExtension(file.Name);
         AddListener(thisPrefab.GetComponent(Button), captured);
       }
 
