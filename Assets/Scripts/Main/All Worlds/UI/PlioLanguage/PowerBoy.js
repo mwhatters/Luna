@@ -13,6 +13,7 @@ var Text6 : GameObject;
 var Text7 : GameObject;
 var Text8 : GameObject;
 var Text9 : GameObject;
+var Text10 : GameObject;
 var pauseMenu : GameObject;
 var timer : Timer;
 var cam : GameObject;
@@ -35,6 +36,7 @@ function Start () {
   Text7 = GameObject.Find("Text7");
   Text8 = GameObject.Find("Text8");
   Text9 = GameObject.Find("Text9");
+  Text10 = GameObject.Find("Text10");
 
   if (!powerScenePlayed && !skipScene) {
     powerScenePlayed = true;
@@ -189,11 +191,12 @@ function GodFreezesEverythingScene() {
   yield WaitForSeconds(6);
   SceneHelper.use.FadeImageToWhite("God", 0.04);
   yield WaitForSeconds(2);
-  yield SceneHelper.use.ShowAndHideText(Text6, 2);
-  yield SceneHelper.use.ShowAndHideText(Text7, 2);
-  yield SceneHelper.use.ShowAndHideText(Text8, 2);
-  yield SceneHelper.use.ShowText(Text9);
-  yield WaitForSeconds(6);
+  yield SceneHelper.use.ShowAndHideText(Text6, 3);
+  yield SceneHelper.use.ShowAndHideText(Text7, 3);
+  yield SceneHelper.use.ShowAndHideText(Text8, 3);
+  yield SceneHelper.use.ShowAndHideText(Text9, 3);
+  yield SceneHelper.use.ShowText(Text10);
+  yield WaitForSeconds(4.5);
   if (luna.GetComponent(MainGravity).facingRight == false) { luna.GetComponent(MainGravity).Flip(); }
   GameObject.Find("Portal").GetComponent(SceneLoader).beginSceneTransition();
 }
