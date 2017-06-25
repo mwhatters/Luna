@@ -12,9 +12,11 @@ var Text3 : GameObject;
 var Text4 : GameObject;
 var Text45 : GameObject;
 var Text5 : GameObject;
+var Text55 : GameObject;
 var Text6 : GameObject;
 var Text7 : GameObject;
-var Text8 : GameObject;
+var Text10 : GameObject;
+var TextYoko : GameObject;
 var pauseMenu : GameObject;
 var timer : Timer;
 var cam : GameObject;
@@ -35,9 +37,11 @@ function Start () {
   Text4 = GameObject.Find("Text4");
   Text45 = GameObject.Find("Text4.5");
   Text5 = GameObject.Find("Text5");
+  Text55 = GameObject.Find("Text5.5");
   Text6 = GameObject.Find("Text6");
   Text7 = GameObject.Find("Text7");
-  Text8 = GameObject.Find("Text8");
+  Text10 = GameObject.Find("Text10");
+  TextYoko = GameObject.Find("TextYoko");
 
   if (!scenePlayed && !skipScene) {
     scenePlayed = true;
@@ -62,21 +66,20 @@ function PureBoyStartScene() {
   LunaController.use.Freeze();
 
   yield WaitForSeconds(1);
-  SceneHelper.use.ShowAndHideText(Text1, 2);
-  yield WaitForSeconds(3);
+  SceneHelper.use.ShowAndHideText(Text1, 3);
+  yield WaitForSeconds(4);
   Sounds.use.PlaySoundByName("LushFade");
   yield WaitForSeconds(2);
   SceneHelper.use.PartiallyFadeInImage("Pure Boy", 0.004, 0.9);
   yield WaitForSeconds(4);
-  yield SceneHelper.use.ShowAndHideText(Text2, 1.8);
+  yield SceneHelper.use.ShowAndHideText(Text2, 2);
   yield SceneHelper.use.ShowAndHideText(Text3, 2);
-  SceneHelper.use.ShowAndHideText(Text4, 2);
-  yield WaitForSeconds(2);
+  yield SceneHelper.use.ShowAndHideText(Text4, 2);
   yield SceneHelper.use.ShowAndHideText(Text45, 2);
   yield SceneHelper.use.ShowAndHideText(Text5, 2);
-  SceneHelper.use.ShowAndHideText(Text6, 2);
-  yield WaitForSeconds(2);
-  SceneHelper.use.FadeOutImageWithRate("Pure Boy", 0.004);
+  yield SceneHelper.use.ShowAndHideText(Text55, 2);
+  yield SceneHelper.use.ShowAndHideText(Text6, 2);
+  SceneHelper.use.FadeOutImageWithRate("Pure Boy", 0.01);
 }
 
 function startBossBattle() {
@@ -93,7 +96,7 @@ function startBossBattle() {
   }
 
   if (!luna.GetComponent(PlayerGameStates).isDead) {
-    // yield LunaGoesToSpaceScene();
+    //yield LunaGoesToSpaceScene();
   }
 }
 
@@ -150,14 +153,16 @@ function LunaGoesToSpaceScene() {
   LunaController.use.Freeze();
 
   yield WaitForSeconds(4);
+  yield SceneHelper.use.PartiallyFadeInImage("Pure Boy 2", 0.004, 0.4);
+  yield SceneHelper.use.ShowAndHideText(Text7, 3);
 
-  SceneHelper.use.PartiallyFadeInImage("Pure Boy 2", 0.004, 0.4);
-  SceneHelper.use.ShowAndHideText(Text7, 3);
-
-  yield WaitForSeconds(7);
   Sounds.use.PlaySoundByName("BirthMotherMonster");
   SceneHelper.use.ChangeCameraColor(cam.GetComponent(Camera), Color.black, 0.04);
-  yield WaitForSeconds(5);
+
+  yield WaitForSeconds(1);
+  SceneHelper.use.ShowAndHideText(Text10, 4);
+  yield WaitForSeconds(4);
+
   var backgrounds = GameObject.FindGameObjectsWithTag("Background");
   for (var bg in backgrounds) {
     SceneHelper.use.FadeOutGameObj(bg.gameObject, 0.01);
@@ -182,7 +187,7 @@ function LunaGoesToSpaceScene() {
   }
 
   yield WaitForSeconds(11);
-  SceneHelper.use.ShowAndHideText(Text8, 6);
+  SceneHelper.use.ShowAndHideText(TextYoko, 6);
 
   yield WaitForSeconds(16);
   GameObject.Find("Portal").GetComponent(SceneLoader).beginSceneTransition();
