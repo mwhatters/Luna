@@ -30,9 +30,6 @@ function Start () {
   var Text3 = GameObject.Find("IntroText3");
   var Text4 = GameObject.Find("IntroText4");
   var Text5 = GameObject.Find("IntroText5");
-  var Text6 = GameObject.Find("IntroText6");
-  var Text7 = GameObject.Find("IntroText7");
-  var Text8 = GameObject.Find("IntroText8");
 
   luna.GetComponent(MainGravity).isFrozen = true;
 
@@ -41,18 +38,12 @@ function Start () {
   yield WaitForSeconds(3.5);
 
   yield SceneHelper.use.ShowAndHideText(Text1, 2.0);
-  yield WaitForSeconds(0.5);
   yield SceneHelper.use.ShowAndHideText(Text2, 2.0);
-  yield WaitForSeconds(0.5);
-  yield SceneHelper.use.ShowText(Text3);
-  yield WaitForSeconds(1);
-  yield SceneHelper.use.ShowText(Text4);
-  yield WaitForSeconds(2);
-  SceneHelper.use.HideText(Text3);
-  SceneHelper.use.HideText(Text4);
-  yield SceneHelper.use.GeneralFadeOut(GameObject.Find("Blackness"), "Image", Color.clear, 0.5, 0.2);
+  yield SceneHelper.use.ShowAndHideText(Text3, 2.0);
+  yield SceneHelper.use.ShowAndHideText(Text4, 2.0);
+  yield SceneHelper.use.ShowAndHideText(Text5, 2.0);
 
-  yield SceneHelper.use.ShowAndHideText(Text5, 1.0);
+  yield SceneHelper.use.GeneralFadeOut(GameObject.Find("Blackness"), "Image", Color.clear, 0.5, 0.2);
 
   luna.GetComponent(MainGravity).isFrozen = false;
   timer.startTimerFromZero();
