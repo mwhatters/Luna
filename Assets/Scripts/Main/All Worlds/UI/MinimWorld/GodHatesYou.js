@@ -27,6 +27,7 @@ function StartScene() {
   yield SceneHelper.use.ShowAndHideText(Text7, 2);
 
   luna.canMove = true;
+  luna.maxJumps = 0;
   // GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
   GameObject.Find("GodsGround").GetComponent(BoxCollider2D).enabled = false;
 
