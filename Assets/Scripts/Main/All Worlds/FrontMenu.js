@@ -5,6 +5,12 @@ public var test = "test";
 
 function Start () {
   yield WaitForSeconds(1);
+
+  var gameBeaten : boolean = GameObject.Find("MetaGameStates").GetComponent(MetaGameStates).displayGameBeaten();
+  if (gameBeaten) {
+    GameObject.Find("lunasprite").GetComponent(Image).color.a = 255;
+  }
+
   SceneHelper.use.FadeImageToClear("LunaBlack", 0.13);
   yield WaitForSeconds(2.5);
   SceneHelper.use.FadeImageToClear("MenuBlack", 0.13);

@@ -14,6 +14,11 @@ function Start () {
 	}
 }
 
+// public api
+function displayGameBeaten() {
+	return gameBeaten;
+}
+
 function gameHasBeenBeaten() {
 	var info = new DirectoryInfo(Application.persistentDataPath);
   var fileInfo = info.GetFiles();
@@ -31,8 +36,4 @@ function gameHasBeenBeaten() {
 	}
 
 	return false;
-}
-
-function displayGameBeaten() {
-	return gameBeaten;
 }
