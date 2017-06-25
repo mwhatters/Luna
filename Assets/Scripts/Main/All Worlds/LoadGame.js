@@ -71,6 +71,7 @@ function generateSavedGames() {
   for (var file in fileInfo) {
     var bf : BinaryFormatter = new BinaryFormatter();
     try {
+      if (file.Name.Contains("_stats.dat")) { continue; }
       var foundFile = File.Open(Application.persistentDataPath + "/" + file.Name, FileMode.Open);
       var data : PlayerData = bf.Deserialize(foundFile);
 
