@@ -193,7 +193,7 @@ function GodFreezesEverythingScene() {
   yield WaitForSeconds(2);
   yield SceneHelper.use.ShowAndHideText(Text6, 3);
   yield SceneHelper.use.ShowAndHideText(Text7, 3);
-  yield SceneHelper.use.ShowAndHideText(Text8, 3);
+  //yield SceneHelper.use.ShowAndHideText(Text8, 3);
   yield SceneHelper.use.ShowAndHideText(Text9, 3);
   yield SceneHelper.use.ShowText(Text10);
   yield WaitForSeconds(4.5);

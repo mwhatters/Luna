@@ -19,20 +19,32 @@ function Start() {
 
 function revealUIText() {
   stringLength = displayText.Length;
+  var singleSoundDisable = false; //used to disable sound for pauses and line breaks
+
   for (var i : int = 0; i < stringLength; i++) {
+    singleSoundDisable = false; //default to false on each iteration
 
     if (turnedOff) {
       this.GetComponent(Text).text = "";
       break;
     }
 
+    //insert line break
     if (displayText[i] == ';') {
       this.GetComponent(Text).text += "\n";
+      singleSoundDisable = true;;
+
+    //insert pause before next letter (or, usually, before next line)
+    } else if (displayText[i] == '%') {
+      yield WaitForSeconds(1);
+      singleSoundDisable = true;
+
+    //display letter normally
     } else {
       this.GetComponent(Text).text += displayText[i];
     }
 
-    if (useSounds) {
+    if (useSounds && !singleSoundDisable) {
       cameraObjSounds.use.ConstructOneOffSound("Type", this.transform.position);
     }
 
