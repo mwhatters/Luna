@@ -19,10 +19,12 @@ function Start() {
 
 function revealUIText() {
   stringLength = displayText.Length;
-  var singleSoundDisable = false; //used to disable sound for pauses and line breaks
+  var singleSoundDisable; //used to disable sound for pauses and line breaks
+  var singleWaitDisable; //used to disable wait yield when needed
 
   for (var i : int = 0; i < stringLength; i++) {
-    singleSoundDisable = false; //default to false on each iteration
+    singleSoundDisable = false; //default these to false on each iteration
+    singleWaitDisable = false;
 
     if (turnedOff) {
       this.GetComponent(Text).text = "";
@@ -32,7 +34,8 @@ function revealUIText() {
     //insert line break
     if (displayText[i] == ';') {
       this.GetComponent(Text).text += "\n";
-      singleSoundDisable = true;;
+      singleSoundDisable = true;
+      singleWaitDisable = true;
 
     //insert pause before next letter (or, usually, before next line)
     } else if (displayText[i] == '%') {
@@ -48,7 +51,9 @@ function revealUIText() {
       cameraObjSounds.use.ConstructOneOffSound("Type", this.transform.position);
     }
 
-    yield WaitForSeconds(timeToPrint);
+    if (!singleWaitDisable) {
+      yield WaitForSeconds(timeToPrint);
+    }
   }
 }
 

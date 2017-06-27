@@ -68,7 +68,7 @@ function PowerBoyStartScene() {
   SceneHelper.use.PartiallyFadeInImage("Power Boy", 0.0008, 0.1);
   yield WaitForSeconds(5);
   SceneHelper.use.ShowAndHideText(Text2, 1.8);
-  yield WaitForSeconds(7);
+  yield WaitForSeconds(9);
   SceneHelper.use.ShowAndHideText(Text3, 3);
   yield WaitForSeconds(7);
 }
