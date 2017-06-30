@@ -46,6 +46,11 @@ public function LoadGameMenu() {
   Invoke("GoToLoadGame", 2.0);
 }
 
+public function LoadSettingsMenu() {
+  SceneHelper.use.FadeImageToBlack("Blackness", 0.6);
+  Invoke("GoToSettings", 2.0);
+}
+
 public function LoadSandbox() {
   SceneHelper.use.FadeImageToBlack("Blackness", 0.6);
   Invoke("GoToSandBox", 2.0);
@@ -85,6 +90,10 @@ function StartGame() {
 
 function GoToLoadGame() {
   SceneManager.LoadScene("LoadGame");
+}
+
+function GoToSettings() {
+  SceneManager.LoadScene("Settings");
 }
 
 function GoToSandBox() {
