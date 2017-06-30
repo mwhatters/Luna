@@ -14,7 +14,7 @@ function Start () {
 	qualityButtons = GameObject.FindGameObjectsWithTag("QualityOption");
 
 	resolutionsContainer = GameObject.Find("ResolutionsWrapper").GetComponent(RectTransform);
-  yield WaitForSeconds(0.5);
+ 	//yield WaitForSeconds(0.5);
 
 	var x = 70;
 	var y = -40;
@@ -34,7 +34,7 @@ function Start () {
 	determineQuality();
 	SceneHelper.use.FadeImageToClear("Blackness", 0.3);
 
-	yield WaitForSeconds(1);
+	//yield WaitForSeconds(1);
 	resolutionButtons = GameObject.FindGameObjectsWithTag("ResolutionOption");
 	determineResolution();
 }
@@ -108,8 +108,8 @@ function AddListener(b : Button, width : int, height : int) {
 }
 
 public function ReturnToMainMenu() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 0.5);
-  Invoke("GoToMainMenu", 1.5);
+  SceneHelper.use.FadeImageToBlack("Blackness", 0.6);
+  Invoke("GoToMainMenu", 1);
 }
 
 function GoToMainMenu() {

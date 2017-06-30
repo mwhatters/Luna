@@ -12,9 +12,9 @@ private var savesLoaded : boolean = false;
 
 function Start () {
   saveFilesContainer = GameObject.Find("SaveFileContainers").GetComponent(RectTransform);
-  yield WaitForSeconds(0.5);
+  //yield WaitForSeconds(0.5);
   SceneHelper.use.FadeImageToClear("Blackness", 0.3);
-  yield WaitForSeconds(1);
+  //yield WaitForSeconds(1);
   generateSavedGames();
 }
 
@@ -35,8 +35,8 @@ function Update() {
 }
 
 public function ReturnToMainMenu() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 0.5);
-  Invoke("GoToMainMenu", 1.5);
+  SceneHelper.use.FadeImageToBlack("Blackness", 0.6);
+  Invoke("GoToMainMenu", 0.8);
 }
 
 function GoToMainMenu() {

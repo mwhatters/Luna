@@ -4,24 +4,19 @@ import System.Runtime.Serialization.Formatters.Binary;
 import System.Runtime.Serialization;
 import System.IO;
 
-private var gameBeaten : boolean;
+private var gameLoaded : boolean;
 
-function Start () {
-	if (gameHasBeenBeaten()) {
-		gameBeaten = true;
-	} else {
-		gameBeaten = false;
-	}
+function Awake() {
+	DontDestroyOnLoad(transform.gameObject);	
 }
 
-// public api
-function displayGameBeaten() {
-	return gameBeaten;
+function Start () {
+	gameLoaded = false;
 }
 
 function gameHasBeenBeaten() {
 	var info = new DirectoryInfo(Application.persistentDataPath);
-  var fileInfo = info.GetFiles();
+  	var fileInfo = info.GetFiles();
 
 	for (var file in fileInfo) {
 		if (file.Name.Contains("_stats.dat")) { continue; }
@@ -36,4 +31,17 @@ function gameHasBeenBeaten() {
 	}
 
 	return false;
+}
+
+// public api
+function isGameBeaten() {
+	return gameHasBeenBeaten();
+}
+
+function gameHasBeenLoaded() {
+	gameLoaded = true;
+}
+
+function isGameLoaded() {
+	return gameLoaded;
 }
