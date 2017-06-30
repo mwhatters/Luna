@@ -55,12 +55,12 @@ function determineQuality() {
 	foundButton.colors = foundColors;
 }
 
-function determineResolution() {
+public function determineResolution() {
 	for (var res in resolutions) {
 		if (Screen.width == res.width && Screen.height == res.height) {
 			var resolutionName = res.width.ToString() + " x " + res.height.ToString();
 			var currentResButton = GameObject.Find(resolutionName).GetComponent(Button);
-			
+
 			var crColors = currentResButton.colors;
 			crColors.normalColor = Color.cyan;
 			currentResButton.colors = crColors;
@@ -96,7 +96,7 @@ function setResolution(width : int, height : int) {
 		rbutton.GetComponent(Button).colors = rColors;
 	}
 
-	determineResolution();
+	Invoke("determineResolution", 0.5);
 }
 
 function AddListener(b : Button, width : int, height : int) {
