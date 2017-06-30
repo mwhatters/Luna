@@ -1,6 +1,7 @@
 #pragma downcast
 private static var scenePlayed : boolean = false;
 private static var halfwayPointReached : boolean = false;
+private static var finalPointReached : boolean = false;
 public var skipScene : boolean = false;
 
 var luna : GameObject;
@@ -103,19 +104,22 @@ function startBossBattle() {
     if (!luna.GetComponent(PlayerGameStates).isDead) {
       yield StartRound2();
     }
+  }
 
+  if (!finalPointReached) {
     if (!luna.GetComponent(PlayerGameStates).isDead) {
+      halfwayPointReached = true;
       SceneHelper.use.FadeTo("YokoBack", 0.05, Color.yellow);
       yield StartRound3();
+    }
+
+    if (!luna.GetComponent(PlayerGameStates).isDead) {
+      yield StartRound4();
     }
   }
 
   if (!luna.GetComponent(PlayerGameStates).isDead) {
-    halfwayPointReached = true;
-    yield StartRound4();
-  }
-
-  if (!luna.GetComponent(PlayerGameStates).isDead) {
+    finalPointReached = true;
     SceneHelper.use.FadeTo("YokoBack", 0.05, Color.red);
     yield WaitForSeconds(2);
     yield StartRound5();
