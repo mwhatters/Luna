@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 public var active : boolean = false;
+public var semiActive : boolean = false;
 private var alphabet : String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 private var currentLetter : String = "";
 
@@ -15,6 +16,18 @@ function Start() {
 }
 
 function Update() {
+		if (!semiActive && !active) { return; } else {
+
+			if (InputMapper.input.LeaveTextInput()) {
+				GameObject.Find("Menu").GetComponent(FrontMenu).leaveNameInput();
+			}
+
+			if (InputMapper.input.TextSubmit() && GameObject.Find("Menu").GetComponent(FrontMenu).newGameStartable()) {
+				GameObject.Find("Menu").GetComponent(FrontMenu).startNewGame();
+			}
+
+		}
+
     if (!active) { return; }
 
     if (InputMapper.input.TextEntryUp()) {
@@ -78,14 +91,5 @@ function Update() {
         } catch(e) {
             currentLetter = "";
         }
-    }
-
-    // if (InputMapper.input.LeaveTextInput()) {
-    //  GameObject.Find("Menu").GetComponent(FrontMenu).leaveNameInput();
-    // }
-
-    if (InputMapper.input.TextSubmit()) {
-        if (nameEntry.text == "") { return; }
-        GameObject.Find("Menu").GetComponent(FrontMenu).startNewGame();
     }
 }

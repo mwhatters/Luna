@@ -3,6 +3,8 @@ import MenuControls;
 
 public var test = "test";
 
+private var canStartNewGame : boolean = false;
+
 function Start () {
   //determines whether Luna sprite displayed on game logo
   var gameBeaten : boolean = GameObject.Find("MetaGameStates").GetComponent(MetaGameStates).isGameBeaten();
@@ -71,25 +73,40 @@ public function LoadSandbox() {
 
 public function StartNameInput() {
   var nameField = GameObject.Find("NameEntry").GetComponent(InputField);
-  SceneHelper.use.FadeTextToWhite("NameText", 0.5);
+  GameObject.Find("NameText").GetComponent(Text).color.a = 255;
   nameField.ActivateInputField();
   nameField.Select();
   SceneHelper.use.FadeTextToWhite("Text", 0.5);
 
-  if (InputMapper.input.Device().Name != "None") {
-    SceneHelper.use.FadeTextToWhite("ControllerInstructions", 0.5);
+  if (InputMapper.input.Device().Name == "None") {
+    GameObject.Find("ControllerInputHandler").GetComponent(TextInputMapper).semiActive = true;
+  } else {
+    GameObject.Find("ControllerInstructions").GetComponent(Text).color.a = 255;
     GameObject.Find("ControllerInputHandler").GetComponent(TextInputMapper).active = true;
+    GameObject.Find("ControllerInputHandler").GetComponent(TextInputMapper).semiActive = true;
   }
+
+  Invoke("toggleStartNewGame", 0.3);
 }
 
 public function leaveNameInput() {
-  SceneHelper.use.FadeTextToClear("NameText", 0.5);
   if (InputMapper.input.Device().Name != "None") {
-    SceneHelper.use.FadeTextToClear("ControllerInstructions", 0.5);
   }
 
+  var nameField = GameObject.Find("NameEntry").GetComponent(InputField);
+  nameField.text = "";
+
+  GameObject.Find("NameError").GetComponent(Text).color.a = 0;
+  GameObject.Find("ControllerInstructions").GetComponent(Text).color.a = 0;
+  GameObject.Find("NameText").GetComponent(Text).color.a = 0;
+
+  GameObject.Find("ControllerInputHandler").GetComponent(TextInputMapper).semiActive = false;
+  GameObject.Find("ControllerInputHandler").GetComponent(TextInputMapper).active = false;
+
+  toggleStartNewGame();
+
   try {
-    EventSystems.EventSystem.current.SetSelectedGameObject(EventSystems.EventSystem.current.firstSelectedGameObject);
+    EventSystems.EventSystem.current.SetSelectedGameObject(GameObject.Find("New Game"));
   } catch(e) {}
 }
 
@@ -111,4 +128,13 @@ function GoToSettings() {
 
 function GoToSandBox() {
   SceneManager.LoadScene("SandBox");
+}
+
+function newGameStartable() {
+  return canStartNewGame;
+}
+
+function toggleStartNewGame() {
+  canStartNewGame = !canStartNewGame;
+  return canStartNewGame;
 }

@@ -130,7 +130,8 @@ function TextEntry() {
 
 function TextSubmit() {
     return (
-        device.Command.WasPressed
+        device.Command.WasPressed ||
+        Input.GetKey(KeyCode.Return)
     );
 }
 
