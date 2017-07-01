@@ -18,8 +18,8 @@ function Start () {
 	resolutionsContainer = GameObject.Find("ResolutionsWrapper").GetComponent(RectTransform);
  	//yield WaitForSeconds(0.5);
 
-	var x = 70;
-	var y = -40;
+	var x = 73;
+	var y = -37;
 
 	for (var res in resolutions) {
 		var thisPrefab = Instantiate(prefab, new Vector3(x,y,0), Quaternion.identity).gameObject;
@@ -28,7 +28,7 @@ function Start () {
 
 		var nameField = thisPrefab.GetComponent(Text);
 		nameField.text = res.width.ToString() + " x " + res.height.ToString();
-		y -= 23;
+		y -= 25;
 
 		AddListener(thisPrefab.GetComponent(Button), res.width, res.height);
 	}
