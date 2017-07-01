@@ -86,6 +86,22 @@ function Suicide() {
   );
 }
 
+// Load Menu
+
+function MoveToReturn() {
+  return (
+    device.DPadRight.WasPressed ||
+    Input.GetKey(KeyCode.RightArrow)
+  );
+}
+
+function ReturnToLoads() {
+  return (
+    device.DPadLeft.WasPressed ||
+    Input.GetKey(KeyCode.LeftArrow)
+  );
+}
+
 // Menu
 
 function MenuMoveUp() {

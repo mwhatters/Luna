@@ -8,14 +8,40 @@ private var currentLetter : String = "";
 private var letter : String = "";
 private var index : int;
 private var nameEntry : InputField;
+private var mainMenu : GameObject;
 
 private var currentCaret : int;
 
+public var isLoadActive : boolean = false;
+private var previousLoadObject : GameObject;
+
 function Start() {
 	nameEntry = GameObject.Find("NameEntry").GetComponent(InputField);
+	mainMenu = GameObject.Find("Main Menu");
 }
 
 function Update() {
+		if (isLoadActive) {
+			if (InputMapper.input.MoveToReturn()) {
+					if (EventSystems.EventSystem.current.currentSelectedGameObject != mainMenu) {
+						previousLoadObject = EventSystems.EventSystem.current.currentSelectedGameObject;
+					}
+
+				  EventSystems.EventSystem.current.SetSelectedGameObject(mainMenu);
+			}
+
+			if (InputMapper.input.ReturnToLoads() && EventSystems.EventSystem.current.currentSelectedGameObject == mainMenu) {
+				if (previousLoadObject) {
+					EventSystems.EventSystem.current.SetSelectedGameObject(previousLoadObject);
+				} else {
+					EventSystems.EventSystem.current.SetSelectedGameObject(GameObject.Find("Main Menu"));
+				}
+			}
+
+			return;
+		}
+
+
 		if (!semiActive && !active) { return; } else {
 
 			if (InputMapper.input.LeaveTextInput()) {

@@ -16,6 +16,7 @@ function Start () {
   SceneHelper.use.FadeImageToClear("Blackness", 0.3);
   //yield WaitForSeconds(1);
   generateSavedGames();
+  GameObject.Find("ControllerInputHandler").GetComponent(TextInputMapper).isLoadActive = true;
 }
 
 function Update() {
