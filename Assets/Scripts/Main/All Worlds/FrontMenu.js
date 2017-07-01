@@ -37,9 +37,15 @@ public function startNewGame() {
   var nameField = GameObject.Find("NameEntry").GetComponent(InputField);
   var saveName = nameField.text.ToLower();
 
-  if (saveName == "" || SaveData.use.SaveFileAlreadyExists(saveName)) {
-    GameObject.Find("NameError").GetComponent(Text).color.a = 255;
+  if (saveName == "") {
+    var errorEmpty = GameObject.Find("NameError").GetComponent(Text);
+    errorEmpty.text = "Name is required";
+    errorEmpty.color.a = 255;
     return;
+  } else if (SaveData.use.SaveFileAlreadyExists(saveName)) {
+    var errorTaken = GameObject.Find("NameError").GetComponent(Text);
+    errorTaken.text = "Name Already Taken";
+    errorTaken.color.a = 255;
   }
 
   SaveData.use.CreateNewGame(saveName, "1-1 The Dream", 90);
