@@ -5,7 +5,11 @@ var createdBy : GameObject;
 
 function Start () {
   grabTotalTime();
-  GameObject.Find("MetaGameStates").GetComponent(MetaGameStates).setGameNotLoaded();
+
+  //if MetaGameStates available, set gameLoaded to false for slow menu transition post-credits
+  if (GameObject.Find("MetaGameStates")) {
+    GameObject.Find("MetaGameStates").GetComponent(MetaGameStates).setGameNotLoaded();
+  }
 
   if (SaveData.currentData) {
     SaveData.use.SaveGame(
@@ -108,7 +112,10 @@ function CreditsIn() {
 
 function CreditsOut() {
   SceneHelper.use.FadeTo("blackout", 0.02, Color.black);
-  Sounds.use.FadeOut("BackgroundMusic", 0.0015, 0.0);
+
+  if (GameObject.Find("BackgroundMusic")) {
+    Sounds.use.FadeOut("BackgroundMusic", 0.0015, 0.0);
+  }
 }
 
 function grabTotalTime() {
