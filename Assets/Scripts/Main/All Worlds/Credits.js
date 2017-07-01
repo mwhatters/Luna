@@ -5,6 +5,7 @@ var createdBy : GameObject;
 
 function Start () {
   grabTotalTime();
+  GameObject.Find("MetaGameStates").GetComponent(MetaGameStates).setGameNotLoaded()
 
   if (SaveData.currentData) {
     SaveData.use.SaveGame(

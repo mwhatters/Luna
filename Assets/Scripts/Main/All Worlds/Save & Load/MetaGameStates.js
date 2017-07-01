@@ -7,7 +7,7 @@ import System.IO;
 private var gameLoaded : boolean;
 
 function Awake() {
-	DontDestroyOnLoad(transform.gameObject);	
+	DontDestroyOnLoad(transform.gameObject);
 }
 
 function Start () {
@@ -40,6 +40,10 @@ function isGameBeaten() {
 
 function gameHasBeenLoaded() {
 	gameLoaded = true;
+}
+
+function setGameNotLoaded() {
+	gameLoaded = false;
 }
 
 function isGameLoaded() {
