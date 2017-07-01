@@ -116,7 +116,7 @@ function setGameQuality(name : String) {
 }
 
 function setResolution(width : int, height : int) {
-	Screen.SetResolution(width, height, true);
+	Screen.SetResolution(width, height, Screen.fullScreen);
 
 	// reset button colors
 	for (var rbutton : GameObject in resolutionButtons) {
