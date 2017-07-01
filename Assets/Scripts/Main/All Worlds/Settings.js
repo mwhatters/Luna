@@ -6,12 +6,14 @@ public var canvas : GameObject;
 private var resolutionsContainer : RectTransform;
 
 public var qualityButtons: GameObject[];
+public var windowButtons: GameObject[];
 public var resolutionButtons: GameObject[];
 private var resolutions : Resolution[];
 
 function Start () {
 	resolutions = Screen.resolutions;
 	qualityButtons = GameObject.FindGameObjectsWithTag("QualityOption");
+	windowButtons = GameObject.FindGameObjectsWithTag("WindowOption");
 
 	resolutionsContainer = GameObject.Find("ResolutionsWrapper").GetComponent(RectTransform);
  	//yield WaitForSeconds(0.5);
@@ -37,6 +39,7 @@ function Start () {
 	//yield WaitForSeconds(1);
 	resolutionButtons = GameObject.FindGameObjectsWithTag("ResolutionOption");
 	determineResolution();
+	determineWindowed();
 }
 
 function determineQuality() {
@@ -68,6 +71,32 @@ public function determineResolution() {
 	}
 }
 
+public function determineWindowed() {
+	var fullScreen = Screen.fullScreen;
+	var currentWindowButton : Button;
+	if (fullScreen) {
+		currentWindowButton = GameObject.Find("Off").GetComponent(Button);
+	} else {
+		currentWindowButton = GameObject.Find("On").GetComponent(Button);
+	}
+
+	var wColors = currentWindowButton.colors;
+	wColors.normalColor = Color.cyan;
+	currentWindowButton.colors = wColors;
+}
+
+function setWindowed(off : boolean) {
+	Screen.fullScreen = !off;
+
+	for (var wbutton : GameObject in windowButtons) {
+		var wnColors = wbutton.GetComponent(Button).colors;
+		wnColors.normalColor = Color.white;
+		wbutton.GetComponent(Button).colors = wnColors;
+	}
+
+	Invoke("determineWindowed", 0.5);
+}
+
 function setGameQuality(name : String) {
 	var names = QualitySettings.names;
 	for (var i = 0; i < names.Length; i++) {
@@ -83,7 +112,7 @@ function setGameQuality(name : String) {
 		qbutton.GetComponent(Button).colors = qColors;
 	}
 
-	determineQuality();
+	Invoke("determineQuality", 0.5);
 }
 
 function setResolution(width : int, height : int) {
