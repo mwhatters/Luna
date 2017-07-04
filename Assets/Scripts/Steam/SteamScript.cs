@@ -7,6 +7,10 @@ public class SteamScript : MonoBehaviour {
 
 	protected Callback<GameOverlayActivated_t> m_GameOverlayActivated;
 
+	void Awake() {
+		DontDestroyOnLoad(transform.gameObject);
+	}
+
 	// Use this for initialization
 	void Start () {
 		if (SteamManager.Initialized) {
@@ -23,10 +27,15 @@ public class SteamScript : MonoBehaviour {
 
 	private void OnGameOverlayActivated(GameOverlayActivated_t pCallback) {
 		if(pCallback.m_bActive != 0) {
-			Debug.Log("Steam Overlay has been activated");
+			if(GameObject.Find("PauseUI")) {
+				Debug.Log("Steam Overlay has been activated");
+			}
 		}
 		else {
-			Debug.Log("Steam Overlay has been closed");
+			if(GameObject.Find("PauseUI")) {
+				
+				Debug.Log("Steam Overlay has been closed");
+			}
 		}
 	}
 
