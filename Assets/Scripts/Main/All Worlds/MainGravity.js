@@ -489,7 +489,8 @@ function Flip() {
 }
 
 // Ground Raycast Functions
-private var groundMask : LayerMask = ~(1 << 12) &  ~(1 << 2) & ~(1 << 22);
+// 17 = QuantumLuna, 12 = FizDoor, 2 = Raycast, 22 = IgnoreLuna
+public var groundMask : LayerMask = ~(1 << 12) &  ~(1 << 2) & ~(1 << 22) & ~(1 << 17);
 
 function checkIfGrounded(direction : Vector2, distance : float) {
     var vector : Vector2 = determinedRaycastVector(distance);
