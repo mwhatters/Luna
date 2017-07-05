@@ -41,7 +41,7 @@ function Start () {
   yield WaitForSeconds(2);
   yield SceneHelper.use.ShowAndHideText(Text2, 3);
   yield SceneHelper.use.ShowAndHideText(Text22, 3);
-  yield SceneHelper.use.ShowAndHideText(Text222, 3);
+  // yield SceneHelper.use.ShowAndHideText(Text222, 3);
 
   Sounds.use.PlaySoundByName("LushFade");
   SceneHelper.use.FadeOutImageWithRate("Power Boy", 0.0002);
