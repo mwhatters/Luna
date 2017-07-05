@@ -494,7 +494,7 @@ private var groundMask : LayerMask = ~(1 << 12) &  ~(1 << 2) & ~(1 << 22);
 function checkIfGrounded(direction : Vector2, distance : float) {
     var vector : Vector2 = determinedRaycastVector(distance);
     var contactPoint : RaycastHit2D = Physics2D.Raycast(vector, direction, Mathf.Infinity, groundMask.value);
-    Debug.Log(contactPoint.collider);
+
     if (playerIsTouchingGround(contactPoint)) {
         if (!isMoving) { killDownwardsVelocity(); }
         touchingGround = true;
