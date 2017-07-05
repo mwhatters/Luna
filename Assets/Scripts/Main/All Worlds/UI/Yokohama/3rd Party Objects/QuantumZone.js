@@ -2,7 +2,7 @@
 
 function OnTriggerEnter2D(coll : Collider2D) {
     if (coll.name == "Luna") {
-    // change layer to Quantum Luna
+    // change layer to Quantum Luna, ignore layer 9, IgnorePortal
     coll.gameObject.layer = 17;
     coll.gameObject.GetComponent(MainGravity).groundMask = ~(1 << 12) &  ~(1 << 2) & ~(1 << 22) & ~(1 << 17) & ~(1 << 9);
     changeColor(coll, Color.yellow);
