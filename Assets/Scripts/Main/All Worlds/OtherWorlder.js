@@ -16,10 +16,11 @@
 public static var otherWorldActivated : boolean = false;
 private static var secretFound : boolean = false;
 
+enum destinationDirection { Down, Right, Up, Left };
 public var destinationPoint : Vector3;
 public var changePoint : GameObject;
-public var whiteScreen : GameObject;
-enum destinationDirection { Down, Right, Up, Left };
+public var whiteScreenEnter : GameObject;
+public var whiteScreenExit : GameObject;
 
 public var dir = destinationDirection.Down;
 private var luna : GameObject;
@@ -29,6 +30,7 @@ public var sMusicVolume : float = 0.84;
 public var bMusicVolume : float = 0.84;
 
 public var exitSecret : boolean = false;
+public var shouldBringBackgroundMusicBack : boolean = true;
 
 function Start () {
 	if (!secretFound && changePoint) {
@@ -56,7 +58,7 @@ function TransportLunaToSecretZone() {
 	LunaController.use.SecretFreeze();
 	Sounds.use.FadeOut("BackgroundMusic", 1, 0.0);
 	luna.GetComponent(SpriteRenderer).sortingLayerName = "PuzzleItems";
-	SceneHelper.use.FadeImageToWhite("SecretBright", 0.7);
+	SceneHelper.use.FadeImageToWhite(whiteScreenEnter.name, 0.7);
 	Sounds.use.ConstructOneOffSound("Secret", luna.transform.position);
 
 	yield WaitForSeconds(1.5);
@@ -66,7 +68,7 @@ function TransportLunaToSecretZone() {
 	setPosition();
 	setDirection();
 
-	whiteScreen.GetComponent(Image).color = Color.white;
+	whiteScreenEnter.GetComponent(Image).color = Color.white;
 
 	yield WaitForSeconds(2);
 
@@ -78,7 +80,7 @@ function TransportLunaToSecretZone() {
 
 	LunaController.use.SecretUnfreeze();
 	luna.GetComponent(SpriteRenderer).sortingLayerName = "Luna";
-	whiteScreen.SetActive(false);
+	whiteScreenEnter.SetActive(false);
 }
 
 
@@ -88,12 +90,16 @@ function LunaBeatsSecretZone() {
 	LunaController.use.SecretFreeze();
 	Sounds.use.FadeOut("SMusic", 1, 0.0);
 	Sounds.use.ConstructOneOffSound("Secret", luna.transform.position);
-	SceneHelper.use.FadeImageToWhite("EndBright", 0.7);
+	SceneHelper.use.FadeImageToWhite(whiteScreenExit.name, 0.7);
 
 	yield WaitForSeconds(3);
 
 	Destroy(GameObject.Find("SMusic"));
-	Sounds.use.FadeIn("BackgroundMusic", 0.02, bMusicVolume);
+
+	if (shouldBringBackgroundMusicBack) {
+		Sounds.use.FadeIn("BackgroundMusic", 0.02, bMusicVolume);
+	}
+	
 	recordSecretZoneCompleted();
 
 	yield WaitForSeconds(1.5);
