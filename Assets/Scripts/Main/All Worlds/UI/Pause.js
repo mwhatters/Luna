@@ -15,6 +15,7 @@ private var luna : GameObject;
 
 private var Bmusic : AudioSource;
 private var Imusic : AudioSource;
+private var secret : GameObject;
 
 private var windVolume : float;
 private var Lwind : AudioSource;
@@ -37,6 +38,7 @@ function Start () {
     Imusic = GameObject.Find("IntroMusic").GetComponent(AudioSource);
   }
 
+  secret = GameObject.Find("OtherWorlder");
   LevelDesc.GetComponent(Text).text = "World " + SceneManager.GetActiveScene().name;
 }
 
@@ -72,7 +74,7 @@ function setPaused() {
   }
   Time.timeScale = 0;
 
-  if (Bmusic && Imusic) {
+  if (Bmusic && Imusic && !secretActive()) {
     Bmusic.volume -= .40;
     Imusic.volume -= .40;
   }
@@ -87,12 +89,20 @@ function setUnPaused() {
   activatePauseUI(false);
   Time.timeScale = 1;
 
-  if (Bmusic && Imusic) {
+  if (Bmusic && Imusic && !secretActive()) {
     Bmusic.volume += .40;
     Imusic.volume += .40;
   }
 
   Lwind.volume = windVolume;
+}
+
+function secretActive() {
+  if (secret) {
+    return secret.GetComponent(OtherWorlder).otherWorldActivated;
+  } else {
+    return false;
+  }
 }
 
 function activatePauseUI(bool) {

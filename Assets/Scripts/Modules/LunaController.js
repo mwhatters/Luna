@@ -14,6 +14,18 @@ function Start() {
     luna = GameObject.Find("Luna");
 }
 
+function SecretFreeze() {
+  Freeze();
+  GameObject.Find("PauseUI").GetComponent(Pause).canPause = false;
+  luna.GetComponent(PlayerGameStates).invincible = true;
+}
+
+function SecretUnfreeze() {
+  Unfreeze();
+  GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
+  luna.GetComponent(PlayerGameStates).invincible = false;
+}
+
 function Freeze() {
   luna.GetComponent(MainGravity).canMove = false;
   luna.GetComponent(MainGravity).canRotate = false;

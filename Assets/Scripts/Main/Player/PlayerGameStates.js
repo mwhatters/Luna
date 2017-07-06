@@ -3,6 +3,7 @@ import UnityEngine.SceneManagement;
 
 public var killMusicOnDeath = false;
 public var isDead = false;
+public var invincible = false;
 public var hasWon = false;
 public var keysFound : GameObject[];
 enum DeathType { Void, Explode, Laser }
@@ -90,7 +91,7 @@ function canUseRotater() {
 // EndGame & Meta
 
 function Die() {
-  if (hasWon == true || isDead == true) { return; }
+  if (hasWon == true || isDead == true || invincible == true) { return; }
   if (killMusicOnDeath) {
     Destroy(GameObject.Find("BackgroundMusic"));
     Destroy(GameObject.Find("IntroMusic"));

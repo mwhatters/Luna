@@ -6,6 +6,7 @@ import System.IO;
 static var use : SaveData;
 public static var currentData : PlayerData;
 public static var currentTimeStats : TimeStats;
+public static var currentSecretStats : SecretStats;
 
 function Awake () {
     if (use) {
@@ -29,6 +30,7 @@ public function CreateNewGame(user : String, level : String, rotation : int) {
     file.Close();
     currentData = data;
     createNewTimeStatsFromPlayerData(currentData.username);
+    createNewSecretStatsFromPlayerData(currentData.username);
   }
 }
 
@@ -51,6 +53,7 @@ public function LoadGameFromLoadMenu(savedGame : String) {
         var data : PlayerData = bf.Deserialize(file);
         currentData = data;
         loadTimeStatsFromPlayerData(currentData.username);
+        loadSecretStatsFromPlayerData(currentData.username);
     }
 }
 
@@ -70,6 +73,7 @@ public function ClearCurrentSaveData() {
 
     currentData = null;
     currentTimeStats = null;
+    currentSecretStats = null;
 }
 
 private function getFilePath(name : String) {
@@ -87,6 +91,9 @@ public class PlayerData {
         this.rotation = rotation;
   }
 }
+
+
+
 
 // TIME STATS
 
@@ -161,5 +168,86 @@ public class TimeStats {
             totalTime = totalTime + value;
         }
         return totalTime;
+    }
+}
+
+
+
+
+
+// MONSTRANCES
+
+public function AddSecretData(username : String, level : String) {
+    var data = currentSecretStats.secretData;
+    if (data.ContainsKey(level)) {
+        data.Remove(level);
+        data.Add(level, 1);
+    } else {
+        data.Add(level, 1);
+    }
+
+    saveSecretStats(username, data);
+}
+
+private function saveSecretStats(user : String, secretData : Hashtable) {
+    var filepath : String = getSecretStatsPath(user);
+    var bf : BinaryFormatter = new BinaryFormatter();
+    var file = File.Create(Application.persistentDataPath + filepath);
+    var statsData : SecretStats = new SecretStats(user, secretData);
+
+    bf.Serialize(file, statsData);
+    file.Close();
+    currentSecretStats = statsData;
+}
+
+private function getSecretStatsPath(name : String) {
+    return "/" + name + "_secrets.dat";
+}
+
+private function createNewSecretStatsFromPlayerData(username : String) {
+    var secretStatsFilepath : String = getSecretStatsPath(username);
+
+    if (File.Exists(Application.persistentDataPath + secretStatsFilepath)) {
+        Debug.Log('error -- stats already exists, cannot overwrite');
+    } else {
+        var bf : BinaryFormatter = new BinaryFormatter();
+        var file = File.Create(Application.persistentDataPath + secretStatsFilepath);
+        var data : SecretStats = new SecretStats(username, new Hashtable());
+
+        bf.Serialize(file, data);
+        file.Close();
+        currentSecretStats = data;
+    }
+}
+
+private function loadSecretStatsFromPlayerData(username : String) {
+    var filepath = getSecretStatsPath(username);
+    if (File.Exists(Application.persistentDataPath + filepath)) {
+        var bf : BinaryFormatter = new BinaryFormatter();
+        var file = File.Open(Application.persistentDataPath + filepath, FileMode.Open);
+        var data : SecretStats = bf.Deserialize(file);
+        currentSecretStats = data;
+    } else {
+        createNewSecretStatsFromPlayerData(username);
+    }
+}
+
+
+public class SecretStats {
+    public var username : String;
+    public var secretData : Hashtable;
+
+    public function SecretStats(username : String, secretData : Hashtable) {
+        this.username = username;
+        this.secretData = secretData;
+    }
+
+    public function totalSecrets() {
+        var totalSecrets : int = 0;
+        for (var token : DictionaryEntry in this.secretData) {
+            var value : int = token.Value;
+            totalSecrets = totalSecrets + value;
+        }
+        return totalSecrets;
     }
 }
