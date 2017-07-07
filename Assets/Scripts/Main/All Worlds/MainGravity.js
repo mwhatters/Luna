@@ -332,9 +332,17 @@ function adjustGravityTo(direction) {
     }
 }
 
-function setCameraAndPlayerImmediatelyTo(degree) {
+function setCameraAndPlayerImmediatelyTo(degree : int) {
     GameObject.Find("Camera").transform.rotation = Quaternion.Euler(Vector3(0,0,degree));
     transform.rotation = Quaternion.Euler(Vector3(0,0,degree));
+
+    var rotaters : String[] = ["RotaterL", "RotaterR", "Rotater180", "Rotater-180"];
+    for (var rotater : String in rotaters) {
+        var rotates = GameObject.FindGameObjectsWithTag(rotater);
+        for (var rotate in rotates) {
+            rotate.transform.rotation = Quaternion.Euler(Vector3(0,0,degree));
+        }
+    }
 }
 
 function canRotateGravity() {
