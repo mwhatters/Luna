@@ -18,7 +18,7 @@ private static var secretFound : boolean = false;
 
 enum destinationDirection { Down, Right, Up, Left };
 public var destinationPoint : Vector3;
-public var changePoint : GameObject;
+public var changePoint : GameObject = null;
 public var whiteScreenEnter : GameObject;
 public var whiteScreenExit : GameObject;
 
@@ -74,8 +74,10 @@ function TransportLunaToSecretZone() {
 
 
 	if (!secretFound) {
-		changePoint.SetActive(true);
 		secretFound = true;
+		if (changePoint) {
+			changePoint.SetActive(true);
+		}
 	}
 
 	LunaController.use.SecretUnfreeze();
@@ -99,7 +101,7 @@ function LunaBeatsSecretZone() {
 	if (shouldBringBackgroundMusicBack) {
 		Sounds.use.FadeIn("BackgroundMusic", 0.02, bMusicVolume);
 	}
-	
+
 	recordSecretZoneCompleted();
 
 	yield WaitForSeconds(1.5);
