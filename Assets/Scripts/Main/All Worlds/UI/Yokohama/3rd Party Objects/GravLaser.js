@@ -26,7 +26,6 @@ function Start() {
 }
 
 function FixedUpdate () {
-
   if (!active) {
     lineRenderer.SetPosition(0, transform.position);
     lineRenderer.SetPosition(1, transform.position);

@@ -4,7 +4,7 @@
 var createdBy : GameObject;
 
 function Start () {
-  grabTotalTime();
+  grabTotalTimeAndTokenData();
 
   //if MetaGameStates available, set gameLoaded to false for slow menu transition post-credits
   if (GameObject.Find("MetaGameStates")) {
@@ -24,7 +24,8 @@ function Start () {
   yield StartCoroutine("CreditsOut");
   yield WaitForSeconds(13);
 
-  yield SceneHelper.use.ShowAndHideText(GameObject.Find("TotalTime"), 5);
+  SceneHelper.use.ShowAndHideText(GameObject.Find("TotalTime"), 5);
+  yield SceneHelper.use.ShowAndHideText(GameObject.Find("TotalTokens"), 5);
 
   yield WaitForSeconds(4);
   Sounds.use.PlaySoundByName("LastLaugh");
@@ -118,11 +119,14 @@ function CreditsOut() {
   }
 }
 
-function grabTotalTime() {
+function grabTotalTimeAndTokenData() {
   if (SaveData.currentData) {
     var total : float = SaveData.use.currentTimeStats.totalTime();
+    var tokens : int = SaveData.use.currentSecretStats.totalSecrets();
     GameObject.Find("TotalTime").GetComponent(ExplanatoryText).displayText = "Clear Time: " + total + " seconds";
+    GameObject.Find("TotalTokens").GetComponent(ExplanatoryText).displayText = "Secret Portals Found: " + tokens + " / 5";
   } else {
     GameObject.Find("TotalTime").GetComponent(ExplanatoryText).displayText = "No Time Score Data";
+    GameObject.Find("TotalTokens").GetComponent(ExplanatoryText).displayText = "No Secret Portal Discovery Data";
   }
 }
