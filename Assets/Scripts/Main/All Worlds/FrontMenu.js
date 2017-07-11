@@ -53,7 +53,7 @@ public function startNewGame() {
   if (SaveData.currentData) {
     GameObject.Find("NameError").GetComponent(Text).color.a = 0;
     Sounds.use.PlaySoundByName("StartGame");
-    SceneHelper.use.FadeImageToBlack("Blackness", 0.5);
+    SceneHelper.use.FadeImageToBlack("Blackness", 1.8);
     Invoke("StartGame", 4);
   }
 }
@@ -63,17 +63,17 @@ public function quitGame() {
 }
 
 public function LoadGameMenu() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 0.5);
+  SceneHelper.use.FadeImageToBlack("Blackness", 1.6);
   Invoke("GoToLoadGame", 0.5);
 }
 
 public function LoadSettingsMenu() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 0.5);
+  SceneHelper.use.FadeImageToBlack("Blackness", 1.6);
   Invoke("GoToSettings", 0.5);
 }
 
 public function LoadSandbox() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 0.5);
+  SceneHelper.use.FadeImageToBlack("Blackness", 1.6);
   Invoke("GoToSandBox", 0.5);
 }
 

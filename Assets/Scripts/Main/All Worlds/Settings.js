@@ -34,7 +34,7 @@ function Start () {
 	}
 
 	determineQuality();
-	SceneHelper.use.FadeImageToClear("Blackness", 0.3);
+	SceneHelper.use.FadeImageToClear("Blackness", 1);
 
 	//yield WaitForSeconds(1);
 	resolutionButtons = GameObject.FindGameObjectsWithTag("ResolutionOption");
@@ -137,8 +137,8 @@ function AddListener(b : Button, width : int, height : int) {
 }
 
 public function ReturnToMainMenu() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 0.6);
-  Invoke("GoToMainMenu", 1);
+  SceneHelper.use.FadeImageToBlack("Blackness", 1.9);
+  Invoke("GoToMainMenu", 0.5);
 }
 
 function GoToMainMenu() {
