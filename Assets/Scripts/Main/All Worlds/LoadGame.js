@@ -10,10 +10,15 @@ public var canvas : GameObject;
 private var saveFilesContainer : RectTransform;
 private var savesLoaded : boolean = false;
 
+private var darkness : Image;
+
 function Start () {
   saveFilesContainer = GameObject.Find("SaveFileContainers").GetComponent(RectTransform);
   //yield WaitForSeconds(0.5);
-  SceneHelper.use.FadeImageToClear("Blackness", 1);
+  darkness = GameObject.Find("Blackness").GetComponent(Image);
+  darkness.canvasRenderer.SetAlpha(1);
+
+  darkness.CrossFadeAlpha(0.0, 0.5, false);
   //yield WaitForSeconds(1);
   generateSavedGames();
   GameObject.Find("ControllerInputHandler").GetComponent(TextInputMapper).isLoadActive = true;
@@ -36,7 +41,7 @@ function Update() {
 }
 
 public function ReturnToMainMenu() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 1.9);
+  darkness.CrossFadeAlpha(1, 0.5, false);
   Invoke("GoToMainMenu", 0.5);
 }
 
@@ -51,7 +56,7 @@ function displayGameFinder() {
 
 public function findAndLoadGame(nameField : String) {
   SaveData.use.LoadGameFromLoadMenu(nameField);
-  SceneHelper.use.FadeImageToBlack("Blackness", 1.3);
+  darkness.CrossFadeAlpha(1, 1, false);
   StartCoroutine(LoadGame(SaveData.currentData.level));
 }
 

@@ -4,6 +4,7 @@ import MenuControls;
 public var test = "test";
 
 private var canStartNewGame : boolean = false;
+private var darkness : Image;
 
 function Start () {
   //determines whether Luna sprite displayed on game logo
@@ -11,6 +12,9 @@ function Start () {
   if (gameBeaten) {
     GameObject.Find("lunasprite").GetComponent(Image).color.a = 255;
   }
+
+  darkness = GameObject.Find("Blackness").GetComponent(Image);
+  darkness.canvasRenderer.SetAlpha(0.01);
 
   //don't do all fades if game has already been loaded
   var gameLoaded : boolean = GameObject.Find("MetaGameStates").GetComponent(MetaGameStates).isGameLoaded();
@@ -53,7 +57,9 @@ public function startNewGame() {
   if (SaveData.currentData) {
     GameObject.Find("NameError").GetComponent(Text).color.a = 0;
     Sounds.use.PlaySoundByName("StartGame");
-    SceneHelper.use.FadeImageToBlack("Blackness", 1.8);
+
+    darkness.canvasRenderer.SetAlpha(0.01);
+    darkness.CrossFadeAlpha(1.0, 2.0, false);
     Invoke("StartGame", 4);
   }
 }
@@ -63,17 +69,17 @@ public function quitGame() {
 }
 
 public function LoadGameMenu() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 1.6);
+  darkness.CrossFadeAlpha(1.0, 0.5, false);
   Invoke("GoToLoadGame", 0.5);
 }
 
 public function LoadSettingsMenu() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 1.6);
+  darkness.CrossFadeAlpha(1.0, 0.5, false);
   Invoke("GoToSettings", 0.5);
 }
 
 public function LoadSandbox() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 1.6);
+  darkness.CrossFadeAlpha(1.0, 0.5, false);
   Invoke("GoToSandBox", 0.5);
 }
 

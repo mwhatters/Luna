@@ -10,7 +10,13 @@ public var windowButtons: GameObject[];
 public var resolutionButtons: GameObject[];
 private var resolutions : Resolution[];
 
+private var darkness : Image;
+
 function Start () {
+
+	darkness = GameObject.Find("Blackness").GetComponent(Image);
+	darkness.canvasRenderer.SetAlpha(1);
+
 	resolutions = Screen.resolutions;
 	qualityButtons = GameObject.FindGameObjectsWithTag("QualityOption");
 	windowButtons = GameObject.FindGameObjectsWithTag("WindowOption");
@@ -34,7 +40,7 @@ function Start () {
 	}
 
 	determineQuality();
-	SceneHelper.use.FadeImageToClear("Blackness", 1);
+	darkness.CrossFadeAlpha(0.0, 0.5, false);
 
 	//yield WaitForSeconds(1);
 	resolutionButtons = GameObject.FindGameObjectsWithTag("ResolutionOption");
@@ -137,7 +143,7 @@ function AddListener(b : Button, width : int, height : int) {
 }
 
 public function ReturnToMainMenu() {
-  SceneHelper.use.FadeImageToBlack("Blackness", 1.9);
+  darkness.CrossFadeAlpha(1.0, 0.5, false);
   Invoke("GoToMainMenu", 0.5);
 }
 
