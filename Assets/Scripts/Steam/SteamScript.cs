@@ -28,12 +28,14 @@ public class SteamScript : MonoBehaviour {
 	private void OnGameOverlayActivated(GameOverlayActivated_t pCallback) {
 		if(pCallback.m_bActive != 0) {
 			if(GameObject.Find("PauseUI")) {
-				Debug.Log("Steam Overlay has been activated");
+				// pause = GameObject.Find("PauseUI").GetComponent(Pause);
+				// pause.SteamOverlaySetPaused();
 			}
 		}
 		else {
 			if(GameObject.Find("PauseUI")) {
-				Debug.Log("Steam Overlay has been closed");
+				// pause = GameObject.Find("PauseUI").GetComponent(Pause);
+				// pause.SteamOverlaySetUnPaused();
 			}
 		}
 	}

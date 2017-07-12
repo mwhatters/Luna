@@ -64,6 +64,18 @@ function OnMouseDown () {
   return false;
 }
 
+function SteamOverlaySetPaused() {
+  setPaused();
+  isPaused = true;
+  return isPaused;
+}
+
+function SteamOverlaySetUnPaused() {
+  setUnPaused();
+  isPaused = false;
+  return isPaused;
+}
+
 function setPaused() {
   GameObject.Find("EventSystem").GetComponent(MenuControlsAdapter).enabled = true;
   activatePauseUI(true);
