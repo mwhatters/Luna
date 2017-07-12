@@ -33,11 +33,9 @@ public class SteamScript : MonoBehaviour {
 		}
 		else {
 			if(GameObject.Find("PauseUI")) {
-				
 				Debug.Log("Steam Overlay has been closed");
 			}
 		}
 	}
-
 
 }
