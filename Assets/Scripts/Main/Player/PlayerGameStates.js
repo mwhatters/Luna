@@ -11,6 +11,11 @@ enum DeathType { Void, Explode, Laser }
 private var rotaterRate : float = 0.5;
 private var nextRotater : float = 0.0;
 
+public var deadLuna : GameObject;
+
+function Start() {
+}
+
 function Update() {
     if (isDead || hasWon) {
       var gravScript = GetComponent(MainGravity);
@@ -25,9 +30,9 @@ function Update() {
 
 function OnCollisionEnter2D (coll : Collision2D) {
 
-  var tag : String = coll.gameObject.tag;
-  var gravityState = GetComponent(MainGravity);
   var collidedgameObject = coll.gameObject;
+  var tag : String = collidedgameObject.tag;
+  var gravityState = GetComponent(MainGravity);
   //Jump
 
   for (var item : String in ["Ground", "StubbornGround", "StubbornGroundReverse", "NiceBox", "BlackHoleBox", "Door", "RotaterR", "RotaterL", "Rotater180", "Rotater-180"]) {
@@ -45,9 +50,12 @@ function OnCollisionEnter2D (coll : Collision2D) {
   //Death
   for (var item : String in ["Death", "DeathRock", "DeathBall", "ReverseDeathObject", "BurdenBall", "LeftieDeathObject", "RightieDeathObject"]) {
     if (tag == item) {
+      var colliderRigidBody = collidedgameObject.GetComponent(Rigidbody2D);
+      if (colliderRigidBody) {
+        colliderRigidBody.velocity = coll.relativeVelocity.normalized;
+      }
 
       Die();
-
     }
   }
 
@@ -107,6 +115,17 @@ function Die() {
 
 function doExplosionDeath() {
   Sounds.use.ConstructOneOffSound("Die", transform.position);
+  var dlContainer : GameObject = Instantiate(deadLuna, Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+  dlContainer.transform.localEulerAngles = transform.localEulerAngles;
+
+  var thisRigidbody : Rigidbody2D = GetComponent(Rigidbody2D);
+
+  if (dlContainer.name == "DeadLuna(Clone)") {
+    var dlChildren : Component[] = dlContainer.GetComponentsInChildren(Rigidbody2D);
+    for (var block : Rigidbody2D in dlChildren) {
+      block.velocity = Vector3(Random.value * 10.0, Random.value * 10.0, 0);
+    }
+  }
 }
 
 function doVoidDeath() {
