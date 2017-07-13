@@ -13,7 +13,7 @@ public var laserTexture1 : Material;
 public var laserTexture2 : Material;
 public var laserWidth : float = 0.3;
 
-private var deathMask : LayerMask = ~(1 << 17) & ~(1 << 2);
+private var deathMask : LayerMask = ~(1 << 17) & ~(1 << 2) & ~(1 << 23);
 
 function Start() {
   lineRenderer = gameObject.AddComponent(LineRenderer);
