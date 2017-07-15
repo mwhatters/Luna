@@ -107,7 +107,7 @@ function Die() {
 
   isDead = true;
   removeLuna();
-  doExplosionDeath();
+  StartCoroutine("doExplosionDeath");
   yield WaitForSeconds(2.0);
   GameObject.Find("TimerText").GetComponent(Timer).isLevelTransition = false;
   SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -124,6 +124,7 @@ function doExplosionDeath() {
     var dlChildren : Component[] = dlContainer.GetComponentsInChildren(Rigidbody2D);
     for (var block : Rigidbody2D in dlChildren) {
       block.velocity = Vector3(Random.value * 10.0, Random.value * 10.0, 0);
+      yield WaitForSeconds(0.000001);
     }
   }
 }
