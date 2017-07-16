@@ -27,16 +27,10 @@ public class SteamScript : MonoBehaviour {
 
 	private void OnGameOverlayActivated(GameOverlayActivated_t pCallback) {
 		if(pCallback.m_bActive != 0) {
-			if(GameObject.Find("PauseUI")) {
-				// pause = GameObject.Find("PauseUI").GetComponent(Pause);
-				// pause.SteamOverlaySetPaused();
-			}
+			Time.timeScale = 0;
 		}
 		else {
-			if(GameObject.Find("PauseUI")) {
-				// pause = GameObject.Find("PauseUI").GetComponent(Pause);
-				// pause.SteamOverlaySetUnPaused();
-			}
+			Time.timeScale = 1;
 		}
 	}
 
