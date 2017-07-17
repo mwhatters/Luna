@@ -189,6 +189,13 @@ function LunaGoesToSpaceScene() {
   yield WaitForSeconds(11);
   SceneHelper.use.ShowAndHideText(TextYoko, 6);
 
-  yield WaitForSeconds(16);
+  yield WaitForSeconds(10);
+
+  var steam = GameObject.Find("SteamCustomizer");
+  if (steam) {
+    steam.SendMessage("UnlockAchive", "SUBCUTANEOUS_GNOSIS_COMPLETE");
+  }
+  
+  yield WaitForSeconds(6);
   GameObject.Find("Portal").GetComponent(SceneLoader).beginSceneTransition();
 }

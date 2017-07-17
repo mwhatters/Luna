@@ -27,6 +27,8 @@ function Start () {
   SceneHelper.use.ShowAndHideText(GameObject.Find("TotalTime"), 5);
   yield SceneHelper.use.ShowAndHideText(GameObject.Find("TotalTokens"), 5);
 
+  determineSteamAchievements();
+
   yield WaitForSeconds(4);
   Sounds.use.PlaySoundByName("LastLaugh");
   yield WaitForSeconds(5);
@@ -128,5 +130,25 @@ function grabTotalTimeAndTokenData() {
   } else {
     GameObject.Find("TotalTime").GetComponent(ExplanatoryText).displayText = "No Time Score Data";
     GameObject.Find("TotalTokens").GetComponent(ExplanatoryText).displayText = "No Secret Portal Discovery Data";
+  }
+}
+
+function determineSteamAchievements() {
+  if (SaveData.currentData) {
+    var steam = GameObject.Find("SteamCustomizer");
+    var total : float = SaveData.use.currentTimeStats.totalTime();
+    var tokens : int = SaveData.use.currentSecretStats.totalSecrets();
+
+    if (steam) {
+      if (total < 10800.0) { steam.SendMessage("UnlockAchive", "COMPLETE_UNDER_10800"); }
+      if (total < 7200.0) { steam.SendMessage("UnlockAchive", "COMPLETE_UNDER_7200"); }
+      if (total < 3600.0) { steam.SendMessage("UnlockAchive", "COMPLETE_UNDER_3600"); }
+      if (total < 3000.0) { steam.SendMessage("UnlockAchive", "COMPLETE_UNDER_3000"); }
+      if (total < 2700.0) { steam.SendMessage("UnlockAchive", "COMPLETE_UNDER_2700"); }
+
+      if (tokens >= 1) { steam.SendMessage("UnlockAchive", "1_SECRET_FOUND"); }
+      if (tokens >= 3) { steam.SendMessage("UnlockAchive", "3_SECRET_FOUND"); }
+      if (tokens >= 5) { steam.SendMessage("UnlockAchive", "5_SECRET_FOUND"); }
+    }
   }
 }

@@ -22,14 +22,17 @@ function StartScene() {
   yield SceneHelper.use.ShowAndHideText(Text2, 2);
   yield SceneHelper.use.ShowAndHideText(Text3, 2);
   yield SceneHelper.use.ShowAndHideText(Text4, 2);
-  //yield SceneHelper.use.ShowAndHideText(Text5, 2);
   yield SceneHelper.use.ShowAndHideText(Text6, 2);
   yield SceneHelper.use.ShowAndHideText(Text7, 2);
 
   luna.canMove = true;
   luna.maxJumps = 0;
-  // GameObject.Find("PauseUI").GetComponent(Pause).canPause = true;
   GameObject.Find("GodsGround").GetComponent(BoxCollider2D).enabled = false;
+
+  var steam = GameObject.Find("SteamCustomizer");
+  if (steam) {
+    steam.SendMessage("UnlockAchive", "MINIM_WORLD_COMPLETE");
+  }
 
   yield WaitForSeconds(20);
   SceneHelper.use.FadeTextToWhite("GameTitle", 0.003);

@@ -89,7 +89,14 @@ function OnTriggerEnter2D(coll : Collider2D) {
     yield WaitForSeconds(3);
     SceneHelper.use.FadeInImage("endportal", 0.002);
 
-    yield WaitForSeconds(4);
+    yield WaitForSeconds(2);
+
+    var steam = GameObject.Find("SteamCustomizer");
+    if (steam) {
+      steam.SendMessage("UnlockAchive", "DREAMS_END_COMPLETE");
+    }
+
+    yield WaitForSeconds(2);
     for (var child : Transform in godPieces) {
       if (child == god.transform) { continue; }
       SceneHelper.use.FadeTo(child.name, 0.008, Color.clear);

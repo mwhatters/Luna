@@ -211,5 +211,11 @@ function EndScene() {
 
   yield WaitForSeconds(5);
   LunaController.use.Unfreeze();
+
+  var steam = GameObject.Find("SteamCustomizer");
+  if (steam) {
+    steam.SendMessage("UnlockAchive", "YOKOHAMA_HYPER_DISSECTOR_COMPLETE");
+  }
+
   Destroy(GameObject.Find("SpecialBlock"));
 }

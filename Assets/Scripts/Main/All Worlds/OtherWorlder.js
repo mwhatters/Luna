@@ -28,6 +28,8 @@ public var bMusicVolume : float = 0.84;
 public var exitSecret : boolean = false;
 public var shouldBringBackgroundMusicBack : boolean = true;
 
+public var steamAchievement : String;
+
 function Start () {
 	if (!secretFound && changePoint) {
 		changePoint.SetActive(false);
@@ -99,6 +101,11 @@ function LunaBeatsSecretZone() {
 	}
 
 	recordSecretZoneCompleted();
+
+	var steam = GameObject.Find("SteamCustomizer");
+	if (steam) {
+		steam.SendMessage("UnlockAchive", steamAchievement);
+	}
 
 	yield WaitForSeconds(1.5);
 	GetComponent(SceneLoader).beginSceneTransition();

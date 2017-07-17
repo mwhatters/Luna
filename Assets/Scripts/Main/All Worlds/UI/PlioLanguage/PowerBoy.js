@@ -186,7 +186,14 @@ function GodFreezesEverythingScene() {
   LunaController.use.Freeze();
   GameObject.Find("Thorium Core").GetComponent(Rigidbody2D).constraints = RigidbodyConstraints2D.FreezeAll;
 
-  yield WaitForSeconds(4);
+  yield WaitForSeconds(2);
+  
+  var steam = GameObject.Find("SteamCustomizer");
+  if (steam) {
+    steam.SendMessage("UnlockAchive", "PLIONARCTOS_ORBIT_COMPLETE");
+  }
+
+  yield WaitForSeconds(2);
   SceneHelper.use.ShowAndHideText(Text5, 5);
   yield WaitForSeconds(6);
   SceneHelper.use.FadeImageToWhite("God", 0.04);

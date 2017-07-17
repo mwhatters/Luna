@@ -36,7 +36,7 @@ public class SteamScript : MonoBehaviour {
 
   // Here begings my coding fully, where I made special functions to handle different types of things to tackle
   //The UnlockAchive functions, unlocks an achivment, on calling
-  static public void UnlockAchive(string achievement){
+  public void UnlockAchive(string achievement){
       if (SteamManager.Initialized) {
           SteamUserStats.SetAchievement (achievement);
           StoreStats ();

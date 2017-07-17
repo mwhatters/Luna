@@ -40,6 +40,13 @@ function LushBoyDie() {
   SceneHelper.use.HideText(Text1);
   SceneHelper.use.HideText(Text2);
   scene.resetCheckPointLoader();
-  yield WaitForSeconds(4);
+  yield WaitForSeconds(2);
+
+  var steam = GameObject.Find("SteamCustomizer");
+  if (steam) {
+    steam.SendMessage("UnlockAchive", "SUBDUCTION_ZONE_COMPLETE");
+  }
+
+  yield WaitForSeconds(2);
   SceneManager.LoadScene("3-1 Plionarctos Orbit");
 }
