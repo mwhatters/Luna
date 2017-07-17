@@ -1,8 +1,4 @@
 ﻿#pragma strict
-
-
-// Explanation:
-
 // Luna enters secret zone, secret zone and otherWorldActivated flags are set true.
 // At the end of the zone, attach this script to the end portal. It reads that the zone has been hit again and knows your
 // in the secret world, and then proceeds to end the game.
