@@ -92,7 +92,12 @@ function generateSavedGames() {
         var foundTimeFile = File.Open(Application.persistentDataPath + "/" + data.username + "_stats.dat", FileMode.Open);
         var timeData : TimeStats = bf.Deserialize(foundTimeFile);
         var timeScore = timeData.totalTime();
-        nameField.text = (data.username + " -- Clear  Time: " + timeScore + "  seconds");
+
+        var foundSecretFile = File.Open(Application.persistentDataPath + "/" + data.username + "_secrets.dat", FileMode.Open);
+        var secretData : SecretStats = bf.Deserialize(foundSecretFile);
+        var secretScore = secretData.totalSecrets();
+
+        nameField.text = (data.username + " -- " + timeScore + " | " + secretScore + " / 5");
       } else {
         nameField.text = (data.username + " -- " + data.level);
       }
