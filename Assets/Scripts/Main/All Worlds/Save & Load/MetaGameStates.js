@@ -16,10 +16,11 @@ function Start () {
 
 function gameHasBeenBeaten() {
 	var info = new DirectoryInfo(Application.persistentDataPath);
-  	var fileInfo = info.GetFiles();
+  var fileInfo = info.GetFiles();
 
 	for (var file in fileInfo) {
 		if (file.Name.Contains("_stats.dat")) { continue; }
+		if (file.Name.Contains("_secrets.dat")) { continue; }
 		var bf : BinaryFormatter = new BinaryFormatter();
 
 		var foundFile = File.Open(Application.persistentDataPath + "/" + file.Name, FileMode.Open);
