@@ -6,6 +6,8 @@ public var test = "test";
 private var canStartNewGame : boolean = false;
 private var darkness : Image;
 
+public var resetSteamStats : boolean = false;
+
 function Start () {
   //determines whether Luna sprite displayed on game logo
   var gameBeaten : boolean = GameObject.Find("MetaGameStates").GetComponent(MetaGameStates).isGameBeaten();
@@ -35,6 +37,14 @@ function Start () {
   }
 
   GameObject.Find("EventSystem").GetComponent(InControlInputModule).enabled = true;
+
+
+  if (resetSteamStats) {
+    var steam = GameObject.Find("SteamCustomizer");
+    if (steam) {
+      steam.SendMessage("Reset");
+    }
+  }
 }
 
 public function startNewGame() {
